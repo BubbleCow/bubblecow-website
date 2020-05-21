@@ -72,3 +72,4 @@ gem 'whenever', require: false
 gem 'meta-tags'
 gem 'invisible_captcha'
 gem "pundit"
+gem "aws-sdk-s3", require: false
