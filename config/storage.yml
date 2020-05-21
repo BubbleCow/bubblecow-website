@@ -8,8 +8,8 @@ local:
 
 digital_ocean_spaces:
   service: S3
-  access_key_id: <%= ENV["digital_ocean_access_key_id"] %>
-  secret_access_key: <%= ENV["digital_ocean_secret_access_key"] %>
+  access_key_id: <%= Rails.application.credentials.digital_ocean_spaces[:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials.digital_ocean_spaces[:secret_access_key] %>
   region: ams3
   bucket: bubblecow
   endpoint: https://ams3.digitaloceanspaces.com
