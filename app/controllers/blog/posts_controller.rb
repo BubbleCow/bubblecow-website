@@ -15,7 +15,6 @@ module Blog
       authorize @post
       @page_title = @post.title 
       @page_description = @post.seo_description.to_s
-      @book = Book.first
     end
 
     def new

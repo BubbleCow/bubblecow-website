@@ -1,12 +1,26 @@
-// $navbar-default-bg: #312312;
-// $light-orange: #ff8c00;
-// $navbar-default-color: $light-orange;
+//= require actiontext
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
+
+// Trix attachment formatting
+.attachment--preview {
+  margin: 0.6em 0;
+  text-align: center;
+  width: 100%;
+}
+
+.attachment {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {

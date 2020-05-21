@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
+  # home
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   get '/about', to: 'home#about'
+  get '/admin_dashboard', to: 'home#admin_dashboard'
 
   # Editorial Services
   get '/book-editing', to: 'editorial_services#book_editing'

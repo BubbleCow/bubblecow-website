@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, only: [:blog_dashboard]
   layout :resolve_layout
 
   def index
@@ -11,6 +12,12 @@ class HomeController < ApplicationController
   end
 
   def privacy
+  end
+
+  def admin_dashboard
+    @posts = Post.all
+    @authors = PostAuthor.all
+    @categories = PostCategory.all
   end
 
   private

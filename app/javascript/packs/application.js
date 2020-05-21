@@ -19,3 +19,6 @@ $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
+
+require("trix")
+require("@rails/actiontext")

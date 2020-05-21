@@ -28,7 +28,7 @@ module Blog
       authorize @post_author
       respond_to do |format|
         if @post_author.save
-          format.html { redirect_to blog_admin_dashboard_path, notice: 'Post author was successfully created.' }
+          format.html { redirect_to admin_dashboard_path, notice: 'Post author was successfully created.' }
           format.json { render :show, status: :created, location: @post_author }
         else
           format.html { render :new }
@@ -41,7 +41,7 @@ module Blog
       authorize @post_author
       respond_to do |format|
         if @post_author.update(post_author_params)
-          format.html { redirect_to blog_admin_dashboard_path, notice: 'Post author was successfully updated.' }
+          format.html { redirect_to admin_dashboard_path, notice: 'Post author was successfully updated.' }
           format.json { render :show, status: :ok, location: @post_author }
         else
           format.html { render :edit }
@@ -54,7 +54,7 @@ module Blog
       authorize @post_author
       @post_author.destroy
       respond_to do |format|
-        format.html { redirect_to blog_admin_dashboard_path, notice: 'Post author was successfully destroyed.' }
+        format.html { redirect_to admin_dashboard_path, notice: 'Post author was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
