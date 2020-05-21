@@ -7,4 +7,8 @@ module ApplicationHelper
       notice: "alert-info"
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
+
+  def bubblecow_name
+    content_tag(:span, "Bubble", class: "proactive-brand-colouring") + content_tag(:span, "Cow", class: "writer-brand-colouring")
+  end
 end

@@ -1,0 +1,42 @@
+<aside class="col-md-4">
+
+    <div class="card bg-light border-light mb-3">
+        <div class="card-body">
+            <h3 class="card-title">About <span class="brand_font"><%= bubblecow_name %></h3>
+            <hr>
+            <p>We’re here to help you gain control of your book and make it a success by allowing you to tell great stories and spread big ideas.</p>
+            <p>The self-publishing process should be enjoyable, satisfying and liberatiing. We’ve put together our best tips on writing books your readers will love, finding new readers and marketing your book in a way that really works.</p>
+            <p class="card-text"><%= link_to "Learn more about our story here...", about_path, class: "card-link" %></p>
+        </div>
+    </div>
+    
+    <div class="p-3 mt-4">
+        <h4>Getting Started</h4>
+        <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
+            <ol class="list-unstyled mb-0">
+              <li> > <a href="https://bubblecow.com/blog/show-don-t-tell-the-key-to-becoming-a-better-writer">Show Don’t Tell</a></li>
+              <li> > <a href="https://bubblecow.com/blog/using-beta-readers">Getting The Most From Beta Readers</a></li>
+              <li> > <a href="https://bubblecow.com/blog/how-to-self-edit-your-book-the-pre-edit-checklist">Self-editing: Tips From The Pros</a></li>
+            </ol>
+    </div>
+
+    <div class="p-3 mt-4">
+        <h4>Free eBooks</h4>
+        <p>The best way to learn is by doing. FOR FREE you can get tried and tested guidence just by studying these guides. They're here for you.</p>
+        <ol class="list-unstyled mb-0">
+            <li> > <%= link_to "ProActive Writing Manual", "https://proactivewriter.com/" %></li>
+        </ol>
+    </div>
+
+    <div class="p-3 mt-4">
+        <h4>Categories</h4>
+        <p>We've loads of articles that will provide you with the skills and tools you need to put yourself on the road to success. Here's the categories to help you find what works for you.</p>
+            <ol class="list-unstyled mb-0">
+                <% @categories.each do |category| %>
+                  <li> > <%= link_to category.name, blog_post_category_path(category) %></li>
+                <% end %>
+            </ol>
+    </div>
+
+</aside><!-- /.blog-sidebar -->
+

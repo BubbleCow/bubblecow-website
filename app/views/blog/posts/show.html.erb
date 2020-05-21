@@ -1,0 +1,27 @@
+<div class="jumbotron text-center bg-secondary">
+  <h1 class=""><%= @post.title %></h1>
+  <div class="post-meta">
+    <small class="text-muted">
+      Published on <span class="font-weight-bold"><%= @post.created_at.strftime("%B %m, %Y") %></span> by <span class="font-weight-bold"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author)  %></span> 
+      | <%= link_to @post.post_category.name, blog_post_category_path(@post.post_category)  %>
+      <% if current_user.try(:admin?) %>
+      | <%= link_to "edit", edit_blog_post_path(@post) %>
+      <% end %>
+    </small>
+  </div>
+</div>
+
+<div class="container">
+  <main role="main" class="post">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <article>
+          <!-- Post Content -->
+          <p><%= @post.body %></p>
+        </article>
+
+        <%= render "blog/posts/adverts/writing_manual", book: @book %>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,21 @@
+<%= form_for([:blog, @post_author]) do |form| %>
+  <% if post_author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post_author.errors.count, "error") %> prohibited this post_author from being saved:</h2>
+
+      <ul>
+        <% post_author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :name, class: "form-control", placeholder: "Add author name" %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary mb-2">Submit Name</button>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+
+  <main role="main" class="blog">
+    <div class="row top-of-page-spacing">
+      <div class="col-md-8">
+      <h1><%= @post_category.name.titleize %></h1>
+        <% @post_category.posts.each do |post| %>
+          <%= render "shared/blog/post_info", post: post %>
+        <% end %>
+      </div>
+      <%= render "shared/blog/sidebar" %>
+    </div>
+  </main>
+

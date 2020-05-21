@@ -1,0 +1,11 @@
+<main role="main" class="blog">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @post_author.name.titleize %></h1>
+      <% @post_author.posts.each do |post| %>
+        <%= render "shared/blog/post_info", post: post %>
+       <% end %>
+    </div>
+      <%= render "shared/blog/sidebar" %>
+    </div>
+</main
