@@ -1,9 +1,17 @@
-<title><%= Rails.configuration.application_name %></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<%= display_meta_tags title: yield(:page_title), description: yield(:page_description), :canonical => 'https://proactivewriter.com' + request.path %>
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<%= favicon_link_tag 'favicon.ico' %>
+
+<%= render 'shared/google_analytics_tracking' %>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">

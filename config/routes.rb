@@ -6,14 +6,22 @@ Rails.application.routes.draw do
     resources :announcements
     resources :notifications
     resources :services
-
     root to: "users#index"
   end
+
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
-    authenticate :user, lambda { |u| u.admin? } do
-      mount Sidekiq::Web => '/sidekiq'
-    end
+  get '/about', to: 'home#about'
+
+  # Editorial Services
+  get '/book-editing', to: 'editorial_services#book_editing'
+  get '/copy-editing', to: 'editorial_services#copy_editing'
+  get '/full-service', to: 'editorial_services#full_service'
+  get '/pricing', to: 'editorial_services#pricing'  
+
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
 
   resources :notifications, only: [:index]
@@ -21,4 +29,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
