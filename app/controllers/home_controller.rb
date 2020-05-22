@@ -3,17 +3,18 @@ class HomeController < ApplicationController
   layout :resolve_layout
 
   def index
-    @page_title = "Book editing services"
+    @page_title = "Book Editing Services"
     @page_description = "Empowering writers to be successful" 
   end
 
   def about
+    @page_title = "About BubbleCow"
+    @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder." 
   end
 
-  def terms
-  end
-
-  def privacy
+  def file_safety
+    @page_title = "File Safety"
+    @page_description = "Discover how we ensure your manuscript is kept safe." 
   end
 
   def admin_dashboard

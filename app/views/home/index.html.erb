@@ -5,8 +5,126 @@
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">
                 <h1 class="display-3">Book Editing Services</h1>
-                <h2 class="mb-0">Empowering writers to be successful</h2>
+                <h2 class="">Empowering writers to be successful</h2>
+                <div class="home-cta-btn">
+                    <%= link_to "Find out more about book editing", book_editing_path, class: "btn btn-lg btn-primary" %>
+                </div>
             </div>
         </div>
     </div>
 </header>
+
+<section class="container">
+
+    <!-- Social proof -->
+    <article class="d-none d-md-block d-md-none">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-12 social-proof">
+                <span id="lead-text">Trusted by:</span>
+                <%= image_tag 'matador-logo-grayscale', id: 'matador', alt: 'Featured in Matador' %>
+                <%= image_tag 'tedx-logo-grayscale', id: 'tedx', alt: 'Featured in TedX' %>
+                <%= image_tag 'creative-penn-logo-grayscale', id: 'creativepenn', alt: 'Featured in The Creative Penn' %>
+                <%= image_tag 'go-on-write-logo-grayscale', id: 'goonwrite', alt: 'Featured in Go On Write' %>
+                <%= image_tag 'pressbooks-logo-grayscale', id: 'pressbooks', alt: 'Featured in Pressbooks' %>
+            </div>
+        </div>
+    </article>
+
+    <div class="row justify-content-md-center">
+
+        <!-- Benefits -->
+        <div class="row row-divider">
+        <div class="col-sm">
+            <div class="card shadow mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Editing</h5>
+                <p class="card-text">Our unique editing approach has been designed by writers, for writers. We will provide the <strong>combined developmental and line editing</strong> you need to make your book the best it can possibly be.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Feedback</h5>
+                <p class="card-text">Providing accurate, pragmatic and actionable feedback is what we do. We will give you clear guidelines (and support) as to the steps you need to take to <strong>lift your book to the next level.</strong></p>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Experience</h5>
+                <p class="card-text">We have been editing books <strong>since 2007</strong> and in that time with have worked, on a one-to-one basis, with more than 1000 writers from all possible genres. Your book will be in safe in our hands.</p>
+            </div>
+            </div>
+        </div>
+
+     </div>
+
+     <!-- Explanation text -->
+     <div class="row row-divider mx-1">
+        <div class="col-sm">
+            <h2>What is Book Editing?</h2>
+            <p>A professional book edit will help to <strong>lift your book to a publishable standard</strong>.</p>
+            <p>It is best employed when you feel you have done as much as you can with your book and are now ready to consider getting it ready for publication.</p>
+            <p>Our unique combined developmental and line editing will provide insanely detailed feedback that will give you all the guidance you require to eventually publish with confidence.</p>
+            <p>The edit will examine your entire manuscript in the process considering all aspects of your book, its narrative and its structure. These include issues such as readability, plot and structure, as well as line level problems such as sentence structure, grammar and punctuation. We will also assess your book's suitablity for the marketplace and even help pinpoit its genre.</p>
+        </div>
+
+        <div class="col-sm">
+            <h2>When Should I Seek Book Editing?</h2>
+            <p>Book editing is an in-depth, labor-intensive process, that requires a professional book editor to <strong>examine and assess every element of your book</strong>, showing what works and what needs to be changed.</p>
+            <p>It will result in a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
+            <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on and that you are not making any major mistakes.</p>
+            <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
+        </div>
+     </div>
+
+
+     <!-- Testimonials -->
+     <div class="row row-divider">
+        <div class="col-sm">
+            <div class="card shadow">
+            <div class="card-body">
+                <%= image_tag 'banished-love', class: 'card-img-top mx-auto d-block mb-3', alt: 'Banished Love by Ramona Flightner' %>
+                <p>"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow for my next novel."</p>
+                <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer">Ramona Flightner <cite title="Source Title">Banished Saga</cite></footer>
+                </blockquote>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow">
+            <div class="card-body">
+                <%= image_tag 'taste-of-emotions', class: 'card-img-top mx-auto d-block mb-3', alt: 'Taste of Emotions by David Papini' %>
+                <p>“BubbleCow provided my latest book with the most professional, detailed and personal editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
+                <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer">David Papini <cite title="Source Title">The Taste of Emotions</cite></footer>
+                </blockquote>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card shadow">
+            <div class="card-body">
+                <%= image_tag 'stand-and-deliver', class: 'card-img-top mx-auto d-block mb-3', alt: 'Stand and Deliver! by Ian Nichol' %>
+                <p>“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
+                <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></footer>
+                </blockquote>
+            </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- Testimonials link -->
+     <div class="row">
+       <div class="col">
+         <%= link_to "Read 100+ testimonials", testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" %>
+       </div>
+     </div>
+
+
+
+</section>

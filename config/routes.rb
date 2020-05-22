@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get '/book-editing', to: 'editorial_services#book_editing'
   get '/copy-editing', to: 'editorial_services#copy_editing'
   get '/full-service', to: 'editorial_services#full_service'
-  get '/pricing', to: 'editorial_services#pricing'  
+  get '/pricing', to: 'editorial_services#pricing' 
+  get '/file-safety', to: 'editorial_services#file_safety'  
 
   resources :testimonials
 
