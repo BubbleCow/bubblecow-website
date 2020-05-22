@@ -1,9 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :post_categories
-  resources :post_authors
-  resources :posts
+  
   namespace :admin do
     resources :users
     resources :announcements
@@ -23,6 +21,8 @@ Rails.application.routes.draw do
   get '/copy-editing', to: 'editorial_services#copy_editing'
   get '/full-service', to: 'editorial_services#full_service'
   get '/pricing', to: 'editorial_services#pricing'  
+
+  resources :testimonials
 
   # Blog
   namespace :blog do

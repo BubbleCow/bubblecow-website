@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   layout :resolve_layout
 
   def index
+    @page_title = "Book editing services"
+    @page_description = "Empowering writers to be successful" 
   end
 
   def about
@@ -18,6 +20,7 @@ class HomeController < ApplicationController
     @posts = Post.all
     @authors = PostAuthor.all
     @categories = PostCategory.all
+    @testimonials = Testimonial.all
   end
 
   private

@@ -1,0 +1,15 @@
+<div class="page-header">
+  <%= link_to testimonials_path, class: 'btn btn-default' do %>
+    All Testimonials
+  <% end %>
+  <%= link_to edit_testimonial_path(@testimonial), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show testimonial</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Writer:</dt>
+  <dd><%= @testimonial.writer %></dd>
+  <dd><%= @testimonial.testimonial_text %></dd>
+</dl>
