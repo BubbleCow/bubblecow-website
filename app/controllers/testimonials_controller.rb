@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
+  layout :resolve_layout
 
   def index
     @testimonials = Testimonial.all
@@ -24,7 +25,7 @@ class TestimonialsController < ApplicationController
     authorize @testimonial
     respond_to do |format|
       if @testimonial.save
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
+        format.html { redirect_to admin_dashboard_path, notice: 'Testimonial was successfully created.' }
         format.json { render :show, status: :created, location: @testimonial }
       else
         format.html { render :new }
@@ -37,7 +38,7 @@ class TestimonialsController < ApplicationController
     authorize @testimonial
     respond_to do |format|
       if @testimonial.update(testimonial_params)
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to admin_dashboard_path, notice: 'Testimonial was successfully updated.' }
         format.json { render :show, status: :ok, location: @testimonial }
       else
         format.html { render :edit }
@@ -50,7 +51,7 @@ class TestimonialsController < ApplicationController
     authorize @testimonial
     @testimonial.destroy
     respond_to do |format|
-      format.html { redirect_to testimonials_url, notice: 'Testimonial was successfully destroyed.' }
+      format.html { redirect_to admin_dashboard_path, notice: 'Testimonial was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -62,5 +63,14 @@ class TestimonialsController < ApplicationController
 
     def testimonial_params
       params.require(:testimonial).permit(:writer, :approved, :testimonial_text)
+    end
+
+    def resolve_layout
+      case action_name
+      when "index"
+        "template_narrow"
+      else
+        "application"
+      end
     end
 end

@@ -4,7 +4,8 @@ class HomeController < ApplicationController
 
   def index
     @page_title = "Book Editing Services"
-    @page_description = "Empowering writers to be successful" 
+    @page_description = "Empowering writers to be successful." 
+    @testimonial_count = Testimonial.all.count
   end
 
   def about

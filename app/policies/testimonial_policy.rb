@@ -5,7 +5,7 @@ class TestimonialPolicy < ApplicationPolicy
 	end
 
 	def show?
-		true
+		false
 	end
 
 	def new?

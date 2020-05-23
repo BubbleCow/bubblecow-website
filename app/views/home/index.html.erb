@@ -1,6 +1,6 @@
 <header>
   <div class="overlay"></div>
-    <%= video_tag "write_and_erase.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
+    <%= video_tag "cow-chewing.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
     <div class="container index-header h-100">
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">
@@ -121,7 +121,9 @@
      <!-- Testimonials link -->
      <div class="row">
        <div class="col">
-         <%= link_to "Read 100+ testimonials", testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" %>
+        <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
+            Read <%= @testimonial_count %> testimonials
+        <% end %>
        </div>
      </div>
 
