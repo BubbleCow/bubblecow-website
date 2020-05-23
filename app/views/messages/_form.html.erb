@@ -1,0 +1,39 @@
+<%= form_with(model: message, local: true) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if message.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', message, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-block btn-primary mb-2">Send Message</button>
+    </div>
+
+  </div>
+<% end %>

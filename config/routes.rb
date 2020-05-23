@@ -35,6 +35,13 @@ Rails.application.routes.draw do
     root to: "posts#index"
   end
 
+  # Messages
+  resources :messages do
+    put 'read' => 'messages#read', on: :member, as: :read
+    put 'unread' => 'messages#unread', on: :member, as: :unread
+  end
+  get '/thank-you', to: 'messages#thank_you'
+
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end

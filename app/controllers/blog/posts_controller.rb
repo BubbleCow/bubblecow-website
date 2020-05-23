@@ -40,16 +40,6 @@ module Blog
       end
     end
 
-    def publish
-      @post.update(published: true)
-      redirect_to admin_dashboard_path
-    end
-
-    def unpublish
-      @post.update(published: false)
-      redirect_to admin_dashboard_path
-    end
-
     def update
       authorize @post
       respond_to do |format|
@@ -70,6 +60,16 @@ module Blog
         format.html { redirect_to blog_posts_url, notice: 'Post was successfully destroyed.' }
         format.json { head :no_content }
       end
+    end
+
+    def publish
+      @post.update(published: true)
+      redirect_to admin_dashboard_path
+    end
+
+    def unpublish
+      @post.update(published: false)
+      redirect_to admin_dashboard_path
     end
 
     private
