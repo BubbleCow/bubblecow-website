@@ -25,6 +25,8 @@ class MessagesController < ApplicationController
     authorize @message
     respond_to do |format|
       if @message.save
+        # Deliver the message email
+        MessageMailer.new_message(@message).deliver_now
         format.html { redirect_to thank_you_path, notice: 'Message was successfully sent.' }
         format.json { render :show, status: :created, location: @message }
       else
