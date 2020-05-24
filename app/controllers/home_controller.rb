@@ -26,6 +26,8 @@ class HomeController < ApplicationController
     case action_name
     when "index"
       "template_no_container"
+    when "about"
+      "template_narrow"
     else
       "application"
     end
