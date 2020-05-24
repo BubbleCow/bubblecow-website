@@ -1024,23 +1024,23 @@ Rails.application.routes.draw do
   get "/blog/your-novel-was-rejected", to: 'posts#your_novel_was_rejected'
     
 
-  # 2020 rebrand
-  get "/blog/your-novel-was-rejected", to: 'https://proactivewriter.com/blog/what-to-do-if-your-novel-was-rejected'
-  get "/blog/effective-dialogue", to: '/blog/how-to-write-effective-dialogue-in-your-novels'
-  get "/blog/using-beta-readers", to: 'https://proactivewriter.com/blog/how-to-get-the-most-from-your-beta-readers'
-  get "/blog/understanding-conflict", to: 'https://proactivewriter.com/blog/understanding-the-role-of-conflict-in-writing'
-  get "/blog/importance-of-structure", to: 'https://proactivewriter.com/blog/the-importance-of-structure-when-writing-your-novel'
-  get "/blog/seven-self-editng-tips", to: '/blog/7-editing-tips-used-by-professional-editors'
-  get "/blog/what-is-the-best-book-genre-to-write", to: 'https://proactivewriter.com/blog/what-is-the-most-popular-genre-of-books-for-writers'
-  get "/blog/show-don-t-tell-the-key-to-becoming-a-better-writer", to: '/blog/show-don-t-tell-and-become-a-better-writer'
-  get "/blog/ebook-formats-a-quick-guide-for-self-publishers", to: '/blog/the-best-format-for-ebooks-guide-for-self-publishing-writers'
-  get "/blog/a-simple-guide-to-book-advances-and-royalties", to: 'https://proactivewriter.com/blog/a-guide-to-book-advances-and-royalties'
-  get "/blog/self-publishing-vs-traditional-publishing-which-is-better", to: 'https://proactivewriter.com/blog/self-publishing-vs-traditional-publishing-which-is-best-for-you'
-  get "/blog/how-to-get-your-novel-made-into-a-film", to: 'https://proactivewriter.com/blog/how-to-get-your-novel-made-into-a-film'
-  get "/blog/how-to-format-dialogue-a-quick-and-dirty-guide", to: '/blog/how-to-format-dialogue-in-a-story-quick-and-dirty-guide'
-  get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: '/blog/how-to-self-edit-your-book-pre-edit-checklist'
-  get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: '/blog/how-to-get-the-most-from-your-professional-book-editing-service'
-  get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: '/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated/'
+  # # 2020 rebrand
+  # get "/blog/your-novel-was-rejected", to: 'https://proactivewriter.com/blog/what-to-do-if-your-novel-was-rejected'
+  # get "/blog/effective-dialogue", to: '/blog/how-to-write-effective-dialogue-in-your-novels'
+  # get "/blog/using-beta-readers", to: 'https://proactivewriter.com/blog/how-to-get-the-most-from-your-beta-readers'
+  # get "/blog/understanding-conflict", to: 'https://proactivewriter.com/blog/understanding-the-role-of-conflict-in-writing'
+  # get "/blog/importance-of-structure", to: 'https://proactivewriter.com/blog/the-importance-of-structure-when-writing-your-novel'
+  # get "/blog/seven-self-editng-tips", to: '/blog/7-editing-tips-used-by-professional-editors'
+  # get "/blog/what-is-the-best-book-genre-to-write", to: 'https://proactivewriter.com/blog/what-is-the-most-popular-genre-of-books-for-writers'
+  # get "/blog/show-don-t-tell-the-key-to-becoming-a-better-writer", to: '/blog/show-don-t-tell-and-become-a-better-writer'
+  # get "/blog/ebook-formats-a-quick-guide-for-self-publishers", to: '/blog/the-best-format-for-ebooks-guide-for-self-publishing-writers'
+  # get "/blog/a-simple-guide-to-book-advances-and-royalties", to: 'https://proactivewriter.com/blog/a-guide-to-book-advances-and-royalties'
+  # get "/blog/self-publishing-vs-traditional-publishing-which-is-better", to: 'https://proactivewriter.com/blog/self-publishing-vs-traditional-publishing-which-is-best-for-you'
+  # get "/blog/how-to-get-your-novel-made-into-a-film", to: 'https://proactivewriter.com/blog/how-to-get-your-novel-made-into-a-film'
+  # get "/blog/how-to-format-dialogue-a-quick-and-dirty-guide", to: '/blog/how-to-format-dialogue-in-a-story-quick-and-dirty-guide'
+  # get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: '/blog/how-to-self-edit-your-book-pre-edit-checklist'
+  # get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: '/blog/how-to-get-the-most-from-your-professional-book-editing-service'
+  # get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: '/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated/'
 
   namespace :admin do
     resources :users
