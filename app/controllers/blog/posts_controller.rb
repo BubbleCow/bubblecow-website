@@ -7,7 +7,7 @@ module Blog
       @posts = Post.published
       @categories = PostCategory.all
       authorize @posts
-      @page_title = 'ProActive Writer Blog' 
+      @page_title = 'BubbleCow Blog' 
       @page_description = 'Empowering self-published writers to be successful.'
     end
 
