@@ -979,37 +979,6 @@ Rails.application.routes.draw do
   get "/blog/book-proposal", to: redirect("/")
   get "/do-you-need-help-with-your-book-proposal/", to: redirect("/")
 
-  # Magnet content 
-  get '/writing_manual/', to: 'magnet_contents#writing_manual'
-  get '/writing-manual/', to: 'magnet_contents#writing_manual'
-  get '/writing_manual_download/', to: 'magnet_contents#writing_manual_download'
-  get '/download_writing_manual/', to: "magnet_contents#download_writing_manual"
-
-  get '/dialogue_course/', to: 'magnet_contents#dialogue_course'
-  get '/dialogue-course/', to: 'magnet_contents#dialogue_course'
-  get '/dialogue_course_thank_you/', to: 'magnet_contents#dialogue_course_thank_you'
-
-  # posts 
-  get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: 'posts#see_how_easily_you_can_write_a_novel_using_the_snowflake_method'
-  get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: 'posts#how_to_get_the_most_from_your_professional_book_edit'
-  get "/blog/five-grammar-rules-every-writer-should-know", to: 'posts#five_grammar_rules_every_writer_should_know'
-  get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: 'posts#how_to_self_edit_your_book_the_pre_edit_checklist'
- 
-  get "/blog/how-to-format-dialogue-a-quick-and-dirty-guide", to: 'posts#how_to_format_dialogue_a_quick_and_dirty_guide'
-  get "/blog/how-to-get-your-novel-made-into-a-film", to: 'posts#how_to_get_your_novel_made_into_a_film'
-  get "/blog/self-publishing-vs-traditional-publishing-which-is-better", to: 'posts#self_publishing_vs_traditional_publishing_which_is_better'
-  get "/blog/a-simple-guide-to-book-advances-and-royalties", to: 'posts#a_simple_guide_to_book_advances_and_royalties'
-  get "/blog/ebook-formats-a-quick-guide-for-self-publishers", to: 'posts#ebook_formats_a_quick_guide_for_self_publishers'
-  get "/blog/show-don-t-tell-the-key-to-becoming-a-better-writer", to: 'posts#show_don_t_tell_the_key_to_becoming_a_better_writer'
-  get "/blog/what-is-the-best-book-genre-to-write", to: 'posts#what_is_the_best_book_genre_to_write'
-  get "/blog/seven-self-editng-tips", to: 'posts#seven_self_editng_tips'
-  get "/blog/importance-of-structure", to: 'posts#importance_of_structure'
-  get "/blog/understanding-conflict", to: 'posts#understanding_conflict'
-  get "/blog/using-beta-readers", to: 'posts#using_beta_readers'
-  get "/blog/effective-dialogue", to: 'posts#effective_dialogue'
-  get "/blog/your-novel-was-rejected", to: 'posts#your_novel_was_rejected'
-    
-
   # # 2020 rebrand
   # get "/blog/your-novel-was-rejected", to: redirect('https://proactivewriter.com/blog/what-to-do-if-your-novel-was-rejected')
   # get "/blog/effective-dialogue", to: redirect('/blog/how-to-write-effective-dialogue-in-your-novels')
