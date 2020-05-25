@@ -995,7 +995,7 @@ Rails.application.routes.draw do
   get "/blog/how-to-format-dialogue-a-quick-and-dirty-guide", to: redirect('/blog/how-to-format-dialogue-in-a-story-quick-and-dirty-guide')
   get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: redirect('/blog/how-to-self-edit-your-book-pre-edit-checklist')
   get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: redirect('/blog/how-to-get-the-most-from-your-professional-book-editing-service')
-  get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated/')
+  get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('https://proactivewriter.com/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated')
 
   namespace :admin do
     resources :users
