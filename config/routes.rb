@@ -989,19 +989,12 @@ Rails.application.routes.draw do
   get '/dialogue-course/', to: 'magnet_contents#dialogue_course'
   get '/dialogue_course_thank_you/', to: 'magnet_contents#dialogue_course_thank_you'
 
-  # Book edit pages
-  get '/book-editing/', to: 'editorial_pages#book_editing'
-  get '/book_editing/', to: 'editorial_pages#book_editing'
-  get '/content-editing/', to: 'editorial_pages#content_editing'
-  get '/manuscript-editing/', to: 'editorial_pages#manuscript_editing'
-  get '/professional-book-editing/', to: 'editorial_pages#professional_book_editing'  
-
   # posts 
   get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: 'posts#see_how_easily_you_can_write_a_novel_using_the_snowflake_method'
   get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: 'posts#how_to_get_the_most_from_your_professional_book_edit'
   get "/blog/five-grammar-rules-every-writer-should-know", to: 'posts#five_grammar_rules_every_writer_should_know'
   get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: 'posts#how_to_self_edit_your_book_the_pre_edit_checklist'
-  get "/blog/the-adverb-problem-and-why-authors-should-care", to: 'posts#the_adverb_problem_and_why_authors_should_care'
+ 
   get "/blog/how-to-format-dialogue-a-quick-and-dirty-guide", to: 'posts#how_to_format_dialogue_a_quick_and_dirty_guide'
   get "/blog/how-to-get-your-novel-made-into-a-film", to: 'posts#how_to_get_your_novel_made_into_a_film'
   get "/blog/self-publishing-vs-traditional-publishing-which-is-better", to: 'posts#self_publishing_vs_traditional_publishing_which_is_better'
