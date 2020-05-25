@@ -979,13 +979,6 @@ Rails.application.routes.draw do
   get "/blog/book-proposal", to: redirect("/")
   get "/do-you-need-help-with-your-book-proposal/", to: redirect("/")
 
-  # Pages
-  get '/about/', to: 'pages#about'
-  get '/file-safety/', to: 'pages#file_safety'
-  get '/contact/', to: 'pages#contact'
-  get '/testimonials/',  to: 'pages#testimonials'
-  get '/blog/', to: 'pages#blog'
-
   # Magnet content 
   get '/writing_manual/', to: 'magnet_contents#writing_manual'
   get '/writing-manual/', to: 'magnet_contents#writing_manual'
