@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout :resolve_layout
 
   def index
-    @page_title = "Book Editing Services"
+    @page_title = "Affordable Book Editing Services"
     @page_description = "Empowering writers to be successful." 
     @testimonial_count = Testimonial.all.count
   end
