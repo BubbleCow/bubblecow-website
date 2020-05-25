@@ -1006,8 +1006,6 @@ Rails.application.routes.draw do
   end
 
   # home
-  get '/privacy', to: 'home#privacy'
-  get '/terms', to: 'home#terms'
   get '/about', to: 'home#about'
   get '/admin_dashboard', to: 'home#admin_dashboard'
 
