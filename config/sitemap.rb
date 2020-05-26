@@ -24,4 +24,20 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+
+  # Pages
+  add about_path, :priority => 0.7, :changefreq => 'weekly'
+  add file_safety_path, :priority => 0.7, :changefreq => 'weekly'
+  add testimonials_path, :priority => 0.7, :changefreq => 'weekly'
+
+  # Editorial Services
+  add book_editing_path, :priority => 0.7, :changefreq => 'weekly'
+
+  #  Blog
+  add blog_root_path, :priority => 0.7, :changefreq => 'weekly'
+
+  Post.find_each do |post|
+    add blog_post_path(post), :lastmod => post.updated_at
+  end
+
 end
