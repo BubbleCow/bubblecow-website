@@ -83,7 +83,7 @@ class EditorialServicesController < ApplicationController
     def resolve_layout
       case action_name
       when "book_editing"
-        "template_no_container"
+        "template_no_container_editorial"
       when "file_safety"
         "template_narrow"
       else
