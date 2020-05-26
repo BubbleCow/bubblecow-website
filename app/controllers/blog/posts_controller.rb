@@ -15,6 +15,7 @@ module Blog
       authorize @post
       @page_title = @post.title 
       @page_description = @post.seo_description.to_s
+      @writing_manual = MailingList.new
     end
 
     def new

@@ -226,7 +226,7 @@ Rails.application.routes.draw do
   get "/learn/the-writing-manual/internal-voice", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/types-of-description", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/beats-in-dialogue", to: redirect("/writing_manual")
-  get "/writing-manual-download", to: redirect("/writing_manual")
+
   get "/learn/the-writing-manual/formatting-dialogue", to: redirect("/writing_manual")
   get "/books/2/chapters/46", to: redirect("/writing_manual")
   get "/books/2/chapters/27", to: redirect("/writing_manual")
@@ -1008,6 +1008,7 @@ Rails.application.routes.draw do
   # home
   get '/about', to: 'home#about'
   get '/admin_dashboard', to: 'home#admin_dashboard'
+  
 
   # Editorial Services
   get '/book-editing', to: 'editorial_services#book_editing'
@@ -1034,6 +1035,11 @@ Rails.application.routes.draw do
     put 'unread' => 'messages#unread', on: :member, as: :unread
   end
   get '/thank-you', to: 'messages#thank_you'
+
+  # Mailing List
+  resources :mailing_lists
+  get '/writing_manual_download', to: 'mailing_lists#writing_manual_download'
+  get '/writing_manual_pdf_download', to: "mailing_lists#writing_manual_pdf_download"
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
