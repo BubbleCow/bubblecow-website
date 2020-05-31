@@ -53,12 +53,18 @@
                 <%= link_to "Admin Area", admin_root_path, class: "dropdown-item" %>
                 <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-item" %>
               <% end %>
-              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
+                <%= link_to dashboard_path, class: "dropdown-item" do  %>
+                  <%= icon('fas', 'tachometer-alt') %> Dashboard
+                <% end %>
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <%= icon('fas', 'cog') %> Settings
+                <% end %>
+                <div class="dropdown-divider"></div>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                    <%= icon('fas', 'sign-out-alt') %> Log Out
+                  <% end %>
+                </div>
           </li>
-
         <% else %>
           <li class="nav-item"><%= link_to "Sign Up", "https://services.bubblecow.com/users/sign_up", class: "nav-link btn btn-sm btn-outline-primary mr-1" %></li>
           <li class="nav-item"><%= link_to "Login", "https://services.bubblecow.com/users/sign_in", class: "nav-link btn btn-sm btn-outline-primary" %></li>

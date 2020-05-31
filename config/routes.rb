@@ -384,10 +384,9 @@ Rails.application.routes.draw do
   # assessment
   get "/manuscript-assessment", to: redirect("/")
 
-  # Dashboard
-  get "/dashboard", to: redirect("https://services.bubblecow.com/")
-  get "/users/sign_in", to: redirect("https://services.bubblecow.com/users/sign_in")
-  get "/users/sign_up", to: redirect("https://services.bubblecow.com/users/sign_up")
+  # Logins
+  # get "/users/sign_in", to: redirect("https://services.bubblecow.com/users/sign_in")
+  # get "/users/sign_up", to: redirect("https://services.bubblecow.com/users/sign_up")
   get "/wp-login.php", to: redirect("https://services.bubblecow.com/users/sign_in")
   get "/books/new?job=editing", to: redirect("https://services.bubblecow.com/books/new?job=editing")
 
@@ -997,6 +996,13 @@ Rails.application.routes.draw do
   get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: redirect('/blog/how-to-get-the-most-from-your-professional-book-editing-service')
   get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('https://proactivewriter.com/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated')
 
+  # FROM HERE
+
+  resources :testimonials
+  resources :notifications, only: [:index]
+  resources :announcements, only: [:index]
+
+  # admin
   namespace :admin do
     resources :users
     resources :announcements
@@ -1008,6 +1014,7 @@ Rails.application.routes.draw do
   # home
   get '/about', to: 'home#about'
   get '/admin_dashboard', to: 'home#admin_dashboard'
+  get '/dashboard', to: 'home#writer_dashboard'
   
 
   # Editorial Services
@@ -1016,8 +1023,6 @@ Rails.application.routes.draw do
   get '/full-service', to: 'editorial_services#full_service'
   get '/pricing', to: 'editorial_services#pricing'
   get '/file-safety', to: 'editorial_services#file_safety'
-
-  resources :testimonials
 
   # Blog
   namespace :blog do
@@ -1045,10 +1050,8 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :notifications, only: [:index]
-  resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  
   root to: 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

@@ -13,6 +13,9 @@ class HomeController < ApplicationController
     @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder." 
   end
 
+  def writer_dashboard
+  end
+
   def admin_dashboard
     @posts = Post.all
     @authors = PostAuthor.all
