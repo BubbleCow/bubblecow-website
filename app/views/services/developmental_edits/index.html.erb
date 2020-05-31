@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Developmental_edits</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_services_developmental_edit_path, class: 'btn btn-primary' do %>
+    Add New Developmental edit
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>User</th>
+            <th>Slug</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @developmental_edits.each do |developmental_edit| %>
+        <%= content_tag :tr, id: dom_id(developmental_edit), class: dom_class(developmental_edit) do %>
+          
+
+                      <td><%= developmental_edit.title %></td>
+                      <td><%= developmental_edit.user_id %></td>
+                      <td><%= developmental_edit.slug %></td>
+          
+          
+            <td><%= link_to 'Show', services_developmental_edit_path(developmental_edit) %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

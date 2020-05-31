@@ -1012,6 +1012,7 @@ Rails.application.routes.draw do
 
   # services
   namespace :services do
+    resources :developmental_edits
     root to: "pages#index"
   end
 
