@@ -267,7 +267,6 @@ Rails.application.routes.draw do
   get "/editing-and-proofreading", to: redirect("/book-editing")
   get "/editing/", to: redirect("/book-editing")
   get "/editing", to: redirect("/book-editing")
-  get "/services", to: redirect("/book-editing")
   get "/editing_cn", to: redirect("/book-editing")
   get "/editing/tracked-changes/", to: redirect("/book-editing")
   get "/book-services/", to: redirect("/book-editing")
@@ -1009,6 +1008,16 @@ Rails.application.routes.draw do
     resources :notifications
     resources :services
     root to: "users#index"
+  end
+
+  # services
+  namespace :services do
+    root to: "pages#index"
+  end
+
+  # learning
+  namespace :learning do
+    root to: "pages#index"
   end
 
   # home
