@@ -29,6 +29,9 @@ module Services
 
       respond_to do |format|
         if @developmental_edit.save
+          # Deliver email
+          DevelopmentalEditMailer.new_developmental_edit(@developmental_edit.user).deliver_now
+
           format.html { redirect_to root_path, notice: 'Developmental edit was successfully created.' }
           format.json { render :show, status: :created, location: @developmental_edit }
         else

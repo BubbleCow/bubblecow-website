@@ -994,7 +994,8 @@ Rails.application.routes.draw do
   get "/blog/how-to-self-edit-your-book-the-pre-edit-checklist", to: redirect('/blog/how-to-self-edit-your-book-pre-edit-checklist')
   get "/blog/how-to-get-the-most-from-your-professional-book-edit", to: redirect('/blog/how-to-get-the-most-from-your-professional-book-editing-service')
   get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('https://proactivewriter.com/blog/use-the-snowflake-method-for-writing-novels-in-10-easy-steps-updated')
-
+  get "/blog/show-don-t-tell-and-become-a-better-writer", to: redirect('/blog/show-don-t-tell-and-how-to-become-a-better-writer')
+  
   # FROM HERE
 
   resources :testimonials
