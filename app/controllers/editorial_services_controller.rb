@@ -3,7 +3,7 @@ class EditorialServicesController < ApplicationController
     layout :resolve_layout
   
     def book_editing
-      @page_title = "Developmental Book Editing Services"
+      @page_title = "Developmental Editing Services"
       @page_description = "Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @testimonial_count = Testimonial.all.count
     end
