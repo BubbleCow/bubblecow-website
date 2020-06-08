@@ -236,10 +236,10 @@ Rails.application.routes.draw do
 
   # redirect dialogue course to proactive writer
   get "/courses/formatting-dialogue/lessons/fully-formatted-example", to: redirect("/dialogue-course")
-  get "/courses/formatting-dialogue/lessons/fundamental-rules-of-formatting-dialogue", to: redirect("//dialogue-course")
-  get "/courses/the-author-s-guide-to-dialogue-punctuation/lessons/loose-ends", to: redirect("//dialogue-course")
-  get "/courses/the-author-s-guide-to-dialogue-punctuation/lessons/unformatted-example", to: redirect("//dialogue-course")
-  get "/free-formatting-dialogue-course", to: redirect("//dialogue-course")
+  get "/courses/formatting-dialogue/lessons/fundamental-rules-of-formatting-dialogue", to: redirect("/dialogue-course")
+  get "/courses/the-author-s-guide-to-dialogue-punctuation/lessons/loose-ends", to: redirect("/dialogue-course")
+  get "/courses/the-author-s-guide-to-dialogue-punctuation/lessons/unformatted-example", to: redirect("/dialogue-course")
+  get "/free-formatting-dialogue-course", to: redirect("/dialogue-course")
 
 
   # PAGES ON BUBBLECOW
@@ -1022,10 +1022,10 @@ Rails.application.routes.draw do
     root to: "pages#index"
   end
 
-  # home
-  get '/about', to: 'home#about'
-  get '/admin_dashboard', to: 'home#admin_dashboard'
-  get '/dashboard', to: 'home#writer_dashboard'
+  # pages
+  get '/about', to: 'page#about'
+  get '/admin_dashboard', to: 'page#admin_dashboard'
+  get '/dashboard', to: 'page#writer_dashboard'
   
 
   # Editorial Services
@@ -1063,6 +1063,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   
-  root to: 'home#index'
+  root to: 'page#index'
 
 end
