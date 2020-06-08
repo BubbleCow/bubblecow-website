@@ -1,16 +1,16 @@
-class HomeController < ApplicationController
+class PageController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
   layout :resolve_layout
 
   def index
     @page_title = "Affordable Book Editing Services"
-    @page_description = "Book editing for serious writers. Professional combinded line and developmental editing at a price you can afford." 
+    @page_description = "Book editing for serious writers. Professional combinded line and developmental editing at a price you can afford."
     @testimonial_count = Testimonial.all.count
   end
 
   def about
     @page_title = "About BubbleCow"
-    @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder." 
+    @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder."
   end
 
   def writer_dashboard
