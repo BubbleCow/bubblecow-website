@@ -1,11 +1,19 @@
 class ApplicationController < ActionController::Base
-  include Pundit
-  protect_from_forgery with: :exception
-
+  before_filter :add_www_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
 
+  include Pundit
+  protect_from_forgery with: :exception
+
   protected
+
+    def add_www_subdomain
+      unless /^www/.match(request.host)
+        redirect_to("#{request.protocol}x.com#{request.request_uri}",
+                    :status => 301)
+      end
+    end
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
