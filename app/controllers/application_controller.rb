@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :add_www_subdomain
+  before_action :redirect_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
 
@@ -8,10 +8,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def add_www_subdomain
-      unless /^www/.match(request.host)
-        redirect_to("#{request.protocol}x.com#{request.request_uri}",
-                    :status => 301)
+    def redirect_subdomain
+      if request.host == 'www.bubblecow.com'
+        redirect_to 'http://bubblecow.com' + request.fullpath, :status => 301
       end
     end
 
