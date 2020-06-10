@@ -4,7 +4,7 @@ class PageController < ApplicationController
 
   def index
     @page_title = "Affordable Book Editing Services"
-    @page_description = "Book editing for serious writers. Professional combinded line and developmental editing at a price you can afford."
+    @page_description = "Book editing services for serious writers. Serving writers since 2007. 100+ testimonials."
     @testimonial_count = Testimonial.all.count
   end
 
