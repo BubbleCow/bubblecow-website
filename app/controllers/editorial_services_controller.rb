@@ -4,7 +4,7 @@ class EditorialServicesController < ApplicationController
   
     def book_editing
       @page_title = "Developmental Editing Services"
-      @page_description = "Book editing for serious writer. Discover how our combined developmental book editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @page_description = "Looking for a book editor? Book editing for serious writer. Discover how our combined developmental book editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @testimonial_count = Testimonial.all.count
     end
   
