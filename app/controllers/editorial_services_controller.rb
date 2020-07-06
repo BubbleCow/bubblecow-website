@@ -1,10 +1,32 @@
 class EditorialServicesController < ApplicationController
-    before_action :set_country, only: [:book_editing]
+    before_action :set_country, only: [:book_editing, :developmental_editing,:content_editing, :substantive_editing]
     layout :resolve_layout
   
     def book_editing
+      @page_title = "Book Editing Services"
+      @page_description = "Looking for a book editor? Book editing for serious writer. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @keyword = "book"
+      @testimonial_count = Testimonial.all.count
+    end
+
+    def developmental_editing
       @page_title = "Developmental Editing Services"
-      @page_description = "Looking for a book editor? Book editing for serious writer. Discover how our combined developmental book editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @page_description = "Developmental editing for serious writer. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @keyword = "developmental"
+      @testimonial_count = Testimonial.all.count
+    end
+
+    def content_editing
+      @page_title = "Content Editing Services"
+      @page_description = "Content editing for serious writer. Discover how our combined content editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @keyword = "content"   
+      @testimonial_count = Testimonial.all.count
+    end
+
+    def substantive_editing
+      @page_title = "Substantive Editing Services"
+      @page_description = "Substantive editing for serious writer. Discover how our combined substantive editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @keyword = "substantive"  
       @testimonial_count = Testimonial.all.count
     end
   
@@ -82,12 +104,10 @@ class EditorialServicesController < ApplicationController
 
     def resolve_layout
       case action_name
-      when "book_editing"
-        "template_no_container_editorial"
       when "file_safety"
         "template_narrow"
       else
-        "application"
+        "template_no_container_editorial_services"
       end
     end
 

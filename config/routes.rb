@@ -1030,6 +1030,9 @@ Rails.application.routes.draw do
 
   # Editorial Services
   get '/book-editing', to: 'editorial_services#book_editing'
+  get '/developmental-editing', to: 'editorial_services#developmental_editing'
+  get '/content-editing', to: 'editorial_services#content_editing'
+  get '/substantive-editing', to: 'editorial_services#substantive_editing'
   get '/copy-editing', to: 'editorial_services#copy_editing'
   get '/full-service', to: 'editorial_services#full_service'
   get '/pricing', to: 'editorial_services#pricing'
