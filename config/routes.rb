@@ -252,7 +252,6 @@ Rails.application.routes.draw do
   # Book editing
   get "/content-novel-editing", to: redirect("/book-editing")
   get "/content-book-editing", to: redirect("/book-editing")
-  get "/novel-editing", to: redirect("/book-editing")
   get "/substantive-book-editing", to: redirect("/book-editing")
   get "/substantive-novel-editing", to: redirect("/book-editing")
   get "/book-editing-services/", to: redirect("/book-editing")
@@ -1033,6 +1032,8 @@ Rails.application.routes.draw do
   get '/developmental-editing', to: 'editorial_services#developmental_editing'
   get '/content-editing', to: 'editorial_services#content_editing'
   get '/substantive-editing', to: 'editorial_services#substantive_editing'
+  get '/novel-editing', to: 'editorial_services#novel_editing'
+  get '/manuscript-editing', to: 'editorial_services#manuscript_editing'
   get '/copy-editing', to: 'editorial_services#copy_editing'
   get '/full-service', to: 'editorial_services#full_service'
   get '/pricing', to: 'editorial_services#pricing'
