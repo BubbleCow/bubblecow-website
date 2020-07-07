@@ -3,42 +3,42 @@ class EditorialServicesController < ApplicationController
     layout :resolve_layout
   
     def book_editing
-      @page_title = "Book Editing Services"
+      @page_title = "Book Editing"
       @page_description = "Looking for a book editor? Serving writers since 2007. 100+ testimonials. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "book"
       @testimonial_count = Testimonial.all.count
     end
 
     def developmental_editing
-      @page_title = "Developmental Editing Services"
+      @page_title = "Affordable Developmental Editing Services"
       @page_description = "Developmental editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "developmental"
       @testimonial_count = Testimonial.all.count
     end
 
     def content_editing
-      @page_title = "Content Editing Services"
+      @page_title = "Affordable Content Editing Services"
       @page_description = "Content editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined content editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "content"   
       @testimonial_count = Testimonial.all.count
     end
 
     def substantive_editing
-      @page_title = "Substantive Editing Services"
+      @page_title = "Affordable Substantive Editing Services"
       @page_description = "Substantive editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined substantive editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "substantive"  
       @testimonial_count = Testimonial.all.count
     end
 
     def manuscript_editing
-      @page_title = "Manuscript Editing Services"
+      @page_title = "Affordable Manuscript Editing Services"
       @page_description = "Manuscript editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "manuscript"  
       @testimonial_count = Testimonial.all.count
     end
 
     def novel_editing
-      @page_title = "Novel Editing Services"
+      @page_title = "Affordable Novel Editing Services"
       @page_description = "Looking for a novel editor? Serving writers since 2007. 100+ testimonials. Discover how our novel editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "novel"
       @testimonial_count = Testimonial.all.count
