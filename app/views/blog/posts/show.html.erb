@@ -1,5 +1,5 @@
 <div class="jumbotron text-center bg-secondary">
-  <h1 class=""><%= @post.title %></h1>
+  <h1 class=""><%= @post.name %></h1>
   <div class="post-meta">
     <small class="text-muted">
       <%= link_to @post.post_category.name, blog_post_category_path(@post.post_category)  %>

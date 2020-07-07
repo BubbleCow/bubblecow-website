@@ -8,10 +8,10 @@ class Post < ApplicationRecord
     has_one_attached :post_image
 
     extend FriendlyId
-    friendly_id :title, use: :slugged
+    friendly_id :permalink, use: :slugged
 
     def should_generate_new_friendly_id?
-        title_changed?
+        permalink_changed?
     end
 
     validates :title, :post_image, presence: true

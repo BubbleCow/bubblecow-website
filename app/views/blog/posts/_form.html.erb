@@ -2,87 +2,122 @@
   <div class="col-md-12">
 
     <%= form_for([:blog, @post]) do |form| %>
-      <% if post.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-          <ul>
-            <% post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
-      <div class="form-group row mt-3">
-        <div class="col-sm-8">
-          
-          <!- Title ->
-          <%= form.text_field :title, class: 'form-control form-control-lg mb-3', placeholder: "Add post title" %>
-          
-          <!- Body ->
-          <%= form.rich_text_area :body %>
+    <div class="form-group row mt-3">
+      <div class="col-sm-8">
 
-        </div>
-
-
-        <div class="col-sm-4">
-
-          <div class="card bg-light">
-            <div class="card-body">
-
-              <div class="form-group">
-                <%= form.label "Post Category:" %>
-                <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]}, class: 'form-control' %>
-              </div>
-
-              <div class="form-group">
-                <%= form.label "Post Author:" %>
-                <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]}, class: 'form-control' %>
-              </div>
-
-              <!- Save Post ->
-              <div class="actions">
-                <button type="submit" class="btn btn-block btn-primary mb-2">Save Post</button>
-              </div>
-
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="form-group">
+              <!- Body ->
+              <%= form.rich_text_area :body %>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="card bg-light mt-3">
-            <div class="card-body">
 
-              <!- Post Image ->
-              <h5 class="">Post Image</h5>
+      <div class="col-sm-4">
+
+        <div class="card shadow mb-3">
+          <div class="card-header">
+            <h3>Post Details</h3>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <%= form.label "Post Category:" %>
+              <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]}, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label "Post Author:" %>
+              <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]}, class: 'form-control' %>
+            </div>
+            <hr>
+
+            <div class="form-group">
+              <!- Permalink ->
+                <h5>Permalink</h5>
+                <p>This is the title used to create the URL. CAUTION: to change first unpublish.</p>
+                <% if post.permalink.present? && post.published == true %>
+                <%= form.text_field :permalink, class: 'form-control form-control-lg mb-3', placeholder: "Add title that you want to use for URL", :readonly => true %>
+                <% else %>
+                <%= form.text_field :permalink, class: 'form-control form-control-lg mb-3', placeholder: "Add title that you want to use for URL", required: true  %>
+                <% end %>
+              <hr>
+              <!- Post Name ->
+                <h5>Post Title</h5>
+                <p>This is the title the reader will see.</p>
+                <%= form.text_field :name, class: 'form-control form-control-lg mb-3', placeholder: "Add post title" %>
+              <hr>
+              <!- Post Description ->
+                <h5>Post Description:</h5>
+                <p>This shows up on blog index page.</>
+                <%= form.rich_text_area :post_description %>
+            </div>
+
+        <div class="card shadow mb-3">
+          <div class="card-header">
+            <h3>Post Image</h3>
+          </div>
+          <div class="card-body">
+
+            <!- Post Image ->
+             <div class="form-group">
               <p>This will only show up on the front page of the blog. The image needs to be 329x220.</p>
               <% if @post.post_image.present? %>
-                <div class="alert alert-primary"><%= @post.post_image.filename %></div>
+              <div class="alert alert-primary"><%= @post.post_image.filename %></div>
               <% end %>
               <%= form.file_field :post_image, class: 'form-control' %>
-          
             </div>
           </div>
+        </div>
 
 
-          <div class="card bg-light mt-3">
-            <div class="card-body">
+        <div class="card shadow">
+          <div class="card-header">
+            <h3>Post SEO</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <!- SEO Title ->
+              <h5>SEO Title:</h5>
+              <p>This is the title google will see.</p>
+              <%= form.text_field :title, class: 'form-control form-control-lg mb-3', placeholder: "Add seo title" %>
 
               <!- SEO Description ->
-              <h5 class="">SEO Description</h5>
+              <h5>SEO Description</h5>
               <p>This will only show up for Google and should be no more than 250 characters.</p>
               <%= form.rich_text_area :seo_description %>
 
-              <!- Post Description ->
-              <h5 class="mt-3">Post Description</h5>
-              <p>This will show up on the blog front page and should be no more than 250 characters.</p>
-              <%= form.rich_text_area :post_description %>
-
+              <!- Keywords->
+              <h5 class="mt-3">Keywords:</h5>
+              <p>This is the title the reader will see.</p>
+              <%= form.text_field :keywords, class: 'form-control form-control-lg mb-3', placeholder: "Add keywords" %>    
             </div>
+              
           </div>
-
         </div>
 
       </div>
+
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-lg btn-block btn-primary mb-2">Save Post</button>
+    </div>
 
     <% end %>
 

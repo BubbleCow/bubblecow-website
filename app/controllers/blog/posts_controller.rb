@@ -15,6 +15,7 @@ module Blog
       authorize @post
       @page_title = @post.title 
       @page_description = @post.seo_description.to_s
+      @page_keywords = @post.keywords
       @writing_manual = MailingList.new
     end
 
@@ -79,7 +80,7 @@ module Blog
       end
 
       def post_params
-        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image)
+        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords)
       end
 
       def resolve_layout

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_095317) do
+ActiveRecord::Schema.define(version: 2020_07_07_154739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,9 @@ ActiveRecord::Schema.define(version: 2020_05_31_095317) do
     t.datetime "published_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "permalink"
+    t.string "keywords"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
