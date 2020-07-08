@@ -11,7 +11,6 @@ class MailingListsController < ApplicationController
 
   def new
     @mailing_list = MailingList.new
-    # ActiveCampaignService.new.contact_tag_add(@mailing_list.email, @mailing_list.tag)
   end
 
   def edit
