@@ -2,18 +2,13 @@ class MailingListsController < ApplicationController
   before_action :set_mailing_list, only: [:show, :edit, :update, :destroy]
   layout :resolve_layout
 
-  # GET /mailing_lists
-  # GET /mailing_lists.json
   def index
     @mailing_lists = MailingList.all
   end
 
-  # GET /mailing_lists/1
-  # GET /mailing_lists/1.json
   def show
   end
 
-  # GET /mailing_lists/new
   def new
     @mailing_list = MailingList.new
   end
@@ -23,7 +18,7 @@ class MailingListsController < ApplicationController
 
   def create
     @mailing_list = MailingList.new(mailing_list_params)
-
+    ActiveCampaignService.new.contact_tag_add(@mailing_list.email, @mailing_list.tag)
     respond_to do |format|
       if @mailing_list.save
         format.html { redirect_to writing_manual_download_path, notice: 'Enjoy!' }
