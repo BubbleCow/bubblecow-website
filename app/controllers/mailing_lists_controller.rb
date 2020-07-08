@@ -11,6 +11,7 @@ class MailingListsController < ApplicationController
 
   def new
     @mailing_list = MailingList.new
+    ActiveCampaignService.new.contact_tag_add(@mailing_list.email, @mailing_list.tag)
   end
 
   def edit
@@ -18,7 +19,7 @@ class MailingListsController < ApplicationController
 
   def create
     @mailing_list = MailingList.new(mailing_list_params)
-    ActiveCampaignService.new.contact_tag_add(@mailing_list.email, @mailing_list.tag)
+   
     respond_to do |format|
       if @mailing_list.save
         format.html { redirect_to writing_manual_download_path, notice: 'Enjoy!' }

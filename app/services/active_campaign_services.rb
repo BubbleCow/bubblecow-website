@@ -1,8 +1,8 @@
 class ActiveCampaignService
   
     def contact_tag_add(email, tags)
-    #   return unless is_production?
-      client.contact_tag_add(email: email, tags: tags)
+        return unless is_production?
+        client.contact_tag_add(email: email, tags: tags)
     end
   
     private
