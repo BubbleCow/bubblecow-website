@@ -8,7 +8,7 @@
 <body class="<%= controller_name %> <%= action_name %>">
   <%= render 'shared/navbar' %>
   <%= render 'shared/notices' %>
-
+<main class="page editorial">
   <header>
     <div class="overlay"></div>
     <%= video_tag "write_and_erase.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
@@ -935,6 +935,7 @@
     </article>
 
   </section>
+  </main>
 
   <%= render "shared/price_calculator" %>
 
