@@ -21,7 +21,7 @@
           <div class="card-body">
             <div class="form-group">
               <!- Body ->
-              <%= form.rich_text_area :body %>
+              <%= form.rich_text_area :body, data: { controller: 'trix-youtube-plugin' } %>
             </div>
           </div>
         </div>

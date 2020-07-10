@@ -1001,6 +1001,9 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
 
+  #  Trix youtube plugin
+  resource :embed, only: :update
+
   # admin
   namespace :admin do
     resources :users

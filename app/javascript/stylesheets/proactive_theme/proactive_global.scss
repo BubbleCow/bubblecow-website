@@ -148,8 +148,17 @@ $link-hover-decoration:                   none !default;
     }
 }
 
-// POST
+//PAGES
+.page {
+    h1 {
+        margin-bottom: 1.25rem;
+    }
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
 
+// POST
 .post {
     .post-meta {
         margin-bottom: 3rem;
@@ -162,5 +171,10 @@ $link-hover-decoration:                   none !default;
         li {
             margin-bottom: 0.6rem;
         }
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
     }
+
 }
