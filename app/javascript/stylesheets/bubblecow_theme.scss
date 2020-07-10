@@ -1,3 +1,181 @@
+/* This file is the global styling for the ProActive brand. */
+
+// VARIABLES
+/* Overides variables - https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss */ 
+
+/* colours */ 
+/* Primary - These should always be considered as the primary colors. Black is to be used very sparingly.*/
+$pay-blue:    #00457C !default;
+$pal-blue:    #0079C1 !default;
+
+/* Neutral colrs - The neutral palette is intended to be used sparingly to organize information and create functional environments*/
+$sand:    #959484 !default;
+$pale-sand:    #E7E5D3 !default;
+$slate:    #717074 !default;
+$pale-slate:    #E6E7E8 !default;
+$night: #2c2e2f !default;
+
+/* Accent - use the accent palette to create visual interest and engagement. Please note the color pairings, the colors that appear next to one another are intended to be used together, DO NOT mix */
+$leaf:    #6DB33f !default;
+$lime:    #C2CD23 !default;
+$sea:    #007C85 !default;
+$aqua:    #26BCD7 !default;
+$tomato:    #B32317 !default;
+$tangerine:    #f8981D !default;
+$plum:    #7A003C !default;
+$berry:    #f15f7C !default;
+
+/* Override default colours */
+$primary:       $pal-blue !default;
+$secondary:     $pale-slate !default;
+$success:       $leaf !default;
+$info:          $aqua !default;
+$warning:       $tangerine !default;
+$danger:        $plum !default;
+$dark:          $slate !default;
+$pale-sand:     $pale-sand !default;
+
+/* font */ 
+$font-family-sans-serif:  "Helvetica Neue Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$headings-color: $pay-blue !default;
+$navbar-brand-font-size: 1.75rem !default;
+$blockquote-font-size: 1rem !default;
+
+/* Links  */
+$link-color:                              $pay-blue !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        $pay-blue !default;
+$link-hover-decoration:                   none !default;
+
+// GLOBAL STYLES
+/* These styles are independant of page style */
+
+//elements
+
+blockquote {
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: solid;
+    border-color: $pal-blue;
+}
+
+.image {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* spacing */
+
+.body-header {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.row-divider {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+// NAVBAR
+
+.proactive-navbar {
+    background-color: white;
+    border-bottom: 1px solid $pale-slate;
+    .proactive_logo {
+        font-family: 'Sansita', sans-serif;
+        .proactive-logo-first-word{
+            color: $pal-blue;
+        }
+        .proactive-logo-last-word{
+            color: $pay-blue;
+        }
+    }
+  }
+
+// FOOTER
+
+.proactive-footer {
+    background-color: white;
+    border-top: 1px solid $pale-slate;
+  }
+
+// Devise form
+
+.deviseForm {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+  
+.deviseForm h1 {
+    text-align: center;
+    font-size: 1.875rem;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+  
+.deviseForm .btn {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+  
+.deviseSeparator {
+    border-top: 1px solid #cbd2d6;
+    position: relative;
+    margin: 40px 0 20px;
+    text-align: center;
+}
+  
+.deviseSeparator .textInSeparator {
+    background-color: #fff;
+    padding: 0 .5em;
+    position: relative;
+    color: #999;
+    top: -.7em;
+}
+
+// BLOG
+
+.blog {
+    h1 {
+       margin-bottom: 2rem;
+    }
+    .post-meta {
+        margin-bottom: 1rem;
+    }
+}
+
+//PAGES
+.page {
+    h1 {
+        margin-bottom: 1.25rem;
+    }
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+// POST
+.post {
+    .post-meta {
+        margin-bottom: 3rem;
+    }
+    .trix-content {
+        h1 {
+            margin-bottom: 0.6rem;
+            font-size: 1.6rem;
+        }
+        li {
+            margin-bottom: 0.6rem;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+}
+
 // Styling specifc to the BubbleCow frontend 
 
 // PAGES
@@ -139,9 +317,3 @@
         }
     }
 }
-
-
-
-
-
-
