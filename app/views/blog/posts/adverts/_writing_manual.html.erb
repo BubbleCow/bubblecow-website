@@ -9,13 +9,7 @@
             <div class="col-sm-7">
                 <p class="lead">Free eBook to help you write novels that readers will love.</p>
                 <p class="mb-4">This <strong>free ebook</strong> will show you how to write in a way that will keep readers reading until the last page.</p>
-                <%= form_for [@writing_manual] do |writing_manual| %>
-                    <%= writing_manual.email_field :email, class: 'form-control form-control-lg mb-3', placeholder: "Your best email" %>
-                    
-                    <div class="actions">
-                      <button type="submit" class="btn btn-lg btn-block btn-primary mb-2">Get FREE ebook today!</button>
-                    </div>
-                <% end %>
+                <%= render 'blog/posts/adverts/writing_manual_ac_form'%>
             </div>
            </div>
     </div>
