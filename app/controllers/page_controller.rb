@@ -16,6 +16,9 @@ class PageController < ApplicationController
   def writer_dashboard
   end
 
+  def writing_manual
+  end 
+
   def admin_dashboard
     @posts = Post.all
     @authors = PostAuthor.all
@@ -27,7 +30,7 @@ class PageController < ApplicationController
 
   def resolve_layout
     case action_name
-    when "index"
+    when "index", "writing_manual"
       "template_no_container"
     when "about"
       "template_narrow"

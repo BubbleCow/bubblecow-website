@@ -1028,6 +1028,7 @@ Rails.application.routes.draw do
   get '/about', to: 'page#about'
   get '/admin_dashboard', to: 'page#admin_dashboard'
   get '/dashboard', to: 'page#writer_dashboard'
+  get '/writing_manual', to: 'page#writing_manual'
   
 
   # Editorial Services
