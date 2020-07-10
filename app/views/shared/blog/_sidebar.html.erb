@@ -10,34 +10,26 @@
             <p class="card-text"><%= link_to "Learn more about our story here...", about_path, class: "card-link" %></p>
         </div>
     </div>
-    
-    <div class="p-3 mt-4">
-        <h4>Getting Started</h4>
-        <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
-            <ol class="list-unstyled mb-0">
-              <li> > <a href="https://bubblecow.com/blog/show-don-t-tell-the-key-to-becoming-a-better-writer">Show Don’t Tell</a></li>
-              <li> > <a href="https://bubblecow.com/blog/using-beta-readers">Getting The Most From Beta Readers</a></li>
-              <li> > <a href="https://bubblecow.com/blog/how-to-self-edit-your-book-the-pre-edit-checklist">Self-editing: Tips From The Pros</a></li>
-            </ol>
-    </div>
 
     <div class="p-3 mt-4">
         <h4>Free eBooks</h4>
         <p>The best way to learn is by doing. FOR FREE you can get tried and tested guidence just by studying these guides. They're here for you.</p>
         <ol class="list-unstyled mb-0">
-            <li> > <%= link_to "ProActive Writing Manual", "https://proactivewriter.com/" %></li>
+            <li> > <%= link_to "The Writing Manual", "https://bubblecow.com/writing_manual" %></li>
+            <li> > <%= link_to "More free ebooks", "https://proactivewriter.com/" %></li>
         </ol>
     </div>
-
+    
     <div class="p-3 mt-4">
-        <h4>Categories</h4>
-        <p>We've loads of articles that will provide you with the skills and tools you need to put yourself on the road to success. Here's the categories to help you find what works for you.</p>
+        <h4>Getting Started</h4>
+        <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
             <ol class="list-unstyled mb-0">
-                <% @categories.each do |category| %>
-                  <li> > <%= link_to category.name, blog_post_category_path(category) %></li>
-                <% end %>
+              <li class="mb-2"> > <a href="https://bubblecow.com/blog/how-to-get-the-most-from-your-professional-book-editing-service">How To Get The Most From Your Professional Book Editing Service</a></li>
+              <li class="mb-2"> > <a href="https://bubblecow.com/blog/types-of-editing">How To Decide Which Editing Type Is Best For Your Book</a></li>
+              <li> > <a href="https://bubblecow.com/blog/how-to-self-edit-your-book-pre-edit-checklist">How To Self Edit Your Book [Pre Edit Checklist]</a></li>
             </ol>
     </div>
+
 
 </aside><!-- /.blog-sidebar -->
 
