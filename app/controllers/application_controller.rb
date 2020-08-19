@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
 
+  # Locks down staging - https://dzone.com/articles/block-web-crawlers-with-rails
+  if ENV["DISALLOW_ALL_WEB_CRAWLERS"].present?
+
+    http_basic_authenticate_with(
+      name: ENV.fetch("BASIC_AUTH_USERNAME"),
+      password: ENV.fetch("BASIC_AUTH_PASSWORD"),
+    )
+
+  end  
+
+
   protected
 
     def redirect_subdomain
