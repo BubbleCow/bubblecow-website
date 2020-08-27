@@ -1,25 +1,48 @@
-<div class="jumbotron text-center bg-secondary">
-  <h1 class=""><%= @post.name.titleize %></h1>
-  <div class="post-meta">
-    <small class="text-muted">
-      <%= link_to @post.post_category.name, blog_post_category_path(@post.post_category)  %>
-      <% if current_user.try(:admin?) %>
-      | <%= link_to "edit", edit_blog_post_path(@post) %>
-      <% end %>
-    </small>
-  </div>
-</div>
+<main class="post" id="post-show">
 
-<div class="container">
-  <main role="main" class="post">
-    <div class="row justify-content-md-center">
-      <div class="col-md-8">
-        <article>
-          <!-- Post Content -->
-          <p><%= @post.body %></p>
-        </article>
+  <article class="blog-article">
+
+    <section class="post-title">
+      <h1><%= @post.title %></h1>
+    </section>
+
+    <section class="post-image">
+      <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) %>
+    </section>
+
+    <section class="post-meta">
+      <p>
+        <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span>, 
+        <% if @post.published? %>
+          <span id="post-date"><%= @post.published_at.strftime("%b %d, %Y") %></span>.
+        <% else %>
+          <span id="post-date">Unpublished</span>.
+        <% end %>
+      </p>
+        <%= link_to @post.post_category.name, blog_post_category_path(@post.post_category), class: "post-category-badge" %>
+    </section>
+
+    <section class="post-content">
+      <!-- if markdown cotnent is present, it shows that, otherwise it defaults to old active_text content -->
+      <% if @post.content.present? %>
+        <%= markdown_to_html(@post.content) %>
+      <% else %>
+        <%= @post.body %>
+      <% end %>
+    </section>
+
+    <section class="post-advert">
+        <%= render "blog/posts/adverts/writing_manual", book: @book %>
+    </section>
+
+    <section class="post-author-byline">
+      <div class="byline-box">
+        <p>This article was written by <em>Gary Smailes</em></p>
+        <p>Gary Smailes is the founder of <a href="https://bubblecow.com/">BubbleCow</a> and <a href="https://proactivewriter.com/">ProActive Writer</a>.</p>
+        <p>He's a <a href="https://www.amazon.co.uk/s?k=gary+smailes&ref=nb_sb_noss">published writer</a> with more than twenty books published and is represented by literary agent <a href="http://www.andrewlownie.co.uk/authors/gary-smailes">Andrew Lownie.</a></p>
       </div>
-    </div>
-    <%= render "blog/posts/adverts/writing_manual", book: @book %>
-  </main>
-</div>
+    </section>
+
+  </article>
+</main>
+

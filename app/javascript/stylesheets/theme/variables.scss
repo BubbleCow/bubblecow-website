@@ -1,0 +1,48 @@
+// VARIABLES
+/* Overides variables - https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss */ 
+
+
+// COLOURS
+/* Primary - These should always be considered as the primary colors. Black is to be used very sparingly.*/
+$pay-blue:    #00457C !default;
+$pal-blue:    #0079C1 !default;
+
+/* Neutral - The neutral palette is intended to be used sparingly to organize information and create functional environments*/
+$sand:    #959484 !default;
+$pale-sand:    #E7E5D3 !default;
+$slate:    #717074 !default;
+$pale-slate:    #E6E7E8 !default;
+$paler-slate: #f3f5f7 !default;
+$night: #2c2e2f !default;
+
+/* Accent - use the accent palette to create visual interest and engagement. Please note the color pairings, the colors that appear next to one another are intended to be used together, DO NOT mix */
+$leaf:    #6DB33f !default;
+$lime:    #C2CD23 !default;
+$sea:    #007C85 !default;
+$aqua:    #26BCD7 !default;
+$tomato:    #B32317 !default;
+$tangerine:    #f8981D !default;
+$plum:    #7A003C !default;
+$berry:    #f15f7C !default;
+
+/* Override default colours -  NOT WORKING, NEET TO BE FIXED WHEN ADDED VIA GEM */
+$primary:       $pal-blue !default ;
+$secondary:     $pale-slate !default;
+$success:       $leaf !default;
+$info:          $aqua !default;
+$warning:       $tangerine !default;
+$danger:        $berry !default;
+$dark:          $slate !default;
+$pale-sand:     $pale-sand !default;
+
+/* font */ 
+$font-family-sans-serif:  "Helvetica Neue Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$headings-color: $pay-blue !default;
+$navbar-brand-font-size: 1.75rem !default;
+$blockquote-font-size: 1rem !default;
+
+/* Links  */
+$link-color:                              $pay-blue !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        $pay-blue !default;
+$link-hover-decoration:                   none !default;

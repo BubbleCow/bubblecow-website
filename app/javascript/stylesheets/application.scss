@@ -1,10 +1,17 @@
-@import "bubblecow_theme";
-@import "~bootstrap/scss/bootstrap";
+@import "/theme/variables";
+@import "/theme/global";
+@import "/theme/navbar";
+@import "/theme/pages";
+@import "/theme/blog";
+@import "/theme/post";
+@import "/theme/testimonials";
 
-// Fixes bootstrap nav-brand container overlap
-@include media-breakpoint-down(xs) {
-    .container {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+
+@import "/theme/footer";
+
+@import "/theme/tablet_portrait";
+@import "/theme/tablet_landscape";
+@import "/theme/desktop";
+
+// @import "bubblecow_theme";
+@import "~bootstrap/scss/bootstrap";

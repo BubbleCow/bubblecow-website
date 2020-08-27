@@ -1,6 +1,5 @@
 class PageController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  layout :resolve_layout
 
   def index
     @page_title = "Affordable Book Editing Services"
@@ -24,19 +23,6 @@ class PageController < ApplicationController
     @authors = PostAuthor.all
     @categories = PostCategory.all
     @testimonials = Testimonial.all
-  end
-
-  private
-
-  def resolve_layout
-    case action_name
-    when "index", "writing_manual"
-      "template_no_container"
-    when "about"
-      "template_narrow"
-    else
-      "application"
-    end
   end
 
 end

@@ -4,14 +4,12 @@
     <%= render 'shared/head' %>
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
     
-    <div class="container">
-      <%= yield %>
-    </div>
-
+    <%= yield %>
+    
     <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,6 +1,5 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
-  layout :resolve_layout
 
   def index
     @testimonials = Testimonial.all
@@ -65,12 +64,4 @@ class TestimonialsController < ApplicationController
       params.require(:testimonial).permit(:writer, :approved, :testimonial_text)
     end
 
-    def resolve_layout
-      case action_name
-      when "index"
-        "template_narrow"
-      else
-        "application"
-      end
-    end
 end

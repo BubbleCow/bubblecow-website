@@ -1,0 +1,18 @@
+
+<section class="post-card">
+
+    <div class="post-card-header">
+        <h2><%= link_to post.name.titleize, blog_post_path(post)%></h2>
+         <p class="post-card-post-meta"><%= post.post_author.name %> in <%= post.post_category.name %></p>
+    </div>
+
+    <div class="post-card-image">
+        <%= image_tag(post.post_image, :alt => post.title, class: "img-fluid", size: "" ) %>
+    </div>
+
+    <div class="post-card-description">
+        <%= post.post_description %>
+        <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post) %></p>
+    </div>
+
+</section> 

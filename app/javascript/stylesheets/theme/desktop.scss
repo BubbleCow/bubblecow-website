@@ -1,0 +1,57 @@
+
+// Large devices (desktops, 992px and up) - this overrides mobile styling
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+
+    // NAVBAR
+
+    .navigation-container {
+      .navbar {
+        width: 55%;
+        }
+    }
+
+    // PAGES
+
+    .page {
+      width: 55%;
+    }
+
+    // BLOG
+
+    .blog {
+      width: 55%;
+      .blog-main { 
+          flex: 2 0px; 
+          margin-right: 2rem;
+      }
+      .blog-sidebar { 
+          flex: 1 0px; 
+          margin-top: 0.5rem;
+      }  
+    }
+
+    // POST
+
+    .post {
+      width: 55%;
+      .post-advert {
+        flex-wrap: nowrap !important;
+        .book-cover{
+          flex: 1 0px; 
+         }
+        .cta-form {
+          flex: 2 0px; 
+        }
+      }
+    }
+
+    // CONTACT
+
+    #contact {
+      width: 40%;
+    }
+
+  }

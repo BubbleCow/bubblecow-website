@@ -1,0 +1,140 @@
+// POSTS
+
+.post {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+
+    .blog-article {
+        .post-title {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+
+            h1 {
+                text-align: center;
+            }
+        }
+
+        .post-meta {
+            margin-bottom: 2rem;
+
+            #post-author {
+                font-weight: bold;
+                color: $night;
+            }
+
+            #post-date {
+                color: $slate;
+            }
+        }
+
+        .post-image {
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .post-category-badge {
+            background: $pal-blue;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+
+        }
+
+        // Post content styles the main post cotent. Add styling css below
+        .post-content {
+
+            h1,
+            h2,
+            h4,
+            h5 {
+                text-transform: capitalize;
+            }
+
+            .image-centre {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .post-advert {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            padding-top: 2rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, .125);
+
+            .book-cover {
+                padding-bottom: 2rem;
+            }
+
+            .cta-form {}
+        }
+
+        .post-author-byline {
+            .byline-box {
+                @include standard-border;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+
+.post-form {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    flex-flow: row wrap;
+    padding-top: 1rem;
+
+    .post-form-section {
+        @include standard-border;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        .form-select,
+        .form-control {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            text-transform: capitalize;
+        }
+
+        #post-section-submission {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                flex-grow: 2;
+            }
+
+            a {
+                flex-grow: 2;
+            }
+        }
+    }
+
+    .post-form-left {
+        flex: 2 0px;
+        margin-right: 3rem;
+
+        #postContent {
+            margin-top: 2rem;
+        }
+    }
+
+    .post-form-right {
+        flex: 1 0px;
+    }
+}

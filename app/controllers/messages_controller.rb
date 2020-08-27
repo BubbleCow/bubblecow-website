@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread]
-  layout "template_narrow"
 
   def index
     @messages = Message.unread
