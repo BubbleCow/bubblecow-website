@@ -5,6 +5,9 @@ class TestimonialsController < ApplicationController
   def index
     @testimonials = Testimonial.all
     authorize @testimonials
+    @page_title = "BubbleCow Testimonials"
+    @page_description = "Find out what people are saying about BubbleCow."
+
   end
 
   def show
