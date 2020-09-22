@@ -4,7 +4,7 @@ class EditorialServicesController < ApplicationController
   
     def book_editing
       @page_title = "Book Editing"
-      @page_description = "Looking for a book editor? Serving writers since 2007. 100+ testimonials. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
+      @page_description = "Interested in book editing and looking for a book editor? Serving writers since 2007. 100+ testimonials. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "book"
       @testimonial_count = Testimonial.all.count
     end
