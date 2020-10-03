@@ -1,57 +1,96 @@
-
 // Large devices (desktops, 992px and up) - this overrides mobile styling
 
-@media screen 
-  and (min-device-width: 1200px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
+@media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
 
-    // NAVBAR
+  // NAVBAR
 
-    .navigation-container {
-      .navbar {
-        width: 55%;
-        }
-    }
-
-    // PAGES
-
-    .page {
+  .navigation-container {
+    .navbar {
       width: 55%;
     }
+  }
 
-    // BLOG
+  // PAGES
 
-    .blog {
-      width: 55%;
-      .blog-main { 
-          flex: 2 0px; 
-          margin-right: 2rem;
+  .page {
+    width: 55%;
+  }
+
+  // BLOG
+
+  .blog {
+    width: 55%;
+
+    .blog-main {
+      flex: 2 0px;
+      margin-right: 2rem;
+    }
+
+    .blog-sidebar {
+      flex: 1 0px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  // POST
+
+  .post {
+    width: 55%;
+
+    .post-advert {
+      flex-wrap: nowrap !important;
+
+      .book-cover {
+        flex: 1 0px;
       }
-      .blog-sidebar { 
-          flex: 1 0px; 
-          margin-top: 0.5rem;
-      }  
-    }
 
-    // POST
-
-    .post {
-      width: 55%;
-      .post-advert {
-        flex-wrap: nowrap !important;
-        .book-cover{
-          flex: 1 0px; 
-         }
-        .cta-form {
-          flex: 2 0px; 
-        }
+      .cta-form {
+        flex: 2 0px;
       }
     }
+  }
 
-    // CONTACT
+  // HOME
 
-    #contact {
-      width: 40%;
+  .social-proof {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .benefits {
+    display: flex;
+
+    .index-card {
+      flex-grow: 1;
+      width: 33%;
+    }
+  }
+
+  .explanation {
+    display: flex;
+    flex-wrap: wrap;
+
+    .explanation-text {
+      flex-grow: 1;
+      width: 50%;
+      padding-right: 1rem;
     }
 
   }
+
+  .index-testimonials {
+    display: flex;
+  }
+
+
+
+
+  // CONTACT
+
+  #contact {
+    width: 40%;
+  }
+
+}

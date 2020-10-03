@@ -1,43 +1,68 @@
-
 // Medium devices (tablets, 768px and up) - - this overrides mobile styling
 
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1)  { 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
 
-    // Contact 
-    #contact {
+  // Contact 
+  #contact {
+    width: 50%;
+  }
+
+  // BLOG
+
+  .blog {
+    .blog-main {
+      flex: 2 0px;
+      margin-right: 1rem;
+    }
+
+    .blog-sidebar {
+      flex: 1 0px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  //POST
+
+  .post {
+    .post-advert {
+      flex-wrap: nowrap !important;
+
+      .book-cover {
+        flex: 1 0px;
+        padding-right: 1rem;
+      }
+
+      .cta-form {
+        flex: 2 0px;
+      }
+    }
+  }
+
+  // HOME
+
+  .benefits {
+    display: flex;
+
+    .index-card {
+      flex-grow: 1;
+      width: 33%;
+    }
+  }
+
+  .explanation {
+    display: flex;
+    flex-wrap: wrap;
+
+    .explanation-text {
+      flex-grow: 1;
       width: 50%;
-    }
-
-    // BLOG
-
-    .blog {
-      .blog-main { 
-          flex: 2 0px; 
-          margin-right: 1rem;
-      }
-      .blog-sidebar { 
-        flex: 1 0px; 
-        margin-top: 0.5rem;
-      }  
-    }
-
-    //POST
-
-    .post {
-      .post-advert {
-        flex-wrap: nowrap !important;
-        .book-cover{
-          flex: 1 0px; 
-          padding-right: 1rem;
-         }
-        .cta-form {
-          flex: 2 0px; 
-        }
-      }
+      padding-right: 1rem;
     }
 
   }
+
+  .index-testimonials {
+    display: flex;
+  }
+
+}
