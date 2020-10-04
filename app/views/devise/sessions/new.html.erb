@@ -1,30 +1,34 @@
+<div class="devise-form">
 
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-      <div class="card deviseForm" id="deviseSignup">
-        <div class="card-body">
-          <h1 class="text-center"><%= bubblecow_name %></h1>
+  <div class="devise-form-information">    
+    <h1><%= bubblecow_name %></h1>
+    <p>Log Into Your Account</p>
+  </div>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
-              <%= f.email_field :email, autofocus: true, placeholder: "Email Address", class: "form-control", :required => true %>
-            </div>
-          
-            <div class="form-group">
-              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control", :required => true  %>
-            </div>
-          
-          <button type="submit" class="btn btn-primary btn-block">Log In</button>
-          
-          <p class="deviseLoginForgottenPassword small text-center"><%= link_to "Forgotten password?", new_user_password_path %></p>
-          
+  <div class="form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="form-group">
+            <label for="signInEmail" class="form-label">Email:</label>
+            <%= f.email_field :email, autofocus: true, placeholder: "Your email address", type: "email", class: "form-control", id: "signInEmail", :required => true %>
+          </div>
+                  
+          <div class="form-group">
+            <label for="signInPassword" class="form-label">Password:</label>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Your password", type: "password", class: "form-control", id: "signInPassword", :required => true  %>
+          </div>
+                  
+          <%= f.button "Log in", type: "submit", class: "btn btn-lg btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Logging in..."} %>
+                  
+          <p class="form-forgotten-password"><%= link_to "Forgotten password?", new_user_password_path %></p>
+                  
           <div class="deviseSeparator">
             <span class="textInSeparator" aria-label="or">or</span>
           </div>
-          
-          <%= link_to "Create a free account", new_user_registration_path, class: "btn btn-outline-secondary btn-block" %>
-          
-          <% end %>
+                  
+          <%= link_to "Create a free account", new_user_registration_path, class: "btn btn-outline-primary btn-block" %>
+                  
+        <% end %>
+  </div>
 
-        </div>
-      </div>
-    </div>
+</div>
