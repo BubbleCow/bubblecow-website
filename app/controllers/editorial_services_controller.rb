@@ -1,6 +1,5 @@
 class EditorialServicesController < ApplicationController
     before_action :set_country, only: [:book_editing, :developmental_editing,:content_editing, :substantive_editing]
-    layout :resolve_layout
   
     def book_editing
       @page_title = "Book Editing"
@@ -113,15 +112,6 @@ class EditorialServicesController < ApplicationController
         @developmental_edit_cost = "20" #Cost of book editing per 1000 words.
         @developmental_edit_price = @currency_symbol + @developmental_edit_cost
         @editorial_assessment_price = @currency_symbol + @editorial_assessment_cost
-      end
-    end
-
-    def resolve_layout
-      case action_name
-      when "file_safety"
-        "template_narrow"
-      else
-        "template_no_container_editorial_services"
       end
     end
 
