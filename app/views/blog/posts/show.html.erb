@@ -3,7 +3,7 @@
   <article class="blog-article">
 
     <section class="post-title">
-      <h1><%= @post.title %></h1>
+      <h1><%= @post.post_title.titleize %></h1>
     </section>
 
     <section class="post-image">
@@ -12,9 +12,10 @@
 
     <section class="post-meta">
       <p>
-        <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span>, 
+        <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
+        <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span> -  
         <% if @post.published? %>
-          <span id="post-date"><%= @post.published_at.strftime("%b %d, %Y") %></span>.
+          <span id="post-date">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
         <% else %>
           <span id="post-date">Unpublished</span>.
         <% end %>
@@ -31,15 +32,12 @@
       <% end %>
     </section>
 
-    <section class="post-advert">
-        <%= render "blog/posts/adverts/writing_manual", book: @book %>
-    </section>
-
     <section class="post-author-byline">
-      <div class="byline-box">
-        <p>This article was written by <em>Gary Smailes</em></p>
-        <p>Gary Smailes is the founder of <a href="https://bubblecow.com/">BubbleCow</a> and <a href="https://proactivewriter.com/">ProActive Writer</a>.</p>
-        <p>He's a <a href="https://www.amazon.co.uk/s?k=gary+smailes&ref=nb_sb_noss">published writer</a> with more than twenty books published and is represented by literary agent <a href="http://www.andrewlownie.co.uk/authors/gary-smailes">Andrew Lownie.</a></p>
+      <div class="author-image">
+        <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "100x100" ) %>
+      </div>
+      <div class="author-byline">
+        <p>Gary Smailes has been working in the publishing industry since 2005. He has more than <a href="http://www.andrewlownie.co.uk/authors/gary-smailes">twenty books published</a> and is founder of the <a href="https://bubblecow.com/">popular literary consultancy BubbleCow</a>.</p> 
       </div>
     </section>
 

@@ -40,20 +40,22 @@
     }
   }
 
-  // POST
+  // Post
 
   .post {
-    width: 55%;
+    width: 40%;
+
+    .post-meta {
+      font-size: 1rem !important;
+    }
 
     .post-advert {
-      flex-wrap: nowrap !important;
+      padding-right: 5rem;
+      padding-left: 5rem;
+      flex-flow: row !important;
 
-      .book-cover {
-        flex: 1 0px;
-      }
-
-      .cta-form {
-        flex: 2 0px;
+      .advert-cover-image {
+        padding-right: 3rem;
       }
     }
   }

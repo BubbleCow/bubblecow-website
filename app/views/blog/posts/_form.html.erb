@@ -14,23 +14,12 @@
     <% end %>
 
     <!-- Post title -->
-    <% if @post.published? %>
-      <%= form.text_field :title, type: "text", class: "form-control form-control-lg", id: "postTitle", :readonly => true  %>
-      <p class="form-text">Altering this title once the post is published will alter the URL, change with caution. To change you must first unpublish the post.</p>
-    <% else %>
-      <%= form.text_field :title, type: "text", class: "form-control form-control-lg", id: "postTitle", placeholder: "Post title", autofocus: true %>
-    <% end %>
+      <%= form.text_field :post_title, type: "text", class: "form-control form-control-lg", id: "postTitle", placeholder: "Add the post's title...", :required => true %>
+      <p class="form-text">This the title of the post and not the SEO title or permalink. However, if these are left blank, this will be used for each.</p>
       
-    <!-- 
-    Post content 
-    This will show rich_text if present, unless it will default to markdown
-    -->
-    <% if @post.body.present? %>
-      <%= form.rich_text_area :body, type: "text", class: "form-control", id: "postContent", rows: "65" %>
-    <% else %>
-      <%= form.text_area :content, type: "text", class: "form-control", id: "postContent", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "65" %>
-    <% end %>
-  
+    <!-- Post content  -->
+      <%= form.rich_text_area :body, type: "text", class: "form-control", id: "postContent", rows: "65", data: { controller: 'trix-youtube-plugin' }%>
+
   </section>
 
   <section class="post-form-right">
@@ -38,19 +27,9 @@
   <!-- publish -->
   <div class="post-form-section">
 
-    <h2>Publish</h2>
-    <hr>
       <% if @post.persisted? %>
-        <p>
-          Permalink: <%= 'https://bubblecow.com' + blog_post_path(@post) %>
-          <%= link_to blog_post_path(@post), target: "_blank", class: "" do %>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
-              <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
-            </svg>
-          <% end %>
-        </p>
+        <h2>Publish</h2>
+        <hr>
 
         <!-- post publication date -->
         <p>
@@ -97,66 +76,93 @@
       </div>
     </div>
 
-    <!-- post image -->
-    <div class="post-form-section">
-        <h2>Post Image</h2>
-        <hr>
-
-        <!-- Post image upload -->
-        <p class="form-text">This will only show up on the front page of the blog. The image needs to be 329x220.</p>
-        <% if @post.post_image.present? %>
-          <div class="alert alert-primary"><%= @post.post_image.filename %></div>
-        <% end %>
-        <%= form.file_field :image, class: 'form-control' %>
-    </div>
-
      <!-- Post attributes -->
     <div class="post-form-section">
 
       <h2>Post Attributes</h2>
       <hr>
+
+      <!-- Post Permalink -->
+      <div class="form-group">
+        <p><strong>Premalink:</strong></p>
+        <% if @post.persisted? %>
+          <p>
+            <%= 'https://bubblecow.com' + blog_post_path(@post) %> 
+            <%= link_to blog_post_path(@post), target: "_blank", class: "" do %>
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
+                <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
+              </svg>
+            <% end %>
+          </p>
+          <% if @post.published? %>
+            <%= form.text_field :title, type: "text", class: "form-control form-control-lg", id: "postPermalink", :readonly => true  %>
+          <% else %>
+            <%= form.text_field :title, type: "text", class: "form-control form-control-lg", id: "postPermalink" %>
+            <p>Note: Altering this will alter the URL, change with caution!</p>
+          <% end %>
+        <% else %>
+          <%= form.text_field :title, type: "text", class: "form-control form-control-lg", id: "postPermalink", placeholder: "If left blank post title will be used." %>
+        <% end %>
+      </div>
       
+      <!-- Post Description --> 
+      <p><strong>Description:</strong></p>
+      <p class="form-text small">This will show up on the blog front page and should be no more than 250 characters.</p>
+      <%= form.rich_text_area :post_description, type: "text", class: "form-control", id: "postDescription", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "4"  %>
+
       <!-- Post Category -->
-      <%= form.label "Post Category:", for: "postCategory", class: "form-label" %>
-      <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postCategory" %>
+      <div class="form-group">
+        <%= form.label "Post Category:", for: "postCategory", class: "form-label" %>
+        <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postCategory" %>
+      </div>
 
       <!-- Post Author -->
-      <%= form.label "Post Author:", for: "postAuthor", class: "form-label" %>
-      <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postAuthor" %>
-     
-      <!-- Post Description --> 
-      <%= form.label "Post Description:", class: "form-label", for: "postDescription" %>
-      <p class="form-text">This will show up on the blog front page and should be no more than 250 characters.</p>
-      <%= form.rich_text_area :post_description, type: "text", class: "form-control", id: "postDescription", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "4"  %>
+      <div class="form-group">
+        <%= form.label "Post Author:", for: "postAuthor", class: "form-label" %>
+        <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postAuthor" %>
+      </div>
+
 
     </div>
 
     <!-- Post SEO -->
     <div class="post-form-section">
 
-      <h2>Post SEO</h2>
+      <h2>SEO</h2>
       <hr>
 
       <!-- SEO Title -->
-      <%= form.label "SEO Title:", class: "form-label", for: "postSeoTitle" %>
-      <p class="form-text">This is the title that Google sees, it is not the title the reader sees. If left blank, it will default to the post title. </p>
+      <p><strong>SEO Title:</strong></p>
+      <p class="form-text small">This is the title that Google sees as the page title tag, it is not the title the reader sees. If left blank, it will default to the post title. </p>
       <%= form.text_field :seo_title, type: "text", class: "form-control", id: "postSeoTitle", placeholder: "Seo title" %>
-      
+     
       <!-- SEO Description -->
-      <%= form.label "SEO Description:", class: "form-label", for: "postSeoDescription" %>
-      <p class="form-text">This will only show up for Google and should be no more than 250 characters. If left blank, it will default to the post description.</p>
+      <p><strong>SEO Title:</strong></p>
+      <p class="form-text small">This will only show up for Google as the post description tag, and should be no more than 250 characters. If left blank, it will default to the post description.</p>
       <%= form.rich_text_area :seo_description, type: "text", class: "form-control", id: "postSeoDescription", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "4"  %>
 
-
       <!-- SEO Keywords -->
-      <%= form.label "SEO Keywords:", class: "form-label", for: "postSeoKeywords" %>
-      <p class="form-text">These are the keywords showns to Google, seperate with a comma, e.g. 'keyword 1, keyword 2'.</p>
-      <%= form.text_field :keywords, type: "text", class: "form-control", id: "postSeoKeywords", placeholder: "SEO keywords" %>
-    
-
-
+      <p><strong>SEO Keywords:</strong></p>
+      <p class="form-text small">These are the keywords showns to Google, seperate with a comma, e.g. 'keyword 1, keyword 2'.</p>
+      <%= form.text_field :keywords, type: "text", class: "form-control", id: "postSeoKeywords", placeholder: "e.g. 'keyword 1, keyword 2'" %>
+  
     </div>
 
+    <!-- post image -->
+    <div class="post-form-section">
+        <h2>Post Image</h2>
+        <hr>
+
+        <!-- Post image upload -->
+        <% if @post.post_image.present? %>
+          <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) if @post.post_image.attached? %>
+          <div class="alert alert-primary"><%= @post.post_image.filename %></div>
+        <% end %>
+        <%= form.file_field :post_image, class: 'form-control' %>
+    </div>
+    <%= form.button "Save Post", type: "submit", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."} %>
 
   <% end %>
 </section>

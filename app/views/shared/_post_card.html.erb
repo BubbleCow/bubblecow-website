@@ -1,3 +1,25 @@
+<section class="post-card">
+
+    <div class="post-card-header">
+        <h2><%= link_to post.post_title.titleize, blog_post_path(post)%></h2>
+        <div class="post-card-post-meta">
+            <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "25x25" ) %>
+            <%= post.post_author.name %> - Updated: <%= post.published_at.strftime("%b %d, %Y.") %>
+        </div>
+    </div>
+
+    <div class="post-card-image">
+        <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid", size: "" ) %>
+    </div>
+
+    <div class="post-card-description">
+        <%= post.post_description %>
+        <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post) %></p>
+    </div>
+
+</section> 
+
+
 
 <section class="post-card">
 
