@@ -1,0 +1,56 @@
+// DEVISE
+
+.devise-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    @include standard-border();
+    margin-top: 1rem;
+    padding: 1rem;
+
+    .devise-form-information {
+        text-align: center;
+        padding-bottom: 1rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .form {
+        .form-control {
+            margin-bottom: 1rem;
+        }
+
+        .form-forgotten-password {
+            text-align: center;
+            padding-top: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .deviseSeparator {
+            border-top: 1px solid #cbd2d6;
+            position: relative;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .deviseSeparator .textInSeparator {
+            background-color: #fff;
+            padding: 0 .5em;
+            position: relative;
+            color: #999;
+            top: -.7em;
+        }
+
+        .form-instructions {
+            font-size: 1rem;
+        }
+
+        button {
+            margin-top: 2.5rem;
+        }
+    }
+}

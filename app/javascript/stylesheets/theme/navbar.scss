@@ -1,0 +1,21 @@
+
+// NAVBAR
+.navigation-container {
+    display: flex;
+    border-bottom: solid 1px $pale-sand;
+        .navbar {
+            padding-left: 0;
+            padding-right: 0;
+            width: 90%;
+            margin: auto;
+        .proactive-navbar {
+            background-color: white;
+            a {
+            color: $pay-blue;
+            }
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

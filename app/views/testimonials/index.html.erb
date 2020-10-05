@@ -1,9 +1,12 @@
-<h1 class="mb-4">Testimonials</h1>
-<% @testimonials.each do |testimonial| %>
-  <div class="card mb-3 shadow">
-    <div class="card-body">
-      <p class="card-text"><%= testimonial.testimonial_text %></p>
-      <h6 class="card-subtitle mb-2 text-muted"><%= testimonial.writer.titleize %></h6>
+<main class="page" id="testimonials">
+
+  <h1 class="mb-4">Testimonials</h1>
+  <% @testimonials.each do |testimonial| %>
+    <div class="testimonial-card">
+        <p><%= testimonial.testimonial_text %></p>
+        <h6><%= testimonial.writer.titleize %></h6>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+
+</main>

@@ -1,0 +1,103 @@
+// Medium devices (tablets, 768px and up) - - this overrides mobile styling
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+
+  // DEVISE FORMS 
+
+  /* log in form */
+
+  .devise-form {
+    width: 40%;
+  }
+
+
+  // Contact 
+  #contact {
+    width: 50%;
+  }
+
+  // BLOG
+
+  .blog {
+    .blog-main {
+      flex: 2 0px;
+      margin-right: 1rem;
+    }
+
+    .blog-sidebar {
+      flex: 1 0px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  // Post
+
+  .post {
+    .post-meta {
+      font-size: 1rem !important;
+    }
+
+    .post-advert {
+      padding-right: 10rem;
+      padding-left: 10rem;
+    }
+  }
+
+  // HOME
+
+  .benefits {
+    display: flex;
+
+    .index-card {
+      flex-grow: 1;
+      width: 33%;
+    }
+  }
+
+  .explanation {
+    display: flex;
+    flex-wrap: wrap;
+
+    .explanation-text {
+      flex-grow: 1;
+      width: 50%;
+      padding-right: 1rem;
+    }
+
+  }
+
+  .index-testimonials {
+    display: flex;
+  }
+
+  // BOOK EDITING
+  .book-editing-benefits {
+    display: flex;
+    margin-top: 2rem;
+
+    .book-editing-card {
+      flex-grow: 1;
+      width: 33%;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .book-editing-pricing {
+    margin-top: 2rem;
+
+    .book-editing-pricing-text {
+      h2 {
+        text-align: center;
+      }
+
+    }
+  }
+
+  .book-editing-short-testimonials {
+    margin-top: 2rem;
+  }
+
+}
