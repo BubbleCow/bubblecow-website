@@ -1,7 +1,6 @@
 module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-    layout :resolve_layout
     
     def index
       @posts = Post.published
@@ -80,18 +79,7 @@ module Blog
       end
 
       def post_params
-        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords)
-      end
-
-      def resolve_layout
-        case action_name
-        when "new", "create", "edit"
-          "template_full_width"
-        when "show"
-          "template_no_container"
-        else
-          "application"
-        end
+        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_titl, :post_title)
       end
 
   end

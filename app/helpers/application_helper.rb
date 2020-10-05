@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def bubblecow_name
-    content_tag(:span, "Bubble", class: "proactive-brand-colouring") + content_tag(:span, "Cow", class: "writer-brand-colouring")
+    content_tag(:span, "Bubble", class: "first-word") + content_tag(:span, "Cow", class: "last-word")
   end
 end
