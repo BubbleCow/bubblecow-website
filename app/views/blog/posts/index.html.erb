@@ -1,11 +1,12 @@
-
-  <main role="main" class="blog">
-    <div class="row">
-      <div class="col-md-8">
-        <% @posts.each do |post| %>
-          <%= render "shared/blog/post_info", post: post %>
-        <% end %>
-      </div>
-      <%= render "shared/blog/sidebar" %>
-    </div>
-  </main>
+<main class="blog" id="blog-index">
+  <div class="blog-main">
+    <% @posts.each do |post| %>
+      <%= render "shared/post_card", post: post%>
+    <% end %>
+  </div>
+  <div class="blog-sidebar">
+    <aside class="blog-sidebar">
+      <%= render "/shared/sidebar" %>
+    </aside>
+  </div>
+</main>

@@ -1,0 +1,10 @@
+
+// Testimonials
+
+#testimonials {
+    .testimonial-card {
+        @include standard-border;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+}
