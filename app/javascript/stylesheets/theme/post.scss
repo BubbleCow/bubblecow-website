@@ -1,55 +1,5 @@
 /* posts */
 
-.post-form {
-    display: flex;
-    width: 95%;
-    margin: auto;
-    flex-flow: row wrap;
-    padding-top: 1rem;
-
-    .post-form-section {
-        @include standard-border;
-        padding: 1rem;
-        margin-bottom: 1rem;
-
-        .form-select,
-        .form-control {
-            margin-bottom: 1rem;
-        }
-
-        .form-label {
-            text-transform: capitalize;
-        }
-
-        #post-section-submission {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            button {
-                flex-grow: 2;
-            }
-
-            a {
-                flex-grow: 2;
-            }
-        }
-    }
-
-    .post-form-left {
-        flex: 2 0px;
-        margin-right: 3rem;
-
-        #postContent {
-            margin-top: 2rem;
-        }
-    }
-
-    .post-form-right {
-        flex: 1 0px;
-    }
-}
-
 .post {
     display: flex;
     width: 90%;

@@ -1,6 +1,7 @@
-<section class="post-form-left">
+<%= form_for([:blog, @post]) do |form| %>
+<div class="post-form-container">
 
-  <%= form_for([:blog, @post]) do |form| %>
+<div class="post-form-column-left">
     <% if post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -18,15 +19,14 @@
       <p class="form-text">This the title of the post and not the SEO title or permalink. However, if these are left blank, this will be used for each.</p>
       
     <!-- Post content  -->
-      <%= form.rich_text_area :body, type: "text", class: "form-control", id: "postContent", rows: "65", data: { controller: 'trix-youtube-plugin' }%>
+    <%= form.rich_text_area :body, type: "text", class: "form-control", id: "postContent", rows: "65", data: { controller: 'trix-youtube-plugin' }%>
 
-  </section>
+</div>
 
-  <section class="post-form-right">
+<div class="post-form-column-right">
 
   <!-- publish -->
   <div class="post-form-section">
-
       <% if @post.persisted? %>
         <h2>Publish</h2>
         <hr>
@@ -76,7 +76,20 @@
       </div>
     </div>
 
-     <!-- Post attributes -->
+    <!-- post image -->
+    <div class="post-form-section">
+        <h2>Post Image</h2>
+        <hr>
+
+        <!-- Post image upload -->
+        <% if @post.post_image.present? %>
+          <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) if @post.post_image.attached? %>
+          <div class="alert alert-primary"><%= @post.post_image.filename %></div>
+        <% end %>
+        <%= form.file_field :post_image, class: 'form-control' %>
+    </div>
+
+    <!-- Post attributes -->
     <div class="post-form-section">
 
       <h2>Post Attributes</h2>
@@ -139,7 +152,7 @@
       <%= form.text_field :seo_title, type: "text", class: "form-control", id: "postSeoTitle", placeholder: "Seo title" %>
      
       <!-- SEO Description -->
-      <p><strong>SEO Title:</strong></p>
+      <p><strong>SEO Description:</strong></p>
       <p class="form-text small">This will only show up for Google as the post description tag, and should be no more than 250 characters. If left blank, it will default to the post description.</p>
       <%= form.rich_text_area :seo_description, type: "text", class: "form-control", id: "postSeoDescription", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "4"  %>
 
@@ -150,19 +163,13 @@
   
     </div>
 
-    <!-- post image -->
-    <div class="post-form-section">
-        <h2>Post Image</h2>
-        <hr>
+</div>
 
-        <!-- Post image upload -->
-        <% if @post.post_image.present? %>
-          <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) if @post.post_image.attached? %>
-          <div class="alert alert-primary"><%= @post.post_image.filename %></div>
-        <% end %>
-        <%= form.file_field :post_image, class: 'form-control' %>
-    </div>
-    <%= form.button "Save Post", type: "submit", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."} %>
+</div>
 
-  <% end %>
-</section>
+
+
+
+<% end %>
+
+

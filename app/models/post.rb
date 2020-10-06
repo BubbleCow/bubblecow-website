@@ -17,7 +17,7 @@ class Post < ApplicationRecord
         title_changed?
     end
 
-    validates :title, :post_image, presence: true
+    validates :post_title, presence: true
     
     # Scopes
     default_scope { order(created_at: :desc) }
