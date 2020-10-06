@@ -1,40 +1,47 @@
+<div class="devise-form">
 
-    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-      <div class="card deviseForm" id="deviseSignup">
-        <div class="card-body">
-          <h1>Create a free account</h1>
+  <div class="devise-form-information">    
+    <h1><%= bubblecow_name %></h1>
+    <p>Create a free account</p>
+  </div>
 
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
+  <div class="form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-              <div class="form-group">
-                <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Full Name" %>
-              </div>
+      <%= devise_error_messages! %>
 
-              <div class="form-group">
-                <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: "Email Address" %>
-              </div>
-
-              <div class="form-group">
-                <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
-              </div>
-
-              <div class="form-group">
-                <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block">Create Your Account</button>
-
-              <div class="deviseSeparator">
-                <span class="textInSeparator" aria-label="or">or</span>
-              </div>
-
-              <!-- Hidden inputs -->
-              <%= invisible_captcha :subtitle %>
-
-              <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary btn-block" %>
-
-            <% end %>
-        </div>
+      <div class="form-group">
+        <label for="signInName" class="form-label">Name:</label>
+        <%= f.text_field :name, autofocus: true, id: "signInName", class: 'form-control', placeholder: "Add your full name" %>
       </div>
-    </div>
+
+      <div class="form-group">
+        <label for="signInEmail" class="form-label">Email:</label>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control', id: "signInEmail", type: "email", placeholder: "Add your email" %>
+      </div>
+
+      <div class="form-group">
+        <label for="signInPassword" class="form-label">Password:</label>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: "signInPassword", type: "password", placeholder: "Add a password" %>
+      </div>
+
+      <div class="field">
+        <label for="signInPasswordConfirm" class="form-label">Confirm Password:</label>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: "signInPasswordConfirm", type: "password",placeholder: "Confirm your password" %>
+      </div>
+
+      <%= f.button "Create your account", type: "submit", class: "btn btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing up..."} %>
+
+      <div class="deviseSeparator">
+        <span class="textInSeparator" aria-label="or">or</span>
+      </div>
+
+      <!-- Hidden inputs -->
+      <%= invisible_captcha :subtitle %>
+
+      <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-block" %>
+
+    <% end %>
+  </div>
+
+</div>
