@@ -31,7 +31,11 @@
         <%= @post.body %>
       <% end %>
     </section>
-
+    
+    <section class="post-advert">
+      <%= render 'blog/posts/adverts/writing_manual' %>
+    </section>
+    
     <section class="post-author-byline">
       <div class="author-image">
         <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "100x100" ) %>

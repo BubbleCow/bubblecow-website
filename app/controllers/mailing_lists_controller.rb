@@ -1,6 +1,5 @@
 class MailingListsController < ApplicationController
   before_action :set_mailing_list, only: [:show, :edit, :update, :destroy]
-  layout :resolve_layout
 
   def index
     @mailing_lists = MailingList.all
@@ -70,13 +69,5 @@ class MailingListsController < ApplicationController
       params.require(:mailing_list).permit(:email, :tag)
     end
 
-    def resolve_layout
-      case action_name
-      when "writing_manual_download"
-        "template_narrow"
-      else
-        "application"
-      end
-    end
   
 end
