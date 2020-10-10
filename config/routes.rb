@@ -995,6 +995,14 @@ Rails.application.routes.draw do
   get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('https://proactivewriter.com/blog/use-the-snowflake-method-of-writing-in-10-easy-steps-how-to-start-writing-a-novel-for-beginners-updated')
   get "/blog/show-don-t-tell-and-become-a-better-writer", to: redirect('/blog/show-don-t-tell-and-how-to-become-a-better-writer')
   get "/blog/third-person-viewpoinr/", to: redirect('/blog/third-person-viewpoint')
+  
+  # Redirects after creating services 
+  get "/book_editing", to: redirect('/services')
+  get "/content_editing", to: redirect('/services')
+  get "/substantive_editing", to: redirect('/services')
+  get "/manuscript_editing", to: redirect('/services')
+  get "/novel_editing", to: redirect('/services')  
+  
   # FROM HERE
 
   resources :testimonials
@@ -1016,6 +1024,12 @@ Rails.application.routes.draw do
   # services
   namespace :services do
     resources :developmental_edits
+    get 'readers-report', to: 'pages#readers_report'
+    get 'developmental-editing', to: 'pages#developmental_editing'
+    get 'mentoring', to: 'pages#mentoring'
+    get 'copy-editing', to: 'pages#copy_editing'
+    get 'proofreading', to: 'pages#copy_editing'
+    get 'file-safety', to: 'pages#file_safety'
     root to: "pages#index"
   end
 
@@ -1026,16 +1040,12 @@ Rails.application.routes.draw do
   get '/writing_manual', to: 'page#writing_manual'
   
   # Editorial Services
-  get '/book-editing', to: 'editorial_services#book_editing'
-  get '/developmental-editing', to: 'editorial_services#developmental_editing'
+  
   get '/content-editing', to: 'editorial_services#content_editing'
   get '/substantive-editing', to: 'editorial_services#substantive_editing'
   get '/novel-editing', to: 'editorial_services#novel_editing'
   get '/manuscript-editing', to: 'editorial_services#manuscript_editing'
   get '/copy-editing', to: 'editorial_services#copy_editing'
-  get '/full-service', to: 'editorial_services#full_service'
-  get '/pricing', to: 'editorial_services#pricing'
-  get '/file-safety', to: 'editorial_services#file_safety'
 
   # Blog
   namespace :blog do
