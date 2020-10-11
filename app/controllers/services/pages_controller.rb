@@ -1,5 +1,7 @@
 module Services
-  class PagesController < ApplicationController
+  
+  class PagesController < Services::ApplicationController
+    skip_before_action :authenticate_user!
     before_action :set_country, only: [:book_editing, :developmental_editing,:content_editing, :substantive_editing]
   
     def index 

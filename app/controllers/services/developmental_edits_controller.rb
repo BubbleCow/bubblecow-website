@@ -1,4 +1,5 @@
 module Services
+  
   class DevelopmentalEditsController < Services::ApplicationController
     before_action :authenticate_user!
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
@@ -63,7 +64,7 @@ module Services
       end
 
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id)
       end
 
   end

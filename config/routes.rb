@@ -1023,7 +1023,7 @@ Rails.application.routes.draw do
 
   # services
   namespace :services do
-    resources :developmental_edits
+    resources :developmental_edits, :genres
     get 'readers-report', to: 'pages#readers_report'
     get 'developmental-editing', to: 'pages#developmental_editing'
     get 'mentoring', to: 'pages#mentoring'
