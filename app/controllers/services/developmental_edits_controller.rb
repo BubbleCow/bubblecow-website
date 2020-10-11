@@ -1,34 +1,30 @@
 module Services
   class DevelopmentalEditsController < Services::ApplicationController
+    before_action :authenticate_user!
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
 
-    # GET /developmental_edits
-    # GET /developmental_edits.json
     def index
-      @developmental_edits = DevelopmentalEdit.all
+      @developmental_edits = current_user.developmental_edits.all
+      authorize @developmental_edits
     end
 
-    # GET /developmental_edits/1
-    # GET /developmental_edits/1.json
     def show
+      authorize @developmental_edit
     end
 
-    # GET /developmental_edits/new
     def new
-      @developmental_edit = DevelopmentalEdit.new
+      @developmental_edit = current_user.developmental_edits.new
     end
 
-    # GET /developmental_edits/1/edit
     def edit
     end
 
-    # POST /developmental_edits
-    # POST /developmental_edits.json
     def create
       @developmental_edit = current_user.developmental_edits.new(developmental_edit_params)
 
       respond_to do |format|
         if @developmental_edit.save
+          
           # Deliver email
           DevelopmentalEditMailer.new_developmental_edit(@developmental_edit.user).deliver_now
 
@@ -41,8 +37,6 @@ module Services
       end
     end
 
-    # PATCH/PUT /developmental_edits/1
-    # PATCH/PUT /developmental_edits/1.json
     def update
       respond_to do |format|
         if @developmental_edit.update(developmental_edit_params)
@@ -55,8 +49,6 @@ module Services
       end
     end
 
-    # DELETE /developmental_edits/1
-    # DELETE /developmental_edits/1.json
     def destroy
       @developmental_edit.destroy
       respond_to do |format|
@@ -66,14 +58,12 @@ module Services
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
       def set_developmental_edit
         @developmental_edit = DevelopmentalEdit.friendly.find(params[:id])
       end
 
-      # Only allow a list of trusted parameters through.
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description)
       end
 
   end

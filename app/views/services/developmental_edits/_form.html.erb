@@ -1,4 +1,6 @@
 <%= form_for([:services, @developmental_edit]) do |form| %>
+  
+  <!-- Developmental edit errors -->
   <% if developmental_edit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(developmental_edit.errors.count, "error") %> prohibited this developmental_edit from being saved:</h2>
@@ -11,10 +13,27 @@
     </div>
   <% end %>
 
+  <!-- Developmental edit title -->
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+    <%= form.text_field :title, required: true, autofocus: true, class: 'form-control' %>
   </div>
+
+  <!-- Developmental edit word count -->
+  <div class="form-group">
+    <%= form.label :word_count %>
+    <%= form.number_field :word_count, required: true, class: 'form-control' %>
+  </div>
+
+  <!-- Developmental edit laungauge -->
+  <div class="form-group">
+    <%= form.label :language %>
+    <%= form.select :language, [['American English'], ['British English']], required: true, class: "form-control" %>
+  </div>
+
+  <!-- Developmental edit description -->
+  <%= form.label :description %>
+  <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
 
 
   <div class="form-group">
@@ -24,7 +43,7 @@
       </div>
     <% end %>
 
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.button "Save", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
 
   </div>
 <% end %>

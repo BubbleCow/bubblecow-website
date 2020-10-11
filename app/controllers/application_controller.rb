@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :store_user_location!, if: :storable_location?
   before_action :redirect_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
@@ -19,6 +20,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def storable_location?
+      request.get? && is_navigational_format? && !devise_controller? && !request.xhr? 
+    end
+
+    def store_user_location!
+      # :user is the scope we are authenticating
+      store_location_for(:user, request.fullpath)
+    end
+
     def redirect_subdomain
       if request.host == 'www.bubblecow.com'
         redirect_to 'http://bubblecow.com' + request.fullpath, :status => 301
@@ -31,7 +41,8 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-      dashboard_path
+      # dashboard_path
+      stored_location_for(resource) || super
     end
   
     def after_sign_out_path_for(resource)

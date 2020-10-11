@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
-  has_many :developmental_edits
+  has_many :developmental_edits, dependent: :destroy
 end
