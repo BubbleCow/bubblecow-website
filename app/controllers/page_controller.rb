@@ -18,11 +18,4 @@ class PageController < ApplicationController
   def writing_manual
   end 
 
-  def admin_dashboard
-    @posts = Post.all
-    @authors = PostAuthor.all
-    @categories = PostCategory.all
-    @testimonials = Testimonial.all
-  end
-
 end

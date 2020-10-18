@@ -3,6 +3,7 @@ class DevelopmentalEdit < ApplicationRecord
     belongs_to  :genre
 
     has_rich_text :description
+    has_one_attached :full_manuscript
 
     extend FriendlyId
     friendly_id :title, use: :slugged

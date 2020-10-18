@@ -1,0 +1,10 @@
+<main class="page" id="admin-area-services">
+    <h1>Services</h1>
+
+    <h2>Developmental Edits</h2>
+    <ul>
+        <% @developmental_edits.each do |edits| %>
+            <li><%= edits.title %></li>
+        <% end %>
+    </ul>
+</main>

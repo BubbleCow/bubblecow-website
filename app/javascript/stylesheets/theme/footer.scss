@@ -1,7 +1,29 @@
-
 // FOOTER
+.page-footer {
+  margin-top: 3rem;
+  border-top: 1px solid $pale-slate;
 
-.proactive-footer {
-    background-color: white;
-    border-top: 1px solid $pale-slate;
+  .page-footer-content {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 1rem;
+    color: $slate;
+
+    .footer-col {
+      width: 32%;
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+          color: $slate;
+        }
+      }
+
+    }
   }
+}

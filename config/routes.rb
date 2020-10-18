@@ -1012,13 +1012,21 @@ Rails.application.routes.draw do
   #  Trix youtube plugin
   resource :embed, only: :update
 
-  # admin
+  # admin - NOT USING THIS!
   namespace :admin do
     resources :users
     resources :announcements
     resources :notifications
     resources :services
     root to: "users#index"
+  end
+
+  namespace :admin_area do
+    get 'dashboard', to: 'admin_pages#dashboard'
+    get 'blog', to: 'admin_pages#blog'
+    get 'testimonials', to: 'admin_pages#testimonials'
+    get 'services', to: 'admin_pages#services'
+    root to: "admin_pages#dashboard"
   end
 
   # services
@@ -1035,7 +1043,6 @@ Rails.application.routes.draw do
 
   # pages
   get '/about', to: 'page#about'
-  get '/admin_dashboard', to: 'page#admin_dashboard'
   get '/dashboard', to: 'page#writer_dashboard'
   get '/writing_manual', to: 'page#writing_manual'
   

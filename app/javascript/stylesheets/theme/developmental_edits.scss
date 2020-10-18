@@ -1,0 +1,25 @@
+// Developmental Edits
+
+.developmental-edits-book-form {
+    @include standard-border;
+    margin-top: 1rem;
+    padding: 1rem;
+
+    h1 {
+        padding-bottom: 1rem;
+        border-bottom: 0.75px solid $slate;
+    }
+
+    h3 {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        padding-bottom: 0.5rem;
+    }
+
+    .submit-button {
+        padding-top: 1.5rem;
+    }
+}
