@@ -3,8 +3,8 @@
 
     <h2>Developmental Edits</h2>
     <ul>
-        <% @developmental_edits.each do |edits| %>
-            <li><%= edits.title %></li>
+        <% @developmental_edits.each do |edit| %>
+            <li><%= link_to edit.title, services_developmental_edit_path(edit) %></li>
         <% end %>
     </ul>
 </main>
