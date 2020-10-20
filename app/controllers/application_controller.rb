@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :redirect_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
+  before_action :sync_user, unless: :devise_controller?
 
   include Pundit
   protect_from_forgery with: :exception
@@ -47,5 +48,11 @@ class ApplicationController < ActionController::Base
   
     def after_sign_out_path_for(resource)
       root_path
+    end
+
+    def sync_user
+      return unless user_signed_in?
+      ActiveCampaignService.new.contact_sync(current_user)
+      # ActiveCampaignService.new.contact_tag_add(current_user.email, "BC Test")
     end
 end

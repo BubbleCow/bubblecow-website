@@ -77,3 +77,4 @@ gem "pundit"
 gem "aws-sdk-s3", require: false
 gem 'geocoder'
 gem 'aasm'
+gem 'active-campaign-rails'
