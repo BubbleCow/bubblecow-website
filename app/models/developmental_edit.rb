@@ -1,4 +1,23 @@
 class DevelopmentalEdit < ApplicationRecord
+  include AASM
+
+    # Developmental edit status 
+    aasm do
+      state :edit_submitted, initial: true
+      state :edit_accepted
+      state :edit_rejected
+
+      event :edit_accepted do
+        transitions from: :edit_submitted, to: :edit_accepted
+      end
+
+      event :edit_rejected do
+        transitions from: :edit_submitted, to: :edit_rejected
+      end
+
+    end
+
+
     belongs_to  :user
     belongs_to  :genre
 

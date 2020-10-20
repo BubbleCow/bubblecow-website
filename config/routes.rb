@@ -1031,7 +1031,11 @@ Rails.application.routes.draw do
 
   # services
   namespace :services do
-    resources :developmental_edits, :genres
+    resources :genres
+    resources :developmental_edits do
+      put 'developmental_edit_accepted' => 'state#developmental_edit_accepted', on: :member
+      put 'developmental_edit_rejected' => 'state#developmental_edit_rejected', on: :member
+    end
     get 'readers-report', to: 'pages#readers_report'
     get 'developmental-editing', to: 'pages#developmental_editing'
     get 'mentoring', to: 'pages#mentoring'

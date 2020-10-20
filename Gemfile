@@ -76,3 +76,4 @@ gem 'invisible_captcha'
 gem "pundit"
 gem "aws-sdk-s3", require: false
 gem 'geocoder'
+gem 'aasm'
