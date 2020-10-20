@@ -1,5 +1,6 @@
 module AdminArea
     class AdminPagesController < AdminArea::ApplicationController
+        layout :set_template
 
         def dashboard
             @page_title = "Admin: Dashboard"
@@ -24,6 +25,17 @@ module AdminArea
             @page_title = "Admin: Services"
             authorize [:admin_area, :admin_pages]
             @developmental_edits = DevelopmentalEdit.all
+        end
+
+        private
+
+        def set_template
+            case action_name
+            when 'services'
+                'admin_template'
+            else
+                'application'
+            end
         end
 
     end

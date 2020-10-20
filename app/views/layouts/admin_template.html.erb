@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+      <%= render 'shared/notices' %>
+      
+      <main class="admin-container">
+
+         <nav class="admin-side-navigation">
+            <%= render 'services/developmental_edits/show/admin/side_navigation' %>
+         </nav>
+    
+         <section class="admin-main">
+        
+            <section class="admin-top-navigation">
+               <%= render 'services/developmental_edits/show/admin/top_navigation' %>
+            </section>
+ 
+            <section class="admin-information">
+               <%= yield %>
+            </section>
+    
+         </section>
+
+      </main>
+  </body>
+</html>
+
+<script>
+
+const list = document.querySelectorAll('.list');
+
+function accordion(e){
+    e.stopPropagation(); 
+    if(this.classList.contains('active')){
+        this.classList.remove('active');
+    }
+    else if(this.parentElement.parentElement.classList.contains('active')){
+        this.classList.add('active');
+    }
+    else{
+        for(i=0; i < list.length; i++){
+          list[i].classList.remove('active');
+        }
+            this.classList.add('active');
+        }
+}
+for(i = 0; i < list.length; i++ ){
+    list[i].addEventListener('click', accordion);
+}
+</script>

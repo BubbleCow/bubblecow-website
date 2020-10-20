@@ -1,0 +1,15 @@
+// Removes attachment from trix
+.trix-button-group--file-tools {
+    display: none !important;
+}
+
+// Reduced size menu 
+
+.small-menu {
+
+    .trix-button-group--history-tools,
+    .trix-button--icon-decrease-nesting-level,
+    .trix-button--icon-increase-nesting-level {
+        display: none !important;
+    }
+}

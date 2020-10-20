@@ -1,0 +1,184 @@
+.admin-container {
+    display: flex;
+
+    .admin-side-navigation {
+        width: 200px;
+        background-color: $pay-blue;
+        margin-bottom: -5000px;
+        padding-bottom: 5000px;
+
+        .title {
+            font-size: 1.5rem;
+            text-align: center;
+            padding-top: 1rem;
+            color: white;
+        }
+
+        ul.menu {
+            padding: 0;
+            list-style: none;
+            margin: 20px auto;
+            box-shadow: 0px 0px 25px #00000070;
+            clear: both;
+            display: table;
+            margin-bottom: 100px;
+
+            .list {
+                font-size: 14px;
+                border-bottom: 1px solid #324252;
+                position: relative;
+                width: 100%;
+                box-sizing: border-box;
+                height: 50px;
+                vertical-align: sub;
+                background: $pay-blue;
+                clear: both;
+
+                &:after {
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 600;
+                    content: "\f107";
+                    position: absolute;
+                    right: 17px;
+                    top: 17px;
+                    padding: 0px 5px;
+                    color: #fff;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    padding: 17px 0px 17px 45px;
+                    display: block;
+                    height: 100%;
+                    box-sizing: border-box;
+
+                    &:hover {
+                        background-color: $pay-blue;
+                        transition: 300ms all;
+                        color: #09fbd2;
+                    }
+                }
+
+                .items {
+                    height: 0px;
+                    overflow: hidden;
+
+                    a {
+                        padding: 17px;
+
+                        &:hover {
+                            background-color: $pay-blue;
+                            color: #fff;
+                            transition: 300ms all;
+
+                        }
+                    }
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            .active {
+                &:after {
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 600;
+                    content: "\f106";
+                    position: absolute;
+                    right: 17px;
+                    top: 17px;
+                    padding: 0px 5px;
+                    color: #fff;
+                }
+
+                >.items {
+                    display: block;
+                    background: #23313f;
+                    padding: 0px;
+                    height: auto;
+                    color: #fff;
+                    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+                    transition: all 200ms;
+                    clear: both;
+                    float: left;
+                    width: 100%;
+
+                    li {
+                        padding: 0px;
+                        border-bottom: 1px solid #324252;
+                        list-style: none;
+                    }
+
+                    li:last-child {
+                        border-color: transparent;
+                        padding-bottom: 0px;
+                    }
+
+                    .active {
+                        >.items {
+                            background-color: #2f4b67;
+                        }
+                    }
+                }
+
+                >a {
+                    color: #46efa4;
+                    text-transform: uppercase;
+                    font-weight: bold;
+
+                }
+
+                .list {
+                    background: #697d92;
+
+                    a {
+                        padding: 17px 0px 17px 45px;
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    .admin-main {
+        flex-grow: 1;
+
+        .admin-top-navigation {}
+
+        .admin-information {
+            display: flex;
+            padding-left: 3rem;
+            padding-top: 1rem;
+
+            .admin-information-left {
+                width: 65%;
+                padding-right: 6rem;
+
+                .book-title {
+                    padding-bottom: 1rem;
+                }
+            }
+
+            .admin-information-right {
+                width: 35%;
+                padding-right: 2rem;
+
+                .section {
+                    @include standard-border;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+
+                    .title {
+                        font-size: 1.65rem;
+                        color: $pay-blue;
+                    }
+                }
+            }
+
+        }
+    }
+}

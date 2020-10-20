@@ -1,10 +1,13 @@
-<main class="page" id="admin-area-services">
+
     <h1>Services</h1>
 
     <h2>Developmental Edits</h2>
     <ul>
         <% @developmental_edits.each do |edit| %>
-            <li><%= link_to edit.title, services_developmental_edit_path(edit) %></li>
+            <li>
+                <%= link_to edit.title, services_developmental_edit_path(edit) %> | 
+                <%= edit.status %> | 
+                <%= link_to "x", services_developmental_edit_path(edit), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+            </li>
         <% end %>
     </ul>
-</main>
