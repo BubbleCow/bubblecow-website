@@ -14,6 +14,19 @@
 
 <div class="admin-information-right">
 
+    <div class="section">
+        <p>THIS WILL BE DELETED</p>
+        <p>Current status: <%= @developmental_edit.aasm.current_state %></p>
+        <%= form_for([:services, @developmental_edit]) do |form| %>
+        <div class="form-group">
+            <%= form.select :aasm_state, [['Submitted', 'developmental_edit_submitted']] %>
+        </div>
+            <%= form.button "Update Status", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+        <% end %>
+        <hr>
+        <%= render "/services/developmental_edits/show/admin/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+    </div>
+
     <div class="section small-menu">
         <p class="title">Editor Notes:</p>
         <%= form_for([:services, @developmental_edit]) do |form| %>
@@ -22,20 +35,6 @@
             </div>
                 <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
         <% end %>
-    </div>
-
-    <div class="section">
-        <p class="title">Status:</p>
-        <p>THIS WILL BE DELETED</p>
-        <p>Current status: <%= @developmental_edit.aasm.current_state %></p>
-        <%= form_for([:services, @developmental_edit]) do |form| %>
-        <div class="form-group">
-            <%= form.select :aasm_state, [['Submitted', 'edit_submitted']] %>
-        </div>
-            <%= form.button "Update Status", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-        <% end %>
-        <hr>
-        <%= render "/services/developmental_edits/show/admin/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
     </div>
 
     <div class="section">

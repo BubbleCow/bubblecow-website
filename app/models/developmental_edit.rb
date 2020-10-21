@@ -1,21 +1,8 @@
 class DevelopmentalEdit < ApplicationRecord
+  before_save :check_state, if: :will_save_change_to_aasm_state?
+  
   include AASM
 
-    # Developmental edit status 
-    aasm do
-      state :edit_submitted, initial: true
-      state :edit_accepted
-      state :edit_rejected
-
-      event :edit_accepted do
-        transitions from: :edit_submitted, to: :edit_accepted
-      end
-
-      event :edit_rejected do
-        transitions from: :edit_submitted, to: :edit_rejected
-      end
-
-    end
 
 
     belongs_to  :user
@@ -37,4 +24,58 @@ class DevelopmentalEdit < ApplicationRecord
     
     # Scopes
     default_scope { order(created_at: :desc) }
+
+
+    # STATES - https://www.driftingruby.com/episodes/state-machines 
+
+    # Developmental edititng process 
+    aasm do
+      state :developmental_edit_submitted, initial: true
+      state :developmental_edit_rejected
+      state :developmental_edit_accepted
+      state :developmental_edit_invoice_sent
+      state :developmental_edit_invoice_paid
+      
+
+      # Developmental edit accepted    
+      event :developmental_edit_accepted do
+        transitions from: :developmental_edit_submitted, to: :developmental_edit_accepted
+      end
+
+      # Developmental editing rejected
+      event :developmental_edit_rejected do
+        transitions from: :developmental_edit_submitted, to: :developmental_edit_rejected
+      end
+
+      event :developmental_editing_process do
+        transitions from: :developmental_edit_accepted, to: :developmental_edit_invoice_sent
+
+      end
+
+    end
+
+    private    
+    def check_state
+      case aasm_state 
+      when "developmental_edit_rejected"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Rejected")
+
+        # Send email
+        DevelopmentalEditMailer.developmental_edit_rejected(self.user, self).deliver
+      when "developmental_edit_accepted"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Accepted")                
+        
+        # Send email
+        DevelopmentalEditMailer.developmental_edit_accepted(self.user, self).deliver
+      when "developmental_edit_invoice_sent"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Invoice Sent") 
+
+        # Send email
+        DevelopmentalEditMailer.developmental_edit_invoice_sent(self.user, self).deliver
+      end
+
+    end
 end

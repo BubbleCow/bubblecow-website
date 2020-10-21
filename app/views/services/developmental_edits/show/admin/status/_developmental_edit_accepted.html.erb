@@ -1,0 +1,21 @@
+
+<p>The edit is accepted but payment has not been made.</p>
+<p>Do the following:</p>
+<ul>
+    <li>Send an invoice using <a href="https://www.xero.com/uk/" target="_blank">Xero</a>. <%= @developmental_edit.user.name.full %>, <%= @developmental_edit.user.email %>, <%= @developmental_edit.word_count/1000.0 %> words.</li>
+    <li>Set invoice due date.</li>
+</ul>
+
+    <%= form_for([:services, @developmental_edit]) do |form| %>
+        <label>Add Invoice Due Date:</label>
+
+          <div class="form-group">
+            <%= form.date_field :invoice_due_date, class: "form-control" %>
+            <%= form.hidden_field :aasm_state, value: "developmental_edit_invoice_sent" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.button "Add invoice due date", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Adding..."} %>
+          </div>
+
+    <% end %>

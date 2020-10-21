@@ -5,23 +5,21 @@ module Services
 
         # state controls
 
-        def developmental_edit_accepted
-            redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully accepted."
-        end
-  
         def developmental_edit_rejected
             # Update aasm state
-            @developmental_edit.edit_rejected!
-
-            # Update active campaign tag
-            # ActiveCampaignService.new.contact_tag_add(@developmental_edit.user.email, "Developmental Edit Rejected")
-
-            # Send email
-            DevelopmentalEditMailer.developmental_edit_rejected(@developmental_edit.user, @developmental_edit).deliver
+            @developmental_edit.developmental_edit_rejected!
 
             # Redirect 
             redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully rejected."
         end
+        
+        def developmental_edit_accepted
+            # Update aasm state
+            @developmental_edit.developmental_edit_accepted!
+
+            redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully accepted."
+        end
+  
 
         private
         def set_developmental_edit

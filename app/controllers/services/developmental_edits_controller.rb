@@ -68,7 +68,7 @@ module Services
       end
 
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :note, :aasm_state)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :note, :aasm_state, :invoice_due_date)
       end
 
   end
