@@ -1,12 +1,9 @@
 class DevelopmentalEdit < ApplicationRecord
   before_save :check_state, if: :will_save_change_to_aasm_state?
+  belongs_to  :user
+  belongs_to  :genre
   
-  include AASM
-
-
-
-    belongs_to  :user
-    belongs_to  :genre
+  include AASM 
 
     has_rich_text :description
     has_rich_text :note
@@ -57,24 +54,35 @@ class DevelopmentalEdit < ApplicationRecord
     private    
     def check_state
       case aasm_state 
+
       when "developmental_edit_rejected"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Rejected")
 
         # Send email
         DevelopmentalEditMailer.developmental_edit_rejected(self.user, self).deliver
+
       when "developmental_edit_accepted"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Accepted")                
         
         # Send email
         DevelopmentalEditMailer.developmental_edit_accepted(self.user, self).deliver
+
       when "developmental_edit_invoice_sent"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Invoice Sent") 
 
         # Send email
         DevelopmentalEditMailer.developmental_edit_invoice_sent(self.user, self).deliver
+
+      when "developmental_edit_invoice_paid"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Invoice Paid") 
+
+        # Send email
+        DevelopmentalEditMailer.developmental_edit_invoice_paid(self.user, self).deliver
+      
       end
 
     end

@@ -32,7 +32,15 @@ class DevelopmentalEditMailer < ApplicationMailer
         @user = user
         @developmental_edit = developmental_edit
         mail( :to => user.email,
-        :subject => "Invoice for for #{developmental_edit.title.titleize}" )
+        :subject => "Invoice for #{developmental_edit.title.titleize}" )
+    end 
+
+    # Sends when developmental edit invoice is paid
+    def developmental_edit_invoice_paid(user, developmental_edit)
+        @user = user
+        @developmental_edit = developmental_edit
+        mail( :to => user.email,
+        :subject => "Invoice for #{developmental_edit.title.titleize} has been paid" )
     end 
     
 end

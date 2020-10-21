@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_141936) do
+ActiveRecord::Schema.define(version: 2020_10_21_143737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2020_10_20_141936) do
     t.string "status", default: "developmental_edit_created"
     t.string "aasm_state"
     t.datetime "invoice_due_date"
+    t.datetime "invoice_paid_date"
+    t.datetime "developmental_edit_due_date"
     t.index ["slug"], name: "index_developmental_edits_on_slug", unique: true
   end
 
