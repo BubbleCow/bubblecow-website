@@ -1008,6 +1008,7 @@ Rails.application.routes.draw do
   resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
+  resources :users, only: [:show]
 
   #  Trix youtube plugin
   resource :embed, only: :update
@@ -1026,6 +1027,7 @@ Rails.application.routes.draw do
     get 'blog', to: 'admin_pages#blog'
     get 'testimonials', to: 'admin_pages#testimonials'
     get 'services', to: 'admin_pages#services'
+    get 'users', to: 'admin_pages#users'
     root to: "admin_pages#dashboard"
   end
 

@@ -3,8 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
+  has_many :notifications, foreign_key: :recipient_id
+  has_many :services
+  has_many :developmental_edits, dependent: :destroy
+
   has_person_name
-  
+
   enum role: [:writer, :editor, :admin]
 
   after_initialize do
@@ -12,10 +16,6 @@ class User < ApplicationRecord
       self.role ||= :writer
     end
   end
-
-  has_many :notifications, foreign_key: :recipient_id
-  has_many :services
-  has_many :developmental_edits, dependent: :destroy
 
   # Scopes
   scope :staff, -> { where('role=? OR role=?', 1, 2) }

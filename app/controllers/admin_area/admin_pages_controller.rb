@@ -27,6 +27,12 @@ module AdminArea
             @developmental_edits = DevelopmentalEdit.all
         end
 
+        def users
+            @page_title = "Admin: Users"
+            authorize [:admin_area, :admin_pages]
+            @users = User.all
+        end
+
         private
 
         def set_template
