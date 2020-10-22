@@ -42,6 +42,14 @@ class DevelopmentalEditMailer < ApplicationMailer
         mail( :to => user.email,
         :subject => "Invoice for #{developmental_edit.title.titleize} has been paid" )
     end 
+
+    # Sends when developmental edit is returned
+    def developmental_edit_returned(user, developmental_edit)
+        @user = user
+        @developmental_edit = developmental_edit
+        mail( :to => user.email,
+        :subject => "The feedback for #{developmental_edit.title.titleize} is ready for you to download" )
+    end 
     
 end
 

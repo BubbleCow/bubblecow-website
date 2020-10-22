@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_171554) do
+ActiveRecord::Schema.define(version: 2020_10_22_125146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_10_21_171554) do
     t.datetime "invoice_due_date"
     t.datetime "invoice_paid_date"
     t.datetime "developmental_edit_due_date"
+    t.integer "editor_id"
+    t.datetime "edit_return_date"
     t.index ["slug"], name: "index_developmental_edits_on_slug", unique: true
   end
 
@@ -178,6 +180,15 @@ ActiveRecord::Schema.define(version: 2020_10_21_171554) do
     t.index ["slug"], name: "index_testimonials_on_slug", unique: true
   end
 
+  create_table "useredits", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "developmental_edit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["developmental_edit_id"], name: "index_useredits_on_developmental_edit_id"
+    t.index ["user_id"], name: "index_useredits_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -191,10 +202,13 @@ ActiveRecord::Schema.define(version: 2020_10_21_171554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role"
+    t.integer "editor_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "services", "users"
+  add_foreign_key "useredits", "developmental_edits"
+  add_foreign_key "useredits", "users"
 end

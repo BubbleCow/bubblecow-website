@@ -15,15 +15,6 @@
 <div class="admin-information-right">
 
     <div class="section">
-        <p>THIS WILL BE DELETED</p>
-        <p>Current status: <%= @developmental_edit.aasm.current_state %></p>
-        <%= form_for([:services, @developmental_edit]) do |form| %>
-        <div class="form-group">
-            <%= form.select :aasm_state, [['Submitted', 'developmental_edit_submitted']] %>
-        </div>
-            <%= form.button "Update Status", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-        <% end %>
-        <hr>
         <%= render "/services/developmental_edits/show/admin/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
     </div>
 
@@ -41,7 +32,15 @@
         <p class="title">Files:</p>
 
         <ul>
-            <li>Unedited Manuscript: <%= link_to @developmental_edit.full_manuscript.filename, rails_blob_path(@developmental_edit.full_manuscript, disposition: "attachment") %></li>
+            <% if @developmental_edit.full_manuscript.present? %>
+                <li>Unedited Manuscript: <%= link_to @developmental_edit.full_manuscript.filename, rails_blob_path(@developmental_edit.full_manuscript, disposition: "attachment") %></li>
+            <% end %>
+            <% if @developmental_edit.editors_report.present? %>
+                <li>Editor's Report: <%= link_to @developmental_edit.editors_report.filename, rails_blob_path(@developmental_edit.full_manuscript, disposition: "attachment") %></li>
+            <% end %>
+            <% if @developmental_edit.edited_manuscript.present? %>
+                <li>Edited Manuscript: <%= link_to @developmental_edit.edited_manuscript.filename, rails_blob_path(@developmental_edit.full_manuscript, disposition: "attachment") %></li>
+            <% end %>
         </ul>
         
     </div>

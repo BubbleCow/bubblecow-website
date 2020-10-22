@@ -16,4 +16,12 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :developmental_edits, dependent: :destroy
+
+
+  # Scopes
+  scope :staff, -> { where('role=? OR role=?', 1, 2) }
+  scope :admin, -> { where(role: 2) }
+  scope :editor, -> { where('role=? OR role=?', 1, 2) }
+  scope :writer, -> { where(role: 0) }
+
 end

@@ -11,6 +11,7 @@ module Services
 
     def show
       @page_title = @developmental_edit.title.titleize
+      @editors = User.admin
       authorize @developmental_edit
       if current_user.admin?
         render layout: 'admin_template'
@@ -29,9 +30,6 @@ module Services
 
       respond_to do |format|
         if @developmental_edit.save
-          
-          # Deliver email
-          DevelopmentalEditMailer.new_developmental_edit(@developmental_edit.user).deliver_now
 
           format.html { redirect_to root_path, notice: "#{@developmental_edit.title.titleize} was successfully created." }
           format.json { render :show, status: :created, location: @developmental_edit }
@@ -68,7 +66,7 @@ module Services
       end
 
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
       end
 
   end

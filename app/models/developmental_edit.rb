@@ -1,6 +1,7 @@
 class DevelopmentalEdit < ApplicationRecord
   before_save :check_state, if: :will_save_change_to_aasm_state?
   belongs_to  :user
+  belongs_to  :editor, class_name: "User", foreign_key: "editor_id", optional: true
   belongs_to  :genre
   
   include AASM 
@@ -8,6 +9,8 @@ class DevelopmentalEdit < ApplicationRecord
     has_rich_text :description
     has_rich_text :note
     has_one_attached :full_manuscript
+    has_one_attached :editors_report
+    has_one_attached :edited_manuscript
 
     extend FriendlyId
     friendly_id :title, use: :slugged
@@ -32,6 +35,8 @@ class DevelopmentalEdit < ApplicationRecord
       state :developmental_edit_accepted
       state :developmental_edit_invoice_sent
       state :developmental_edit_invoice_paid
+      state :developmental_edit_editing_underway
+      state :developmental_edit_returned
       
 
       # Developmental edit accepted    
@@ -54,6 +59,10 @@ class DevelopmentalEdit < ApplicationRecord
     private    
     def check_state
       case aasm_state 
+
+      when "developmental_edit_submitted"
+        # Send email
+        DevelopmentalEditMailer.new_developmental_edit(self.user).deliver_now
 
       when "developmental_edit_rejected"
         # Update active campaign tag
@@ -83,6 +92,17 @@ class DevelopmentalEdit < ApplicationRecord
         # Send email
         DevelopmentalEditMailer.developmental_edit_invoice_paid(self.user, self).deliver
       
+      when "developmental_edit_editing_underway"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Editing Underway") 
+      
+      when "developmental_edit_returned"
+         # Update active campaign tag
+         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Edit Returned") 
+
+         # Send email
+         DevelopmentalEditMailer.developmental_edit_returned(self.user, self).deliver
+
       end
 
     end
