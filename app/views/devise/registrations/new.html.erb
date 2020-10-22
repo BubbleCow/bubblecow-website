@@ -30,6 +30,8 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: "signInPasswordConfirm", type: "password",placeholder: "Confirm your password" %>
       </div>
 
+      <%= f.hidden_field :country, value: @country %>
+      
       <%= f.button "Create your account", type: "submit", class: "btn btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing up..."} %>
 
       <div class="deviseSeparator">

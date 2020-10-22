@@ -11,4 +11,5 @@ module ApplicationHelper
   def bubblecow_name
     content_tag(:span, "Bubble", class: "first-word") + content_tag(:span, "Cow", class: "last-word")
   end
+
 end

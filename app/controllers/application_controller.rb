@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :redirect_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_country, if: :devise_controller?
   before_action :masquerade_user!
   before_action :sync_user, unless: :devise_controller?
 
@@ -17,7 +18,6 @@ class ApplicationController < ActionController::Base
     )
 
   end  
-
 
   protected
 
@@ -37,8 +37,8 @@ class ApplicationController < ActionController::Base
     end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country])
     end
 
     def after_sign_in_path_for(resource)
@@ -53,6 +53,15 @@ class ApplicationController < ActionController::Base
     def sync_user
       return unless user_signed_in?
       ActiveCampaignService.new.contact_sync(current_user)
-      # ActiveCampaignService.new.contact_tag_add(current_user.email, "BC Test")
     end
+
+    # Finds user country
+    def set_country
+      if Rails.env.development?
+        @country = "local host"
+      else
+        @country = request.location.country
+      end
+    end
+    
 end
