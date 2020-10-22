@@ -17,6 +17,10 @@ class User < ApplicationRecord
     end
   end
 
+  def full_name
+    [first_name, last_name].join(' ').titleize
+  end
+
   # Scopes
   scope :staff, -> { where('role=? OR role=?', 1, 2) }
   scope :admin, -> { where(role: 2) }
