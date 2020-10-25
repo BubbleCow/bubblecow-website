@@ -8,9 +8,9 @@
       </svg>
         <!-- Word count -->
 	      <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
-            <%= @developmental_edit.word_count %> | 
+            <%= number_with_delimiter(@developmental_edit.word_count) %> | 
         <% end %>
-  
+
         <!-- Genre -->
 		    <%= link_to '#', data: { toggle: 'modal', target: '#genreModal' } do %>
             <%= @developmental_edit.genre.genre_type.titleize %> | 

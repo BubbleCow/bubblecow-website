@@ -3,11 +3,20 @@ class DevelopmentalEditMailer < ApplicationMailer
     default from: 'gary@bubblecow.com'
     
     # Sends when new developmental edit is created
-    def new_developmental_edit(user)
+    def new_developmental_edit(user, developmental_edit)
         @user = user
+        @developmental_edit = developmental_edit
         mail( :to => user.email,
-        :subject => 'You have successfully submitted your book for developmental editing' )
+        :subject => "You have successfully submitted #{developmental_edit.title.titleize} for developmental editing" )
     end
+
+    # Sends when new developmental edit is created
+    def new_developmental_edit_admin(user, developmental_edit)
+        @user = user
+        @developmental_edit = developmental_edit
+        mail( :to => "gary@bubblecow.com",
+        :subject => "#{developmental_edit.title.titleize} has been submitted for developmental editing" )
+    end    
 
     # Sends when developmental edit is rejected
     def developmental_edit_rejected(user, developmental_edit)

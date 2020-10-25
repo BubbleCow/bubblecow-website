@@ -68,8 +68,11 @@ class DevelopmentalEdit < ApplicationRecord
       case aasm_state 
 
       when "developmental_edit_submitted"
-        # Send email
-        DevelopmentalEditMailer.new_developmental_edit(self.user).deliver_now
+        # Send email to user
+        DevelopmentalEditMailer.new_developmental_edit(self.user, self).deliver_now
+
+        # Send email to admin
+        DevelopmentalEditMailer.new_developmental_edit_admin(self.user, self).deliver_now
 
       when "developmental_edit_rejected"
         # Update active campaign tag
