@@ -1,6 +1,8 @@
 module AdminArea
     class AdminPagesController < AdminArea::ApplicationController
+        before_action :remove_footer
         layout :set_template
+        
 
         def dashboard
             @page_title = "Admin: Dashboard"
@@ -42,6 +44,10 @@ module AdminArea
             else
                 'application'
             end
+        end
+
+        def remove_footer
+            @footer = "no footer"
         end
 
     end
