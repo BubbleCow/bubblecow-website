@@ -1,11 +1,19 @@
 module Services
-  
+
   class DevelopmentalEditsController < Services::ApplicationController
     before_action :authenticate_user!
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
+    layout :set_template
 
     def index
-      @developmental_edits = current_user.developmental_edits.all
+      @developmental_edits = DevelopmentalEdit.all
+      @developmetal_edits_submitted = DevelopmentalEdit.developmental_edit_submitted
+      @developmental_edits_accepted = DevelopmentalEdit.developmental_edit_accepted
+      @developmental_edits_rejected = DevelopmentalEdit.developmental_edit_rejected
+      @developmental_edit_invoice_sent = DevelopmentalEdit.developmental_edit_invoice_sent
+      @developmental_edit_invoice_paid = DevelopmentalEdit.developmental_edit_invoice_paid
+      @developmental_edit_editing_underway = DevelopmentalEdit.developmental_edit_editing_underway.sorted_by_due_date
+      @developmental_edits_returned = DevelopmentalEdit.developmental_edit_returned
       authorize @developmental_edits
     end
 
@@ -68,6 +76,16 @@ module Services
       def developmental_edit_params
         params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
       end
+
+      def set_template
+          case action_name
+          when 'index'
+              'admin_template'
+          else
+              'application'
+          end
+      end
+    
 
   end
 end

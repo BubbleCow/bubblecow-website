@@ -1,7 +1,8 @@
 class DevelopmentalEditPolicy < ApplicationPolicy
 
 	def index?
-		true
+		# allow admin
+		return true if user.present? && user.admin?
 	end
 
 	def show?

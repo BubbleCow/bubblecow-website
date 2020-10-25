@@ -18,8 +18,23 @@
         
         <!-- Language -->
         <%= link_to '#', data: { toggle: 'modal', target: '#languageModal' } do %>
-          <%= @developmental_edit.language.titleize %> 
+          <%= @developmental_edit.language.titleize %> |
         <% end %> 
+
+        <!-- Due Date -->
+        <% if @developmental_edit.developmental_edit_due_date.present? %>
+          <%= link_to '#', data: { toggle: 'modal', target: '#duedateModal' } do %>
+            <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> |
+          <% end %>
+        <% end %>
+
+        <!-- Editor -->
+        <% if @developmental_edit.editor.present? %>
+          <%= link_to '#', data: { toggle: 'modal', target: '#editorModal' } do %>
+            <%= @developmental_edit.editor.name.full %> 
+          <% end %>
+        <% end %>
+
     </p>
     
     <p>
@@ -34,8 +49,6 @@
 		  <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
         Change user
       <% end %>
-
-      
     </p>
 
     <%= form_for([:services, @developmental_edit]) do |form| %>
@@ -44,7 +57,7 @@
         </div>
             <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
     <% end %>
-</div>
+    </div>
 
 <div class="admin-information-right">
 
@@ -284,6 +297,57 @@
 
             <div class="form-group">
                 <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editor modal -->
+<div class="modal fade" id="editorModal" tabindex="-1" role="dialog" aria-labelledby="editorModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @developmental_edit]) do |form| %>
+            <div class="form-group">
+              <%= form.collection_select :editor_id, User.editor, :editor_id, :name, required: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Update editor", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Due Date modal -->
+<div class="modal fade" id="duedateModal" tabindex="-1" role="dialog" aria-labelledby="duedateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Due Date</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @developmental_edit]) do |form| %>
+            <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> 
+            <div class="form-group">
+              <%= form.date_field :developmental_edit_due_date, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Change Due Date", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
             </div>
         <% end %>
       </div>

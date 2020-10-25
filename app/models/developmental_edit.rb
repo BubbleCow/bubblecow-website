@@ -23,7 +23,15 @@ class DevelopmentalEdit < ApplicationRecord
     validates :word_count, numericality: { greater_than_or_equal_to: 15000 }
     
     # Scopes
-    default_scope { order(created_at: :desc) }
+    scope :sorted_by_due_date, -> { order(developmental_edit_due_date: :asc) }
+
+    scope :developmental_edit_submitted, -> { where(aasm_state: "developmental_edit_submitted") }
+    scope :developmental_edit_rejected, -> { where(aasm_state: "developmental_edit_rejected") }
+    scope :developmental_edit_accepted, -> { where(aasm_state: "developmental_edit_accepted") }
+    scope :developmental_edit_invoice_sent, -> { where(aasm_state: "developmental_edit_invoice_sent") }
+    scope :developmental_edit_invoice_paid, -> { where(aasm_state: "developmental_edit_invoice_paid") }
+    scope :developmental_edit_editing_underway, -> { where(aasm_state: "developmental_edit_editing_underway") }
+    scope :developmental_edit_returned, -> { where(aasm_state: "developmental_edit_returned") }
 
 
     # STATES - https://www.driftingruby.com/episodes/state-machines 
@@ -51,7 +59,6 @@ class DevelopmentalEdit < ApplicationRecord
 
       event :developmental_editing_process do
         transitions from: :developmental_edit_accepted, to: :developmental_edit_invoice_sent
-
       end
 
     end
