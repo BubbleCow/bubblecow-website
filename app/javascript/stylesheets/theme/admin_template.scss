@@ -1,6 +1,18 @@
 .admin-container {
     display: flex;
 
+    // Used on all admin pages
+    .admin-card {
+        @include standard-border;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        h2 {
+            padding-bottom: 1rem;
+        }
+    }
+
+    // Side navigation
     .admin-side-navigation {
         width: 200px;
         background-color: $pay-blue;
@@ -9,141 +21,58 @@
 
         .title {
             font-size: 1.5rem;
-            text-align: center;
+            padding-left: 1rem;
             padding-top: 1rem;
             color: white;
         }
 
-        ul.menu {
-            padding: 0;
-            list-style: none;
-            margin: 20px auto;
-            box-shadow: 0px 0px 25px #00000070;
-            clear: both;
-            display: table;
-            margin-bottom: 100px;
+        .admin-side-navbar {
+            width: 200px;
 
-            .list {
-                font-size: 14px;
-                border-bottom: 1px solid #324252;
-                position: relative;
-                width: 100%;
-                box-sizing: border-box;
-                height: 50px;
-                vertical-align: sub;
-                background: $pay-blue;
-                clear: both;
+            ul {
+                list-style: none;
+                padding-left: 1rem;
+                color: white;
+                display: flex;
+                flex-direction: column;
 
-                &:after {
-                    font-family: "Font Awesome 5 Free";
-                    font-weight: 600;
-                    content: "\f107";
-                    position: absolute;
-                    right: 17px;
-                    top: 17px;
-                    padding: 0px 5px;
-                    color: #fff;
+                .admin-side-navbar-title {
+                    color: $pale-slate;
+                    text-transform: uppercase;
+                    font-size: 0.9rem !important;
+                    // padding-top: 1.25rem;
+                    padding-bottom: 1rem;
                 }
 
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                    padding: 17px 0px 17px 45px;
-                    display: block;
-                    height: 100%;
-                    box-sizing: border-box;
-
-                    &:hover {
-                        background-color: $pay-blue;
-                        transition: 300ms all;
-                        color: #09fbd2;
-                    }
+                .active {
+                    color: $pal-blue;
                 }
 
-                .items {
-                    height: 0px;
-                    overflow: hidden;
+                li {
+                    padding-bottom: 0.75rem;
 
                     a {
-                        padding: 17px;
+                        display: flex;
+                        color: white;
+                        opacity: 0.7;
+                        transition: 0.3s;
+                        font-size: 0.9rem;
 
                         &:hover {
-                            background-color: $pay-blue;
-                            color: #fff;
-                            transition: 300ms all;
-
+                            opacity: 1;
                         }
                     }
+
+
                 }
 
-                &:last-child {
-                    border-bottom: none;
-                }
             }
 
-            .active {
-                &:after {
-                    font-family: "Font Awesome 5 Free";
-                    font-weight: 600;
-                    content: "\f106";
-                    position: absolute;
-                    right: 17px;
-                    top: 17px;
-                    padding: 0px 5px;
-                    color: #fff;
-                }
-
-                >.items {
-                    display: block;
-                    background: #23313f;
-                    padding: 0px;
-                    height: auto;
-                    color: #fff;
-                    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-                    transition: all 200ms;
-                    clear: both;
-                    float: left;
-                    width: 100%;
-
-                    li {
-                        padding: 0px;
-                        border-bottom: 1px solid #324252;
-                        list-style: none;
-                    }
-
-                    li:last-child {
-                        border-color: transparent;
-                        padding-bottom: 0px;
-                    }
-
-                    .active {
-                        >.items {
-                            background-color: #2f4b67;
-                        }
-                    }
-                }
-
-                >a {
-                    color: #46efa4;
-                    text-transform: uppercase;
-                    font-weight: bold;
-
-                }
-
-                .list {
-                    background: #697d92;
-
-                    a {
-                        padding: 17px 0px 17px 45px;
-
-                    }
-                }
-            }
         }
-
 
     }
 
+    // Main admin area
     .admin-main {
         flex-grow: 1;
 
@@ -160,6 +89,51 @@
 
                 .book-title {
                     padding-bottom: 1rem;
+                }
+            }
+
+            // blog page
+            #admin-area-blog {
+                display: flex;
+                flex-grow: 1;
+                flex-wrap: wrap;
+                padding-right: 1rem;
+
+                .admin-card-first {
+                    width: 48%;
+                    margin-right: 2%;
+                }
+
+                .admin-card-not-first {
+                    width: 23%;
+                    margin-right: 2%;
+                }
+            }
+
+            // Users page
+            #admin-area-users {
+                display: flex;
+                flex-grow: 1;
+                flex-wrap: wrap;
+                padding-right: 1rem;
+
+                .admin-card {
+                    flex: 0 31%;
+                    margin-right: 2%;
+                }
+
+            }
+
+            // Testimonial page
+
+            #admin-area-testimonials {
+                display: flex;
+                flex-grow: 1;
+                flex-wrap: wrap;
+                padding-right: 1rem;
+
+                .admin-card {
+                    width: 50%
                 }
             }
 

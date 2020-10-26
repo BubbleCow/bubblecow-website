@@ -21,11 +21,18 @@ class User < ApplicationRecord
     [first_name, last_name].join(' ').titleize
   end
 
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
+
+  def should_generate_new_friendly_id?
+    first_name_changed? || last_name_changed?
+  end
+
   # Scopes
   scope :staff, -> { where('role=? OR role=?', 1, 2) }
-  scope :admin, -> { where(role: 2) }
-  scope :editor, -> { where('role=? OR role=?', 1, 2) }
-  scope :writer, -> { where(role: 0) }
+  scope :admins, -> { where(role: 2) }
+  scope :editors, -> { where('role=? OR role=?', 1, 2) }
+  scope :writers, -> { where(role: 0) }
 
   def user_location(country)
     case country

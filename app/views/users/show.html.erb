@@ -1,1 +1,4 @@
-<%= @user.name.full %>
+<p><%= @user.name.full %> </p>
+<p><%= @user.email %> </p>
+<p><%= @user.role %> </p>
+<p><%= link_to "Edit User", edit_user_path(@user) %>

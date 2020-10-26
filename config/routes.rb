@@ -1008,7 +1008,7 @@ Rails.application.routes.draw do
   resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
-  resources :users, only: [:show]
+  # resources :users, only: [:show]
 
   #  Trix youtube plugin
   resource :embed, only: :update
@@ -1053,7 +1053,6 @@ Rails.application.routes.draw do
   get '/writing_manual', to: 'page#writing_manual'
   
   # Editorial Services
-  
   get '/content-editing', to: 'editorial_services#content_editing'
   get '/substantive-editing', to: 'editorial_services#substantive_editing'
   get '/novel-editing', to: 'editorial_services#novel_editing'
@@ -1086,8 +1085,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  # Users
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  
+  resources :users, :only => [:show, :edit, :update, :destroy]  
+ 
   root to: 'page#index'
 
 end

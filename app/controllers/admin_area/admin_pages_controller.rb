@@ -1,7 +1,7 @@
 module AdminArea
     class AdminPagesController < AdminArea::ApplicationController
         before_action :remove_footer
-        layout :set_template
+        layout 'admin_template'
         
 
         def dashboard
@@ -33,18 +33,13 @@ module AdminArea
             @page_title = "Admin: Users"
             authorize [:admin_area, :admin_pages]
             @users = User.all
+            @writers = User.writers
+            @editors = User.editors
+            @admins = User.admin
+
         end
 
         private
-
-        def set_template
-            case action_name
-            when 'services'
-                'admin_template'
-            else
-                'application'
-            end
-        end
 
         def remove_footer
             @footer = "no footer"
