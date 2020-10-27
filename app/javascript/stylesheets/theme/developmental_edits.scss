@@ -31,7 +31,9 @@
     .developmental_edit_job_card {
         @include standard-border;
         margin-right: 2rem;
+        margin-bottom: 2rem;
         padding: 1rem;
+
     }
 }
 
