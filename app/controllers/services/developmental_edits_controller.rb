@@ -38,8 +38,7 @@ module Services
 
       respond_to do |format|
         if @developmental_edit.save
-
-          format.html { redirect_to root_path, notice: "#{@developmental_edit.title.titleize} was successfully created." }
+          format.html { redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully created." }
           format.json { render :show, status: :created, location: @developmental_edit }
         else
           format.html { render :new }
@@ -74,7 +73,7 @@ module Services
       end
 
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :editor_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
       end
 
       def set_template

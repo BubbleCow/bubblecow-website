@@ -1,0 +1,3 @@
+<p>We are currently waiting for payment before we can begin your edit.</p>
+<p>An email with payment details was sent to <strong><%= current_user.email%></strong> on <strong><%= @developmental_edit.invoice_due_date.strftime("%B %d") %></strong>.</p>
+<p>If you are having problems with payment, or have not recevied the payment email, then email Gary at <%= mail_to "gary@bubblecow.com", "gary@bubblecow.com", subject: "Payment Problems" %>.</p>

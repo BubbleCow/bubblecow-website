@@ -2,6 +2,16 @@
 
 @media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
 
+  // HELPERS
+
+  .mobile_hidden {
+    display: block;
+  }
+
+  .desktop_hidden {
+    display: none;
+  }
+
   // DEVISE 
 
   /* log in form */
@@ -148,11 +158,45 @@
     padding: 2rem;
   }
 
+  // Developmental Editing
+
+  #developmental_edit_show_user {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .section {
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
+    .developmental_edit_show_user_header_row {
+      width: 100%
+    }
+
+    .developmental_edit_show_user_left_column {
+      width: 57%;
+      margin-right: 3%;
+    }
+
+    .developmental_edit_show_user_right_column {
+      width: 40%;
+    }
+  }
+
 
   // CONTACT
 
   #contact {
     width: 40%;
   }
+
+  // FOOTER
+  .page-footer {
+    .page-footer-content {
+      justify-content: space-between;
+      width: 55%;
+    }
+  }
+
 
 }

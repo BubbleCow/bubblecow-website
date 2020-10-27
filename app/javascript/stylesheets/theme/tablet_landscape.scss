@@ -2,6 +2,16 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
 
+  // Helpers
+  .mobile_hidden {
+    display: block;
+  }
+
+  .desktop_hidden {
+    display: none;
+  }
+
+
   // DEVISE FORMS 
 
   /* log in form */
@@ -99,5 +109,31 @@
   .book-editing-short-testimonials {
     margin-top: 2rem;
   }
+
+  // Developmental Editing
+
+  #developmental_edit_show_user {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .section {
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
+    .developmental_edit_show_user_header_row {
+      width: 100%
+    }
+
+    .developmental_edit_show_user_left_column {
+      width: 57%;
+      margin-right: 3%;
+    }
+
+    .developmental_edit_show_user_right_column {
+      width: 40%;
+    }
+  }
+
 
 }

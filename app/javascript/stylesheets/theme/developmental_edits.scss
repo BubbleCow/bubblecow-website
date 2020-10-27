@@ -34,3 +34,33 @@
         padding: 1rem;
     }
 }
+
+// User show styling
+
+#developmental_edit_show_user {
+    display: flex;
+
+    .section {
+        @include standard-border;
+        padding: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+
+        .title {
+            font-size: 1.65rem;
+            color: $pay-blue;
+        }
+    }
+
+    .developmental_edit_show_user_header_row {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .developmental_edit_show_user_left_column {
+        padding-bottom: 2rem;
+    }
+
+    .developmental_edit_show_user_right_column {}
+}

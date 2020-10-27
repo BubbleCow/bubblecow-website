@@ -18,20 +18,20 @@
         
         <!-- Language -->
         <%= link_to '#', data: { toggle: 'modal', target: '#languageModal' } do %>
-          <%= @developmental_edit.language.titleize %> |
+          <%= @developmental_edit.language.titleize %> 
         <% end %> 
 
         <!-- Due Date -->
         <% if @developmental_edit.developmental_edit_due_date.present? %>
           <%= link_to '#', data: { toggle: 'modal', target: '#duedateModal' } do %>
-            <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> |
+            | <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> 
           <% end %>
         <% end %>
 
         <!-- Editor -->
         <% if @developmental_edit.editor.present? %>
           <%= link_to '#', data: { toggle: 'modal', target: '#editorModal' } do %>
-            <%= @developmental_edit.editor.name.full %> 
+            | <%= @developmental_edit.editor.name.full %> 
           <% end %>
         <% end %>
 
@@ -57,7 +57,7 @@
         </div>
             <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
     <% end %>
-    </div>
+</div>
 
 <div class="admin-information-right">
 
@@ -341,7 +341,9 @@
       </div>
       <div class="modal-body">
         <%= form_for([:services, @developmental_edit]) do |form| %>
+          <% if @developmental_edit.developmental_edit_due_date.present? %>
             <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> 
+          <% end %>
             <div class="form-group">
               <%= form.date_field :developmental_edit_due_date, class: "form-control" %>
             </div>
