@@ -44,6 +44,8 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
       if current_user.admin?
         admin_area_root_path
+      elsif current_user.writer?
+        writer_area_root_path
       else
       stored_location_for(resource) || super
       end
