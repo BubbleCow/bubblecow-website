@@ -1005,6 +1005,8 @@ Rails.application.routes.draw do
   
   # FROM HERE
 
+  get "book-editing", to: redirect('/services/book-editing')
+
   resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
@@ -1047,7 +1049,7 @@ Rails.application.routes.draw do
     end
     get 'manuscript-assessment', to: 'pages#manuscript_assessment'
 
-    get 'book-editing', to: 'pages#manuscript_assessment'
+    get 'book-editing', to: 'pages#developmental_editing'
     get 'developmental-editing', to: 'pages#developmental_editing'
     get 'content-editing', to: 'pages#developmental_editing'
     get 'substantive-editing', to: 'pages#developmental_editing'
