@@ -7,7 +7,7 @@ module Services
     def index 
     end
     
-    def readers_report
+    def manuscript_assessment
 
     end
     

@@ -1021,8 +1021,7 @@ Rails.application.routes.draw do
     resources :services
     root to: "users#index"
   end
-
-
+  
   # admin area
   namespace :admin_area do
     get 'dashboard', to: 'admin_pages#dashboard'
@@ -1032,7 +1031,6 @@ Rails.application.routes.draw do
     get 'users', to: 'admin_pages#users'
     root to: "admin_pages#dashboard"
   end
-
 
   # writer area
   namespace :writer_area do
@@ -1047,26 +1045,28 @@ Rails.application.routes.draw do
       put 'developmental_edit_accepted' => 'state#developmental_edit_accepted', on: :member
       put 'developmental_edit_rejected' => 'state#developmental_edit_rejected', on: :member
     end
-    get 'readers-report', to: 'pages#readers_report'
+    get 'manuscript-assessment', to: 'pages#manuscript_assessment'
+
+    get 'book-editing', to: 'pages#manuscript_assessment'
     get 'developmental-editing', to: 'pages#developmental_editing'
+    get 'content-editing', to: 'pages#developmental_editing'
+    get 'substantive-editing', to: 'pages#developmental_editing'
+    get 'novel-editing', to: 'pages#developmental_editing'
+    get 'manuscript-editing', to: 'pages#developmental_editing'
+
     get 'mentoring', to: 'pages#mentoring'
+    
     get 'copy-editing', to: 'pages#copy_editing'
     get 'proofreading', to: 'pages#copy_editing'
+    
     get 'file-safety', to: 'pages#file_safety'
+    
     root to: "pages#index"
   end
 
   # pages
-  get '/about', to: 'page#about'
-  get '/dashboard', to: 'page#writer_dashboard'
-  get '/writing_manual', to: 'page#writing_manual'
-  
-  # Editorial Services
-  get '/content-editing', to: 'editorial_services#content_editing'
-  get '/substantive-editing', to: 'editorial_services#substantive_editing'
-  get '/novel-editing', to: 'editorial_services#novel_editing'
-  get '/manuscript-editing', to: 'editorial_services#manuscript_editing'
-  get '/copy-editing', to: 'editorial_services#copy_editing'
+  get 'about', to: 'customer_pages#about'
+  get 'writing_manual', to: 'customer_pages#writing_manual'
 
   # Blog
   namespace :blog do
@@ -1098,6 +1098,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users, :only => [:show, :edit, :update, :destroy]  
  
-  root to: 'page#index'
+  root to: 'customer_pages#index'
 
 end
