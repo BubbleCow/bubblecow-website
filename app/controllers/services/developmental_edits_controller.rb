@@ -19,7 +19,7 @@ module Services
 
     def show
       @page_title = @developmental_edit.title.titleize
-      @editors = User.admin
+      @editors = User.editor
       authorize @developmental_edit
       if current_user.admin?
         render layout: 'admin_template'
@@ -28,14 +28,16 @@ module Services
 
     def new
       @developmental_edit = current_user.developmental_edits.new
+      authorize @developmental_edit
     end
 
     def edit
+      authorize @developmental_edit
     end
 
     def create
       @developmental_edit = current_user.developmental_edits.new(developmental_edit_params)
-
+      authorize @developmental_edit
       respond_to do |format|
         if @developmental_edit.save
           format.html { redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully created." }
@@ -48,6 +50,7 @@ module Services
     end
 
     def update
+      authorize @developmental_edit
       respond_to do |format|
         if @developmental_edit.update(developmental_edit_params)
           format.html { redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully updated." }
@@ -60,6 +63,7 @@ module Services
     end
 
     def destroy
+      authorize @developmental_edit
       @developmental_edit.destroy
       respond_to do |format|
         format.html { redirect_to admin_area_services_path, notice: 'Developmental edit was successfully destroyed.' }

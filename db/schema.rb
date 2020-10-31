@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_141002) do
+ActiveRecord::Schema.define(version: 2020_10_28_153009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,20 @@ ActiveRecord::Schema.define(version: 2020_10_22_141002) do
     t.text "content"
     t.string "post_title"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "sample_developmental_edits", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.string "slug"
+    t.integer "word_count"
+    t.string "language"
+    t.string "genre_id"
+    t.string "aasm_state"
+    t.string "editor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_sample_developmental_edits_on_slug", unique: true
   end
 
   create_table "services", force: :cascade do |t|

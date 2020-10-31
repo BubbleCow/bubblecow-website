@@ -3,6 +3,11 @@
     display: none !important;
 }
 
+// Trix bug fix - stop toolbar warp on mobile
+trix-toolbar .trix-button-row {
+    flex-wrap: wrap;
+}
+
 // Reduced size menu 
 
 .small-menu {
