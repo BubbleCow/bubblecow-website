@@ -70,7 +70,7 @@ module Services
       end
 
       def sample_developmental_edit_params
-        params.require(:sample_developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :aasm_state, :description, :sample_developmental_edit_manuscript )
+        params.require(:sample_developmental_edit).permit(:title, :user_id, :editor_id, :slug, :word_count, :language, :description, :genre_id, :aasm_state, :description, :sample_developmental_edit_manuscript, :sample_editors_report, :sample_edited_manuscript, :note, :sample_edit_return_date )
       end
 
       def set_template

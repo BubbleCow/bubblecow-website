@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_153009) do
+ActiveRecord::Schema.define(version: 2020_11_02_113046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_153009) do
     t.string "editor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "sample_edit_return_date"
     t.index ["slug"], name: "index_sample_developmental_edits_on_slug", unique: true
   end
 

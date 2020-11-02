@@ -1,0 +1,33 @@
+<div class="jobs_container">
+
+    <!-- All Sample Edits -->
+    <% if @sample_developmental_edits.present? %>
+        <section class="job_card">
+            <h4>All Sample Edits</h4>
+            <p>This will be deleted.</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Word Count</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Destroy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @sample_developmental_edits.each do |edit| %>
+                        <tr>
+                            <td><%= link_to edit.title, services_sample_developmental_edit_path(edit) %></td>
+                            <td><%= edit.user.name.full %></td>
+                            <td><%= number_with_delimiter(edit.word_count) %></td>
+                            <td><%= edit.aasm_state %></td>
+                            <td><%= link_to "delete", services_sample_developmental_edit_path(edit), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %></td>
+                        </tr>
+                    <% end %> 
+                </tbody>
+            </table>
+        </section>
+    <% end %>
+
+</div>

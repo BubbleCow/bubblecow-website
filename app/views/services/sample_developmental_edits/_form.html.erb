@@ -16,13 +16,14 @@
   <!-- Sample developmental title -->
   <div class="form-group">
     <h3>Book Title:</h3>
+    <p>Include the title of your book.</p>
     <%= form.text_field :title, required: true, autofocus: true, class: 'form-control', placeholder: "Add your book's title." %>
   </div>
 
   <!-- Sample developmental edit word count -->
   <div class="form-group">
     <h3>Book Word Count:</h3>
-    <p>Please note that we have a minimum word count of 15,000 words.</p>
+    <p>Include the final word count of your complete manuscript.</p>
     <%= form.number_field :word_count, required: true, class: 'form-control', placeholder: "Add your book's total word count." %>
   </div>
 
@@ -43,8 +44,10 @@
 
   <!-- Sample developmental edit full manuscript  -->
   <div class="form-group">
-    <h3>Manuscript:</h3>
-    <p>Please attach your manuscript. Please note that we are unable to edit PDF files.</p>
+    <h3>Sample Manuscript:</h3>
+    <p>Please attach your manuscript.</p>
+    <p>We will edit the first 2000 words of your book, free of charge. You can either attached a manuscript that contains just the words your want editing, or you can attach the full book.</p> 
+    <p>Please note that we are unable to edit PDF files.</p>
     <%= form.file_field :sample_developmental_edit_manuscript, required: true, class: 'form-control' %>
   </div>
 

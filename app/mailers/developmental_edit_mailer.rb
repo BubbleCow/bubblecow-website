@@ -2,7 +2,7 @@ class DevelopmentalEditMailer < ApplicationMailer
     layout 'mailer' # use mailer.(html|text).erb as the layout
     default from: 'gary@bubblecow.com'
     
-    # Sends when new developmental edit is created
+    # Sends to user when new developmental edit is created
     def new_developmental_edit(user, developmental_edit)
         @user = user
         @developmental_edit = developmental_edit
@@ -10,7 +10,7 @@ class DevelopmentalEditMailer < ApplicationMailer
         :subject => "You have successfully submitted #{developmental_edit.title.titleize} for developmental editing" )
     end
 
-    # Sends when new developmental edit is created
+    # Sends to admin when new developmental edit is created
     def new_developmental_edit_admin(user, developmental_edit)
         @user = user
         @developmental_edit = developmental_edit

@@ -24,7 +24,6 @@ class DevelopmentalEdit < ApplicationRecord
     
     # Scopes
     scope :sorted_by_due_date, -> { order(developmental_edit_due_date: :asc) }
-
     scope :developmental_edit_submitted, -> { where(aasm_state: "developmental_edit_submitted") }
     scope :developmental_edit_rejected, -> { where(aasm_state: "developmental_edit_rejected") }
     scope :developmental_edit_accepted, -> { where(aasm_state: "developmental_edit_accepted") }
@@ -63,7 +62,8 @@ class DevelopmentalEdit < ApplicationRecord
 
     end
 
-    private    
+    private 
+
     def check_state
       case aasm_state 
 
@@ -116,4 +116,5 @@ class DevelopmentalEdit < ApplicationRecord
       end
 
     end
+    
 end

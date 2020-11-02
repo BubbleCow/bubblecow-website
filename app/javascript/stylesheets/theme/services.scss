@@ -29,25 +29,6 @@
     }
 }
 
-// MANUSCRIPT ASSESSMENT
-
-// SAMPLE DEVELOPMENTAL EDITS
-
-// DEVELOPMENTAL EDITS
-
-.developmental_edits_container {
-    display: flex;
-    flex-wrap: wrap;
-
-    .developmental_edit_job_card {
-        @include standard-border;
-        margin-right: 2rem;
-        margin-bottom: 2rem;
-        padding: 1rem;
-
-    }
-}
-
 // User show styling
 
 #developmental_edit_show_user {

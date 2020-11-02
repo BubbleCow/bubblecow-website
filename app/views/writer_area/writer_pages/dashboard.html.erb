@@ -25,7 +25,10 @@
             </svg>
 
             <p><%= link_to "Developmental Editing", services_developmental_editing_path %></p>
-            <p><%= link_to "Submit a book for editing", new_services_developmental_edit_path, class: "btn btn-outline-primary" %></p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to "Submit for editing", new_services_developmental_edit_path, class: "btn btn-outline-primary" %>
+            <%= link_to "Submit for sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary" %>
+            </div>
         </div>
 
         <!-- Mentoring -->

@@ -1,5 +1,5 @@
 <% if current_user.admin? %>
-  <%= render 'services/developmental_edits/show/admin', developmental_edit: @developmental_edit %>
+  <%= render 'services/developmental_edits/show/admin/overview', developmental_edit: @developmental_edit %>
 <% else %>
-  <%= render 'services/developmental_edits/show/user', developmental_edit: @developmental_edit %>
+  <%= render 'services/developmental_edits/show/writer/overview', developmental_edit: @developmental_edit %>
 <% end %>

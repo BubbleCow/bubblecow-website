@@ -1042,10 +1042,14 @@ Rails.application.routes.draw do
 
   # services
   namespace :services do
-    resources :genres, :sample_developmental_edits
+    resources :genres
+    resources :sample_developmental_edits do 
+      put 'sample_developmental_edit_accepted' => 'state_buttons#sample_developmental_edit_accepted', on: :member
+      put 'sample_developmental_edit_rejected' => 'state_buttons#sample_developmental_edit_rejected', on: :member
+    end
     resources :developmental_edits do
-      put 'developmental_edit_accepted' => 'state#developmental_edit_accepted', on: :member
-      put 'developmental_edit_rejected' => 'state#developmental_edit_rejected', on: :member
+      put 'developmental_edit_accepted' => 'state_buttons#developmental_edit_accepted', on: :member
+      put 'developmental_edit_rejected' => 'state_buttons#developmental_edit_rejected', on: :member
     end
     get 'manuscript-assessment', to: 'pages#manuscript_assessment'
 

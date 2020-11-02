@@ -14,8 +14,77 @@ class SampleDevelopmentalEdit < ApplicationRecord
     end
 
     has_rich_text :description
+    has_rich_text :note
     has_one_attached :sample_developmental_edit_manuscript
+    has_one_attached :sample_editors_report
+    has_one_attached :sample_edited_manuscript
 
     validates :title, presence: true
     validates :word_count, numericality: { greater_than_or_equal_to: 15000 }
+
+    # Scopes
+    scope :sorted_by_due_date, -> { order(developmental_edit_due_date: :asc) }
+
+    # DSample evelopmental edititng process 
+    aasm do
+        state :sample_developmental_edit_submitted, initial: true
+        state :sample_developmental_edit_rejected
+        state :sample_developmental_edit_accepted
+        state :sample_developmental_edit_editing_underway
+        state :sample_developmental_edit_returned
+
+        # Sample Developmental editing rejected
+        event :sample_developmental_edit_rejected do
+          transitions from: :sample_developmental_edit_submitted, to: :sample_developmental_edit_rejected
+        end
+
+
+        # Sample Developmental edit accepted    
+        event :sample_developmental_edit_accepted do
+          transitions from: :sample_developmental_edit_submitted, to: :sample_developmental_edit_accepted
+        end
+    
+      end
+
+    private 
+
+    def check_state
+      case aasm_state 
+
+      when "sample_developmental_edit_submitted"
+        #  Send email to user
+        SampleDevelopmentalEditMailer.new_sample_developmental_edit(self.user, self).deliver_now
+
+        # Send email to admin
+        SampleDevelopmentalEditMailer.new_sample_developmental_edit_admin(self.user, self).deliver_now
+      
+      when "sample_developmental_edit_rejected"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Rejected")
+
+        # Send email
+        SampleDevelopmentalEditMailer.sample_developmental_edit_rejected(self.user, self).deliver
+
+      when "sample_developmental_edit_accepted"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Accepted")                
+        
+        # Send email
+        # SampleDevelopmentalEditMailer.sample_developmental_edit_accepted(self.user, self).deliver
+      
+      when "sample_developmental_edit_editing_underway"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Sample Editing Underway") 
+
+      when "sample_developmental_edit_returned"
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Sample Edit Returned") 
+
+        # Send email
+        # SampleDevelopmentalEditMailer.sample_developmental_edit_returned(self.user, self).deliver
+
+      end
+
+    end
+
 end
