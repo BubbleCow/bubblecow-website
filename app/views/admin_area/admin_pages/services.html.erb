@@ -1,6 +1,19 @@
 <main class="" id="admin-area-dashboard">
     <h1>Services</h1>
 
+    <h2>Prices</h2>
+    <%= link_to "New Service Price", new_services_service_price_path, class: "btn btn-outline-primary"%>
+        <ul>
+        <% @service_prices.each do |price| %>
+            <li>
+                <%= link_to price.service_type, services_service_price_path(price) %> | 
+                <%= price.currency %> | 
+                <%= price.price %> | 
+                <%= link_to "x", services_service_price_path(price), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+            </li>
+        <% end %>
+    </ul>
+
     <h2>Developmental Edits</h2>
     <ul>
         <% @developmental_edits.each do |edit| %>

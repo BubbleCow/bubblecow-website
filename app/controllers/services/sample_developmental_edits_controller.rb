@@ -7,6 +7,9 @@ module Services
 
     def index
       @sample_developmental_edits = SampleDevelopmentalEdit.all
+      @sample_developmental_edit_submitted =  SampleDevelopmentalEdit.sample_developmental_edit_submitted
+      @sample_developmental_edit_accepted =  SampleDevelopmentalEdit.sample_developmental_edit_accepted
+      @sample_developmental_edit_editing_underway =  SampleDevelopmentalEdit.sample_developmental_edit_editing_underway
       authorize @sample_developmental_edits
     end
 

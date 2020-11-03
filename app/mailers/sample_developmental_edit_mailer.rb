@@ -18,7 +18,6 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         :subject => "#{sample_developmental_edit.title.titleize} has been submitted for sample developmental editing" )
     end    
 
-
     # Sends when sample developmental edit is rejected
     def sample_developmental_edit_rejected(user, sample_developmental_edit)
         @user = user
@@ -28,6 +27,26 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
             :subject => "Sample Developmental edit for #{sample_developmental_edit.title.titleize}",
         )
     end
+
+    # send emails to writer when sample edit is accepted
+    def sample_developmental_edit_accepted(user, sample_developmental_edit)
+        @user = user
+        @sample_developmental_edit = sample_developmental_edit
+        mail( 
+            :to => user.email,
+            :subject => "[IMPORTANT] Sample Developmental edit for #{sample_developmental_edit.title.titleize} has been accepted",
+        )
+    end
+
+    # Sends email to editor to tell them they have a sample edit 
+    def sample_developmental_edit_editing_underway_editor(user, sample_developmental_edit)
+        @user = user
+        @sample_developmental_edit = sample_developmental_edit
+            mail( 
+                :to => user.editor.email,
+                :subject => "#{sample_developmental_edit.title.titleize} has been assigned to your for sample editing" 
+            )
+        end    
     
 end
 

@@ -24,6 +24,9 @@ class SampleDevelopmentalEdit < ApplicationRecord
 
     # Scopes
     scope :sorted_by_due_date, -> { order(developmental_edit_due_date: :asc) }
+    scope :sample_developmental_edit_submitted, -> { where(aasm_state: "sample_developmental_edit_submitted") }
+    scope :sample_developmental_edit_accepted, -> { where(aasm_state: "sample_developmental_edit_accepted") }
+    scope :sample_developmental_edit_editing_underway, -> { where(aasm_state: "sample_developmental_edit_editing_underway") }
 
     # DSample evelopmental edititng process 
     aasm do
@@ -55,7 +58,7 @@ class SampleDevelopmentalEdit < ApplicationRecord
         #  Send email to user
         SampleDevelopmentalEditMailer.new_sample_developmental_edit(self.user, self).deliver_now
 
-        # Send email to admin
+        # Send email to admin 
         SampleDevelopmentalEditMailer.new_sample_developmental_edit_admin(self.user, self).deliver_now
       
       when "sample_developmental_edit_rejected"
@@ -69,12 +72,15 @@ class SampleDevelopmentalEdit < ApplicationRecord
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Accepted")                
         
-        # Send email
-        # SampleDevelopmentalEditMailer.sample_developmental_edit_accepted(self.user, self).deliver
+        # Send email to writer
+        SampleDevelopmentalEditMailer.sample_developmental_edit_accepted(self.user, self).deliver
       
       when "sample_developmental_edit_editing_underway"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Sample Editing Underway") 
+
+        # Send email to editor to tell them they have an edit
+        SampleDevelopmentalEditMailer.sample_developmental_edit_editing_underway_editor(self.user, self).deliver
 
       when "sample_developmental_edit_returned"
         # Update active campaign tag

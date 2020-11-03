@@ -1042,7 +1042,8 @@ Rails.application.routes.draw do
 
   # services
   namespace :services do
-    resources :genres
+    resources :genres 
+    resources :service_prices
     resources :sample_developmental_edits do 
       put 'sample_developmental_edit_accepted' => 'state_buttons#sample_developmental_edit_accepted', on: :member
       put 'sample_developmental_edit_rejected' => 'state_buttons#sample_developmental_edit_rejected', on: :member

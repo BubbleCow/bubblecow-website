@@ -21,9 +21,6 @@ module Services
       @page_title = @developmental_edit.title.titleize
       @editors = User.editor
       authorize @developmental_edit
-      if current_user.admin?
-        render layout: 'admin_template'
-      end
     end
 
     def new
@@ -84,6 +81,12 @@ module Services
           case action_name
           when 'index'
               'admin_template'
+          when 'show'
+            if current_user.admin?
+              'admin_template'
+            elsif current_user.writer?
+              'application'
+            end
           else
               'application'
           end

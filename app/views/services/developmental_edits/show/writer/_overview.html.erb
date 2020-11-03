@@ -1,10 +1,10 @@
-<main class="page" id="developmental_edit_show_user">
+<main class="page" id="sample_developmental_edit_writer_show">
 
-<div class="developmental_edit_show_user_header_row">
+<div class="services_edit_writer_show_header_row">
     <h1><%= @developmental_edit.title.titleize %></h1>
 </div>
 
-<div class="developmental_edit_show_user_left_column">
+<div class="services_edit_writer_show_left_column">
     <p> 
 	    <strong>Word Count</strong>: <%= number_with_delimiter(@developmental_edit.word_count) %> | 
         <strong>Genre</strong>: <%= @developmental_edit.genre.genre_type.titleize %> | 
@@ -33,7 +33,7 @@
 
 </div>
 
-<div class="developmental_edit_show_user_right_column">
+<div class="services_edit_writer_show_right_column">
 
     <div class="mobile_hidden section">
         <p class="title">Edit Status:</p>

@@ -27,6 +27,7 @@ module AdminArea
             @page_title = "Admin: Services"
             authorize [:admin_area, :admin_pages]
             @developmental_edits = DevelopmentalEdit.all
+            @service_prices = ServicePrice.all
         end
 
         def users
@@ -36,7 +37,6 @@ module AdminArea
             @writers = User.writers
             @editors = User.editors
             @admins = User.admin
-
         end
 
         private

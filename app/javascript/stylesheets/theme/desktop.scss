@@ -158,9 +158,10 @@
     padding: 2rem;
   }
 
-  // Developmental Editing
+  // Developmental and Sample Editing
 
-  #developmental_edit_show_user {
+  #developmental_edit_writer_show,
+  #sample_developmental_edit_writer_show {
     flex-direction: row;
     flex-wrap: wrap;
 
@@ -169,16 +170,16 @@
       margin-top: 0;
     }
 
-    .developmental_edit_show_user_header_row {
+    .services_edit_writer_show_header_row {
       width: 100%
     }
 
-    .developmental_edit_show_user_left_column {
+    .services_edit_writer_show_left_column {
       width: 57%;
       margin-right: 3%;
     }
 
-    .developmental_edit_show_user_right_column {
+    .services_edit_writer_show_right_column {
       width: 40%;
     }
   }
