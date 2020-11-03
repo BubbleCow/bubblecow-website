@@ -112,7 +112,6 @@ class DevelopmentalEdit < ApplicationRecord
 
          # Send email
          DevelopmentalEditMailer.developmental_edit_returned(self.user, self).deliver
-
       end
 
     end

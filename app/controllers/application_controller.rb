@@ -37,8 +37,8 @@ class ApplicationController < ActionController::Base
     end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency])
     end
 
     def after_sign_in_path_for(resource)
@@ -64,12 +64,29 @@ class ApplicationController < ActionController::Base
       ActiveCampaignService.new.contact_sync(current_user)
     end
 
-    # Finds user country
+    # Finds user country and adds correct currency
     def set_country
       if Rails.env.development?
         @country = "local host"
+        @currency = "usd"
       else
-        @country = request.location.country
+        case request.location.country_code
+        when "uk", "gb"
+          @country = request.location.country_code
+          @currency = "gbp"
+        when "us"
+          @country = request.location.country_code
+          @currency = "usd"
+        when "BE", "EL", "LT", "PT", "BG", "ES", "LU", "RO", "CZ", "FR", "HU", "SI", "DK", "HR", "MT", "SK", "DE", "IT", "NL", "FI", "EE", "CY", "AT", "SE", "IE", "LV", "PL"
+          @country = request.location.country_code
+          @currency = "euro"
+        when "au"
+          @country = request.location.country_code
+          @currency = "aud"
+        else
+          @country = request.location.country_code
+          @currency = "usd"
+        end
       end
     end
     

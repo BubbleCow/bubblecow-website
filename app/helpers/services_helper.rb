@@ -27,4 +27,14 @@ module ServicesHelper
 		end
 	end
 
+	# currency options
+	def currency_options
+		[['American Dollar $', 'usd'], ['British Pound £', 'gbp'], ['Euro E', 'euro'], ['Australian Dollar $', 'aud']]
+	end
+
+	# currency options
+	def country_options
+		[['United States', 'us'], ['Great Britian', 'gb']]
+	end
+
 end

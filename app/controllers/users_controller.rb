@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :role, :slug)
+      params.require(:user).permit(:email, :first_name, :last_name, :role, :slug, :country, :currency)
     end
   
     def set_template

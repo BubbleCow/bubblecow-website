@@ -1,4 +1,10 @@
-<p><%= @user.name.full %> </p>
-<p><%= @user.email %> </p>
-<p><%= @user.role %> </p>
+<main class="page" id="user-show">
+
+<p>Name:<%= @user.name.full %> </p>
+<p>Email:<%= @user.email %> </p>
+<p>Role: <%= @user.role %> </p>
+<p>Currency: <%= @user.currency %> </p>
+<p>Country: <%= @user.country %> </p>
 <p><%= link_to "Edit User", edit_user_path(@user) %>
+
+</main>
