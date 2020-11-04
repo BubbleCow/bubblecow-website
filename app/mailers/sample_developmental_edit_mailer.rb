@@ -1,6 +1,7 @@
 class SampleDevelopmentalEditMailer < ApplicationMailer
     layout 'mailer' # use mailer.(html|text).erb as the layout
     default from: 'gary@bubblecow.com'
+    helper :services
     
     # Sends to user when new sample developmental edit is created
     def new_sample_developmental_edit(user, sample_developmental_edit)
@@ -34,7 +35,7 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @sample_developmental_edit = sample_developmental_edit
         mail( 
             :to => user.email,
-            :subject => "[IMPORTANT] Sample Developmental edit for #{sample_developmental_edit.title.titleize} has been accepted",
+            :subject => "[IMPORTANT - ACTION NEEDED] Sample Developmental edit for #{sample_developmental_edit.title.titleize} has been accepted",
         )
     end
 
@@ -43,10 +44,20 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @user = user
         @sample_developmental_edit = sample_developmental_edit
             mail( 
-                :to => user.editor.email,
+                :to => sample_developmental_edit.editor.email,
                 :subject => "#{sample_developmental_edit.title.titleize} has been assigned to your for sample editing" 
             )
-        end    
+    end    
+
+    # Sends email to writer to say sample is ready
+    def sample_developmental_edit_returned(user, sample_developmental_edit)
+        @user = user
+        @sample_developmental_edit = sample_developmental_edit
+        mail( 
+            :to => user.email,
+            :subject => "[IMPORTANT] Your Sample Developmental edit for #{sample_developmental_edit.title.titleize} is ready to download",
+        )
+    end    
     
 end
 

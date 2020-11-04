@@ -3,6 +3,7 @@ module Services
   class SampleDevelopmentalEditsController < Services::ApplicationController
     before_action :authenticate_user!
     before_action :set_sample_developmental_edit, only: [:show, :edit, :update, :destroy]
+    before_action :set_service_price, only: [:new, :edit, :update]
     layout :set_template
 
     def index
@@ -36,6 +37,7 @@ module Services
       authorize @sample_developmental_edit
       respond_to do |format|
         if @sample_developmental_edit.save
+          @sample_developmental_edit.calculate_developmental_edit_quote(@service_price.price)
           format.html { redirect_to services_sample_developmental_edit_path(@sample_developmental_edit), notice: "#{@sample_developmental_edit.title.titleize} was successfully created." }
           format.json { render :show, status: :created, location: @sample_developmental_edit }
         else
@@ -49,6 +51,7 @@ module Services
       authorize @sample_developmental_edit
       respond_to do |format|
         if @sample_developmental_edit.update(sample_developmental_edit_params)
+          @sample_developmental_edit.calculate_developmental_edit_quote(@service_price.price)
           format.html { redirect_to services_sample_developmental_edit_path(@sample_developmental_edit), notice: "#{@sample_developmental_edit.title.titleize} was successfully updated." }
           format.json { render :show, status: :ok, location: @sample_developmental_edit }
         else
@@ -73,7 +76,7 @@ module Services
       end
 
       def sample_developmental_edit_params
-        params.require(:sample_developmental_edit).permit(:title, :user_id, :editor_id, :slug, :word_count, :language, :description, :genre_id, :aasm_state, :description, :sample_developmental_edit_manuscript, :sample_editors_report, :sample_edited_manuscript, :note, :sample_edit_return_date )
+        params.require(:sample_developmental_edit).permit(:title, :user_id, :editor_id, :slug, :word_count, :language, :description, :genre_id, :aasm_state, :description, :sample_developmental_edit_manuscript, :sample_editors_report, :sample_edited_manuscript, :note, :sample_edit_return_date, :developmental_editing_quote )
       end
 
       def set_template
@@ -85,6 +88,9 @@ module Services
           end
       end
     
+      def set_service_price
+        @service_price = ServicePrice.find_by(currency: @sample_developmental_edit.user.currency)
+      end
 
-  end
+    end
 end

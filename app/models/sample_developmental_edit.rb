@@ -48,6 +48,10 @@ class SampleDevelopmentalEdit < ApplicationRecord
         end
     
       end
+        
+      def calculate_developmental_edit_quote(service_price)
+        self.update_attribute(:developmental_editing_quote, service_price*self.word_count/1000)
+      end
 
     private 
 
@@ -69,6 +73,7 @@ class SampleDevelopmentalEdit < ApplicationRecord
         SampleDevelopmentalEditMailer.sample_developmental_edit_rejected(self.user, self).deliver
 
       when "sample_developmental_edit_accepted"
+
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Accepted")                
         
@@ -86,8 +91,8 @@ class SampleDevelopmentalEdit < ApplicationRecord
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Sample Edit Returned") 
 
-        # Send email
-        # SampleDevelopmentalEditMailer.sample_developmental_edit_returned(self.user, self).deliver
+        # Send email to writer to say edit is ready
+        SampleDevelopmentalEditMailer.sample_developmental_edit_returned(self.user, self).deliver
 
       end
 

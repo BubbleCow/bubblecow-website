@@ -57,7 +57,9 @@
         padding-bottom: 2rem;
     }
 
-    .services_edit_writer_show_right_column {}
+    .services_edit_writer_show_right_column {
+        word-break: break-all;
+    }
 }
 
 // MENTORING

@@ -28,13 +28,23 @@
       </svg>
 
       <%= link_to @sample_developmental_edit.user.name.full, user_path(@sample_developmental_edit.user) %> | 
-      <%= link_to @sample_developmental_edit.user.user_location(@sample_developmental_edit.user.country), user_path(@sample_developmental_edit.user) %> | 
+      <%= link_to @sample_developmental_edit.user.country, user_path(@sample_developmental_edit.user) %> | 
       
       <!-- User -->
 		  <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
         Change user
       <% end %>
     </p>
+
+
+    <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+        <div class="form-group">
+            <%= form.text_field :aasm_state, class: "form-control" %>
+        </div>
+            <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+    <% end %>
+
+
 
     <%= form_for([:services, @sample_developmental_edit]) do |form| %>
         <div class="form-group">

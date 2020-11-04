@@ -15,26 +15,34 @@ module ServicesHelper
 		end 
 	end
 
-	# predicts cost of developmental edit
-	def developmental_edit_cost_quote(sample_edit)
-		case sample_edit.user.country 
-		when "uk"
-			"£#{(sample_edit.word_count/1000)*15}" 
-		when "us"
-			"$#{(sample_edit.word_count/1000)*20}"
-		else
-			"$#{(sample_edit.word_count/1000)*20}" 
-		end
-	end
-
 	# currency options
 	def currency_options
 		[['American Dollar $', 'usd'], ['British Pound £', 'gbp'], ['Euro E', 'euro'], ['Australian Dollar $', 'aud']]
 	end
 
-	# currency options
+	# country options
 	def country_options
 		[['United States', 'us'], ['Great Britian', 'gb']]
+	end
+
+	# quote for developmental editing
+	def developmental_edit_quote(sample_edit)
+		@symbol =
+		case sample_edit.user.currency
+		when "usd"
+			"$"
+		when "gbp"
+			"£"
+		when "euro"
+			"e"
+		when "aud"
+			"$"
+		when 
+			"$"
+		end
+
+		@symbol + sample_edit.developmental_editing_quote.to_s
+
 	end
 
 end
