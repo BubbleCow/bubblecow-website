@@ -25,4 +25,9 @@ class AdminArea::AdminPagesPolicy < ApplicationPolicy
 		return true if user.present? && user.admin?
 	end
 
+	def genres?
+		# allow admin
+		return true if user.present? && user.admin?
+	end
+
 end

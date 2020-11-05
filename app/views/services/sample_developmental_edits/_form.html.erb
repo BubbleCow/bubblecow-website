@@ -38,7 +38,7 @@
   <div class="form-group">
     <h3>Book Genre:</h3>
     <p>Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
-    <%= form.collection_select :genre_id, Genre.all, :id, :genre_type, required: true, class: "form-control" %>
+    <%= form.collection_select :genre_id, Genre.all.order('genre_type ASC'), :id, :genre_type, required: true, class: "form-control" %>
   </div>
 
 

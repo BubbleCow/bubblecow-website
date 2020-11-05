@@ -26,7 +26,7 @@ module Services
       authorize @genre
       respond_to do |format|
         if @genre.save
-          format.html { redirect_to services_genre_path(@genre), notice: 'Genre was successfully created.' }
+          format.html { redirect_to admin_area_genres_path, notice: 'Genre was successfully created.' }
           format.json { render :show, status: :created, location: @genre }
         else
           format.html { render :new }
@@ -39,7 +39,7 @@ module Services
       authorize @genre
       respond_to do |format|
         if @genre.update(genre_params)
-          format.html { redirect_to services_genre_path(@genre), notice: 'Genre was successfully updated.' }
+          format.html { redirect_to admin_area_genres_path, notice: 'Genre was successfully updated.' }
           format.json { render :show, status: :ok, location: @genre }
         else
           format.html { render :edit }
@@ -52,7 +52,7 @@ module Services
       authorize @genre
       @genre.destroy
       respond_to do |format|
-        format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
+        format.html { redirect_to admin_area_genres_path, notice: 'Genre was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
