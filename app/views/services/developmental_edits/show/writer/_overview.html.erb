@@ -37,10 +37,10 @@
 
     <div class="mobile_hidden section">
         <p class="title">Edit Status:</p>
-        <%= render "/services/developmental_edits/show/user/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+        <%= render "/services/developmental_edits/show/writer/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
     </div>
 
-    <div class="section">
+    <div class="section overlap-fix">
         <p class="title">Files:</p>
 
         <ul>
