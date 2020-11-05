@@ -25,7 +25,7 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @sample_developmental_edit = sample_developmental_edit
         mail( 
             :to => user.email,
-            :subject => "Sample Developmental edit for #{sample_developmental_edit.title.titleize}",
+            :subject => "Sample developmental edit for #{sample_developmental_edit.title.titleize}",
         )
     end
 
@@ -35,7 +35,7 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @sample_developmental_edit = sample_developmental_edit
         mail( 
             :to => user.email,
-            :subject => "[IMPORTANT - ACTION NEEDED] Sample Developmental edit for #{sample_developmental_edit.title.titleize} has been accepted",
+            :subject => "Sample developmental edit for #{sample_developmental_edit.title.titleize} has been accepted",
         )
     end
 
@@ -55,7 +55,7 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @sample_developmental_edit = sample_developmental_edit
         mail( 
             :to => user.email,
-            :subject => "[IMPORTANT] Your Sample Developmental edit for #{sample_developmental_edit.title.titleize} is ready to download",
+            :subject => "Your sample developmental edit for #{sample_developmental_edit.title.titleize} is ready to download",
         )
     end    
     

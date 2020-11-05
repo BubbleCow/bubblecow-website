@@ -3,8 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
-  after_create :set_country_and_currency
-
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :developmental_edits, dependent: :destroy

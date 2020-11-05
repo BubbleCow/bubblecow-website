@@ -34,6 +34,7 @@ module Services
 
     def create
       @sample_developmental_edit = current_user.sample_developmental_edits.new(sample_developmental_edit_params)
+      @service_price = ServicePrice.find_by(currency: current_user.currency)
       authorize @sample_developmental_edit
       respond_to do |format|
         if @sample_developmental_edit.save
@@ -89,7 +90,7 @@ module Services
       end
     
       def set_service_price
-        @service_price = ServicePrice.find_by(currency: @sample_developmental_edit.user.currency)
+        @service_price = ServicePrice.find_by(currency: current_user.currency)
       end
 
     end
