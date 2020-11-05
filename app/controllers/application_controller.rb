@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
         @currency = "usd"
       else
         case request.location.country_code
-        when "uk", "gb"
+        when "UK", "GB"
           @country = request.location.country_code
           @currency = "gbp"
         when "us"
@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
         when "BE", "EL", "LT", "PT", "BG", "ES", "LU", "RO", "CZ", "FR", "HU", "SI", "DK", "HR", "MT", "SK", "DE", "IT", "NL", "FI", "EE", "CY", "AT", "SE", "IE", "LV", "PL"
           @country = request.location.country_code
           @currency = "euro"
-        when "au"
+        when "AU"
           @country = request.location.country_code
           @currency = "aud"
         else
