@@ -39,6 +39,12 @@ module AdminArea
             @admins = User.admin
         end
 
+        def genres
+            @page_title = "Admin: Genre"
+            authorize [:admin_area, :admin_pages]
+            @genres = Genre.all.order('genre_type ASC')
+        end
+
         private
 
         def remove_footer

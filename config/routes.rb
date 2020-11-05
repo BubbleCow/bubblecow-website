@@ -1031,6 +1031,7 @@ Rails.application.routes.draw do
     get 'testimonials', to: 'admin_pages#testimonials'
     get 'services', to: 'admin_pages#services'
     get 'users', to: 'admin_pages#users'
+    get 'genres', to: 'admin_pages#genres'
     root to: "admin_pages#dashboard"
   end
 
