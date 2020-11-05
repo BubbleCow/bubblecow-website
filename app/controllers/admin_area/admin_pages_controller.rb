@@ -45,6 +45,12 @@ module AdminArea
             @genres = Genre.all.order('genre_type ASC')
         end
 
+        def prices
+            @page_title = "Admin: prices"
+            authorize [:admin_area, :admin_pages]
+            @service_prices = ServicePrice.all
+        end
+
         private
 
         def remove_footer

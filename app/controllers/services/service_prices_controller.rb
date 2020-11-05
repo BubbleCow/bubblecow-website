@@ -26,7 +26,7 @@ module Services
         authorize  @service_price
         respond_to do |format|
           if @service_price.save
-            format.html { redirect_to services_service_price_path(@service_price), notice: 'Service price was successfully created.' }
+            format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully created.' }
           else
             format.html { render :new }
           end
@@ -37,7 +37,7 @@ module Services
         authorize  @service_price
         respond_to do |format|
           if @service_price.update(service_price_params)
-            format.html { redirect_to services_service_price_path(@service_price), notice: 'Service price was successfully updated.' }
+            format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully updated.' }
           else
             format.html { render :edit }
           end
@@ -48,7 +48,7 @@ module Services
         authorize  @service_price
         @service_price.destroy
         respond_to do |format|
-          format.html { redirect_to root_path, notice: 'Service price was successfully destroyed.' }
+          format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully destroyed.' }
         end
     end
   

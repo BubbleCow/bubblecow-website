@@ -1,0 +1,12 @@
+<main class="" id="admin-area-prices">
+
+    <div class="admin-card">
+        <p><%= link_to "New Service Price", new_services_service_price_path, class: "btn btn-sm btn-outline-primary" %></p>
+        <ul>
+            <% @service_prices.each do |price| %>
+                <li><%= link_to price.service_type, services_service_price_path(price) %> | <%= link_to "edit", edit_services_service_price_path(price) %> | <%= price.currency %> | <%= price.price %> | <%= link_to "delete", services_service_price_path(price), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %></li>
+            <% end %>
+        </ul>
+    </div>
+
+</main>

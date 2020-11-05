@@ -1032,6 +1032,7 @@ Rails.application.routes.draw do
     get 'services', to: 'admin_pages#services'
     get 'users', to: 'admin_pages#users'
     get 'genres', to: 'admin_pages#genres'
+    get 'prices', to: 'admin_pages#prices'
     root to: "admin_pages#dashboard"
   end
 
