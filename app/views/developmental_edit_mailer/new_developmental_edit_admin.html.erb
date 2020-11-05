@@ -1,0 +1,8 @@
+<p>A new book has been submitted for developmental editing.</p>
+<ul>
+    <li>Title: <%= @developmental_edit.title.titleize %></li>
+    <li>Writer: <%= @developmental_edit.user.name.full %></li>
+    <li>Word Count: <%= number_with_delimiter(@developmental_edit.word_count) %></li>
+    <li>Genre: <%= @developmental_edit.genre.genre_type %></li>
+</ul>
+

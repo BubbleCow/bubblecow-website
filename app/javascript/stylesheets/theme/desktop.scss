@@ -2,6 +2,16 @@
 
 @media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
 
+  // HELPERS
+
+  .mobile_hidden {
+    display: block;
+  }
+
+  .desktop_hidden {
+    display: none;
+  }
+
   // DEVISE 
 
   /* log in form */
@@ -140,11 +150,78 @@
     }
   }
 
+  // SERVICES
+
+  // Developmental Edits
+
+  .developmental-edits-book-form {
+    padding: 2rem;
+  }
+
+  // Developmental and Sample Editing
+
+  #developmental_edit_writer_show,
+  #sample_developmental_edit_writer_show {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .section {
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
+    .services_edit_writer_show_header_row {
+      width: 100%
+    }
+
+    .services_edit_writer_show_left_column {
+      width: 57%;
+      margin-right: 3%;
+    }
+
+    .services_edit_writer_show_right_column {
+      width: 40%;
+    }
+  }
+
+  // WRITER AREA
+
+  .writer-dashboard-service-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .writer-dashboard-service-card {
+      width: 31%;
+      margin-right: 2%;
+    }
+
+  }
+
+  .writer-dashboard-developmental-edits-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .writer-dashboard-developmental-edits-card {
+      width: 31%;
+      margin-right: 2%;
+    }
+  }
 
   // CONTACT
 
   #contact {
     width: 40%;
   }
+
+  // FOOTER
+  .page-footer {
+    .page-footer-content {
+      justify-content: space-between;
+      width: 55%;
+    }
+  }
+
 
 }

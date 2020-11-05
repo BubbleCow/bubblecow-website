@@ -995,16 +995,27 @@ Rails.application.routes.draw do
   get "/blog/see-how-easily-you-can-write-a-novel-using-the-snowflake-method", to: redirect('https://proactivewriter.com/blog/use-the-snowflake-method-of-writing-in-10-easy-steps-how-to-start-writing-a-novel-for-beginners-updated')
   get "/blog/show-don-t-tell-and-become-a-better-writer", to: redirect('/blog/show-don-t-tell-and-how-to-become-a-better-writer')
   get "/blog/third-person-viewpoinr/", to: redirect('/blog/third-person-viewpoint')
+  
+  # Redirects after creating services 
+  get "/book_editing", to: redirect('/services')
+  get "/content_editing", to: redirect('/services')
+  get "/substantive_editing", to: redirect('/services')
+  get "/manuscript_editing", to: redirect('/services')
+  get "/novel_editing", to: redirect('/services')  
+  
   # FROM HERE
+
+  get "book-editing", to: redirect('/services/book-editing')
 
   resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
+  # resources :users, only: [:show]
 
   #  Trix youtube plugin
   resource :embed, only: :update
 
-  # admin
+  # NOT USING THIS!
   namespace :admin do
     resources :users
     resources :announcements
@@ -1012,30 +1023,57 @@ Rails.application.routes.draw do
     resources :services
     root to: "users#index"
   end
+  
+  # admin area
+  namespace :admin_area do
+    get 'dashboard', to: 'admin_pages#dashboard'
+    get 'blog', to: 'admin_pages#blog'
+    get 'testimonials', to: 'admin_pages#testimonials'
+    get 'services', to: 'admin_pages#services'
+    get 'users', to: 'admin_pages#users'
+    root to: "admin_pages#dashboard"
+  end
+
+  # writer area
+  namespace :writer_area do
+    get 'dashboard', to: 'writer_pages#dashboard'
+    root to: "writer_pages#dashboard"
+  end
 
   # services
   namespace :services do
-    resources :developmental_edits
+    resources :genres 
+    resources :service_prices
+    resources :sample_developmental_edits do 
+      put 'sample_developmental_edit_accepted' => 'state_buttons#sample_developmental_edit_accepted', on: :member
+      put 'sample_developmental_edit_rejected' => 'state_buttons#sample_developmental_edit_rejected', on: :member
+    end
+    resources :developmental_edits do
+      put 'developmental_edit_accepted' => 'state_buttons#developmental_edit_accepted', on: :member
+      put 'developmental_edit_rejected' => 'state_buttons#developmental_edit_rejected', on: :member
+    end
+    get 'manuscript-assessment', to: 'pages#manuscript_assessment'
+
+    get 'book-editing', to: 'pages#developmental_editing'
+    get 'developmental-editing', to: 'pages#developmental_editing'
+    get 'content-editing', to: 'pages#developmental_editing'
+    get 'substantive-editing', to: 'pages#developmental_editing'
+    get 'novel-editing', to: 'pages#developmental_editing'
+    get 'manuscript-editing', to: 'pages#developmental_editing'
+
+    get 'mentoring', to: 'pages#mentoring'
+    
+    get 'copy-editing', to: 'pages#copy_editing'
+    get 'proofreading', to: 'pages#copy_editing'
+    
+    get 'file-safety', to: 'pages#file_safety'
+    
     root to: "pages#index"
   end
 
   # pages
-  get '/about', to: 'page#about'
-  get '/admin_dashboard', to: 'page#admin_dashboard'
-  get '/dashboard', to: 'page#writer_dashboard'
-  get '/writing_manual', to: 'page#writing_manual'
-  
-  # Editorial Services
-  get '/book-editing', to: 'editorial_services#book_editing'
-  get '/developmental-editing', to: 'editorial_services#developmental_editing'
-  get '/content-editing', to: 'editorial_services#content_editing'
-  get '/substantive-editing', to: 'editorial_services#substantive_editing'
-  get '/novel-editing', to: 'editorial_services#novel_editing'
-  get '/manuscript-editing', to: 'editorial_services#manuscript_editing'
-  get '/copy-editing', to: 'editorial_services#copy_editing'
-  get '/full-service', to: 'editorial_services#full_service'
-  get '/pricing', to: 'editorial_services#pricing'
-  get '/file-safety', to: 'editorial_services#file_safety'
+  get 'about', to: 'customer_pages#about'
+  get 'writing_manual', to: 'customer_pages#writing_manual'
 
   # Blog
   namespace :blog do
@@ -1063,8 +1101,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  # Users
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  
-  root to: 'page#index'
+  resources :users, :only => [:show, :edit, :update, :destroy]  
+ 
+  root to: 'customer_pages#index'
 
 end

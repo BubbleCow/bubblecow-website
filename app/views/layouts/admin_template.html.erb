@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+      <%= render 'shared/notices' %>
+      
+      <main class="admin-container">
+
+         <nav class="admin-side-navigation">
+            <%= render 'shared/admin/navigation/side_navigation' %>
+         </nav>
+    
+         <section class="admin-main">
+        
+            <section class="admin-top-navigation">
+               <%= render 'shared/admin/navigation/top_navigation' %>
+            </section>
+ 
+            <section class="admin-information">
+               <%= yield %>
+            </section>
+    
+         </section>
+
+      </main>
+  </body>
+</html>

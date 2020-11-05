@@ -1,0 +1,21 @@
+<p>This sample is being edited.</p>
+
+<p>Upload files when edit is complete.</p>
+
+ <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+    <div class="form-group">
+        <h5>Sample Editor's Report:</h5>
+        <%= form.file_field :sample_editors_report, required: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <h5>Edited Sample Manuscript:</h5>
+        <%= form.file_field :sample_edited_manuscript, required: true, class: 'form-control' %>
+        <%= form.hidden_field :aasm_state, value: "sample_developmental_edit_returned" %>
+        <%= form.hidden_field :sample_edit_return_date, value: Date.today %>
+    </div>
+
+    <div class="form-group">
+        <%= form.button "Upload Files", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
+    </div>
+<% end %>

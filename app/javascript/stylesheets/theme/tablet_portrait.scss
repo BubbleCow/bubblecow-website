@@ -72,5 +72,18 @@
     margin-top: 2rem;
   }
 
+  // WRITER AREA
+
+  .writer-dashboard-service-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .writer-dashboard-service-card {
+      width: 31%;
+      margin-right: 2%;
+    }
+
+  }
 
 }
