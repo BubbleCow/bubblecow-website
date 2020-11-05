@@ -58,7 +58,9 @@
     }
 
     .services_edit_writer_show_right_column {
-        word-break: break-all;
+        .overlap-fix {
+            word-break: break-all;
+        }
     }
 }
 

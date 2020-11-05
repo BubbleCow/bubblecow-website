@@ -47,20 +47,18 @@
 <h3>Your Books</h3>
 
     <div class="writer-dashboard-developmental-edits-cards">
-        
+
         <!-- Jobs -->
-        <% @sample_developmental_edits.each do |edit| %>
+        <% @jobs.each do |edit| %>
             <div class="writer-dashboard-developmental-edits-card  <%= is_being_edited?(edit.aasm_state) %>" >
                 <h4><%= edit.title.titleize %></h4> 
-                <p>Sample Developmental Edit</p>
-                <p><%= link_to "Go to book", services_sample_developmental_edit_path(edit), class: "btn btn-outline-primary" %></p>
-            </div>
-        <% end %>
-        <% @developmental_edits.each do |edit| %>
-            <div class="writer-dashboard-developmental-edits-card  <%= is_being_edited?(edit.aasm_state) %>" >
-                <p><%= edit.title.titleize %></p> 
-                <p>Developmental Edit</p>
-                <p><%= link_to "Go to book", services_developmental_edit_path(edit), class: "btn btn-outline-primary" %></p>
+                <% if edit.class == DevelopmentalEdit %>
+                    <p>Developmental Edit</p>
+                    <p><%= link_to "Go to book", services_developmental_edit_path(edit), class: "btn btn-outline-primary" %></p>
+                <% elsif edit.class == SampleDevelopmentalEdit %>
+                    <p>Sample Developmental Edit</p>
+                    <p><%= link_to "Go to book", services_sample_developmental_edit_path(edit), class: "btn btn-outline-primary" %></p>
+                <% end %>
             </div>
         <% end %>
 
