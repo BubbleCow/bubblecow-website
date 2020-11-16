@@ -50,7 +50,6 @@
             <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
               <% if current_user.writer? %>
                 <%= link_to "Dashboard", writer_area_root_path, class: "dropdown-item" %>
-                <em><%= link_to "Old Site", "https://services.bubblecow.com/", class: "dropdown-item" %></em>
               <% end %>
               <% if current_user.admin? %>
                 <%= link_to "Dashboard", admin_area_root_path, class: "dropdown-item" %>

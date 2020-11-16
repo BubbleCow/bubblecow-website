@@ -68,8 +68,11 @@ class DevelopmentalEdit < ApplicationRecord
       case aasm_state 
 
       when "developmental_edit_submitted"
-        # Send email to user
-        DevelopmentalEditMailer.new_developmental_edit(self.user, self).deliver_now
+        # Update active campaign tag
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Submitted")
+
+        # # Send email to user
+        # DevelopmentalEditMailer.new_developmental_edit(self.user, self).deliver_now
 
         # Send email to admin
         DevelopmentalEditMailer.new_developmental_edit_admin(self.user, self).deliver_now
@@ -78,29 +81,29 @@ class DevelopmentalEdit < ApplicationRecord
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Rejected")
 
-        # Send email
-        DevelopmentalEditMailer.developmental_edit_rejected(self.user, self).deliver
+        # # Send email
+        # DevelopmentalEditMailer.developmental_edit_rejected(self.user, self).deliver
 
       when "developmental_edit_accepted"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Accepted")                
         
-        # Send email
-        DevelopmentalEditMailer.developmental_edit_accepted(self.user, self).deliver
+        # # Send email
+        # DevelopmentalEditMailer.developmental_edit_accepted(self.user, self).deliver
 
       when "developmental_edit_invoice_sent"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Invoice Sent") 
 
         # Send email
-        DevelopmentalEditMailer.developmental_edit_invoice_sent(self.user, self).deliver
+        # DevelopmentalEditMailer.developmental_edit_invoice_sent(self.user, self).deliver
 
       when "developmental_edit_invoice_paid"
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Invoice Paid") 
 
         # Send email
-        DevelopmentalEditMailer.developmental_edit_invoice_paid(self.user, self).deliver
+        # DevelopmentalEditMailer.developmental_edit_invoice_paid(self.user, self).deliver
       
       when "developmental_edit_editing_underway"
         # Update active campaign tag
@@ -111,7 +114,7 @@ class DevelopmentalEdit < ApplicationRecord
          ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Edit Returned") 
 
          # Send email
-         DevelopmentalEditMailer.developmental_edit_returned(self.user, self).deliver
+        #  DevelopmentalEditMailer.developmental_edit_returned(self.user, self).deliver
       end
 
     end
