@@ -80,8 +80,8 @@ class SampleDevelopmentalEdit < ApplicationRecord
         # Update active campaign tag
         ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Accepted")                
         
-        # # Send email to writer
-        # SampleDevelopmentalEditMailer.sample_developmental_edit_accepted(self.user, self).deliver
+        # Send email to writer
+        SampleDevelopmentalEditMailer.sample_developmental_edit_accepted(self.user, self).deliver
       
       when "sample_developmental_edit_editing_underway"
         # Update active campaign tag
@@ -92,7 +92,7 @@ class SampleDevelopmentalEdit < ApplicationRecord
 
       when "sample_developmental_edit_returned"
         # Update active campaign tag
-        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Developmental Editing - Edit Returned") 
+        ActiveCampaignService.new.contact_tag_add(self.user.email, "Product - Sample Developmental Editing - Edit Returned") 
 
         # # Send email to writer to say edit is ready
         # SampleDevelopmentalEditMailer.sample_developmental_edit_returned(self.user, self).deliver
