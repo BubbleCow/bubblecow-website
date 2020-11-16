@@ -10,6 +10,11 @@
     
     <%= yield %>
     
-    <%= render 'shared/footer' %>
+    <% if @footer != "no footer" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
+    <%= render 'shared/live_chat' %>
+
   </body>
 </html>

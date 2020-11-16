@@ -1,0 +1,35 @@
+<%= form_for([:services, @genre]) do |form| %>
+
+  <% if genre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+
+      <ul>
+      <% genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :genre_type %>
+    <%= form.text_field :genre_type, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if genre.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', services_genre_path(@genre), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if genre.persisted? %>
+      <%= link_to "Cancel", services_genre_path(@genre), class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", services_genres_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,318 @@
+<div class="admin-information-left">
+    <h1 class="book-title"><%= @sample_developmental_edit.title.titleize %></h1>
+    <p>
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journals" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2z"/>
+        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2zM1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+      </svg>
+        <!-- Word count -->
+	      <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
+            <%= number_with_delimiter(@sample_developmental_edit.word_count) %> | 
+        <% end %>
+
+        <!-- Genre -->
+		    <%= link_to '#', data: { toggle: 'modal', target: '#genreModal' } do %>
+            <%= @sample_developmental_edit.genre.genre_type.titleize %> | 
+        <% end %> 
+        
+        <!-- Language -->
+        <%= link_to '#', data: { toggle: 'modal', target: '#languageModal' } do %>
+          <%= @sample_developmental_edit.language.titleize %> 
+        <% end %> 
+
+    </p>
+    
+    <p>
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+      </svg>
+
+      <%= link_to @sample_developmental_edit.user.name.full, user_path(@sample_developmental_edit.user) %> | 
+      <%= link_to @sample_developmental_edit.user.country, user_path(@sample_developmental_edit.user) %> | 
+      
+      <!-- User -->
+		  <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
+        Change user
+      <% end %>
+    </p>
+
+    <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+        <div class="form-group">
+            <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+        </div>
+            <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+    <% end %>
+</div>
+
+<div class="admin-information-right">
+
+    <div class="section">
+        <%= render "/services/sample_developmental_edits/show/admin/status/#{@sample_developmental_edit.aasm.current_state}", developmental_edit: @sample_developmental_edit %>
+    </div>
+
+    <div class="section small-menu">
+        <p class="title">Editor Notes:</p>
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
+            </div>
+                <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+        <% end %>
+    </div>
+
+    <div class="section">
+        <p class="title">Files:</p>
+
+        <ul>
+            <% if @sample_developmental_edit.sample_developmental_edit_manuscript.present? %>
+                <li>
+                  Unedited Manuscript: <%= link_to @sample_developmental_edit.sample_developmental_edit_manuscript.filename, rails_blob_path(@sample_developmental_edit.sample_developmental_edit_manuscript, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#uneditedModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+            <% if @sample_developmental_edit.sample_editors_report.present? %>
+                <li>
+                  Sample Editor's Report: <%= link_to @sample_developmental_edit.sample_editors_report.filename, rails_blob_path(@sample_developmental_edit.sample_editors_report, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#editorsreportModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+            <% if @sample_developmental_edit.sample_edited_manuscript.present? %>
+                <li>
+                  Edited Sample Manuscript: <%= link_to @sample_developmental_edit.sample_edited_manuscript.filename, rails_blob_path(@sample_developmental_edit.sample_edited_manuscript, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#editedmanuscriptModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+        </ul>
+        
+    </div>
+
+</div>
+
+<!-- Langauage Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Language</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.select :language, [['American English'], ['British English']], class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Genre Modal -->
+<div class="modal fade" id="genreModal" tabindex="-1" role="dialog" aria-labelledby="genreModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Genre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.collection_select :genre_id, Genre.all, :id, :genre_type, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wordcount Modal -->
+<div class="modal fade" id="wordcountModal" tabindex="-1" role="dialog" aria-labelledby="wordcountModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Word Count</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.number_field :word_count, class: 'form-control', placeholder: "Add your book's total word count." %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Change user Modal -->
+<div class="modal fade" id="changeuserModal" tabindex="-1" role="dialog" aria-labelledby="changeuserModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.collection_select(:user_id, User.all.order('last_name ASC'), :id, :full_name, class: "form-control" ) %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Unedited manuscript modal -->
+<div class="modal fade" id="uneditedModal" tabindex="-1" role="dialog" aria-labelledby="uneditedModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Unedtied Manuscript</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_developmental_edit_manuscript.present? %>
+                <p><%= @sample_developmental_edit.sample_developmental_edit_manuscript.filename %></p>
+              <% end %>
+                <%= form.file_field :fsample_developmental_edit_manuscript, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editor's report modal -->
+<div class="modal fade" id="editorsreportModal" tabindex="-1" role="dialog" aria-labelledby="editorsreportModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editor's Report</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_editors_report.present? %>
+                <p><%= @sample_developmental_edit.sample_editors_report.filename %></p>
+              <% end %>
+                <%= form.file_field :sample_editors_report, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edited manuscript modal -->
+<div class="modal fade" id="editedmanuscriptModal" tabindex="-1" role="dialog" aria-labelledby="editedmanuscriptModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edited Manuscript</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_edited_manuscript.present? %>
+                <p><%= @sample_developmental_edit.sample_edited_manuscript.filename %></p>
+              <% end %>
+                <%= form.file_field :sample_edited_manuscript, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editor modal -->
+<div class="modal fade" id="editorModal" tabindex="-1" role="dialog" aria-labelledby="editorModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <%= form.select :editor_id, [['Gary Smailes', 1]], :required => true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Update editor", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

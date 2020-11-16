@@ -1,38 +1,43 @@
 module Services
-  class DevelopmentalEditsController < Services::ApplicationController
-    before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
 
-    # GET /developmental_edits
-    # GET /developmental_edits.json
+  class DevelopmentalEditsController < Services::ApplicationController
+    before_action :authenticate_user!
+    before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
+    layout :set_template
+
     def index
       @developmental_edits = DevelopmentalEdit.all
+      @developmetal_edits_submitted = DevelopmentalEdit.developmental_edit_submitted
+      @developmental_edits_accepted = DevelopmentalEdit.developmental_edit_accepted
+      @developmental_edits_rejected = DevelopmentalEdit.developmental_edit_rejected
+      @developmental_edit_invoice_sent = DevelopmentalEdit.developmental_edit_invoice_sent
+      @developmental_edit_invoice_paid = DevelopmentalEdit.developmental_edit_invoice_paid
+      @developmental_edit_editing_underway = DevelopmentalEdit.developmental_edit_editing_underway.sorted_by_due_date
+      @developmental_edits_returned = DevelopmentalEdit.developmental_edit_returned
+      authorize @developmental_edits
     end
 
-    # GET /developmental_edits/1
-    # GET /developmental_edits/1.json
     def show
+      @page_title = @developmental_edit.title.titleize
+      @editors = User.editor
+      authorize @developmental_edit
     end
 
-    # GET /developmental_edits/new
     def new
-      @developmental_edit = DevelopmentalEdit.new
+      @developmental_edit = current_user.developmental_edits.new
+      authorize @developmental_edit
     end
 
-    # GET /developmental_edits/1/edit
     def edit
+      authorize @developmental_edit
     end
 
-    # POST /developmental_edits
-    # POST /developmental_edits.json
     def create
       @developmental_edit = current_user.developmental_edits.new(developmental_edit_params)
-
+      authorize @developmental_edit
       respond_to do |format|
         if @developmental_edit.save
-          # Deliver email
-          DevelopmentalEditMailer.new_developmental_edit(@developmental_edit.user).deliver_now
-
-          format.html { redirect_to root_path, notice: 'Developmental edit was successfully created.' }
+          format.html { redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully created." }
           format.json { render :show, status: :created, location: @developmental_edit }
         else
           format.html { render :new }
@@ -41,12 +46,11 @@ module Services
       end
     end
 
-    # PATCH/PUT /developmental_edits/1
-    # PATCH/PUT /developmental_edits/1.json
     def update
+      authorize @developmental_edit
       respond_to do |format|
         if @developmental_edit.update(developmental_edit_params)
-          format.html { redirect_to root_path, notice: 'Developmental edit was successfully updated.' }
+          format.html { redirect_to services_developmental_edit_path(@developmental_edit), notice: "#{@developmental_edit.title.titleize} was successfully updated." }
           format.json { render :show, status: :ok, location: @developmental_edit }
         else
           format.html { render :edit }
@@ -55,26 +59,39 @@ module Services
       end
     end
 
-    # DELETE /developmental_edits/1
-    # DELETE /developmental_edits/1.json
     def destroy
+      authorize @developmental_edit
       @developmental_edit.destroy
       respond_to do |format|
-        format.html { redirect_to developmental_edits_url, notice: 'Developmental edit was successfully destroyed.' }
+        format.html { redirect_to admin_area_services_path, notice: 'Developmental edit was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
       def set_developmental_edit
         @developmental_edit = DevelopmentalEdit.friendly.find(params[:id])
       end
 
-      # Only allow a list of trusted parameters through.
       def developmental_edit_params
-        params.require(:developmental_edit).permit(:title, :user_id, :slug)
+        params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
       end
+
+      def set_template
+          case action_name
+          when 'index'
+              'admin_template'
+          when 'show'
+            if current_user.admin?
+              'admin_template'
+            elsif current_user.writer?
+              'application'
+            end
+          else
+              'application'
+          end
+      end
+    
 
   end
 end

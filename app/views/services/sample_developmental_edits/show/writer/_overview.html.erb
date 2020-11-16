@@ -1,0 +1,64 @@
+<main class="page" id="developmental_edit_writer_show">
+
+<div class="services_edit_writer_show_header_row">
+    <h1><%= @sample_developmental_edit.title.titleize %></h1>
+</div>
+
+<div class="services_edit_writer_show_left_column">
+    <p> 
+	    <strong>Word Count</strong>: <%= number_with_delimiter(@sample_developmental_edit.word_count) %> | 
+        <strong>Genre</strong>: <%= @sample_developmental_edit.genre.genre_type.titleize %> | 
+        <strong>Language</strong>: <%= @sample_developmental_edit.language.titleize %> 
+    </p>
+
+    <div class="desktop_hidden section">
+        <p class="title">Sample Edit Status:</p>
+        <%= render "/services/sample_developmental_edits/show/writer/status/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
+    </div>
+
+    <div class="small-menu">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+            </div>
+                <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+        <% end %>
+    </div>
+
+</div>
+
+<div class="services_edit_writer_show_right_column">
+
+    <div class="mobile_hidden section">
+        <p class="title">Sample Edit Status:</p>
+        <%= render "/services/sample_developmental_edits/show/writer/status/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
+    </div>
+
+    <div class="section overlap-fix">
+        <p class="title">Files:</p>
+
+        <ul>
+            <% if @sample_developmental_edit.sample_developmental_edit_manuscript.present? %>
+                <li>
+                  Unedited Manuscript: <%= link_to @sample_developmental_edit.sample_developmental_edit_manuscript.filename, rails_blob_path(@sample_developmental_edit.sample_developmental_edit_manuscript, disposition: "attachment") %> 
+                </li>
+            <% end %>
+            <% if @sample_developmental_edit.sample_editors_report.present? %>
+                <li>
+                  Editor's Report: <%= link_to @sample_developmental_edit.sample_editors_report.filename, rails_blob_path(@sample_developmental_edit.sample_editors_report, disposition: "attachment") %> 
+                </li>
+            <% end %>
+            <% if @sample_developmental_edit.sample_edited_manuscript.present? %>
+                <li>
+                  Edited Manuscript: <%= link_to @sample_developmental_edit.sample_edited_manuscript.filename, rails_blob_path(@sample_developmental_edit.sample_edited_manuscript, disposition: "attachment") %> 
+                </li>
+            <% end %>
+        </ul>
+        
+    </div>
+
+</div>
+
+
+
+</main>

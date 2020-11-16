@@ -1,0 +1,5 @@
+<% if current_user.admin? %>
+  <%= render 'services/sample_developmental_edits/index/admin/overview', sample_developmental_edit: @sample_developmental_edit %>
+<% else %>
+  <%= render 'services/sample_developmental_edits/index/writer/overview', sample_developmental_edit: @sample_developmental_edit %>
+<% end %>

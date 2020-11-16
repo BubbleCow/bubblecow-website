@@ -1,16 +1,19 @@
 @import "/theme/variables";
-@import "/theme/global";
+@import "/theme/defaults";
 @import "/theme/navbar";
+@import "/theme/trix";
 @import "/theme/devise";
 @import "/theme/pages";
 @import "/theme/blog";
 @import "/theme/post";
-@import "/theme/post-form";
+@import "/theme/post_form";
 @import "/theme/home";
 @import "/theme/book_editing";
 @import "/theme/testimonials";
-
-
+@import "/theme/admin_template";
+@import "/theme/admin_area";
+@import "/theme/services";
+@import "/theme/writer_area";
 @import "/theme/footer";
 
 @import "/theme/tablet_portrait";

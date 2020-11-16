@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_152723) do
+ActiveRecord::Schema.define(version: 2020_11_03_153548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 2020_10_05_152723) do
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "word_count"
+    t.string "language"
+    t.integer "genre_id"
+    t.string "status", default: "developmental_edit_created"
+    t.string "aasm_state"
+    t.datetime "invoice_due_date"
+    t.datetime "invoice_paid_date"
+    t.datetime "developmental_edit_due_date"
+    t.integer "editor_id"
+    t.datetime "edit_return_date"
     t.index ["slug"], name: "index_developmental_edits_on_slug", unique: true
   end
 
@@ -73,6 +83,14 @@ ActiveRecord::Schema.define(version: 2020_10_05_152723) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre_type"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_genres_on_slug", unique: true
   end
 
   create_table "mailing_lists", force: :cascade do |t|
@@ -139,6 +157,30 @@ ActiveRecord::Schema.define(version: 2020_10_05_152723) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
+  create_table "sample_developmental_edits", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.string "slug"
+    t.integer "word_count"
+    t.string "language"
+    t.string "genre_id"
+    t.string "aasm_state"
+    t.string "editor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "sample_edit_return_date"
+    t.integer "developmental_editing_quote"
+    t.index ["slug"], name: "index_sample_developmental_edits_on_slug", unique: true
+  end
+
+  create_table "service_prices", force: :cascade do |t|
+    t.string "service_type"
+    t.string "currency"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider"
@@ -162,6 +204,15 @@ ActiveRecord::Schema.define(version: 2020_10_05_152723) do
     t.index ["slug"], name: "index_testimonials_on_slug", unique: true
   end
 
+  create_table "useredits", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "developmental_edit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["developmental_edit_id"], name: "index_useredits_on_developmental_edit_id"
+    t.index ["user_id"], name: "index_useredits_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -174,10 +225,18 @@ ActiveRecord::Schema.define(version: 2020_10_05_152723) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
+    t.integer "editor_id"
+    t.string "country"
+    t.string "slug"
+    t.string "currency"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "services", "users"
+  add_foreign_key "useredits", "developmental_edits"
+  add_foreign_key "useredits", "users"
 end
