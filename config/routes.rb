@@ -997,15 +997,12 @@ Rails.application.routes.draw do
   get "/blog/third-person-viewpoinr/", to: redirect('/blog/third-person-viewpoint')
   
   # Redirects after creating services 
-  get "/book_editing", to: redirect('/services')
-  get "/content_editing", to: redirect('/services')
-  get "/substantive_editing", to: redirect('/services')
-  get "/manuscript_editing", to: redirect('/services')
-  get "/novel_editing", to: redirect('/services')  
-  
-  # FROM HERE
-
+  get "/book_editing", to: redirect('/service/book-editing')
   get "book-editing", to: redirect('/services/book-editing')
+  get "/content_editing", to: redirect('/services/book-editing')
+  get "/substantive_editing", to: redirect('/services/book-editing')
+  get "/manuscript_editing", to: redirect('/services/book-editing')
+  get "/novel_editing", to: redirect('/services/book-editing')  
 
   resources :testimonials
   resources :notifications, only: [:index]
