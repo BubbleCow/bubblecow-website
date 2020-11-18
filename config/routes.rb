@@ -1004,6 +1004,9 @@ Rails.application.routes.draw do
   get "/manuscript_editing", to: redirect('/services/book-editing')
   get "/novel_editing", to: redirect('/services/book-editing')  
 
+  get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
+
+
   resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
@@ -1101,7 +1104,7 @@ Rails.application.routes.draw do
   end
 
   # Users
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
   resources :users, :only => [:show, :edit, :update, :destroy]  
  
   root to: 'customer_pages#index'
