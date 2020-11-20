@@ -1033,6 +1033,7 @@ Rails.application.routes.draw do
     get 'users', to: 'admin_pages#users'
     get 'genres', to: 'admin_pages#genres'
     get 'prices', to: 'admin_pages#prices'
+    get 'archive', to: 'admin_pages#archive'
     root to: "admin_pages#dashboard"
   end
 
@@ -1091,6 +1092,7 @@ Rails.application.routes.draw do
   resources :messages do
     put 'read' => 'messages#read', on: :member, as: :read
     put 'unread' => 'messages#unread', on: :member, as: :unread
+    put 'archive' => 'messages#archive', on: :member, as: :archive
   end
   get '/thank-you', to: 'messages#thank_you'
 

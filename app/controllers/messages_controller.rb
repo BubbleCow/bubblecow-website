@@ -1,13 +1,20 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread, :archive, :unarchive]
+  before_action :authenticate_user!, only: [:index, :show, :destroy]
+  before_action :set_side_nav_bar, only: [:index, :show]
+  layout :set_template
 
   def index
-    @messages = Message.unread
+    @messages = Message.all
+    @unread_messages = Message.unread
+    @read_messages = Message.read
+    @archived_messages = Message.archived
     authorize @messages
   end
 
   def show
     authorize @message
+    @message.mark_as_read(@message)
   end
 
   def new
@@ -68,6 +75,16 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def archive
+    @message.update(archived: true)
+    redirect_to messages_path
+  end
+
+  def unarchive
+    @message.update(archived: false)
+    redirect_to messages_path
+  end
+
   def thank_you
   end
 
@@ -77,7 +94,20 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:sender_name, :content, :sender_email, :read)
+      params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived)
+    end
+
+    def set_side_nav_bar
+      @unread_messages = Message.unread
+    end
+
+    def set_template
+      case action_name
+      when 'index', 'show'
+          'admin_template'
+      else
+          'application'
+      end
     end
 
 end

@@ -51,6 +51,12 @@ module AdminArea
             @service_prices = ServicePrice.all
         end
 
+        def archive
+            @page_title = "Admin: Message archive"
+            authorize [:admin_area, :admin_pages]
+            @archived_messages = Message.archived
+        end
+
         private
 
         def remove_footer
