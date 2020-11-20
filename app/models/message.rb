@@ -6,6 +6,12 @@ class Message < ApplicationRecord
 
     # Scopes
     default_scope { order(created_at: :desc) }
-    scope :read, -> {where(read: true)}
-    scope :unread, -> {where(read: false)}
+    scope :active, -> {where(archived: false)}
+    scope :archived, -> {where(archived: true)}
+    scope :read, -> {active.where(read: true)}
+    scope :unread, -> {active.where(read: false)}
+
+    def mark_as_read(message)
+        self.update_attributes!(read: true)
+    end
 end

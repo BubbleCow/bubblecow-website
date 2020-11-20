@@ -1,3 +1,20 @@
-<p><%= @message.sender_name %></p>
-<p><%= @message.sender_email %></p>
-<%= @message.content %>
+<main class="admin-page" id="message">
+    <div class="mt-4">
+        <p><strong>Sender:</strong> <%= @message.sender_name %></p>
+        <p><strong>Email:</strong><%= @message.sender_email %></p>
+        <%= @message.content %>
+
+        <div class="mt-4">   
+            <%= link_to "Inbox", messages_path %> | 
+            <%= mail_to @message.sender_email, "Reply", subject: "Message from BubbleCow" %> | 
+            <% if @message.archived? %>
+                <%= link_to "Inbox", messages_path %> 
+            <% else %>
+                <%= link_to "Archive", archive_message_path(@message), method: :put %> 
+            <% end %> |
+            <%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+        </div>
+
+    </div>
+</main>
+

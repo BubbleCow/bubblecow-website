@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_side_nav_bar, only: [:show]
   layout :set_template
 
     def show 
@@ -49,7 +50,11 @@ class UsersController < ApplicationController
       else
           'application'
       end
-  end
+    end
+
+    def set_side_nav_bar
+      @unread_messages = Message.unread
+    end
 
 
 end
