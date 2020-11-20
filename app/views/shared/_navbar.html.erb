@@ -53,7 +53,6 @@
               <% end %>
               <% if current_user.admin? %>
                 <%= link_to "Dashboard", admin_area_root_path, class: "dropdown-item" %>
-                <%= link_to "Inbox", messages_path, class: "dropdown-item" %>
               <% end %>
                 
                 <div class="dropdown-divider"></div>

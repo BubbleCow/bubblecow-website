@@ -1,5 +1,31 @@
+// ADMIN AREA
+
+.admin-dashboard-icons {
+    display: flex;
+    justify-content: flex-start;
+
+    .admin-dashboard-icon {
+        @include standard-border;
+        padding: 3rem;
+        margin: 1rem 4rem 1rem 0;
+        text-align: center;
+
+        p {
+            padding-top: 1rem;
+        }
+    }
+}
+
+// ADMIN TEMPLATE
+
 .admin-container {
     display: flex;
+
+    // full page
+    .admin-page {
+        flex: 0 0 100%;
+        /* Let it fill the entire space horizontally */
+    }
 
     // Used on all admin pages
     .admin-card {
