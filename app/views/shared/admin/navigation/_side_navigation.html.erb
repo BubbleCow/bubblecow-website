@@ -12,8 +12,16 @@
     <li class="admin-side-navbar-title">Services</li>
     
     <li><%= link_to "Manuscript Assessment", root_path %></li>
-    <li><%= link_to "Sample Edits", services_sample_developmental_edits_path, :class => is_active?(services_sample_developmental_edits_path) %></li>
-    <li><%= link_to "Developmental Edits", services_developmental_edits_path, :class => is_active?(services_developmental_edits_path) %></li>
+    <li>
+      <%= link_to services_sample_developmental_edits_path, :class => is_active?(services_sample_developmental_edits_path) do %>
+        Sample Edits (<%= @unprocessed_sample_developmental_edits.count %>)
+      <% end %>
+    </li>
+    <li>
+      <%= link_to services_developmental_edits_path, :class => is_active?(services_developmental_edits_path) do %>
+        Developmental Edits (<%= @unprocessed_developmental_edits.count %>)
+      <% end %>
+    </li>
     <li><%= link_to "Mentoring", root_path %></li>
     <li class="admin-side-navbar-title">Admin</li>
     <li><%= link_to "Dashboard", admin_area_dashboard_path %></li>

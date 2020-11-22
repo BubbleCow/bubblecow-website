@@ -99,6 +99,8 @@ class MessagesController < ApplicationController
 
     def set_side_nav_bar
       @unread_messages = Message.unread
+      @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+      @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
     end
 
     def set_template
