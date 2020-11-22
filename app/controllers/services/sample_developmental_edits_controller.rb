@@ -4,7 +4,7 @@ module Services
     before_action :authenticate_user!
     before_action :set_sample_developmental_edit, only: [:show, :edit, :update, :destroy]
     before_action :set_service_price, only: [:new, :edit, :update]
-    before_action :set_side_nav_bar, only: [:index]
+    before_action :set_side_nav_bar, only: [:index, :show]
     layout :set_template
 
     def index
@@ -96,6 +96,8 @@ module Services
 
       def set_side_nav_bar
         @unread_messages = Message.unread
+        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
       end
 
     end
