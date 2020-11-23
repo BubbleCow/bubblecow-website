@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
     def show 
       authorize @user
+      @sample_developmental_edits = @user.sample_developmental_edits
+      @developmental_edits = @user.developmental_edits
     end
 
     def edit
@@ -54,6 +56,8 @@ class UsersController < ApplicationController
 
     def set_side_nav_bar
       @unread_messages = Message.unread
+      @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+      @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
     end
 
 

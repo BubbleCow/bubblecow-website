@@ -7,4 +7,18 @@
 <p>Country: <%= @user.country %> </p>
 <p><%= link_to "Edit User", edit_user_path(@user) %>
 
+<p>Sample Developmental Edits</p>
+<ul>
+    <% @sample_developmental_edits.each do |edit| %>
+        <li><%= link_to edit.title, services_sample_developmental_edit_path(edit) %></li>
+    <% end %>
+</ul>
+
+<p>Developmental Edits</p>
+<ul>
+    <% @developmental_edits.each do |edit| %>
+        <li><%= link_to edit.title, services_developmental_edit_path(edit) %></li>
+    <% end %>
+</ul>
+
 </main>
