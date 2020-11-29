@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% @developmetal_edits_submitted.each do |edit| %>
+                <% @developmetal_edits_accepted.each do |edit| %>
                     <tr>
                         <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
                         <td><%= edit.user.name.full %></td>
