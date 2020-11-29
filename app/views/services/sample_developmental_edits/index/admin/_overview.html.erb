@@ -63,6 +63,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Writer</th>
                         <th scope="col">Word Count</th>
+                        <th scope="col">Editor</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,7 @@
                             <td><%= link_to edit.title, services_sample_developmental_edit_path(edit) %></td>
                             <td><%= edit.user.name.full %></td>
                             <td><%= number_with_delimiter(edit.word_count) %></td>
+                            <td><%= edit.editor.name.full %></td>
                         </tr>
                     <% end %> 
                 </tbody>
