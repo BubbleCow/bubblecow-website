@@ -29,7 +29,7 @@
     <!-- Sample Edit accepted -->
     <% if @sample_developmental_edit_accepted.present? %>
         <section class="job_card">
-            <h4>Sample Edit Accepted</h4>
+            <h4>Sample Edit Awaiting Editor</h4>
             <p>These samples have been accepted but need to be assigned an editor.</p>
             <table class="table table-hover">
                 <thead>
@@ -55,7 +55,7 @@
     <!-- Sample Edit underway -->
     <% if @sample_developmental_edit_editing_underway.present? %>
         <section class="job_card">
-            <h4>Sample Edit Accepted</h4>
+            <h4>Sample Edit Being Edited</h4>
             <p>These samples are being edited.</p>
             <table class="table table-hover">
                 <thead>
