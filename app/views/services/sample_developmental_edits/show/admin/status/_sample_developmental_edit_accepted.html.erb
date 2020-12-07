@@ -1,6 +1,6 @@
 <p>The sample has been accepted.</p>
 
-<p>Sends this email to <%= mail_to @sample_developmental_edit.user.email, "My email", subject: "Imporant information about your sample edit" %></p>
+<p>Sends this email to <%= mail_to @sample_developmental_edit.user.email, @sample_developmental_edit.user.email, subject: "Imporant information about your sample edit" %></p>
 
 <p>Hi,</p>
 
@@ -12,11 +12,11 @@
 
 <p>This sample developmental edit will be carried out FREE OF CHARGE.</p>
 
-<p>If, once you have received your sample edit, you were happy and wish to proceed to a full edit the cost would be <%= developmental_edit_quote(@sample_developmental_edit) %>.</p>
+<p>If, once you have received your sample edit, you were happy and wish to proceed to a full edit the cost would be <strong><%= developmental_edit_quote(@sample_developmental_edit) %></strong>.</p>
 
-<p>This is cost based on a word count of 35,435. If this word count alters, the cost will also alter. You can find a cost calculator here.</p>
+<p>This is cost based on a word count of 35,435. If this word count alters, the cost will also alter. You can find a cost calculator <a href="https://bubblecow.com/services/book-editing"></a>here.</a></p>
 
-<p>All developmental edits are completed within twenty-eight working days of payment. For example, if you were to submit today, your edit would be returned on, or before, <%= proposed_developmental_edit_due_date %>.</p>
+<p>All developmental edits are completed within twenty-eight working days of payment. For example, if you were to submit today, your edit would be returned on, or before, <strong><%= proposed_developmental_edit_due_date %></strong>.</p>
 
 <p>Please ensure that your publication timetable allows time for both this edit, plus any extra re-writes. We typically suggest you allow one-to-two weeks for re-writes.</p>
 
@@ -27,6 +27,8 @@
 <p>If you have any questions, please don't hesitate to ask either via email or we can set up a chat.</p>
 
 <p>Gary Smailes</p>
+
+<hr>
 
 <p>Assign Editor:</p>
     
