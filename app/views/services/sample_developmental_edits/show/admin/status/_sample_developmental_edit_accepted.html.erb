@@ -14,7 +14,7 @@
 
 <p>If, once you have received your sample edit, you were happy and wish to proceed to a full edit the cost would be <strong><%= developmental_edit_quote(@sample_developmental_edit) %></strong>.</p>
 
-<p>This is cost based on a word count of 35,435. If this word count alters, the cost will also alter. You can find a cost calculator <a href="https://bubblecow.com/services/book-editing"></a>here.</a></p>
+<p>This is cost based on a word count of <%= number_with_delimiter(@sample_developmental_edit.word_count) %>. If this word count alters, the cost will also alter. You can find a cost calculator <a href="https://bubblecow.com/services/book-editing"></a>here.</a></p>
 
 <p>All developmental edits are completed within twenty-eight working days of payment. For example, if you were to submit today, your edit would be returned on, or before, <strong><%= proposed_developmental_edit_due_date %></strong>.</p>
 
