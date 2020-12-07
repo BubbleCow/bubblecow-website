@@ -10,7 +10,10 @@
 <p>Sample Developmental Edits</p>
 <ul>
     <% @sample_developmental_edits.each do |edit| %>
-        <li><%= link_to edit.title, services_sample_developmental_edit_path(edit) %></li>
+        <li>
+            <%= link_to edit.title, services_sample_developmental_edit_path(edit) %>
+            <%= link_to "x", services_sample_developmental_edit_path(edit), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+        </li>
     <% end %>
 </ul>
 
