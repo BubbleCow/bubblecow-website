@@ -12,9 +12,10 @@ class CustomerPagesController < ApplicationController
     @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder."
   end
 
-  def about
+  def thanks
     @page_title = "Thanks for your payment"
     @page_description = "Thanks for payment. We will be in touch shortly."
+    @footer = "no footer"
   end
 
   def writing_manual
