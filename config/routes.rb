@@ -1077,6 +1077,7 @@ Rails.application.routes.draw do
   # pages
   get 'about', to: 'customer_pages#about'
   get 'writing_manual', to: 'customer_pages#writing_manual'
+  get 'thanks', to: 'customer_pages#thanks'
 
   # Blog
   namespace :blog do
