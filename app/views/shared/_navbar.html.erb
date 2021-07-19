@@ -22,20 +22,7 @@
       </ul>
 
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Book Editing Services
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "All Services", services_root_path, class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
-           
-            <%= link_to "Book Editing", services_book_editing_path, class: "dropdown-item" %>
-         
-            <div class="dropdown-divider"></div>
-            <%= link_to "File Safety", services_file_safety_path, class: "dropdown-item" %>
-          </div>
-        </li>
+        <li class="nav-item"><%= link_to "Book Editing", services_book_editing_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Testimonials", testimonials_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Blog", blog_root_path, class: "nav-link" %></li>
