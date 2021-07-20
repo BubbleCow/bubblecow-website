@@ -1,9 +1,11 @@
 class Post < ApplicationRecord
+    before_update :set_published_date
+    before_save :set_seo
+
     belongs_to :post_category
     belongs_to :post_author
 
-    before_update :set_published_date
-    before_save :set_seo
+    acts_as_taggable_on :topics
 
     has_rich_text :seo_description
     has_rich_text :body
