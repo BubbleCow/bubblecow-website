@@ -126,14 +126,21 @@
       <%= form.rich_text_area :post_description, type: "text", class: "form-control", id: "postDescription", placeholder: "Write in markdown, it will be automatically converted to html.", rows: "4"  %>
 
       <!-- Post Category -->
+      <p><strong>Category:</strong></p>
       <div class="form-group">
-        <%= form.label "Post Category:", for: "postCategory", class: "form-label" %>
         <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postCategory" %>
       </div>
 
-      <!-- Post Author -->
+      <!-- Post Topic -->
+      <p><strong>Topics:</strong></p>
+      <p class="form-text small">Add at least one topic. If adding multiple topics seperate with commas e.g. 'topic 1, topic 2'.</p>
       <div class="form-group">
-        <%= form.label "Post Author:", for: "postAuthor", class: "form-label" %>
+        <%= form.text_area :topic_list, type: "text", class: "form-control", id: "", placeholder: "Add at least one topic." %>
+      </div>
+
+      <!-- Post Author -->
+      <p><strong>Author:</strong></p>
+      <div class="form-group">
         <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postAuthor" %>
       </div>
 
