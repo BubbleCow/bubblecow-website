@@ -16,7 +16,7 @@
               
                     <% @posts.each do |post| %>
                         <tr>
-                            <th><%= link_to post.post_title.titleize, blog_post_path(post) %></th>
+                            <td><%= link_to post.post_title.titleize, blog_post_path(post) %></td>
                             <td><%= post.post_category.name.titleize %></td>
                             <td><%= post.topic_list %></td>
                             <td>
