@@ -97,6 +97,11 @@ GEM
       activerecord (>= 5.0, < 6.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ahoy_matey (3.2.0)
+      activesupport (>= 5)
+      device_detector
+      geocoder (>= 1.4.5)
+      safely_block (>= 0.2.1)
     ast (2.4.2)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
@@ -151,6 +156,7 @@ GEM
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (1.1.0)
+    device_detector (1.0.5)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -165,6 +171,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     e2mmap (0.1.0)
+    errbase (0.2.1)
     erubi (1.10.0)
     execjs (2.8.1)
     faraday (1.5.1)
@@ -365,6 +372,8 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.4)
     rubyzip (2.3.2)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -457,6 +466,7 @@ DEPENDENCIES
   active-campaign-rails
   acts-as-taggable-on (~> 7.0)
   administrate!
+  ahoy_matey
   aws-sdk-s3
   better_errors
   binding_of_caller

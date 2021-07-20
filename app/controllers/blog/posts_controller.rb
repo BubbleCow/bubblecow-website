@@ -1,7 +1,7 @@
 module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-    
+
     def index
       @posts = Post.published
       @categories = PostCategory.all
@@ -16,6 +16,7 @@ module Blog
       @page_description = @post.seo_description.to_s
       @page_keywords = @post.keywords
       @writing_manual = MailingList.new
+      ahoy.track "Viewed Article", title: @post.post_title
     end
 
     def new
