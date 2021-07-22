@@ -12,6 +12,6 @@ class Message < ApplicationRecord
     scope :unread, -> {active.where(read: false)}
 
     def mark_as_read(message)
-        self.update_attributes!(read: true)
+        self.update(read: true)
     end
 end
