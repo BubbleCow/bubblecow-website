@@ -1,3 +1,51 @@
+<main class="post">
+
+  <article class="post-layout">
+
+    <!-- Post title -->
+    <div class="post-title">
+      <h1><%= @post.post_title.titleize %></h1>
+    </div>
+
+    <!-- Post image -->
+    <div class="post-image">
+      <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid" ) %>
+    </div>
+
+    <!-- Post metadata -->
+    <div class="post-meta">
+      <p>
+        <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
+        <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span> -  
+        <% if @post.published? %>
+          <span>Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
+        <% else %>
+          <span>Unpublished</span>.
+        <% end %>
+      </p>
+        <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "post-category-badge" %>
+    </div>
+
+    <!-- Post content -->
+    <section class="post-content">
+      <!-- if markdown cotnent is present, it shows that, otherwise it defaults to old active_text content -->
+      <% if @post.content.present? %>
+        <%= markdown_to_html(@post.content) %>
+      <% else %>
+        <%= @post.body %>
+      <% end %>
+    </section>
+
+  </article>
+
+</main>
+
+
+
+
+
+
+
 <main class="post" id="post-show">
 
   <article class="blog-article">

@@ -1,12 +1,14 @@
 <main class="page" id="testimonials">
 
-  <h1 class="mb-4">Testimonials</h1>
+  <div class="page-header">
+    <h1>Testimonials</h1>
+  </div>
+
   <% @testimonials.each do |testimonial| %>
-    <div class="testimonial-card">
+      <div class="box mb-3">
         <p><%= testimonial.testimonial_text %></p>
         <h6><%= testimonial.writer.titleize %></h6>
       </div>
-    </div>
   <% end %>
 
 </main>

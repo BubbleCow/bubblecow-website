@@ -1,64 +1,231 @@
-// BLOG
+/* 
+
+BLOG STYLING
+
+This is styling that applies to all aspects of the blog.
+
+*/
+
+
+// Blog
 
 .blog {
-    display: flex;
-    width: 90%;
-    margin: auto;
-    flex-flow: row wrap;
-    padding-top: 1rem;
-    .blog-main {
-        flex-grow: 1;
-        flex-basis: 100%;
-            // Post categories
-            .post-title {
-                padding-bottom: 1rem;
-            }
-    }  
-    .post-card {
-        @include standard-border;
-        margin-top: 1rem;
-        .post-card-header {
-            padding: 1rem;
-            a {
-                &:hover {
-                  text-decoration: none;
-                  color: $pal-blue;
+
+    padding-top: 2rem;
+
+    .blog-layout {
+        width: 90%;
+        margin: auto;
+
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) {  }
+
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {  }
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {
+            width: 90%; 
+            display: flex; 
+         }
+
+        // X-Large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { 
+            width: 55%; 
+            display: flex; 
+        }
+
+        // XX-Large devices (larger desktops, 1400px and up)
+        @media (min-width: 1400px) {
+            width: 55%;
+            display: flex;
+        }
+
+        .blog-layout-left {
+
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) {  }
+
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {  }
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) { 
+            width: 70%;
+            margin-right: 2rem;
+        }
+
+        // X-Large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { 
+            width: 70%;
+            margin-right: 2rem;
+        }
+
+        // XX-Large devices (larger desktops, 1400px and up)
+        @media (min-width: 1400px) { 
+            width: 70%;
+            margin-right: 2rem;
+        }
+
+            .blog-post {
+
+                .post-title {
+               
                 }
-              }
-          
-            .post-card-post-meta {
-                font-size: 0.75rem;
-                color: $slate;
+
+                .meta-data {
+                    font-size: 0.75rem;
+                    color: $slate;
+                    padding-bottom: 1rem;
+                }
+
+                .post-image {
+    
+                }
+
+                .category-tag {
+                    padding-top: 0.5rem;
+                }
+
+                .post-description {
+                    padding-top: 1rem;
+                }
+
+                .post-read-more {
+                    padding-top: 1rem;
+                }
+
             }
+    
         }
-        .post-card-image {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-        .post-card-description {
-            padding: 1rem;
-            .post-card-continue-reading {
-                padding-top: 1rem;
+
+        .blog-layout-right {
+            display: none;
+
+            // Small devices (landscape phones, 576px and up)
+            @media (min-width: 576px) {  }
+
+            // Medium devices (tablets, 768px and up)
+            @media (min-width: 768px) {  }
+
+            // Large devices (desktops, 992px and up)
+            @media (min-width: 992px) { 
+                width: 30%;
+                display: flex;
+                flex-direction: column;
             }
-        }
-    }  
-    .blog-sidebar {
-        flex-grow: 1;
-        flex-basis: 100%;
-        margin-top: 1rem;
-        .blog-sidebar-section {
-            padding: 1rem;
-            h3 {
-                font-size: 1.6rem;
-                padding-bottom: 1rem;
+
+            // X-Large devices (large desktops, 1200px and up)
+            @media (min-width: 1200px) { 
+                width: 30%;
+                display: flex;
+                flex-direction: column;
             }
+
+            // XX-Large devices (larger desktops, 1400px and up)
+            @media (min-width: 1400px) { 
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .blog-sidebar {
+
+                .about-bubblecow {
+                    padding-bottom: 1rem;
+
+                    .about-bubblecow-title {
+                        border-bottom: 1px solid $slate;
+                        padding-bottom: 0.75rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    .about-bubblecow-text {
+                        padding-bottom: 1rem;
+                    }
+                }
+
+                .free-ebooks, .getting-started {
+                    padding-bottom: 1rem;
+                    
+                    .free-ebooks-title, .getting-started-title {
+                        padding-bottom: 0.5rem;
+                    }
+
+                }
+
+
+            }
+
             ul {
-                list-style: none;
+        
+            }
+        
+            li {
+                list-style-type: disc;
+                margin-left: rem;
             }
         }
-        .blog-sidebar-section-lead {
-            background-color: $paler-slate;
-        }
+
     }
+    
 }
 
+// POST
+
+.post {
+
+    .post-layout {
+
+        .post-title {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .post-meta {
+            text-align: center;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+
+            .post-category-badge {
+                background: $pal-blue;
+                color: #fff;
+                padding: 0.4rem 0.8rem;
+                border-radius: 5px;
+            }
+        }
+
+        .post-content {
+
+            padding-right: 1rem;
+            padding-left: 1rem;
+
+            h1,
+            h2,
+            h4,
+            h5 {
+                text-transform: capitalize;
+                text-align: center;
+            }
+        
+
+            .image-centre {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .trix-content {
+                h1 {
+                    font-size: 2rem;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+
+    }
+
+}

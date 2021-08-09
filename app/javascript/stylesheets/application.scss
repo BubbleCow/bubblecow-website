@@ -1,23 +1,10 @@
 @import "/theme/variables";
-@import "/theme/defaults";
-@import "/theme/navbar";
-@import "/theme/trix";
-@import "/theme/devise";
+@import "/theme/global";
 @import "/theme/pages";
-@import "/theme/blog";
-@import "/theme/post";
-@import "/theme/post_form";
-@import "/theme/home";
-@import "/theme/book_editing";
-@import "/theme/testimonials";
-@import "/theme/admin_template";
-@import "/theme/services";
-@import "/theme/writer_area";
+@import "/theme/navbar";
 @import "/theme/footer";
-
-@import "/theme/tablet_portrait";
-@import "/theme/tablet_landscape";
-@import "/theme/desktop";
+@import "/theme/trix";
+@import "/theme/blog";
 
 // @import "bubblecow_theme";
 @import "~bootstrap/scss/bootstrap";

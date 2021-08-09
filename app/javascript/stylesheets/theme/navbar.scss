@@ -1,4 +1,11 @@
-// NAVBAR
+/* 
+
+NAVBAR STYLING
+
+This is styling that applies to all navbars.
+
+*/
+
 .navigation-container {
     display: flex;
     border-bottom: solid 1px $pale-sand;
@@ -8,9 +15,26 @@
         padding-right: 0;
         width: 90%;
         margin: auto;
+        background-color: white;
 
-        .proactive-navbar {
-            background-color: white;
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) {  }
+
+        // Medium devices (tablets, 768px and up)
+        @media (min-width: 768px) {  }
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {  }
+
+        // X-Large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { 
+            width: 55%;
+         }
+
+        // XX-Large devices (larger desktops, 1400px and up)
+        @media (min-width: 1400px) { 
+            width: 55%;
+         }
 
             a {
                 color: $pay-blue;
@@ -19,6 +43,6 @@
             .navbar-brand {
                 font-size: 1.5rem;
             }
-        }
+
     }
 }
