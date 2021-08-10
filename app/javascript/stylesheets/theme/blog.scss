@@ -17,12 +17,6 @@ This is styling that applies to all aspects of the blog.
         width: 90%;
         margin: auto;
 
-        // Small devices (landscape phones, 576px and up)
-        @media (min-width: 576px) {  }
-
-        // Medium devices (tablets, 768px and up)
-        @media (min-width: 768px) {  }
-
         // Large devices (desktops, 992px and up)
         @media (min-width: 992px) {
             width: 90%; 
@@ -42,12 +36,6 @@ This is styling that applies to all aspects of the blog.
         }
 
         .blog-layout-left {
-
-        // Small devices (landscape phones, 576px and up)
-        @media (min-width: 576px) {  }
-
-        // Medium devices (tablets, 768px and up)
-        @media (min-width: 768px) {  }
 
         // Large devices (desktops, 992px and up)
         @media (min-width: 992px) { 
@@ -101,12 +89,6 @@ This is styling that applies to all aspects of the blog.
 
         .blog-layout-right {
             display: none;
-
-            // Small devices (landscape phones, 576px and up)
-            @media (min-width: 576px) {  }
-
-            // Medium devices (tablets, 768px and up)
-            @media (min-width: 768px) {  }
 
             // Large devices (desktops, 992px and up)
             @media (min-width: 992px) { 
@@ -177,6 +159,24 @@ This is styling that applies to all aspects of the blog.
 
     .post-layout {
 
+         // X-Large devices (large desktops, 1200px and up)
+         @media (min-width: 1200px) { 
+            display: flex;
+            width: 40%;
+            margin: auto;
+            flex-direction: column;
+            line-height: 1.5;
+          }
+
+         // XX-Large devices (larger desktops, 1400px and up)
+         @media (min-width: 1400px) { 
+            display: flex;
+            width: 40%;
+            margin: auto;
+            flex-direction: column;
+            line-height: 1.5;
+          }
+
         .post-title {
             margin-top: 2rem;
             margin-bottom: 2rem;
@@ -184,7 +184,7 @@ This is styling that applies to all aspects of the blog.
         }
 
         .post-meta {
-            text-align: center;
+            padding-left: 1rem;
             padding-top: 3rem;
             padding-bottom: 3rem;
 
@@ -194,6 +194,7 @@ This is styling that applies to all aspects of the blog.
                 padding: 0.4rem 0.8rem;
                 border-radius: 5px;
             }
+
         }
 
         .post-content {
@@ -226,6 +227,97 @@ This is styling that applies to all aspects of the blog.
             }
         }
 
+    }
+
+    .post-advert {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+        margin-top: 3rem;
+        border-top: 1px solid $sand;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+         // Medium devices (tablets, 768px and up)
+         @media (min-width: 768px) { 
+            padding-right: 5rem;
+            padding-left: 5rem;
+          }
+
+         // Large devices (desktops, 992px and up)
+         @media (min-width: 992px) { 
+            padding-right: 5rem;
+            padding-left: 5rem;
+         }
+
+         // X-Large devices (large desktops, 1200px and up)
+         @media (min-width: 1200px) {  
+            display: flex;
+            width: 40%;
+            margin: auto;
+            flex-direction: column;
+            line-height: 1.5;
+            padding-right: 5rem;
+            padding-left: 5rem;
+         }
+
+         // XX-Large devices (larger desktops, 1400px and up)
+         @media (min-width: 1400px) {  
+            display: flex;
+            width: 40%;
+            margin: auto;
+            flex-direction: column;
+            line-height: 1.5;
+            padding-right: 5rem;
+            padding-left: 5rem;
+         }
+
+
+        .advert-cover-image {
+            align-self: center;
+            padding-bottom: 1rem;
+        }
+
+        .advert-copy {
+            .advert-text {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+    }
+
+    .post-author-byline {
+        border-top: 1px solid $sand;
+        padding-top: 3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+
+          // X-Large devices (large desktops, 1200px and up)
+          @media (min-width: 1200px) {  
+            width: 40%;
+            margin: auto;
+         }
+
+         // XX-Large devices (larger desktops, 1400px and up)
+         @media (min-width: 1400px) {  
+ 
+         }
+
+        .author-image {
+            flex-basis: 30%;
+            padding-right: 1rem;
+            flex: 0 0 auto;
+        }
+
+        .author-byline {
+            flex-basis: 70%;
+        }
     }
 
 }
