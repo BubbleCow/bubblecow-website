@@ -1,0 +1,123 @@
+/* 
+
+CUSTOMER PAGES STYLING
+
+This is styling for all customer pages.
+
+*/
+
+// INDEX PAGE
+
+header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+
+    h1 {
+        color: white;
+    }
+
+    h2 {
+        color: $pale-sand;
+    }
+
+    .home-cta-btn {
+        padding-top: 3rem;
+    }
+}
+
+header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+    position: relative;
+    z-index: 2;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.benefits, .explanation, .index-testimonials {
+    margin-top: 2rem;
+}
+
+.index-subtitle {
+    padding-top: 2rem;
+}
+
+.social-proof {
+    display: none;
+}
+
+.benefits {
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {  
+        display: flex;
+    }
+
+    .index-card {
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {  
+            flex-grow: 1;
+            width: 33%;
+            padding-right: 2rem;
+        } 
+
+    }
+
+}
+
+.index-testimonials{
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {  
+        display: flex;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {  
+        display: flex;
+    }
+
+    .index-card {
+        @include standard-border;
+        margin: 1rem;
+        padding: 1rem;
+
+        img {
+            padding-bottom: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-author {
+            color: $slate;
+            font-size: 0.8rem;
+        }
+    }
+}
