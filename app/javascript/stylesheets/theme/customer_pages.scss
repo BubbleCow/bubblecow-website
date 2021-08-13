@@ -121,3 +121,83 @@ header .overlay {
         }
     }
 }
+
+
+// BOOK EDITING
+
+.book-editing-subtitle {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.book-editing-card {
+    @include standard-border;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.book-editing-benefits {
+        padding-top: 1rem;
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) {  
+        display: flex;
+        margin-top: 2rem;
+        }
+
+}
+
+.book-editing-pricing {
+    padding-top: 1rem;
+
+
+    // Medium devices (tablets, 768px and up)
+     @media (min-width: 768px) {  
+        margin-top: 2rem;
+    }
+
+    .book-editing-pricing-calc {
+        @include standard-border;
+        padding-top: 2rem;
+        padding: 1rem;
+        margin-top: 3rem;
+    }
+}
+
+.book-editing-short-testimonials {
+    padding-top: 2rem;
+
+    .book-editing-short-testimonials-cta {
+        margin-top: 2rem;
+    }
+
+}
+
+.book-editing-service-information {
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-transform: capitalize;
+    }
+
+    h2 {
+        padding-top: 2rem;
+    }
+
+    h3 {
+        padding-top: 1rem;
+    }
+
+    img {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.book-editing-testiominal-author {
+    color: $slate;
+    font-size: 0.9rem;
+    font-style: italic;
+}
