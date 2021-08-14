@@ -168,15 +168,6 @@ This is styling that applies to all aspects of the blog.
             line-height: 1.5;
           }
 
-         // XX-Large devices (larger desktops, 1400px and up)
-         @media (min-width: 1400px) { 
-            display: flex;
-            width: 40%;
-            margin: auto;
-            flex-direction: column;
-            line-height: 1.5;
-          }
-
         .post-title {
             margin-top: 2rem;
             margin-bottom: 2rem;
@@ -246,12 +237,6 @@ This is styling that applies to all aspects of the blog.
             padding-left: 5rem;
           }
 
-         // Large devices (desktops, 992px and up)
-         @media (min-width: 992px) { 
-            padding-right: 5rem;
-            padding-left: 5rem;
-         }
-
          // X-Large devices (large desktops, 1200px and up)
          @media (min-width: 1200px) {  
             display: flex;
@@ -262,18 +247,6 @@ This is styling that applies to all aspects of the blog.
             padding-right: 5rem;
             padding-left: 5rem;
          }
-
-         // XX-Large devices (larger desktops, 1400px and up)
-         @media (min-width: 1400px) {  
-            display: flex;
-            width: 40%;
-            margin: auto;
-            flex-direction: column;
-            line-height: 1.5;
-            padding-right: 5rem;
-            padding-left: 5rem;
-         }
-
 
         .advert-cover-image {
             align-self: center;

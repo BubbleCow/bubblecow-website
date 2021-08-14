@@ -19,6 +19,7 @@ class CustomerPagesController < ApplicationController
   end
 
   def writing_manual
+    @footer = "no footer"
   end 
 
 
