@@ -1,7 +1,10 @@
 module Services
 
   class GenresController < Services::ApplicationController
+    skip_before_action :authenticate_user!, only: [:show]
     before_action :set_genre, only: [:show, :edit, :update, :destroy]
+    before_action :set_admin_nav_bar
+    layout 'admin_template'
 
     def index
       @genres = Genre.all
@@ -67,6 +70,13 @@ module Services
       def genre_params
         params.require(:genre).permit(:genre_type, :slug)
       end
+
+      def set_admin_nav_bar
+        @unread_messages = Message.unread
+        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
+      end
+
   end
 
 end

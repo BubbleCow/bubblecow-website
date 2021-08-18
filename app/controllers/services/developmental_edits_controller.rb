@@ -1,7 +1,6 @@
 module Services
 
   class DevelopmentalEditsController < Services::ApplicationController
-    before_action :authenticate_user!
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
     before_action :set_side_nav_bar, only: [:index, :show]
     layout :set_template

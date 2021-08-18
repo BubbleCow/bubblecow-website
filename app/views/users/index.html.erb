@@ -1,7 +1,12 @@
-<main class="" id="admin-area-users">
+<main class="page" id="users">
+
+
+  <div class="page-header">
+    <h1>Users</h1>
+  </div>
     
     <div class="admin-card admin-card-first">
-        <h2>Writers</h2>
+        <h3>Writers</h3>
         <ul>
             <% @writers.each do |writer| %>
                 <li>
@@ -13,7 +18,7 @@
     </div>
 
     <div class="admin-card admin-card-not-first">
-        <h2>Editors</h2>
+        <h3>Editors</h3>
         <ul>
             <% @editors.each do |editor| %>
                 <li>
@@ -25,7 +30,7 @@
     </div>
 
     <div class="admin-card admin-card-not-first">
-        <h2>Admin</h2>
+        <h3>Admin</h3>
         <ul>
             <% @admins.each do |admin| %>
                 <li>

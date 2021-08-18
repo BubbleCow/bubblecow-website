@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_side_nav_bar, only: [:show]
+  before_action :set_side_nav_bar, only: [:show, :index]
   layout :set_template
+
+    def index 
+      @page_title = "Users"
+      @users = User.all
+      @writers = User.writers
+      @editors = User.editors
+      @admins = User.admin  
+      authorize @users
+    end
 
     def show 
       authorize @user
@@ -47,7 +56,7 @@ class UsersController < ApplicationController
   
     def set_template
       case action_name
-      when 'show'
+      when 'show', 'index'
           'admin_template'
       else
           'application'

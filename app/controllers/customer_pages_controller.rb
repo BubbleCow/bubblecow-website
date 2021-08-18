@@ -22,6 +22,4 @@ class CustomerPagesController < ApplicationController
     @footer = "no footer"
   end 
 
-
-
 end

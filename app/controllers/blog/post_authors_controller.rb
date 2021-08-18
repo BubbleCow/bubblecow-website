@@ -1,6 +1,8 @@
 module Blog
   class PostAuthorsController < Blog::ApplicationController
     before_action :set_post_author, only: [:show, :edit, :update, :destroy]
+    before_action :set_admin_nav_bar, only: [:index]
+    layout :set_template
 
     def index
       @post_authors = PostAuthor.all
@@ -67,5 +69,21 @@ module Blog
       def post_author_params
         params.require(:post_author).permit(:name, :slug)
       end
-  end
+
+      def set_template
+        case action_name
+        when 'index'
+            'admin_template'
+        else
+            'application'
+        end
+      end
+
+      def set_admin_nav_bar
+        @unread_messages = Message.unread
+        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
+      end
+  
+    end
 end

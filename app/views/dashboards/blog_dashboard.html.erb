@@ -1,27 +1,28 @@
-<main class="" id="admin-area-blog">
-    
-    <div class="admin-card admin-card-first">
-        <h2>Posts</h2>
-        <p><%= link_to "New Post", new_blog_post_path, class: "btn btn-sm btn-outline-primary" %></p>
+<main class="page" id="blog-dashboard">
+
+    <div class="page-header">
+        <h1>Blog Dashboard</h1>
+    </div>
+
         <table class="table table-hover">
+
             <thead>
                 <tr>
-                <th scope="col">Post Title</th>
-                <th scope="col">Category</th>
-                <th scope="col">Topic</th>
-                <th scope="col"></th>
+                    <th scope="col">Post Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Topics</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
-              
-                    <% @posts.each do |post| %>
-                    Viwws: <%= @views %>
-                        <tr>
-                            <td><%= link_to post.post_title.titleize, blog_post_path(post) %></td>
-                            <td><%= post.post_category.name.titleize %></td>
-                            <td><%= post.topic_list %></td>
-                            <td>
-                                <!-- edit post -->
+
+            <tbody>    
+                <% @posts.each do |post| %>
+                    <tr>
+                        <td><%= link_to post.title, blog_post_path(post) %></td>
+                        <td><%= post.post_category.name %></td>
+                        <td><%= post.topic_list %></td>
+                        <td>
+                            <!-- edit post -->
                                 <%= link_to edit_blog_post_path(post), { :class => 'tooltips', 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => '', 'data-original-title' => 'Edit post' } do %> 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                         <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -36,34 +37,15 @@
                                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                                     </svg>
                                 <% end %>
-                            </td>
-                        </tr>
-                    <% end %>
-            
+                        </td>
+                    </tr> 
+                <% end %>
             </tbody>
+
+
         </table>
-    </div>
-
-
-    <div class="admin-card admin-card-not-first">
-        <h2>Authors</h2>
-        <ul>
-            <% @authors.each do |author| %>
-                <li><%= link_to author.name, blog_post_author_path(author) %> | <%= link_to "edit", edit_blog_post_author_path(author) %> | <%= link_to "delete", blog_post_path(author), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %></li>
-            <% end %>
-        </ul>
-        <p><%= link_to "New Author", new_blog_post_author_path, class: "btn btn-sm btn-outline-primary" %></p>
-    </div>
-
-
-    <div class="admin-card admin-card-not-first">
-        <h2>Categories</h2>
-        <ul>
-            <% @categories.each do |category| %>
-                <li><%= link_to category.name, blog_post_category_path(category) %> | <%= link_to "edit", edit_blog_post_category_path(category) %> | <%= link_to "delete", blog_post_category_path(category), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %></li>
-            <% end %>
-        </ul>
-        <p><%= link_to "New Category", new_blog_post_category_path, class: "btn btn-sm btn-outline-primary" %></p>
-    </div>
 
 </main>
+
+
+

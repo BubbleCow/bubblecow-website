@@ -73,7 +73,7 @@ module Blog
       @post.update(published: false)
       redirect_to admin_dashboard_path
     end
-
+    
     private
       def set_post
         @post = Post.friendly.find(params[:id])

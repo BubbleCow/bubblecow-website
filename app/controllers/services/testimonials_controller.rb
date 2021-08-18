@@ -1,4 +1,7 @@
-class TestimonialsController < ApplicationController
+module Services
+  
+  class TestimonialsController < Services::ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,7 +9,6 @@ class TestimonialsController < ApplicationController
     authorize @testimonials
     @page_title = "BubbleCow Testimonials"
     @page_description = "Find out what people are saying about BubbleCow."
-
   end
 
   def show
@@ -27,7 +29,7 @@ class TestimonialsController < ApplicationController
     authorize @testimonial
     respond_to do |format|
       if @testimonial.save
-        format.html { redirect_to admin_dashboard_path, notice: 'Testimonial was successfully created.' }
+        format.html { redirect_to services_testimonials_path, notice: 'Testimonial was successfully created.' }
         format.json { render :show, status: :created, location: @testimonial }
       else
         format.html { render :new }
@@ -40,7 +42,7 @@ class TestimonialsController < ApplicationController
     authorize @testimonial
     respond_to do |format|
       if @testimonial.update(testimonial_params)
-        format.html { redirect_to admin_dashboard_path, notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to services_testimonials_path, notice: 'Testimonial was successfully updated.' }
         format.json { render :show, status: :ok, location: @testimonial }
       else
         format.html { render :edit }
@@ -66,5 +68,7 @@ class TestimonialsController < ApplicationController
     def testimonial_params
       params.require(:testimonial).permit(:writer, :approved, :testimonial_text)
     end
+
+  end    
 
 end
