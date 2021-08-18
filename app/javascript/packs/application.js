@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("local-time").start()
 require("custom/google_analytics")
+require("custom/drift")
 require("custom/custom_test")
 import "../stylesheets/application"
 
