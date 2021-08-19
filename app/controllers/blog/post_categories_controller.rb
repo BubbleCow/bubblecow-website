@@ -1,7 +1,7 @@
 module Blog
   class PostCategoriesController < Blog::ApplicationController
     before_action :set_post_category, only: [:show, :edit, :update, :destroy]
-    before_action :set_admin_nav_bar, only: [:index]
+    before_action :set_admin_nav_bar, only: [:index, :edit, :update, :new]
     layout :set_template
 
     def index
@@ -72,7 +72,7 @@ module Blog
 
       def set_template
         case action_name
-        when 'index'
+        when 'index', 'edit', 'new'
             'admin_template'
         else
             'application'

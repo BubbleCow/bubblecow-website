@@ -294,3 +294,56 @@ This is styling that applies to all aspects of the blog.
     }
 
 }
+
+// POST FORM
+.post-form-container {
+    display: flex;
+}
+
+.post-form-column-left {
+    width: 65%;
+    margin-right: 2rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+
+}
+
+.post-form-column-right {
+    padding-top: 1rem;
+    width: 35%;
+}
+
+
+.post-form {
+
+
+    .post-form-section {
+        @include standard-border;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        .form-select,
+        .form-control {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            text-transform: capitalize;
+        }
+
+        #post-section-submission {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                flex-grow: 2;
+            }
+
+            a {
+                flex-grow: 2;
+            }
+        }
+    }
+
+}
