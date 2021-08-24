@@ -24,3 +24,18 @@ This is styling that applies to all services pages.
     }
 
 }
+
+// JOB - styling for dev ed and sanple dev ed
+
+.job {
+
+    h1 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .book-information, .book-description, .book-status, .book-files, .book-editor-notes {
+        margin-bottom: 2rem;
+    }
+
+}

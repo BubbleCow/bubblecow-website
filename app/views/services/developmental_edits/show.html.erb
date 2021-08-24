@@ -1,5 +1,143 @@
-<% if current_user.admin? %>
-  <%= render 'services/developmental_edits/show/admin/overview', developmental_edit: @developmental_edit %>
-<% else %>
-  <%= render 'services/developmental_edits/show/writer/overview', developmental_edit: @developmental_edit %>
-<% end %>
+<main class="page" id="developmental-edit">
+  <div class="job developmental-edit">
+  
+    <div class="book-title">
+      <h1><%= @developmental_edit.title.titleize %></h1>
+    </div>
+
+    <!-- User Infor - Admin only -->
+    
+
+      <div class="book-information box">
+
+        <!-- User -->
+        <div class="mb-1">
+          <% if current_user.try(:admin?) %>
+
+            <%= link_to @developmental_edit.user.name.full, user_path(@developmental_edit.user) %> | 
+            <%= link_to @developmental_edit.user.user_location(@developmental_edit.user.country), user_path(@developmental_edit.user) %> 
+            
+        
+            <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+              </svg>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div>
+        <!-- Word count -->
+          <% if current_user.try(:admin?) %>
+            <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
+              <%= number_with_delimiter(@developmental_edit.word_count) %> | 
+            <% end %>
+          <% else %>
+            <%= number_with_delimiter(@developmental_edit.word_count) %>
+          <% end %>
+
+        <!-- Genre -->
+		    <%= link_to '#', data: { toggle: 'modal', target: '#genreModal' } do %>
+            <%= @developmental_edit.genre.genre_type.titleize %> | 
+        <% end %> 
+        
+        <!-- Language -->
+        <%= link_to '#', data: { toggle: 'modal', target: '#languageModal' } do %>
+          <%= @developmental_edit.language.titleize %> 
+        <% end %> 
+
+        <!-- Due Date -->
+        <% if @developmental_edit.developmental_edit_due_date.present? %>
+          <%= link_to '#', data: { toggle: 'modal', target: '#duedateModal' } do %>
+            | <%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %> 
+          <% end %>
+        <% end %>
+
+        <!-- Editor -->
+        <% if @developmental_edit.editor.present? %>
+          <%= link_to '#', data: { toggle: 'modal', target: '#editorModal' } do %>
+            | <%= @developmental_edit.editor.name.full %> 
+          <% end %>
+        <% end %>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Status -->
+    <div class="book-status box">
+      <p>Status goes here.</p>
+    </div>
+
+    <!-- Book Description -->
+    <div class="book-description">
+      <%= form_for([:services, @developmental_edit]) do |form| %>
+          <div class="form-group">
+              <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+          </div>
+              <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+      <% end %>
+    </div>  
+
+    <!-- Book files -->
+    <div class="book-files box">
+        <h3>Files:</h3>
+
+        <ul>
+            <% if @developmental_edit.full_manuscript.present? %>
+                <li>
+                  Unedited Manuscript: <%= link_to @developmental_edit.full_manuscript.filename, rails_blob_path(@developmental_edit.full_manuscript, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#uneditedModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+            <% if @developmental_edit.editors_report.present? %>
+                <li>
+                  Editor's Report: <%= link_to @developmental_edit.editors_report.filename, rails_blob_path(@developmental_edit.editors_report, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#editorsreportModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+            <% if @developmental_edit.edited_manuscript.present? %>
+                <li>
+                  Edited Manuscript: <%= link_to @developmental_edit.edited_manuscript.filename, rails_blob_path(@developmental_edit.edited_manuscript, disposition: "attachment") %> 
+                  <%= link_to '#', data: { toggle: 'modal', target: '#editedmanuscriptModal' } do %>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                      <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                    </svg>
+                  <% end %>
+                  </li>
+            <% end %>
+        </ul>
+        
+    </div>
+
+    <!-- Editor notes -->
+    <div class="book-editor-notes small-menu">
+      <% if current_user.try(:admin?) %>
+          <h3>Editor Notes:</h3>
+          <%= form_for([:services, @developmental_edit]) do |form| %>
+              <div class="form-group">
+                  <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
+              </div>
+                  <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+          <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</main>
+
+<!-- MODALS FOR DEVLEOPMENTAL EDIT SHOW -->
+<%= render 'services/developmental_edits/show/modals' %>

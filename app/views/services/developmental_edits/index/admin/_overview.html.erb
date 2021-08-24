@@ -7,7 +7,7 @@
 
     <!-- New Edits -->
     <% if @developmetal_edits_submitted.present? %>
-        <section class="box">
+        <section class="">
             <h4>New Edit Submitted</h4>
             <p>Recently submitted edits that are still to be assessed.</p>
             <table class="table table-hover">
@@ -21,7 +21,7 @@
                 <tbody>
                     <% @developmetal_edits_submitted.each do |edit| %>
                         <tr>
-                            <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
                             <td><%= edit.user.name.full %></td>
                             <td><%= number_with_delimiter(edit.word_count) %></td>
                         </tr>
@@ -33,7 +33,7 @@
 
     <!-- ? Edits -->
     <% if @developmental_edit_invoice_sent.present? %>
-        <section class="box">
+        <section class="">
             <h4>Waiting for Payment</h4>
             <p>An invoice has been sent for these edits, but we are still waiting on payment.</p>
             <table class="table table-hover">
@@ -47,7 +47,7 @@
                 <tbody>
                     <% @developmental_edit_invoice_sent.each do |edit| %>
                         <tr>
-                            <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
                             <td><%= edit.user.name.full %></td>
                             <td><%= number_with_delimiter(edit.word_count) %></td>
                         </tr>
@@ -60,7 +60,7 @@
 
     <!-- ? Edits -->
     <% if @developmental_edit_invoice_paid.present? %>
-        <section class="box">
+        <section class="">
             <h4>Waiting for Editor</h4>
             <p>Waiting for an editor to be assigned.</p>
             <table class="table table-hover">
@@ -75,7 +75,7 @@
                 <tbody>
                     <% @developmental_edit_invoice_paid.each do |edit| %>
                         <tr>
-                            <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
                             <td><%= edit.user.name.full %></td>
                             <td><%= number_with_delimiter(edit.word_count) %></td>
                             <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
@@ -89,7 +89,7 @@
 
     <!-- ? Edits -->
     <% if @developmental_edit_editing_underway.present? %>
-        <section class="box">
+        <section class="">
             <h4>Edit Underway</h4>
             <p>These are currently being edited.</p>
             <table class="table table-hover">
@@ -105,7 +105,7 @@
             <tbody>
             <% @developmental_edit_editing_underway.each do |edit| %>
                 <%= table_class(edit.developmental_edit_due_date) %>  
-                    <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
+                    <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
                     <td><%= edit.user.name.full %></td>
                     <td><%= number_with_delimiter(edit.word_count) %></td>
                     <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
