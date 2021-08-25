@@ -5,7 +5,7 @@
       <h1><%= @developmental_edit.title.titleize %></h1>
     </div>
 
-    <!-- User Infor - Admin only -->
+    <!-- User Information - Admin only -->
     
 
       <div class="book-information">
@@ -64,9 +64,9 @@
     <!-- Status -->
     <div class="book-status box">
       <% if current_user.try(:admin?) %>
-        <%= render "/services/developmental_edits/show/admin/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+        <%= render "/services/developmental_edits/show/status/admin/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
       <% elsif current_user.try(:writer?) %>   
-        <%= render "/services/developmental_edits/show/writer/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+        <%= render "/services/developmental_edits/show/status/writer/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
       <% end %>
    
     </div>
