@@ -8,10 +8,10 @@
     <!-- User Infor - Admin only -->
     
 
-      <div class="book-information box">
+      <div class="book-information">
 
         <!-- User -->
-        <div class="mb-1">
+
           <% if current_user.try(:admin?) %>
 
             <%= link_to @developmental_edit.user.name.full, user_path(@developmental_edit.user) %> | 
@@ -24,9 +24,7 @@
               </svg>
             <% end %>
           <% end %>
-        </div>
 
-        <div>
         <!-- Word count -->
           <% if current_user.try(:admin?) %>
             <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
@@ -60,15 +58,17 @@
           <% end %>
         <% end %>
 
-      </div>
-
-
     </div>
 
 
     <!-- Status -->
     <div class="book-status box">
-      <p>Status goes here.</p>
+      <% if current_user.try(:admin?) %>
+        <%= render "/services/developmental_edits/show/admin/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+      <% elsif current_user.try(:writer?) %>   
+        <%= render "/services/developmental_edits/show/writer/status/#{@developmental_edit.aasm.current_state}", developmental_edit: @developmental_edit %>
+      <% end %>
+   
     </div>
 
     <!-- Book Description -->
@@ -126,7 +126,7 @@
     <!-- Editor notes -->
     <div class="book-editor-notes small-menu">
       <% if current_user.try(:admin?) %>
-          <h3>Editor Notes:</h3>
+          <h3>Internal Book Notes:</h3>
           <%= form_for([:services, @developmental_edit]) do |form| %>
               <div class="form-group">
                   <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
