@@ -1,0 +1,43 @@
+<main class="page" id="users">
+
+
+  <div class="page-header">
+    <h1>Users</h1>
+  </div>
+    
+    <div class="admin-card admin-card-first">
+        <h3>Writers</h3>
+        <ul>
+            <% @writers.each do |writer| %>
+                <li>
+                <%= link_to writer.name.full, user_path(writer) %>
+                <%= link_to "x", user_path(writer), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+
+    <div class="admin-card admin-card-not-first">
+        <h3>Editors</h3>
+        <ul>
+            <% @editors.each do |editor| %>
+                <li>
+                <%= link_to editor.name.full, user_path(editor) %>
+                <%= link_to "x", user_path(editor), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+
+    <div class="admin-card admin-card-not-first">
+        <h3>Admin</h3>
+        <ul>
+            <% @admins.each do |admin| %>
+                <li>
+                <%= link_to admin.name.full, user_path(admin) %>
+                <%= link_to "x", user_path(admin), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</main>

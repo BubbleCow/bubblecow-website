@@ -2,6 +2,8 @@ module Services
   
   class ServicePricesController < Services::ApplicationController
     before_action :set_service_price, only: [:show, :edit, :update, :destroy]
+    before_action :set_admin_nav_bar, only: [:index]
+    layout 'admin_template'
 
     def index
         @service_prices = ServicePrice.all
@@ -61,5 +63,12 @@ module Services
         def service_price_params
             params.require(:service_price).permit(:service_type, :currency, :price)
         end
+
+        def set_admin_nav_bar
+          @unread_messages = Message.unread
+          @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+          @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
+        end
+
   end
 end

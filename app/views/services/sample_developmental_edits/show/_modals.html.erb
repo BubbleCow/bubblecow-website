@@ -1,0 +1,210 @@
+<!-- Langauage Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Language</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.select :language, [['American English'], ['British English']], class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Genre Modal -->
+<div class="modal fade" id="genreModal" tabindex="-1" role="dialog" aria-labelledby="genreModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Genre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.collection_select :genre_id, Genre.all, :id, :genre_type, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wordcount Modal -->
+<div class="modal fade" id="wordcountModal" tabindex="-1" role="dialog" aria-labelledby="wordcountModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Word Count</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.number_field :word_count, class: 'form-control', placeholder: "Add your book's total word count." %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Change user Modal -->
+<div class="modal fade" id="changeuserModal" tabindex="-1" role="dialog" aria-labelledby="changeuserModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+                <%= form.collection_select(:user_id, User.all.order('last_name ASC'), :id, :full_name, class: "form-control" ) %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Unedited manuscript modal -->
+<div class="modal fade" id="uneditedModal" tabindex="-1" role="dialog" aria-labelledby="uneditedModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Unedtied Manuscript</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_developmental_edit_manuscript.present? %>
+                <p><%= @sample_developmental_edit.sample_developmental_edit_manuscript.filename %></p>
+              <% end %>
+                <%= form.file_field :fsample_developmental_edit_manuscript, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editor's report modal -->
+<div class="modal fade" id="editorsreportModal" tabindex="-1" role="dialog" aria-labelledby="editorsreportModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editor's Report</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_editors_report.present? %>
+                <p><%= @sample_developmental_edit.sample_editors_report.filename %></p>
+              <% end %>
+                <%= form.file_field :sample_editors_report, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edited manuscript modal -->
+<div class="modal fade" id="editedmanuscriptModal" tabindex="-1" role="dialog" aria-labelledby="editedmanuscriptModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edited Manuscript</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <% if @sample_developmental_edit.sample_edited_manuscript.present? %>
+                <p><%= @sample_developmental_edit.sample_edited_manuscript.filename %></p>
+              <% end %>
+                <%= form.file_field :sample_edited_manuscript, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Upload file", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editor modal -->
+<div class="modal fade" id="editorModal" tabindex="-1" role="dialog" aria-labelledby="editorModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="form-group">
+              <%= form.select :editor_id, [['Gary Smailes', 1]], :required => true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Update editor", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

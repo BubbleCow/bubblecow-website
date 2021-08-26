@@ -1,0 +1,111 @@
+<!-- Admin: Top Navigation -->
+<div class="navigation-container">
+
+  <nav class="navbar navbar-expand-lg">
+
+    <!-- Branding -->
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <span class="first-word">Bubble</span><span class="last-word">Cow<span>
+    <% end %>
+
+    <!-- Burger --> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">   
+        <i class="fas fa-bars nav-link" style="color:#00457C;"></i>
+      </span> 
+    </button>
+
+    <!-- navigtion -->
+    <div class="collapse navbar-collapse" id="navbarMain">
+
+      <ul class="navbar-nav mr-auto mt-2 mt-md-0"></ul>
+
+      <ul class="navbar-nav">
+
+        <!-- Services -->
+        <li class="nav-item dropdown">
+          
+            <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
+              Services
+            <% end %>
+            
+            <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
+
+              <%= link_to "Developmental Edits", services_developmental_edits_path, class: "dropdown-item" %>
+              <%= link_to "Sample Developmental Edits", services_sample_developmental_edits_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Users", users_path, class: "dropdown-item" %>
+              <%= link_to "Testimonials", services_testimonials_path, class: "dropdown-item" %>
+              <%= link_to "Genres", services_genres_path, class: "dropdown-item" %>
+              <%= link_to "Prices", services_service_prices_path, class: "dropdown-item" %>
+
+            </div>    
+        
+        </li>
+
+        <!-- Blog -->
+        <li class="nav-item dropdown">
+          
+            <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
+              Blog
+            <% end %>
+            
+            <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
+
+              <%= link_to "Dashboard", blog_dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Categories", blog_post_categories_path, class: "dropdown-item" %>
+              <%= link_to "Authors", blog_post_authors_path, class: "dropdown-item" %>
+
+            </div>    
+        
+        </li>
+
+        <!-- Messages -->
+        <li class="nav-item dropdown">
+          
+            <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
+              Messages (<%= @unread_messages.count %>)
+            <% end %>
+            
+            <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
+
+              <%= link_to "Inbox", messages_path, class: "dropdown-item" %>
+              <%= link_to "Archive", messages_path, class: "dropdown-item" %>
+
+            </div>    
+        
+        </li>
+
+        <!-- User -->
+        <% if user_signed_in? %>
+
+          <li class="nav-item dropdown">
+            <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
+              <%= current_user.name.full %>
+            <% end %>
+            <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
+              <% if current_user.writer? %>
+                <%= link_to "Dashboard", writer_dashboard_path, class: "dropdown-item" %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-item" %>
+              <% end %>
+                
+                <div class="dropdown-divider"></div>
+                  <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
+            </div>    
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link btn btn-sm btn-outline-primary mr-1" %></li>
+          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link btn btn-sm btn-outline-primary" %></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </nav>
+
+</div>
+

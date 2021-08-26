@@ -1,108 +1,104 @@
-
-
-    <header>
-        <div class="overlay"></div>
-            <%= video_tag "editing-and-reading.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
-            <div class="container index-header h-100">
-                <div class="d-flex h-100 text-center align-items-center">
-                    <div class="w-100 text-white">
-                        <h1 class="display-3">Affordable Book Editing Services</h1>
-                        <h2 class="">Empowering writers to be successful</h2>
-                        <div class="home-cta-btn">
-                            <%= link_to "Find out more about book editing", services_book_editing_path, class: "btn btn-lg btn-primary" %>
-                        </div>
-                    </div>
+<header>
+    <div class="overlay"></div>
+    <%= video_tag "editing-and-reading.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
+    <div class="container index-header h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class="display-3">Affordable Book Editing Services</h1>
+                <h2 class="">Empowering writers to be successful</h2>
+                <div class="home-cta-btn">
+                    <%= link_to "Find out more about book editing", services_book_editing_path, class: "btn btn-lg btn-primary" %>
                 </div>
             </div>
-    </header>
+        </div>
+    </div>
+</header>
 
 <main class="page" id="index">
 
-        <!-- Social proof -->
-        <section class="social-proof">
-            <span id="lead-text">Trusted by:</span>
-                <%= image_tag 'matador-logo-grayscale', id: 'matador', alt: 'Featured in Matador' %>
-                <%= image_tag 'tedx-logo-grayscale', id: 'tedx', alt: 'Featured in TedX' %>
-                <%= image_tag 'creative-penn-logo-grayscale', id: 'creativepenn', alt: 'Featured in The Creative Penn' %>
-                <%= image_tag 'go-on-write-logo-grayscale', id: 'goonwrite', alt: 'Featured in Go On Write' %>
-        </section>
+    <!-- Social proof -->
+    <section class="social-proof">
+        <span id="lead-text">Trusted by:</span>
+        <%= image_tag 'matador-logo-grayscale', id: 'matador', alt: 'Featured in Matador' %>
+        <%= image_tag 'tedx-logo-grayscale', id: 'tedx', alt: 'Featured in TedX' %>
+        <%= image_tag 'creative-penn-logo-grayscale', id: 'creativepenn', alt: 'Featured in The Creative Penn' %>
+        <%= image_tag 'go-on-write-logo-grayscale', id: 'goonwrite', alt: 'Featured in Go On Write' %>
+    </section>
 
-        <!-- Benefits -->
-        <section class="benefits">
+    <!-- Benefits -->
+    <section class="benefits">
 
-            <div class="index-card">
-                <h2>Satisfaction</h2>
-                <p>The writing process should be <strong>enjoyable and satisfying</strong> for writers. You will have spent years thinking about and writing your book. It deserves the best chance of success.</p> 
-                <p>We have been editing books since 2007 and in that time with have worked with more than 1000 writers from all possible genres. Your book will be safe in our hands.</p>
-            </div>
+        <div class="index-card">
+            <h2 class="index-subtitle">Satisfaction</h2>
+            <p>The writing process should be <strong>enjoyable and satisfying</strong> for writers. You will have spent years thinking about and writing your book. It deserves the best chance of success.</p> 
+            <p>We have been editing books since 2007 and in that time with have worked with more than 1000 writers from all possible genres. Your book will be safe in our hands.</p>
+        </div>
 
-            <div class="index-card">
-                <h2>Control</h2>
-                <p>As a writer, it's essential that you remain in <strong>control of your book and your writing journey</strong> at all times. It is all too easy for the complexities of the process to pull the book from your grasp and leave you feeling lost and uncontrolled.</p> 
-                <p>BubbleCow understands what it means to be a writer. We know the process is exciting but scary, but we will ensure that we are part of your journey without ever trying to take control. We will let your book tell the story it was destined to tell in the best way possible.</p>
-            </div>
+        <div class="index-card">
+            <h2 class="index-subtitle">Control</h2>
+            <p>As a writer, it's essential that you remain in <strong>control of your book and your writing journey</strong> at all times. It is all too easy for the complexities of the process to pull the book from your grasp and leave you feeling lost and uncontrolled.</p> 
+            <p>BubbleCow understands what it means to be a writer. We know the process is exciting but scary, but we will ensure that we are part of your journey without ever trying to take control. We will let your book tell the story it was destined to tell in the best way possible.</p>
+        </div>
 
-            <div class="index-card">
-                <h2>Creativity</h2>
-                <p><strong>The freedom to be creative is part of life.</strong> It's at the very essence of what it means to be a writer. Without the ability to be creative, writers struggle. Telling stories and bringing characters to life is an act of creativity.</p>
-                <p>Our role at BubbleCow is to enhance your creativity. It is to give you the tools to be more creative, to tell better stories and, to engage more fully with readers. We never want to stifle your voice, we want to set it free.</p>
-            </div>
+        <div class="index-card">
+            <h2 class="index-subtitle">Creativity</h2>
+            <p><strong>The freedom to be creative is part of life.</strong> It's at the very essence of what it means to be a writer. Without the ability to be creative, writers struggle. Telling stories and bringing characters to life is an act of creativity.</p>
+            <p>Our role at BubbleCow is to enhance your creativity. It is to give you the tools to be more creative, to tell better stories and, to engage more fully with readers. We never want to stifle your voice, we want to set it free.</p>
+        </div>
 
-        </section>
+    </section>
 
-        <!-- Explanation text -->
-        <section class="explanation">
+    <!-- Explanation text -->
+    <section class="explanation">
             
-            <div class="explanation-text">
-                <h2>What is Book Editing?</h2>
-                <p>A professional book edit will help to <strong>lift your book to a publishable standard</strong>.</p>
-                <p>It is best employed when you feel you have done as much as you can with your book and are now ready to consider getting it ready for publication.</p>
-                <p>Our unique combined developmental and line editing will provide insanely detailed feedback that will give you all the guidance you require to eventually publish with confidence.</p>
-                <p>The edit will examine your entire manuscript in the process considering all aspects of your book, its narrative and its structure. These include issues such as readability, plot and structure, as well as line level problems such as sentence structure, grammar and punctuation. We will also assess your book's suitablity for the marketplace and even help pinpoint its genre.</p>
+        <div class="explanation-text">
+            <h2 class="index-subtitle"> What is Book Editing?</h2>
+            <p>A professional book edit will help to <strong>lift your book to a publishable standard</strong>.</p>
+            <p>It is best employed when you feel you have done as much as you can with your book and are now ready to consider getting it ready for publication.</p>
+            <p>Our unique combined developmental and line editing will provide insanely detailed feedback that will give you all the guidance you require to eventually publish with confidence.</p>
+            <p>The edit will examine your entire manuscript in the process considering all aspects of your book, its narrative and its structure. These include issues such as readability, plot and structure, as well as line level problems such as sentence structure, grammar and punctuation. We will also assess your book's suitablity for the marketplace and even help pinpoint its genre.</p>
+        </div>
+
+        <div class="explanation-text">
+            <h2 class="index-subtitle">When Should I Seek Book Editing?</h2>
+            <p>Book editing is an in-depth, labor-intensive process, that requires a professional book editor to <strong>examine and assess every element of your book</strong>, showing what works and what needs to be changed.</p>
+            <p>It will result in a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
+            <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on and that you are not making any major mistakes.</p>
+            <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Testimonials -->
+    <section class="index-testimonials">
+
+        <div class="index-card">
+            <%= image_tag 'banished-love', class: 'img-fluid', alt: 'Banished Love by Ramona Flightner' %>
+            <p>"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow for my next novel."</p>
+            <p class="testimonial-author">Ramona Flightner <cite title="Source Title">Banished Saga</cite></p>
+        </div>
+
+        <div class="index-card">
+            <%= image_tag 'taste-of-emotions', class: 'img-fluid', alt: 'Taste of Emotions by David Papini' %>
+            <p>“BubbleCow provided my latest book with the most professional, detailed and personal editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
+            <p class="testimonial-author">David Papini <cite title="Source Title">The Taste of Emotions</cite></p>
+        </div>
+
+        <div class="index-card">
+            <%= image_tag 'stand-and-deliver', class: 'card-img-top mx-auto d-block mb-3', alt: 'Stand and Deliver! by Ian Nichol' %>
+            <p>“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
+            <p class="testimonial-author">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></p>
             </div>
 
-            <div class="explanation-text">
-                <h2>When Should I Seek Book Editing?</h2>
-                <p>Book editing is an in-depth, labor-intensive process, that requires a professional book editor to <strong>examine and assess every element of your book</strong>, showing what works and what needs to be changed.</p>
-                <p>It will result in a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
-                <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on and that you are not making any major mistakes.</p>
-                <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
-            </div>
-
-        </section>
-
-
-        <!-- Testimonials -->
-        <section class="index-testimonials">
-
-            <div class="index-card">
-                <%= image_tag 'banished-love', class: 'img-fluid', alt: 'Banished Love by Ramona Flightner' %>
-                <p>"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow for my next novel."</p>
-                <p class="testimonial-author">Ramona Flightner <cite title="Source Title">Banished Saga</cite></p>
-            </div>
-
-            <div class="index-card">
-                <%= image_tag 'taste-of-emotions', class: 'img-fluid', alt: 'Taste of Emotions by David Papini' %>
-                <p>“BubbleCow provided my latest book with the most professional, detailed and personal editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
-                <p class="testimonial-author">David Papini <cite title="Source Title">The Taste of Emotions</cite></p>
-            </div>
-
-            <div class="index-card">
-                <%= image_tag 'stand-and-deliver', class: 'card-img-top mx-auto d-block mb-3', alt: 'Stand and Deliver! by Ian Nichol' %>
-                <p>“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
-                <p class="testimonial-author">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></p>
-            </div>
-
-        </section>
+    </section>
        
     
-        <!-- Testimonials link -->
-        <section class="index-testimonials-link">
-            <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
+    <!-- Testimonials link -->
+    <section class="index-testimonials-link">
+        <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
                 Read <%= @testimonial_count %> testimonials
-            <% end %>
-        </section>
-
+        <% end %>
     </section>
 
 </main>

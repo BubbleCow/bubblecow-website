@@ -1003,11 +1003,11 @@ Rails.application.routes.draw do
   get "/substantive_editing", to: redirect('/services/book-editing')
   get "/manuscript_editing", to: redirect('/services/book-editing')
   get "/novel_editing", to: redirect('/services/book-editing')  
+  get "/testimonials", to: redirect('/services/testimonials')  
 
   get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
 
 
-  resources :testimonials
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   # resources :users, only: [:show]
@@ -1023,30 +1023,12 @@ Rails.application.routes.draw do
     resources :services
     root to: "users#index"
   end
-  
-  # admin area
-  namespace :admin_area do
-    get 'dashboard', to: 'admin_pages#dashboard'
-    get 'blog', to: 'admin_pages#blog'
-    get 'testimonials', to: 'admin_pages#testimonials'
-    get 'services', to: 'admin_pages#services'
-    get 'users', to: 'admin_pages#users'
-    get 'genres', to: 'admin_pages#genres'
-    get 'prices', to: 'admin_pages#prices'
-    get 'archive', to: 'admin_pages#archive'
-    root to: "admin_pages#dashboard"
-  end
-
-  # writer area
-  namespace :writer_area do
-    get 'dashboard', to: 'writer_pages#dashboard'
-    root to: "writer_pages#dashboard"
-  end
 
   # services
   namespace :services do
     resources :genres 
     resources :service_prices
+    resources :testimonials
     resources :sample_developmental_edits do 
       put 'sample_developmental_edit_accepted' => 'state_buttons#sample_developmental_edit_accepted', on: :member
       put 'sample_developmental_edit_rejected' => 'state_buttons#sample_developmental_edit_rejected', on: :member
@@ -1079,6 +1061,13 @@ Rails.application.routes.draw do
   get 'writing_manual', to: 'customer_pages#writing_manual'
   get 'thanks', to: 'customer_pages#thanks'
 
+  # dashboards
+  get 'blog-dashboard', to: 'dashboards#blog_dashboard'
+  get 'admin-dashboard', to: 'dashboards#admin_dashboard'
+  get 'writer-dashboard', to: 'dashboards#writer_dashboard'
+  get 'writer_area', to: 'dashboards#writer_dashboard'
+
+
   # Blog
   namespace :blog do
     resources :post_authors, :post_categories
@@ -1108,7 +1097,7 @@ Rails.application.routes.draw do
 
   # Users
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
-  resources :users, :only => [:show, :edit, :update, :destroy]  
+  resources :users, :only => [:index, :show, :edit, :update, :destroy]  
  
   root to: 'customer_pages#index'
 

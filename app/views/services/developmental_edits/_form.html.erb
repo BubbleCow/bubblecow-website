@@ -14,47 +14,47 @@
   <% end %>
 
   <!-- Developmental edit title -->
-  <div class="form-group">
+  <div class="form-group form-section">
     <h3>Book Title:</h3>
     <p>Include the title of your book.</p>
     <%= form.text_field :title, required: true, autofocus: true, class: 'form-control', placeholder: "Add your book's title." %>
   </div>
 
   <!-- Developmental edit word count -->
-  <div class="form-group">
+  <div class="form-group form-section">
     <h3>Book Word Count:</h3>
     <p>Please note that we have a minimum word count of 15,000 words.</p>
     <%= form.number_field :word_count, required: true, class: 'form-control', placeholder: "Add your book's total word count." %>
   </div>
 
   <!-- Developmental edit laungauge -->
-  <div class="form-group">
+  <div class="form-group form-section">
     <h3>Language:</h3>
     <p>This will be American or British English. This will help us with the line edit.</p>
     <%= form.select :language, [['American English'], ['British English']], required: true, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group form-section">
     <h3>Book Genre:</h3>
     <p>Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
     <%= form.collection_select :genre_id, Genre.all.order('genre_type ASC'), :id, :genre_type, required: true, class: "form-control" %>
   </div>
 
   <!-- Developmental edit full manuscript  -->
-  <div class="form-group">
+  <div class="form-group form-section">
     <h3>Manuscript:</h3>
     <p>Please attach your manuscript. Please note that we are unable to edit PDF files.</p>
     <%= form.file_field :full_manuscript, required: true, class: 'form-control' %>
   </div>
 
   <!-- Developmental edit description -->
-  <div class="form-group small-menu">
+  <div class="form-group small-menu form-section">
     <h3>Book Description</h3>
     <p>Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
     <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
   </div>
 
-  <div class="form-group submit-button">
+  <div class="form-group submit-button form-section">
     <% if developmental_edit.persisted? %>
       <div class="float-right">
         <%= link_to 'Destroy', services_developmental_edit_path(@developmental_edit), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>

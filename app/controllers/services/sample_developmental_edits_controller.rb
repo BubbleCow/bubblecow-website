@@ -1,7 +1,6 @@
 module Services
 
   class SampleDevelopmentalEditsController < Services::ApplicationController
-    before_action :authenticate_user!
     before_action :set_sample_developmental_edit, only: [:show, :edit, :update, :destroy]
     before_action :set_service_price, only: [:new, :edit, :update]
     before_action :set_side_nav_bar, only: [:index, :show]

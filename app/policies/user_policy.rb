@@ -1,5 +1,9 @@
 class UserPolicy < ApplicationPolicy
 
+	def index?
+		return true if user.present? && user.admin?
+	end
+
 	def show?
 		return true if user.present? && user.admin?
 	end

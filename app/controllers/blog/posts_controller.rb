@@ -1,6 +1,8 @@
 module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+    before_action :set_admin_nav_bar, only: [:index, :edit, :update, :new]
+    layout :set_template
 
     def index
       @posts = Post.published
@@ -73,7 +75,7 @@ module Blog
       @post.update(published: false)
       redirect_to admin_dashboard_path
     end
-
+    
     private
       def set_post
         @post = Post.friendly.find(params[:id])
@@ -81,6 +83,21 @@ module Blog
 
       def post_params
         params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :topic_list)
+      end
+      
+      def set_template
+        case action_name
+        when 'index', 'edit', 'new'
+            'admin_template'
+        else
+            'application'
+        end
+      end
+
+      def set_admin_nav_bar
+        @unread_messages = Message.unread
+        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
+        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
       end
 
   end

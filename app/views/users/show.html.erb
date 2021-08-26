@@ -1,6 +1,9 @@
-<main class="admin-page" id="user-show">
+<main class="page" id="user-show">
 
-<p>Name:<%= @user.name.full %> </p>
+  <div class="page-header">
+    <h1><%= @user.name.full %></h1>
+  </div>
+
 <p>Email:<%= @user.email %> </p>
 <p>Role: <%= @user.role %> </p>
 <p>Currency: <%= @user.currency %> </p>

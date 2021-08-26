@@ -5,6 +5,4 @@ module EditorialServicesHelper
         time.strftime('%B %d')
     end
 
-
-
 end
