@@ -1,0 +1,118 @@
+/* posts */
+
+.post {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+
+    .post-title {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .blog-article {
+        .post-title {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+
+            h1 {
+                text-align: center;
+            }
+        }
+
+        .post-meta {
+            margin-bottom: 2rem;
+            font-size: 0.8rem;
+
+            #post-author {
+                font-weight: bold;
+                color: $night;
+            }
+
+            #post-date {
+                color: $slate;
+            }
+        }
+
+        .post-image {
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .post-category-badge {
+            background: $pal-blue;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+        }
+
+        // Post content styles the main post cotent. Add styling css below
+        .post-content {
+
+            h1,
+            h2,
+            h4,
+            h5 {
+                text-transform: capitalize;
+            }
+
+            .image-centre {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .trix-content {
+                h1 {
+                    font-size: 2rem;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+
+        .post-author-byline {
+            border-top: 1px solid $sand;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+
+
+            .author-image {
+                flex-basis: 30%;
+                padding-right: 1rem;
+                flex: 0 0 auto;
+            }
+
+            .author-byline {
+                flex-basis: 70%;
+            }
+        }
+
+        .post-advert {
+            border-top: 1px solid $sand;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+
+            .advert-cover-image {
+                align-self: center;
+                padding-bottom: 1rem;
+            }
+
+            .advert-copy {
+                .advert-text {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                }
+            }
+
+        }
+    }
+}

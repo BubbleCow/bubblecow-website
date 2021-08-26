@@ -1,0 +1,18 @@
+<main class="page" id="testimonials">
+
+  <div class="page-header">
+    <h1>Testimonials</h1>
+  </div>
+
+  <% @testimonials.each do |testimonial| %>
+      <div class="box mb-3">
+        <p><%= testimonial.testimonial_text %></p>
+        <h6><%= testimonial.writer.titleize %></h6>
+        <% if current_user.try(:admin?) %>
+          [<%= link_to "edit", edit_services_testimonial_path(testimonial) %> | 
+          <%= link_to "delete", services_testimonial_path(testimonial), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>]
+        <% end %>
+      </div>
+  <% end %>
+
+</main>

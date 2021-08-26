@@ -1,18 +1,22 @@
-<div class="page-header">
-  <%= link_to services_genres_path, class: 'btn btn-default' do %>
-    All Genres
-  <% end %>
-  <%= link_to edit_services_genre_path(@genre), class: 'btn btn-primary' do %>
-    Edit
-  <% end %>
-  <h1>Show genre</h1>
-</div>
+<main class="page" id="genre">
 
-<dl class="dl-horizontal">
-  <dt>Type:</dt>
-  <dd><%= @genre.genre_type %></dd>
+  <div class="page-header">
+    <%= link_to services_genres_path, class: 'btn btn-default' do %>
+      All Genres
+    <% end %>
+    <%= link_to edit_services_genre_path(@genre), class: 'btn btn-primary' do %>
+      Edit
+    <% end %>
+    <h1>Show genre</h1>
+  </div>
 
-  <dt>Slug:</dt>
-  <dd><%= @genre.slug %></dd>
+  <dl class="dl-horizontal">
+    <dt>Type:</dt>
+    <dd><%= @genre.genre_type %></dd>
 
-</dl>
+    <dt>Slug:</dt>
+    <dd><%= @genre.slug %></dd>
+
+  </dl>
+
+</main>

@@ -1,28 +1,32 @@
-<main class="post" id="post-show">
+<main class="post">
 
-  <article class="blog-article">
+  <article class="post-layout">
 
-    <section class="post-title">
+    <!-- Post title -->
+    <div class="post-title">
       <h1><%= @post.post_title.titleize %></h1>
-    </section>
+    </div>
 
-    <section class="post-image">
-      <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) %>
-    </section>
+    <!-- Post image -->
+    <div class="post-image">
+      <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid" ) %>
+    </div>
 
-    <section class="post-meta">
+    <!-- Post metadata -->
+    <div class="post-meta">
       <p>
         <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
         <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span> -  
         <% if @post.published? %>
-          <span id="post-date">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
+          <span>Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
         <% else %>
-          <span id="post-date">Unpublished</span>.
+          <span>Unpublished</span>.
         <% end %>
       </p>
-        <%= link_to @post.post_category.name, blog_post_category_path(@post.post_category), class: "post-category-badge" %>
-    </section>
+        <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "post-category-badge" %>
+    </div>
 
+    <!-- Post content -->
     <section class="post-content">
       <!-- if markdown cotnent is present, it shows that, otherwise it defaults to old active_text content -->
       <% if @post.content.present? %>
@@ -31,20 +35,20 @@
         <%= @post.body %>
       <% end %>
     </section>
-    
-    <section class="post-advert">
+
+  </article>
+
+  <section class="post-advert">
       <%= render 'blog/posts/adverts/writing_manual' %>
-    </section>
+  </section>
     
-    <section class="post-author-byline">
+  <section class="post-author-byline">
       <div class="author-image">
         <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "100x100" ) %>
       </div>
       <div class="author-byline">
         <p>Gary Smailes has been working in the publishing industry since 2005. He has more than <a href="http://www.andrewlownie.co.uk/authors/gary-smailes">twenty books published</a> and is founder of the <a href="https://bubblecow.com/">popular literary consultancy BubbleCow</a>.</p> 
       </div>
-    </section>
+  </section>
 
-  </article>
 </main>
-

@@ -1,29 +1,41 @@
+/* 
 
-// PAGES
+PAGE STYLING
+
+This is styling that applies to all pages with the 'page' class.
+
+
+*/
 
 .page {
     display: flex;
     width: 90%;
     margin: auto;
     flex-direction: column;
-    h1 {
-        font-size: 3.125em;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-    }
-    h2 {
-        font-size: 2.618em;
-        margin-top: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-    h3 {font-size: 1.931em;}
-    h4 {font-size: 1.618;}
-    h5 {font-size: 1.194em;}
-    h6 {font-size: 1em;}
-    
-    p {
-    
+    line-height: 1.5;
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {  }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {  }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {  }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { 
+        width: 55%;  
     }
 
-    
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        width: 55%;
+    }
+
+    .page-header {
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+
 }

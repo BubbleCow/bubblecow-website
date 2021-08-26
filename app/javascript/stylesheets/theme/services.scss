@@ -1,67 +1,41 @@
-// GLOBAL SERVICE STYLING
+/* 
+
+SERVICES STYLING
+
+This is styling that applies to all services pages.
+
+*/
+
+// SERVICES FORMS
 
 .services-form {
-    @include standard-border;
-    margin-top: 1rem;
-    padding: 1rem;
+
+    margin-top: 2rem;
 
     h1 {
-        font-size: 2.5rem;
-        padding-bottom: 1.5rem;
-        border-bottom: 0.75px solid $slate;
+        margin-top: 1rem;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $slate;
     }
 
-    h3 {
+    .form-section {
+        margin-bottom: 4rem;
+    }
+
+}
+
+// JOB - styling for dev ed and sanple dev ed
+
+.job {
+
+    h1 {
         padding-top: 1rem;
-        padding-bottom: 0.5rem;
-    }
-
-    p {
-        padding-bottom: 0.5rem;
-    }
-
-    .form-group {
         padding-bottom: 1rem;
     }
 
-    .submit-button {
-        padding-top: 1.5rem;
+    .book-information, .book-description, .book-status, .book-files, .book-editor-notes {
+        margin-bottom: 2rem;
     }
+
 }
-
-// User show styling for developmental and sample editing
-
-#developmental_edit_writer_show,
-#sample_developmental_edit_writer_show {
-    display: flex;
-
-    .section {
-        @include standard-border;
-        padding: 1rem;
-        margin-bottom: 3rem;
-        margin-top: 2rem;
-
-        .title {
-            font-size: 1.65rem;
-            color: $pay-blue;
-        }
-    }
-
-    .services_edit_writer_show_header_row {
-        h1 {
-            font-size: 2rem;
-        }
-    }
-
-    .services_edit_writer_show_left_column {
-        padding-bottom: 2rem;
-    }
-
-    .services_edit_writer_show_right_column {
-        .overlap-fix {
-            word-break: break-all;
-        }
-    }
-}
-
-// MENTORING

@@ -1,12 +1,19 @@
-<main class="blog" id="blog-index">
-  <div class="blog-main">
-    <% @posts.each do |post| %>
-      <%= render "shared/post_card", post: post%>
-    <% end %>
-  </div>
-  <div class="blog-sidebar">
-    <aside class="blog-sidebar">
-      <%= render "/shared/sidebar" %>
-    </aside>
-  </div>
+<main class="blog">
+
+  <section class="blog-layout">
+
+    <div class="blog-layout-left">
+        <% @posts.each do |post| %>
+          <!-- blog post layout -->
+          <%= render "shared/blog_post_layout", post: post %>
+        <% end %>
+    </div>
+
+    <div class="blog-layout-right">
+      <!-- blog sidebar -->
+      <%= render "shared/blog_sidebar" %>
+    </div>
+
+  </section>
+
 </main>
