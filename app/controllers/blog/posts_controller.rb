@@ -87,7 +87,7 @@ module Blog
       
       def set_template
         case action_name
-        when 'index', 'edit', 'new'
+        when 'edit', 'new'
             'admin_template'
         else
             'application'
