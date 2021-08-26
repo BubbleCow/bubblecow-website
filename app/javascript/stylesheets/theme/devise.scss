@@ -1,4 +1,10 @@
-// DEVISE
+/* 
+
+DEVISE STYLING
+
+This is styling for all devise forms.
+
+*/
 
 .devise-form {
     display: flex;
@@ -9,6 +15,21 @@
     @include standard-border();
     margin-top: 1rem;
     padding: 1rem;
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) { 
+        width: 50%;
+     }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { 
+        width: 20%;
+     }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) { 
+        width: 20%;
+     }
 
     .devise-form-information {
         text-align: center;

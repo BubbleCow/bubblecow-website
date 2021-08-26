@@ -86,6 +86,7 @@ class MessagesController < ApplicationController
   end
 
   def thank_you
+    @footer = "no footer"
   end
 
   private

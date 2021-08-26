@@ -1,145 +1,127 @@
-<div class="jobs_container">
+<main class="page" id="developmental-edits">
 
-<!-- New Edits -->
-<% if @developmetal_edits_submitted.present? %>
-    <section class="job_card">
-        <h4>New Edit Submitted</h4>
-        <p>Recently submitted edits that are still to be assessed.</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Word Count</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @developmetal_edits_submitted.each do |edit| %>
+    <div class="page-header">
+        <h1>Developmental Edits</h1>
+    </div>
+
+
+    <!-- New Edits -->
+    <% if @developmetal_edits_submitted.present? %>
+        <section class="">
+            <h4>New Edit Submitted</h4>
+            <p>Recently submitted edits that are still to be assessed.</p>
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
-                        <td><%= edit.user.name.full %></td>
-                        <td><%= number_with_delimiter(edit.word_count) %></td>
+                    <th scope="col">Title</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Word Count</th>
                     </tr>
-                <% end %> 
-            </tbody>
-        </table>
-    </section>
-<% end %>
+                </thead>
+                <tbody>
+                    <% @developmetal_edits_submitted.each do |edit| %>
+                        <tr>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
+                            <td><%= edit.user.name.full %></td>
+                            <td><%= number_with_delimiter(edit.word_count) %></td>
+                        </tr>
+                    <% end %> 
+                </tbody>
+            </table>
+        </section>
+    <% end %>
 
-<!-- ? Edits -->
-<% if @developmental_edits_accepted.present? %>
-    <section class="job_card">
-        <h4>Waiting for Invoice</h4>
-        <p>These edits have been accepted but the invoice has not been sent.</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Word Count</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @developmental_edits_accepted.each do |edit| %>
+    <!-- ? Edits -->
+    <% if @developmental_edit_invoice_sent.present? %>
+        <section class="">
+            <h4>Waiting for Payment</h4>
+            <p>An invoice has been sent for these edits, but we are still waiting on payment.</p>
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
-                        <td><%= edit.user.name.full %></td>
-                        <td><%= number_with_delimiter(edit.word_count) %></td>
+                    <th scope="col">Title</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Word Count</th>
                     </tr>
-                <% end %>        
-            </tbody>
-        </table>
-    </section>
-<% end %>
+                </thead>
+                <tbody>
+                    <% @developmental_edit_invoice_sent.each do |edit| %>
+                        <tr>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
+                            <td><%= edit.user.name.full %></td>
+                            <td><%= number_with_delimiter(edit.word_count) %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
 
+        </section>
+    <% end %>
 
-<!-- ? Edits -->
-<% if @developmental_edit_invoice_sent.present? %>
-    <section class="job_card">
-        <h4>Waiting for Payment</h4>
-        <p>An invoice has been sent for these edits, but we are still waiting on payment.</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Word Count</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @developmental_edit_invoice_sent.each do |edit| %>
+    <!-- ? Edits -->
+    <% if @developmental_edit_invoice_paid.present? %>
+        <section class="">
+            <h4>Waiting for Editor</h4>
+            <p>Waiting for an editor to be assigned.</p>
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
-                        <td><%= edit.user.name.full %></td>
-                        <td><%= number_with_delimiter(edit.word_count) %></td>
+                    <th scope="col">Title</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Word Count</th>
+                    <th scope="col">Due Date</th>
                     </tr>
-                <% end %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <% @developmental_edit_invoice_paid.each do |edit| %>
+                        <tr>
+                            <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
+                            <td><%= edit.user.name.full %></td>
+                            <td><%= number_with_delimiter(edit.word_count) %></td>
+                            <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
 
-    </section>
-<% end %>
+        </section>
+    <% end %>
 
-<!-- ? Edits -->
-<% if @developmental_edit_invoice_paid.present? %>
-    <section class="job_card">
-        <h4>Waiting for Editor</h4>
-        <p>Waiting for an editor to be assigned.</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Word Count</th>
-                <th scope="col">Due Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @developmental_edit_invoice_paid.each do |edit| %>
+    <!-- ? Edits -->
+    <% if @developmental_edit_editing_underway.present? %>
+        <section class="">
+            <h4>Edit Underway</h4>
+            <p>These are currently being edited.</p>
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
-                        <td><%= edit.user.name.full %></td>
-                        <td><%= number_with_delimiter(edit.word_count) %></td>
-                        <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
+                    <th scope="col">Title</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Word Count</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Editor</th>
                     </tr>
-                <% end %>
-            </tbody>
-        </table>
-
-    </section>
-<% end %>
-
-<!-- ? Edits -->
-<% if @developmental_edit_editing_underway.present? %>
-    <section class="job_card">
-        <h4>Edit Underway</h4>
-        <p>These are currently being edited.</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Word Count</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">Editor</th>
+                </thead>
+            <tbody>
+            <% @developmental_edit_editing_underway.each do |edit| %>
+                <%= table_class(edit.developmental_edit_due_date) %>  
+                    <td><%= link_to edit.title.titleize, services_developmental_edit_path(edit) %></td>
+                    <td><%= edit.user.name.full %></td>
+                    <td><%= number_with_delimiter(edit.word_count) %></td>
+                    <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
+                    <td><%= edit.editor.name.full %></td>
                 </tr>
-            </thead>
-        <tbody>
-        <% @developmental_edit_editing_underway.each do |edit| %>
-            <%= table_class(edit.developmental_edit_due_date) %>  
-                <td><%= link_to edit.title, services_developmental_edit_path(edit) %></td>
-                <td><%= edit.user.name.full %></td>
-                <td><%= number_with_delimiter(edit.word_count) %></td>
-                <td><%= edit.developmental_edit_due_date.strftime("%B %d") %></td>
-                <td><%= edit.editor.name.full %></td>
-            </tr>
-        <% end %>
-        </tbody>
-        </table>
+            <% end %>
+            </tbody>
+            </table>
 
-    </section>
-<% end %>
+        </section>
+    <% end %>
+
+</main>
 
 
-</div>
+
+
+
 

@@ -1,8 +1,10 @@
-<div class="col-lg-6 col-md-6 ml-auto mr-auto">
-  <div class="card deviseForm" id="deviseNewpassword">
-    <div class="card-body">
-      <h2 class="text-center">Reset your password</h2>
-      <hr>
+<section class="devise-form">
+
+  <div class="devise-form-information">    
+    <h1><%= bubblecow_name %></h1>
+    <p>Reset Your Password</p>
+  </div>
+          
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= devise_error_messages! %>
         <br>
@@ -15,6 +17,5 @@
           <%= f.submit "Send password reset email", class: 'btn btn-primary btn-block btn-lg' %>
         </div>
       <% end %>
-    </div>
-  </div>
-</div>
+
+</section>

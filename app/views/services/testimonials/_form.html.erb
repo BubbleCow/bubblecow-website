@@ -1,0 +1,26 @@
+<%= form_for([:services, @testimonial]) do |form| %>
+  <% if testimonial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+
+      <ul>
+      <% testimonial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :writer, placeholder: "Add writer name", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <!- Testimonial Text ->
+    <%= form.rich_text_area :testimonial_text %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

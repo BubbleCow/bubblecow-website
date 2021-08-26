@@ -1,0 +1,39 @@
+/* 
+
+WRITING MANUAL STYLING
+
+This is styling that applies across to the writing manual 
+
+*/
+
+
+.ebook-landing-page {
+    display: flex;
+    flex-direction: column;
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) { 
+            flex-direction: row;
+        }
+
+    .ebook-landing-page-left {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 2rem;
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) { 
+       width: 40%;
+        }
+    }
+
+    .ebook-landing-page-right {
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) { 
+            width: 60%;
+        }
+
+    }
+
+}

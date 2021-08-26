@@ -1,0 +1,72 @@
+<aside class="blog-sidebar">
+  
+  <!-- About BubbleCow -->
+  <div class="about-bubblecow">
+    <div class="about-bubblecow-title">
+      <h2>About <span class="first-word ml-1">Bubble</span><span class="last-word">Cow<span></h2>
+    </div>
+
+    <div class="about-bubblecow-text">
+      <p>BubbleCow's goal is to provide world-class editorial feedback and customer support, at a price that is affordable to self-published writers.</p>
+      <p>BubbleCow is an editing company that was born into the modern world of self-publishing. We have developed a way of editing that not only shows you what’s wrong with your book but gives you all the guidance you need to fix the mistakes.</p>
+      <p>For us, the quality of the feedback is everything.</p>
+      <%= link_to "Learn more about our story here...", about_path %>
+    </div>
+
+  </div>
+
+  <!-- Free eBooks -->
+  <div class="free-ebooks">
+
+      <div class="free-ebooks-title">
+        <h3>Free eBooks</h3>
+      </div>
+
+      <div class="free-ebooks-text">
+        <p>The best way to learn is by doing. FOR FREE you can get tried and tested guidence just by studying these guides. They're here for you.</p>
+
+        <ul>
+          <li><%= link_to "The Writing Manual", "https://bubblecow.com/writing_manual" %></li>
+        </ul>
+        
+      </div>
+
+  </div>
+
+  <!-- Getting started -->
+  <div class="getting-started">
+
+    <div class="getting-started-title">
+      <h3>Getting Started</h3>
+    </div>
+
+    <div class="getting-started-text">
+      <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
+      <ul class>
+        <li><a href="https://bubblecow.com/blog/how-to-get-the-most-from-your-professional-book-editing-service">How To Get The Most From Your Professional Book Editing Service</a></li>
+        <li><a href="https://bubblecow.com/blog/types-of-editing">How To Decide Which Editing Type Is Best For Your Book</a></li>
+        <li><a href="https://bubblecow.com/blog/self-editing-your-book-a-pre-edit-checklist">How To Self Edit Your Book [Pre Edit Checklist]</a></li>
+      </ul>
+    </div>
+  
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+
+    <div class="categories-title">
+      <h3>Catergories</h3>
+    </div>
+
+    <div class="categories-text">
+      <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
+        <ul>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name.titleize, blog_post_category_path(category) %></li>
+          <% end %>
+        <ul>
+    </div>
+  
+  </div>
+
+</aside>

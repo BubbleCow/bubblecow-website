@@ -1,8 +1,10 @@
+<section class="devise-form">
 
-    <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-      <div class="card deviseForm" id="deviseSignup">
-        <div class="card-body">
-          <h1 class="text-center">Edit Your Account</h1>
+  <div class="devise-form-information">    
+    <h1><%= bubblecow_name %></h1>
+    <p>Edit Your Account</p>
+  </div>
+          
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
@@ -40,9 +42,9 @@
               <%= f.submit "Save Changes", class: 'btn btn-lg btn-block btn-primary' %>
             </div>
           <% end %>
-          <hr>
 
-          <p class="text-center"><%= link_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
-          </div>
+        </div>
       </div>
     </div>
+
+</section>

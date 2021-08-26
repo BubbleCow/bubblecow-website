@@ -19,33 +19,31 @@
 
   <main class="page" id="index">
 
-
     <!-- Benefits -->
     <section class="book-editing-benefits">
 
         <div class="book-editing-card">
-            <h2>Book Editing + Line Editing</h2>
+            <h2 class="book-editing-subtitle">Book Editing + Line Editing</h2>
             <p>Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
         </div>
 
         <div class="book-editing-card">
-            <h2>Multi-page Editor's Report</h2>
+            <h2 class="book-editing-subtitle">Multi-page Editor's Report</h2>
             <p>Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience.</p>
         </div>
 
         <div class="book-editing-card">
-            <h2>Prompt 28 Day Turnaround</h2>
+            <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
             <p>Book edits returned within 28 business days. We understand publishing timeframes are essential and will provide a delivery date before the editing starts.</p>
         </div>
 
     </section>
 
-
     <!-- pricing -->
     <section class="book-editing-pricing">
 
         <div class="book-editing-pricing-text">
-            <h2><%= @developmental_edit_price %> per 1000 words</h2>
+            <h2 class="book-editing-subtitle"><%= @developmental_edit_price %> per 1000 words</h2>
             <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
             <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
             <p>The price includes all editing, consultation, and after-edit care.</p>
@@ -106,7 +104,7 @@
     <section class="book-editing-service-information">
 
       <!-- Turnaround -->
-        <h2>Editing Turnaround Time</h2>
+        <h2 class="book-editing-subtitle">Editing Turnaround Time</h2>
         <p>We will return your manuscript within <strong>twenty-eight business days</strong> (counting Monday-Friday) or
           roughly five calendar weeks.</p>
         <p>We are a small and dedicated team. We pick the best editor for each job. We have professional editors and
@@ -115,7 +113,7 @@
             <%= proposed_date %></strong>.</p>
 
         <!-- Editing -->
-        <h2>What You Get With Our Book Editing Service</h2>
+        <h2 class="book-editing-subtitle">What You Get With Our Book Editing Service</h2>
         <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable
           standard.
         </p>
@@ -384,7 +382,7 @@
         </ul>
 
         <!-- Sample Editing -->
-        <h2>Sample Editing</h2>
+        <h2 class="book-editing-subtitle">Sample Editing</h2>
         <p>Finding the right editor for your project is not easy. The chances are that you have spent months (a recent
           survey suggested that the average time to write a book was seven months) writing your book and you, rightly,
           want to make sure that you have the correct person for the job.</p>
@@ -413,7 +411,7 @@
         <%= link_to "Try free sample editing", "https://services.bubblecow.com/books/new?job=sample_editing", class: "btn btn-block btn-outline-primary btn-lg mb-3 p-3", id: 'submit_sample' %>
 
         <!-- Process -->
-        <h2>The Editing Process</h2>
+        <h2 class="book-editing-subtitle">The Editing Process</h2>
         <p>The editing process normally consists of two stages: the sample edit and the full edit.</p>
         <p>The role of the sample edit is to show you what we can offer for your book. If you don’t need a sample edit,
           it
@@ -425,7 +423,7 @@
             secure sample submission page.</li>
           <li>Create a free BubbleCow account using email and password.</li>
           <li>Complete the submission form and attach your manuscript. This will need to be a Word document.</li>
-          <li>The manuscript is submitted to BubbleCow and uploaded to our secure server.</li>
+          <li>The manuscript is submitted to BubbleCow and uploaded to our secure server. You can find out more about our <%= link_to "file satefy policy here", services_file_safety_path %>.</li>
           <li>A senior editor will download your manuscript onto their local machine and assess the book. If we feel we
             can add value, the book is ‘accepted’. If we feel we can’t add value, the book is ‘rejected’ and deleted
             from
@@ -474,8 +472,7 @@
         </ul>
 
         <!-- Support -->
-        <h2>Post-Edit Support</h2>
-        <p>We see our interaction with writers as a long-term relationship.</p>
+        <h2 class="book-editing-subtitle">We see our interaction with writers as a long-term relationship.</h2>
         <p>We want to be with you for the book you are writing now and all your future projects.</p>
         <p>In addition to editorial support, we work hard to provide help with all elements of the self-publishing
           process. This might be through blog posts, free ebooks, email exchanges or even one-to-one Skype calls.</p>
@@ -546,7 +543,7 @@
     <section class="book-editing-FAQ">
 
     <!-- FAQ -->
-        <h2 class="text-center pt-4">Commonly Asked Questions</h2>
+        <h2 class="book-editing-subtitle">Commonly Asked Questions</h2>
         <p>Below are some of the most commonly asked questions we get from writers. If you have a question, please email
           <%= mail_to "gary@bubblecow.com" %>.</p>
 
