@@ -329,8 +329,6 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.4)
       sprockets-rails (>= 2.0.0)
-    rails-bootstrap-tabs (0.2.7)
-      rails (>= 3.2.11)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -499,7 +497,6 @@ DEPENDENCIES
   puma (~> 4.1)
   pundit
   rails (~> 6.1.4)
-  rails-bootstrap-tabs (~> 0.2.7)
   rubocop
   sass-rails (>= 6)
   selenium-webdriver
