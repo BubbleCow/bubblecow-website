@@ -1024,12 +1024,6 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  # writer area
-  namespace :writer_area do
-    get 'dashboard', to: 'writer_pages#dashboard'
-    root to: "writer_pages#dashboard"
-  end
-
   # services
   namespace :services do
     resources :genres 
@@ -1070,6 +1064,8 @@ Rails.application.routes.draw do
   # dashboards
   get 'blog-dashboard', to: 'dashboards#blog_dashboard'
   get 'admin-dashboard', to: 'dashboards#admin_dashboard'
+  get 'writer-dashboard', to: 'dashboards#writer_dashboard'
+  get 'writer_area', to: 'dashboards#writer_dashboard'
 
 
   # Blog

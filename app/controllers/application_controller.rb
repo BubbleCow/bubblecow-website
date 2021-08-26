@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
         elsif stored_location_for(resource) == new_services_developmental_edit_path
           new_services_developmental_edit_path
         else 
-          writer_area_root_path
+          writer_dashboard_path
         end
       end
     end
