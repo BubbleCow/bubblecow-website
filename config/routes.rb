@@ -1067,7 +1067,6 @@ Rails.application.routes.draw do
   get 'writer-dashboard', to: 'dashboards#writer_dashboard'
   get 'writer_area', to: 'dashboards#writer_dashboard'
 
-
   # Blog
   namespace :blog do
     resources :post_authors, :post_categories

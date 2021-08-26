@@ -62,7 +62,7 @@
       <p>Turning your book into a success requires great writing and great book marketing. Here's some articles that will help you get started: </p>
         <ul>
           <% @categories.each do |category| %>
-            <li><%= link_to category.name.titleize, category_path(category) %></li>
+            <li><%= link_to category.name.titleize, blog_post_category_path(category) %></li>
           <% end %>
         <ul>
     </div>
