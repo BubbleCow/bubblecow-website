@@ -16,6 +16,7 @@ This is styling that applies to all aspects of the blog.
     .blog-layout {
         width: 90%;
         margin: auto;
+        margin-bottom: 1rem;
 
         // Large devices (desktops, 992px and up)
         @media (min-width: 992px) {
