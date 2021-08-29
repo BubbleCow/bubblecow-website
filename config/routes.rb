@@ -996,14 +996,6 @@ Rails.application.routes.draw do
   get "/blog/show-don-t-tell-and-become-a-better-writer", to: redirect('/blog/show-don-t-tell-and-how-to-become-a-better-writer')
   get "/blog/third-person-viewpoinr/", to: redirect('/blog/third-person-viewpoint')
   
-  # Redirects after creating services 
-  get "/book_editing", to: redirect('/service/book-editing')
-  get "book-editing", to: redirect('/services/book-editing')
-  get "/content_editing", to: redirect('/services/book-editing')
-  get "/substantive_editing", to: redirect('/services/book-editing')
-  get "/manuscript_editing", to: redirect('/services/book-editing')
-  get "/novel_editing", to: redirect('/services/book-editing')  
-  get "/testimonials", to: redirect('/services/testimonials')  
 
   get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
 
@@ -1039,12 +1031,12 @@ Rails.application.routes.draw do
     end
     get 'manuscript-assessment', to: 'pages#manuscript_assessment'
 
-    get 'book-editing', to: 'pages#developmental_editing'
-    get 'developmental-editing', to: 'pages#developmental_editing'
-    get 'content-editing', to: 'pages#developmental_editing'
-    get 'substantive-editing', to: 'pages#developmental_editing'
-    get 'novel-editing', to: 'pages#developmental_editing'
-    get 'manuscript-editing', to: 'pages#developmental_editing'
+    get 'book-editing', to: 'developmental_editing_pages#book_editing'
+    get 'developmental-editing', to: 'developmental_editing_pages#developmental_editing'
+    get 'content-editing', to: 'developmental_editing_pages#content_editing'
+    get 'substantive-editing', to: 'developmental_editing_pages#substantive_editing'
+    get 'novel-editing', to: 'developmental_editing_pages#novel_editing'
+    get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
 
     get 'mentoring', to: 'pages#mentoring'
     
@@ -1055,6 +1047,17 @@ Rails.application.routes.draw do
     
     root to: "pages#index"
   end
+
+    # Redirects after creating services 
+    get "/book_editing", to: redirect('/services/book-editing')
+    get "/book-editing", to: redirect('/services/book-editing')
+    get "/developmental-editing", to: redirect('/services/developmental-editing')
+    get "/developmental_editing", to: redirect('/services/developmental-editing')
+    get "/content_editing", to: redirect('/services/content-editing')
+    get "/substantive_editing", to: redirect('/services/substantive-editing')
+    get "/manuscript_editing", to: redirect('/services/manuscript-editing')
+    get "/novel_editing", to: redirect('/services/novel-editing')  
+    get "/testimonials", to: redirect('/services/testimonials')  
 
   # pages
   get 'about', to: 'customer_pages#about'
