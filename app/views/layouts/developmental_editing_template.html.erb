@@ -1,10 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+    <%= render 'shared/navigation/default_navbar' %>
+    <%= render 'shared/notices' %>
+    
   <header>
     <div class="overlay"></div>
     <%= video_tag "write_and_erase.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
     <div class="container index-header h-100">
       <div class="d-flex h-100 text-center align-items-center">
         <div class="w-100 text-white">
-          <h1 class="display-3">Book Editing</h1>
+          <h1 class="display-3"><%= @keyword.capitalize %> Editing</h1>
           <h2 class="">Looking for a professional book editor? We can help.</h2>
           <div class=" home-cta-btn">
             <%= link_to "Submit for editing", new_services_developmental_edit_path,
@@ -840,7 +850,7 @@
         </div>
         <!-- Accordion wrapper -->
 
-    </sectio>
+    </section>
 
 
   </main>
@@ -848,3 +858,11 @@
   <%= render "shared/price_calculator" %>
 
 
+
+    
+    <% if @footer != "no footer" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
+  </body>
+</html>

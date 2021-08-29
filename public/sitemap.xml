@@ -4,8 +4,14 @@
 
     <url><loc>https://bubblecow.com/</loc></url>
 
-    <url><loc>https://bubblecow.com/book-editing</loc></url>
-    <url><loc>https://bubblecow.com/developmental-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/book-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/developmental-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/content-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/substantive-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/novel-editing</loc></url>
+    <url><loc>https://bubblecow.com/services/manuscript-editing</loc></url>
+
+
     <url><loc>https://bubblecow.com/testimonials</loc></url>
     <url><loc>https://bubblecow.com/about</loc></url>
     <url><loc>https://bubblecow.com/writing_manual</loc></url>
