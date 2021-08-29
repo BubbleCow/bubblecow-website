@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :developmental_edits, dependent: :destroy
   has_many :sample_developmental_edits, dependent: :destroy
 
+  has_rich_text :note
+
   has_person_name
 
   enum role: [:writer, :editor, :admin]
