@@ -1,21 +1,38 @@
-<%= form_for([:blog, @post_category]) do |form| %>
-  <% if post_category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post_category.errors.count, "error") %> prohibited this post_category from being saved:</h2>
+<div class="form">
 
-      <ul>
-        <% post_category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="box">
+
+    <%= form_for([:blog, @post_category]) do |form| %>
+      <% if post_category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post_category.errors.count, "error") %> prohibited this post_category from being saved:</h2>
+
+          <ul>
+            <% post_category.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="input">
+        <%= form.text_field :name, class: "form-control", placeholder: "Add category name", required: true %>
+      </div>
+      
+      <div class="button">
+        <% if @post_category.new_record? %>
+          <div class="d-grid gap-2"> 
+            <button type="submit" class="btn btn-primary mb-2">Submit category</button>
+          </div>
+        <% else %>
+          <div class="d-grid gap-2"> 
+            <button type="submit" class="btn btn-primary mb-2">Update category</button>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
+      
+    <% end %>
 
-  <div class="form-group">
-    <%= form.text_field :name, class: "form-control", placeholder: "Add category name" %>
   </div>
-  
-  <div class="actions">
-    <button type="submit" class="btn btn-primary mb-2">Submit category</button>
-  </div>
-<% end %>
+
+</div>

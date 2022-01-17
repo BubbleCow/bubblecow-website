@@ -1,48 +1,87 @@
-<main class="page" id="users">
+<h1>Users</h1>
 
+<div class="box">
 
-  <div class="page-header">
-    <h1>Users</h1>
-  </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="writer-tab" data-bs-toggle="tab" data-bs-target="#writer" type="button" role="tab" aria-controls="writer" aria-selected="true">Writers</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor" type="button" role="tab" aria-controls="editor" aria-selected="false">Editors</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="false">Admin</button>
+    </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="writer" role="tabpanel" aria-labelledby="writer-tab">
     
-    <div class="admin-card admin-card-first">
-        <h3>Writers</h3>
-        <ul>
-            <% @writers.each do |writer| %>
-                <li>
-                <%= link_to writer.name.full, user_path(writer) %>
-                <% if writer.note.present? %>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
-                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                    </svg>
-                <% end %>
-                <%= link_to "x", user_path(writer), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
-                </li>
-            <% end %>
-        </ul>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @writers.each do |user| %>
+                        <tr>
+                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
+                            <td><%= user.email %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+    
     </div>
 
-    <div class="admin-card admin-card-not-first">
-        <h3>Editors</h3>
-        <ul>
-            <% @editors.each do |editor| %>
-                <li>
-                <%= link_to editor.name.full, user_path(editor) %>
-                <%= link_to "x", user_path(editor), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
-                </li>
-            <% end %>
-        </ul>
+    <div class="tab-pane fade" id="editor" role="tabpanel" aria-labelledby="editor-tab">
+    
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @editors.each do |user| %>
+                        <tr>
+                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
+                            <td><%= user.email %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+    
     </div>
 
-    <div class="admin-card admin-card-not-first">
-        <h3>Admin</h3>
-        <ul>
-            <% @admins.each do |admin| %>
-                <li>
-                <%= link_to admin.name.full, user_path(admin) %>
-                <%= link_to "x", user_path(admin), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
-                </li>
-            <% end %>
-        </ul>
+    <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+    
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @admins.each do |user| %>
+                        <tr>
+                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
+                            <td><%= user.email %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+    
     </div>
-</main>
+
+    </div>
+
+    
+    
+    
+</div>
+

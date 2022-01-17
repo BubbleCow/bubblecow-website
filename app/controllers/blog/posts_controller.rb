@@ -1,7 +1,6 @@
 module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-    before_action :set_admin_nav_bar, only: [:index, :edit, :update, :new]
     layout :set_template
 
     def index
@@ -35,7 +34,7 @@ module Blog
       authorize @post
       respond_to do |format|
         if @post.save
-          format.html { redirect_to blog_post_path(@post), notice: 'Post was successfully saved. This is not published.' }
+          format.html { redirect_to edit_blog_post_path(@post), notice: 'Post was successfully saved. This is not published.' }
           format.json { render :show, status: :created, location: @post }
         else
           format.html { render :new }
@@ -88,16 +87,10 @@ module Blog
       def set_template
         case action_name
         when 'edit', 'new'
-            'admin_template'
+            'backend_blog'
         else
             'application'
         end
-      end
-
-      def set_admin_nav_bar
-        @unread_messages = Message.unread
-        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
-        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
       end
 
   end

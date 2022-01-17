@@ -9,11 +9,6 @@
 
   <body>
 
-    <!-- navigation -->
-    <% if @nav != "no nav" %>
-      <%= render 'shared/navbar' %>
-    <% end %>
-
     <!-- Notices -->
     <%= render 'shared/notices' %>
 
@@ -21,17 +16,12 @@
     <div class="container">
       <div class="<%= controller_name %> <%= action_name %>">
         <div class="row justify-content-lg-center">
-          <div class="col-lg-8">
+          <div class="col-lg-4">
             <%= yield %>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Footer -->
-    <% if @footer != "no footer" %>
-      <%= render 'shared/footer' %>
-    <% end %>
 
   </body>
 </html>
