@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :redirect_subdomain
+  before_action :masquerade_user!
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_country, if: :devise_controller?
-  before_action :masquerade_user!
   before_action :sync_user, unless: :devise_controller?
 
   include Pundit
@@ -36,11 +37,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note])
-    end
-
     def after_sign_in_path_for(resource)
       if current_user.admin?
         admin_dashboard_path
@@ -57,6 +53,15 @@ class ApplicationController < ActionController::Base
   
     def after_sign_out_path_for(resource)
       root_path
+    end
+
+    # DEVISE ACTIONS
+
+    # White lists and sets variables
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note])
+
     end
 
     def sync_user

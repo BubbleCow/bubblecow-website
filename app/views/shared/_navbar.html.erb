@@ -1,0 +1,101 @@
+<% if user_masquerade? %>
+  <div class="alert alert-warning text-center">
+    You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
+    <%= link_to back_masquerade_path(current_user) do %><%= icon("fas", "times") %> Logout <% end %>
+  </div>
+<% end %>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;"">
+	  <div class="container-fluid">
+
+    <!-- Branding -->
+		<%= link_to root_path, class: "navbar-brand" do %>
+      <%= bubblecow_name %>
+    <% end %>
+
+    <!-- Burger -->
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+    <!-- Left nav -->
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+        <ul class="navbar-nav me-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Editorial Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Manuscript Assessment</a></li>
+              <li><%= link_to "Book Editing", book_editing_path, class: "dropdown-item" %></li>
+              <li><a class="dropdown-item" href="#">Mentoring</a></li>
+            </ul>
+          </li>	
+
+          <li class="nav-item">
+            <%= link_to "Testimonials", testimonials_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Blog", blog_root_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Contact", new_message_path, class: "nav-link" %>
+          </li>
+
+        </ul>		  
+      </div>
+
+      <!-- Right nav -->
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto">
+
+          <% if user_signed_in? %>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.full_name %>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+
+                <!-- Admin -->
+                <% if current_user.admin? %>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><%= link_to "Blog posts", new_blog_post_path, class: "dropdown-item"  %></li>
+                  <li><%= link_to "Categories", blog_post_categories_path, class: "dropdown-item"  %></li>
+                  <li><%= link_to "Authors", blog_post_authors_path, class: "dropdown-item"  %></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><%= link_to "Users", users_path, class: "dropdown-item"  %></li>
+                  <li><%= link_to "Add testimonial", new_testimonial_path, class: "dropdown-item" %></li>
+                <% end %>
+
+
+                <!-- All -->
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item"  %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+
+              </ul>
+            </li>	
+
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary" %>
+            </li>	
+
+          <% end %>		
+
+        </ul>		  
+      </div>
+
+	  </div>
+</nav>

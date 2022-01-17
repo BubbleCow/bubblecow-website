@@ -5,12 +5,13 @@ module ApplicationHelper
       success: "alert-success",
       error: "alert-danger",
       alert: "alert-warning",
-      notice: "alert-info"
+      notice: "alert-success"
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 
+  # Outputs 'bubblecow'
   def bubblecow_name
-    content_tag(:span, "Bubble", class: "first-word") + content_tag(:span, "Cow", class: "last-word")
+    content_tag(:span, "Bubble", class: "brand-first-word") + content_tag(:span, "Cow", class: "brand-second-word")
   end
 
   def is_active?(path)       

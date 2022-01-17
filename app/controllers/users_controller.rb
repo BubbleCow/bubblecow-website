@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [ :show, :edit, :update]
   before_action :set_side_nav_bar, only: [:show, :index]
   layout :set_template
 
@@ -53,15 +53,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :role, :slug, :country, :currency, :note)
     end
-  
-    def set_template
-      case action_name
-      when 'show', 'index'
-          'admin_template'
-      else
-          'application'
-      end
-    end
 
     def set_side_nav_bar
       @unread_messages = Message.unread
@@ -69,5 +60,14 @@ class UsersController < ApplicationController
       @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
     end
 
+      
+    def set_template
+      case action_name
+      when 'show', 'index'
+          'backend'
+      else
+          'application'
+      end
+    end
 
 end

@@ -22,4 +22,9 @@ class CustomerPagesController < ApplicationController
     @footer = "no footer"
   end 
 
+  def file_safety
+    @page_title = "File Safety"
+    @page_description = "Discover how we ensure your manuscript is kept safe." 
+  end
+
 end

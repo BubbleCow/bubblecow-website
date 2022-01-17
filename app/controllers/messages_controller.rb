@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
         # Deliver the message email
         MessageMailer.new_message(@message).deliver_now
         
-        format.html { redirect_to thank_you_path, notice: 'Message was successfully sent.' }
+        format.html { redirect_to thank_you_path }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }

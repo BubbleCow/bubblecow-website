@@ -1,11 +1,11 @@
 <section class="devise-form">
 
-  <div class="devise-form-information">    
+  <div class="header">    
     <h1><%= bubblecow_name %></h1>
     <p>Edit Your Account</p>
   </div>
           
-
+  <div class="form">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
             <hr>
@@ -14,7 +14,7 @@
               <%= f.text_field :name, autofocus: false, class: 'form-control', placeholder: "Full Name" %>
             </div>
 
-            <div class="form-group">
+            <div class="input>
               <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
             </div>
 
@@ -24,24 +24,25 @@
 
             <hr>
             <p class="form-text text-muted"><small>To change password add your new password to first field, plus confirm this password in the second field. <em>Leave both blank if you don't want to change it</em>.</small></p>
-            <div class="form-group">
+            <div class="input">
               <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'New Password'  %>
             </div>
 
-            <div class="form-group">
+            <div class="input">
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'  %>
             </div>
             
             <hr>
             <p class="form-text text-muted"><small>To save ANY changes to your account we need your password to confirm changes</small>.</p>
-            <div class="form-group">
+            <div class="input">
               <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password to save changes'  %>
             </div>
 
-            <div class="form-group">
+            <div class="button d-grid gap-2">
               <%= f.submit "Save Changes", class: 'btn btn-lg btn-block btn-primary' %>
             </div>
           <% end %>
+</div>
 
         </div>
       </div>

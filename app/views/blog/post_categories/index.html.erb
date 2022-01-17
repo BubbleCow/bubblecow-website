@@ -1,35 +1,35 @@
-<main class="page" id="post-categories" >
-
 <h1>Post Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="box">
 
-  <tbody>
-    <% @post_categories.each do |post_category| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= post_category.name %></td>
-        <td><%= post_category.slug %></td>
-        <td><%= link_to 'Show', blog_post_category_path(post_category) %></td>
-        <td><%= link_to 'Edit', edit_blog_post_category_path(post_category) %></td>
-        <td><%= link_to 'Destroy', blog_post_category_path(post_category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+        <th scope="col">Name</th>
+        <th scope="col">Slug</th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @post_categories.each do |post_category| %>
+        <tr>
+          <td><%= post_category.name %></td>
+          <td><%= post_category.slug %></td>
+          <td><%= link_to 'Show', blog_post_category_path(post_category) %></td>
+          <td><%= link_to 'Edit', edit_blog_post_category_path(post_category) %></td>
+          <td><%= link_to 'Destroy', blog_post_category_path(post_category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
 
 <br>
 
 <%= link_to 'New Category', new_blog_post_category_path %>
 
 
-</main>
 
 

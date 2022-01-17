@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body id="backend">
+
+      <!-- navigation -->
+      <%= render 'shared/navbar' %>
+
+      <!-- notices -->
+      <%= render 'shared/notices' %>
+
+      <!-- Main content -->
+      <div class="container">
+         <div class="<%= controller_name %> <%= action_name %> backend-page">
+            <div class="row justify-content-lg-center">
+               <div class="col-lg-10">
+                  <%= yield %>
+               </div>
+            </div>
+         </div>
+      </div>
+
+  </body>
+</html>
