@@ -1030,7 +1030,6 @@ Rails.application.routes.draw do
   get 'novel-editing', to: 'developmental_editing_pages#novel_editing'
   get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
 
-
   namespace :services do
     resources :genres 
     resources :service_prices
