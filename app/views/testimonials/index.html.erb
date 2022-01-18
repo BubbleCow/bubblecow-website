@@ -1,5 +1,8 @@
 <h1>Testimonials</h1>
 
+ <% if current_user.try(:admin?) %>
+  <p><%= link_to "Add testimonial", new_testimonial_path %></p>
+ <% end %>
 
   <% @testimonials.each do |testimonial| %>
       <div class="card mb-3">
