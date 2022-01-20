@@ -82,8 +82,8 @@ module Services
 
       def set_template
           case action_name
-          when 'index'
-              'admin_template'
+          when 'new'
+              'backend'
           else
               'application'
           end
