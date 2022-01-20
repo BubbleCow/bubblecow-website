@@ -1,74 +1,81 @@
-<main class="page" id="sample-developmental-edit">
-  <div class="job sample-developmental-edit">
+<h1><%= @sample_developmental_edit.title.titleize %></h1>
+
+<div class="box">
+
+  <!-- User -->
+  <% if current_user.try(:admin?) %>
+    <%= link_to @sample_developmental_edit.user.name.full, user_path(@sample_developmental_edit.user) %>  | 
+    <%= link_to @sample_developmental_edit.user.user_location(@sample_developmental_edit.user.country), user_path(@sample_developmental_edit.user) %> 
+    <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+      </svg>
+    <% end %>
+  <% end %>
+
+  <!-- Word count -->
+  <% if current_user.try(:admin?) %>
+    <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
+      <%= number_with_delimiter(@sample_developmental_edit.word_count) %> | 
+    <% end %>
+  <% else %>
+    <%= number_with_delimiter(@sample_developmental_edit.word_count) %> |
+  <% end %>
+
+  <!-- Genre -->
+  <a href="" data-bs-toggle="modal" data-bs-target="#genreModal"><span data-bs-toggle="tooltip" data-bs-placement="top" title="Click to change the book's genre"><%= @sample_developmental_edit.genre.genre_type.titleize %></span> |</a>
   
-    <div class="book-title">
-      <h1><%= @sample_developmental_edit.title.titleize %></h1>
-    </div>
+  <!-- Language -->
+  <a href="" data-bs-toggle="modal" data-bs-target="#languageModal"><span data-bs-toggle="tooltip" data-bs-placement="top" title="Click to change the book's language"><%= @sample_developmental_edit.language.titleize %> </span></a>
+  
+</div>
 
-    <!-- User Information - Admin only -->
-    
+<div class="row">
 
-    <div class="book-information">
+  <!-- left column -->
+  <div class="col-lg-8">
 
-        <!-- User -->
+    <div class="box mt-3">
 
-          <% if current_user.try(:admin?) %>
+      <!-- Book Description -->
+      <div class="book-description">
 
-            <%= link_to @sample_developmental_edit.user.name.full, user_path(@sample_developmental_edit.user) %>  | 
-            <%= link_to @sample_developmental_edit.user.user_location(@sample_developmental_edit.user.country), user_path(@sample_developmental_edit.user) %> 
-            
-        
-            <%= link_to '#', data: { toggle: 'modal', target: '#changeuserModal' } do %>
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-              </svg>
-            <% end %>
-          <% end %>
+        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
 
-        <!-- Word count -->
-          <% if current_user.try(:admin?) %>
-            <%= link_to '#', data: { toggle: 'modal', target: '#wordcountModal' } do %>
-              <%= number_with_delimiter(@sample_developmental_edit.word_count) %> | 
-            <% end %>
-          <% else %>
-            <%= number_with_delimiter(@sample_developmental_edit.word_count) %>
-          <% end %>
+            <div class="input">
+                <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+            </div>
 
-        <!-- Genre -->
-		    <%= link_to '#', data: { toggle: 'modal', target: '#genreModal' } do %>
-            <%= @sample_developmental_edit.genre.genre_type.titleize %> | 
-        <% end %> 
-        
-        <!-- Language -->
-        <%= link_to '#', data: { toggle: 'modal', target: '#languageModal' } do %>
-          <%= @sample_developmental_edit.language.titleize %> 
-        <% end %> 
+            <div class="button">
+                <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+
+        <% end %>
+
+      </div>  
 
     </div>
 
-    <!-- Status -->
-    <div class="book-status box">
+  </div>
 
+  <!-- right column -->
+  <div class="col-lg-4">
+
+    <div class="box mt-3">
+
+      <!-- Status -->
       <% if current_user.try(:admin?) %>
         <%= render "/services/sample_developmental_edits/show/status/admin/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
       <% elsif current_user.try(:writer?) %>   
         <%= render "/services/sample_developmental_edits/show/status/writer/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
       <% end %>
-   
+
     </div>
 
-    <!-- Book Description -->
-    <div class="book-description">
-      <%= form_for([:services, @sample_developmental_edit]) do |form| %>
-          <div class="form-group">
-              <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
-          </div>
-              <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-      <% end %>
-    </div>  
+    <div class="box mt-3">
 
-    <!-- Book files -->
-    <div class="book-files box">
+      <!-- Book files -->
+      <div class="book-files">
         <h3>Files:</h3>
 
         <ul>
@@ -106,26 +113,37 @@
                   </li>
             <% end %>
         </ul>
-        
+            
+      </div>
+    
     </div>
-
-    <!-- Editor notes -->
-    <div class="book-editor-notes small-menu">
+    
+      <!-- Editor notes -->
       <% if current_user.try(:admin?) %>
+        <div class="box mt-3">
+
           <h3 class="pb-2">Internal Book Notes:</h3>
           <%= form_for([:services, @sample_developmental_edit]) do |form| %>
-              <div class="form-group">
-                  <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
+              <div class="input small-menu">
+                  <%= form.rich_text_area :note, type: "text", class: "form-control", placeholder: "Only seen by editor, never the writer." %>
               </div>
+
+              <div class="button">
                   <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+              </div>
           <% end %>
+
+        </div>
       <% end %>
+
     </div>
-
-
+      
 
   </div>
-</main>
+
+
+</div>
+
 
 <!-- MODALS FOR SAMpLE DEVLEOPMENTAL EDIT SHOW -->
 <%= render 'services/sample_developmental_edits/show/modals' %>

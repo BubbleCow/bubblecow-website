@@ -14,21 +14,21 @@
   <% end %>
 
   <!-- Sample developmental title -->
-  <div class="input pb-4">
+  <div class="input">
     <h2>Book Title:</h2>
     <p class="form-text">Include the title of your book.</p>
     <%= form.text_field :title, required: true, autofocus: true, class: 'form-control', placeholder: "Add your book's title." %>
   </div>
 
   <!-- Sample developmental edit word count -->
-  <div class="input pb-4">
+  <div class="input pt-4">
     <h2>Book Word Count:</h2>
     <p class="form-text">Include the final word count of your complete manuscript. If you are unsure of the final word count, include your best estimation.</p>
     <%= form.number_field :word_count, required: true, class: 'form-control', placeholder: "Add your book's total word count." %>
   </div>
 
   <!-- Sample developmental edit laungauge -->
-  <div class="input pb-4">
+  <div class="input pt-4">
     <h2>Language:</h2>
     <p class="form-text">This will be American or British English.</p>
     <%= form.select(:language, options_for_select([['American English'], ['British English']]), {}, {class: "form-select"}) %>
@@ -36,7 +36,7 @@
 
 
   <!-- Sample developmental genre -->
-  <div class="input pb-4">
+  <div class="input pt-4">
     <h2>Book Genre:</h2>
     <p class="form-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
     <%= form.select(:genre_id, options_from_collection_for_select( Genre.all.order('genre_type ASC'), :id, :genre_type) , {}, {class: "form-select"}) %>
@@ -44,7 +44,7 @@
 
 
   <!-- Sample developmental edit full manuscript  -->
-  <div class="input pb-4">
+  <div class="input pt-4">
     <h2>Sample Manuscript:</h2>
     <p class="form-text">Please attach your manuscript.</p>
     <p class="form-text">We will edit the first 2000 words of your book, free of charge. You can either attached a manuscript that contains just the words your want editing, or you can attach the full book.</p> 
@@ -54,13 +54,13 @@
 
 
   <!-- Sample developmental edit description -->
-  <div class="input pb-4">
+  <div class="input small-menu pt-4">
     <h2>Book Description</h2>
     <p class="form-text">Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
     <%= form.rich_text_area :description, type: "text", class: "form-control" %>
   </div>
 
-  <div class="button pb-4">
+  <div class="button pt-4">
     <% if sample_developmental_edit.new_record? %>
       <div class="d-grid gap-2 my-4">
         <%= form.button "Submit your book for sample editing", type: "submit", class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>

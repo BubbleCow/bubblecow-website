@@ -78,9 +78,33 @@ h6 {
 
 // FORMS 
 
-.form {
+form {
     .input, .button {
         margin-bottom: 1rem;
+    }
+}
+
+// TRIX
+
+
+// Removes attachment from trix 
+.trix-button-group--file-tools {
+    display: none !important;
+}
+
+// Trix bug fix - stop toolbar warp on mobile */
+trix-toolbar .trix-button-row {
+    flex-wrap: wrap;
+}
+
+// Reduced size menu */
+
+.small-menu {
+
+    .trix-button-group--history-tools,
+    .trix-button--icon-decrease-nesting-level,
+    .trix-button--icon-increase-nesting-level {
+        display: none !important;
     }
 }
 
