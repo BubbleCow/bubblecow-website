@@ -1,22 +1,11 @@
-<main class="page" id="genre">
+<h1><%= @genre.genre_type %></h1>
 
-  <div class="page-header">
-    <%= link_to services_genres_path, class: 'btn btn-default' do %>
-      All Genres
-    <% end %>
-    <%= link_to edit_services_genre_path(@genre), class: 'btn btn-primary' do %>
-      Edit
-    <% end %>
-    <h1>Show genre</h1>
-  </div>
+<div class="box">
+  <p>Developmental Edits</p>
+  <% @genre.developmental_edits.each do |developmental_edit| %>
+    <ul>
+      <li><%= developmental_edit.title %></li>
+    </ul>
+  <% end %>
 
-  <dl class="dl-horizontal">
-    <dt>Type:</dt>
-    <dd><%= @genre.genre_type %></dd>
-
-    <dt>Slug:</dt>
-    <dd><%= @genre.slug %></dd>
-
-  </dl>
-
-</main>
+</div>

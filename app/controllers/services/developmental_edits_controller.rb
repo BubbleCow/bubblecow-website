@@ -2,8 +2,7 @@ module Services
 
   class DevelopmentalEditsController < Services::ApplicationController
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
-    before_action :set_side_nav_bar, only: [:index, :show]
-    layout :set_template
+    layout 'backend'
 
     def index
       @developmental_edits = DevelopmentalEdit.all
@@ -75,27 +74,6 @@ module Services
 
       def developmental_edit_params
         params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
-      end
-
-      def set_template
-          case action_name
-          when 'index'
-              'admin_template'
-          when 'show'
-            if current_user.admin?
-              'admin_template'
-            elsif current_user.writer?
-              'application'
-            end
-          else
-              'application'
-          end
-      end
-      
-      def set_side_nav_bar
-        @unread_messages = Message.unread
-        @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
-        @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
       end
 
   end

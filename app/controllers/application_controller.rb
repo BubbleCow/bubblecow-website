@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :redirect_subdomain
   before_action :masquerade_user!
+  before_action :set_admin_navbar
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_country, if: :devise_controller?
@@ -93,6 +94,11 @@ class ApplicationController < ActionController::Base
           @currency = "usd"
         end
       end
+    end
+
+    # Sets the variables for the admin navbar
+    def set_admin_navbar
+      @unread_messages = Message.all.unread
     end
     
 end

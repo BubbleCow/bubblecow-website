@@ -1,22 +1,30 @@
 <%= form_for([:services, @service_price]) do |form| %>
 
-    <div class="form-group">
+    <div class="input">
         <p>Service Type:</p>
         <%= form.select :service_type, [['Developmental Editing']], :required => true, class: "form-control" %>
     </div>
 
-    <div class="form-group">
+    <div class="input">
         <p>Currency:</p>
         <%= form.select :currency, currency_options, :required => true, class: "form-control" %>
     </div>
 
-    <div class="form-group">
+    <div class="input">
         <p>Price:</p>
         <%= form.number_field :price, class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-        <%= form.submit class: 'btn btn-primary' %>
+    <div class="button">
+        <% if service_price.new_record? %>
+            <div class="d-grid gap-2 my-4">
+                <button type="submit" class="btn btn-primary">Create price</button>
+            </div>
+            <% else %>
+            <div class="d-grid gap-2 my-4">
+                <button type="submit" class="btn btn-primary">Update price</button>
+            </div>
+         <% end %>
     </div>
 
 <% end %>
