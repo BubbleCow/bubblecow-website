@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread, :archive, :unarchive]
   before_action :authenticate_user!, only: [:index, :show, :destroy]
-  layout 'backend'
+  layout :set_template
 
   def index
     @messages = Message.all
@@ -95,6 +95,15 @@ class MessagesController < ApplicationController
 
     def message_params
       params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived)
+    end
+
+    def set_template
+      case action_name
+      when 'new', 'thank_you'
+          'application'
+      else
+          'backend'
+      end
     end
 
 end

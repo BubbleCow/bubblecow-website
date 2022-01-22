@@ -8,24 +8,65 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
     
-  <header>
-    <div class="overlay"></div>
-    <%= video_tag "write_and_erase.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
-    <div class="container index-header h-100">
-      <div class="d-flex h-100 text-center align-items-center">
-        <div class="w-100 text-white">
-          <h1 class="display-3"><%= @keyword.capitalize %> Editing</h1>
-          <h2 class="">Looking for a professional book editor? We can help.</h2>
-          <div class=" home-cta-btn">
-            <%= link_to "Submit for editing", new_services_developmental_edit_path,
-            class: "btn btn-lg btn-primary mt-2", id: 'home_hero_book_editing' %>
-            <%= link_to "Free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-lg btn-outline-primary mt-2",
-            id: 'home_hero_book_editing' %>
-          </div>
-        </div>
+
+  <!-- Hero -->
+  <div class="hero px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold"><%= @keyword.capitalize %> Editing</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="sub-title mb-4">Looking for a professional book editor? We can help.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <%= link_to "Submit for editing", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
+        <%= link_to "Free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4" %>
       </div>
     </div>
-  </header>
+  </div>
+
+  <div class="container">
+
+    <!-- Benefits -->
+    <section class="book-editing-benefits">
+
+      <div class="row">
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="card-title">Book Editing + Line Editing</h2>
+              <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="card-title">Multi-page Editor's Report</h2>
+              <p class="card-text">Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience.</p>
+            </div>
+          </div> 
+        </div>
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
+              <p>Book edits returned within 28 business days. We understand publishing timeframes are essential and will provide a delivery date before the editing starts.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+  </div>
+
+
+
+
 
   <main class="page" id="index">
 
