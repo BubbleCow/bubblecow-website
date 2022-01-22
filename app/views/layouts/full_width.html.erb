@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+
+    <!-- navigation -->
+    <% if @nav != "no nav" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
+    <!-- Notices -->
+    <%= render 'shared/notices' %>
+
+    <!-- Main content -->
+    <div class="<%= controller_name %> <%= action_name %>">
+        <%= yield %>
+    </div>
+    
+    <!-- Footer -->
+    <% if @footer != "no footer" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
+  </body>
+</html>

@@ -1,5 +1,6 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
+  layout :set_template
 
   def index
     @page_title = "Affordable Book Editing Services"
@@ -25,6 +26,17 @@ class CustomerPagesController < ApplicationController
   def file_safety
     @page_title = "File Safety"
     @page_description = "Discover how we ensure your manuscript is kept safe." 
+  end
+
+  private
+
+  def set_template
+    case action_name
+    when 'index'
+        'full_width'
+    else
+        'application'
+    end
   end
 
 end

@@ -122,6 +122,21 @@ trix-toolbar .trix-button-row {
     color: $pal-blue;
 }
 
+
+// HEROES
+
+.hero {
+
+    h1 {
+        padding-bottom: 1.5rem;
+    }
+
+    .sub-title {
+        font-size: 1.75rem;
+        padding-bottom: 1rem;
+    }
+}
+
 // DEVISE
 
 .devise-form {
@@ -165,10 +180,15 @@ trix-toolbar .trix-button-row {
 // Customer Pages
 
 .customer_pages {
+    
     h1 {
         padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
     }
+
+    .section-spacer {
+        margin-top: 5rem;
+    }
+
 }
 
 // Testimonials
