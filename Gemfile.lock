@@ -115,7 +115,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.10.1)
+    bootsnap (1.10.2)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.36.0)
@@ -196,7 +196,7 @@ GEM
     invisible_captcha (2.0.0)
       rails (>= 5.0)
     io-console (0.5.11)
-    io-wait (0.2.1)
+    io-wait (0.1.0)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -221,9 +221,8 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.7.1)
     minitest (5.15.0)
-    msgpack (1.4.3)
+    msgpack (1.4.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -246,12 +245,7 @@ GEM
       timeout
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.1)
-      mini_portile2 (~> 2.7.0)
-      racc (~> 1.4)
     nokogiri (1.13.1-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.8)
     oauth2 (1.4.7)
@@ -385,9 +379,7 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  ruby
   x86_64-darwin-19
-  x86_64-linux
 
 DEPENDENCIES
   aasm
@@ -409,7 +401,7 @@ DEPENDENCIES
   gravatar_image_tag!
   image_processing (~> 1.2)
   invisible_captcha
-  io-wait
+  io-wait (= 0.1.0)
   jbuilder
   jsbundling-rails
   meta-tags
