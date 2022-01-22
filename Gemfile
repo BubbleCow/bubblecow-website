@@ -99,4 +99,4 @@ gem 'ahoy_matey'
 gem 'omniauth-facebook', '~> 5.0'
 gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
-gem 'io-wait', "0.2.1."
+gem 'io-wait', "0.2.1"
