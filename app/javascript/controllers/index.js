@@ -7,5 +7,4 @@ import { application } from "./application"
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
-import TrixYoutubePluginController from "./trix_youtube_plugin_controller.js"
-application.register("trix-youtube-plugin", TrixYoutubePluginController)
+

@@ -1,21 +1,21 @@
 <!-- Langauage Modal -->
-<div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Language</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Book Language</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
-            <div class="form-group">
-                <%= form.select :language, [['American English'], ['British English']], class: "form-control" %>
+         <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="input">
+              <%= form.select(:language, options_for_select([['American English'], ['British English']]), {}, {class: "form-select"}) %>
             </div>
 
-            <div class="form-group">
+            <div class="button">
+              <div class="d-grid gap-2 my-4">
                 <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+              </div>
             </div>
         
         <% end %>
@@ -24,24 +24,25 @@
   </div>
 </div>
 
+
 <!-- Genre Modal -->
-<div class="modal fade" id="genreModal" tabindex="-1" role="dialog" aria-labelledby="genreModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="genreModal" tabindex="-1" aria-labelledby="genreModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Genre</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Book Genre</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= form_for([:services, @sample_developmental_edit]) do |form| %>
-            <div class="form-group">
-                <%= form.collection_select :genre_id, Genre.all, :id, :genre_type, class: "form-control" %>
+         <%= form_for([:services, @sample_developmental_edit]) do |form| %>
+            <div class="input">
+              <%= form.select(:genre_id, options_from_collection_for_select( Genre.all.order('genre_type ASC'), :id, :genre_type) , {}, {class: "form-select"}) %>
             </div>
 
-            <div class="form-group">
+            <div class="button">
+              <div class="d-grid gap-2 my-4">
                 <%= form.button "Save changes", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+              </div>
             </div>
         
         <% end %>

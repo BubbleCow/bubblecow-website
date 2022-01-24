@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread, :archive, :unarchive]
   before_action :authenticate_user!, only: [:index, :show, :destroy]
-  before_action :set_side_nav_bar, only: [:index, :show]
   layout :set_template
 
   def index
@@ -34,7 +33,7 @@ class MessagesController < ApplicationController
         # Deliver the message email
         MessageMailer.new_message(@message).deliver_now
         
-        format.html { redirect_to thank_you_path, notice: 'Message was successfully sent.' }
+        format.html { redirect_to thank_you_path }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -98,18 +97,12 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived)
     end
 
-    def set_side_nav_bar
-      @unread_messages = Message.unread
-      @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
-      @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
-    end
-
     def set_template
       case action_name
-      when 'index', 'show'
-          'admin_template'
-      else
+      when 'new', 'thank_you'
           'application'
+      else
+          'backend'
       end
     end
 

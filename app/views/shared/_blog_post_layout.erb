@@ -1,30 +1,38 @@
-<article class="blog-post box">
+<article class="blog">
 
-    <!-- Post title -->
-    <div class="post-title">
-        <h2><%= link_to post.post_title.titleize, blog_post_path(post)%></h2>
-    </div>
+    <div class="post card mb-3">
 
-    <!-- Post metadata -->
-    <div class="meta-data">    
-        <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "25x25" ) %>   
-        <%= post.post_author.name %> - Updated: <%= post.published_at.strftime("%b %d, %Y.") %>
-    </div>
+        <div class="card-body">
 
-    <!-- Post Image -->
-    <figure class="post-image">
-        <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid card-img-top", size: "" ) %>
-    </figure>
+            <!-- Post title -->
+            <div class="card-title">
+                <h2><%= link_to post.post_title.titleize, blog_post_path(post)%></h2>
+            </div>
 
-              
-    <!-- Post description -->
-    <div class="post-description">
-        <%= post.post_description %>
-    </div>
+            <!-- Post metadata -->
+            <div class="card-text metadata">    
+                <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "25x25" ) %>   
+                <%= post.post_author.name %> - Updated: <%= post.published_at.strftime("%b %d, %Y.") %>
+            </div>
 
-    <!-- Post read more -->
-    <div class="post-read-more">
-        <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post) %></p>
+            <!-- Post Image -->
+            <figure class="post-image">
+                <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid card-img-top", size: "" ) %>
+            </figure>
+
+                    
+            <!-- Post description -->
+            <div class="card-text description">
+                <%= post.post_description %>
+            </div>
+
+            <!-- Post read more -->
+            <div class="card-link">
+                <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post) %></p>
+            </div>
+
+        </div>
+
     </div>
 
 </article>

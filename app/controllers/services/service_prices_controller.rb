@@ -2,8 +2,7 @@ module Services
   
   class ServicePricesController < Services::ApplicationController
     before_action :set_service_price, only: [:show, :edit, :update, :destroy]
-    before_action :set_admin_nav_bar, only: [:index]
-    layout 'admin_template'
+    layout 'backend'
 
     def index
         @service_prices = ServicePrice.all
@@ -28,7 +27,7 @@ module Services
         authorize  @service_price
         respond_to do |format|
           if @service_price.save
-            format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully created.' }
+            format.html { redirect_to services_service_prices_path, notice: 'Service price was successfully created.' }
           else
             format.html { render :new }
           end
@@ -39,7 +38,7 @@ module Services
         authorize  @service_price
         respond_to do |format|
           if @service_price.update(service_price_params)
-            format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully updated.' }
+            format.html { redirect_to services_service_prices_path, notice: 'Service price was successfully updated.' }
           else
             format.html { render :edit }
           end
@@ -50,7 +49,7 @@ module Services
         authorize  @service_price
         @service_price.destroy
         respond_to do |format|
-          format.html { redirect_to admin_area_prices_path, notice: 'Service price was successfully destroyed.' }
+          format.html { redirect_to services_service_prices_path, notice: 'Service price was successfully destroyed.' }
         end
     end
   
@@ -62,12 +61,6 @@ module Services
   
         def service_price_params
             params.require(:service_price).permit(:service_type, :currency, :price)
-        end
-
-        def set_admin_nav_bar
-          @unread_messages = Message.unread
-          @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
-          @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
         end
 
   end

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+
+    <!-- Notices -->
+    <%= render 'shared/notices' %>
+
+    <!-- Main content -->
+    <div class="container">
+      <div class="<%= controller_name %> <%= action_name %>">
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-4">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

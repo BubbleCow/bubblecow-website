@@ -1,21 +1,39 @@
-<%= form_for([:blog, @post_author]) do |form| %>
-  <% if post_author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post_author.errors.count, "error") %> prohibited this post_author from being saved:</h2>
+<div class="form">
 
-      <ul>
-        <% post_author.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="box">
+
+    <%= form_for([:blog, @post_author]) do |form| %>
+      <% if post_author.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post_author.errors.count, "error") %> prohibited this post_author from being saved:</h2>
+
+          <ul>
+            <% post_author.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="input">
+        <%= form.text_field :name, class: "form-control", placeholder: "Add author name", required: true %>
+      </div>
+
+
+      <div class="button">
+        <% if @post_author.new_record? %>
+          <div class="d-grid gap-2"> 
+            <button type="submit" class="btn btn-primary mb-2">Submit author</button>
+          </div>
+        <% else %>
+          <div class="d-grid gap-2"> 
+            <button type="submit" class="btn btn-primary mb-2">Update author</button>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
 
-  <div class="form-group">
-    <%= form.text_field :name, class: "form-control", placeholder: "Add author name" %>
+    <% end %>
+
   </div>
 
-  <div class="actions">
-    <button type="submit" class="btn btn-primary mb-2">Submit Name</button>
-  </div>
-<% end %>
+</div>

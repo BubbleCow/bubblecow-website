@@ -14,57 +14,56 @@
   <% end %>
 
   <!-- Developmental edit title -->
-  <div class="form-group form-section">
-    <h3>Book Title:</h3>
-    <p>Include the title of your book.</p>
+  <div class="input">
+    <h2>Book Title:</h2>
+    <p class="form-text">Include the title of your book.</p>
     <%= form.text_field :title, required: true, autofocus: true, class: 'form-control', placeholder: "Add your book's title." %>
   </div>
 
   <!-- Developmental edit word count -->
-  <div class="form-group form-section">
-    <h3>Book Word Count:</h3>
-    <p>Please note that we have a minimum word count of 15,000 words.</p>
+  <div class="input pt-4">
+    <h2>Book Word Count:</h2>
+    <p class="form-text">Please note that we have a minimum word count of 15,000 words.</p>
     <%= form.number_field :word_count, required: true, class: 'form-control', placeholder: "Add your book's total word count." %>
   </div>
 
   <!-- Developmental edit laungauge -->
-  <div class="form-group form-section">
-    <h3>Language:</h3>
-    <p>This will be American or British English. This will help us with the line edit.</p>
-    <%= form.select :language, [['American English'], ['British English']], required: true, class: "form-control" %>
+  <div class="input pt-4">
+    <h2>Language:</h2>
+    <p class="form-text">This will be American or British English. This will help us with the line edit.</p>
+    <%= form.select(:language, options_for_select([['American English'], ['British English']]), {}, {class: "form-select"}) %>
   </div>
 
-  <div class="form-group form-section">
-    <h3>Book Genre:</h3>
-    <p>Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
-    <%= form.collection_select :genre_id, Genre.all.order('genre_type ASC'), :id, :genre_type, required: true, class: "form-control" %>
+  <div class="input pt-4">
+    <h2>Book Genre:</h2>
+    <p class="form-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
+    <%= form.select(:genre_id, options_from_collection_for_select( Genre.all.order('genre_type ASC'), :id, :genre_type) , {}, {class: "form-select"}) %>
   </div>
 
   <!-- Developmental edit full manuscript  -->
-  <div class="form-group form-section">
-    <h3>Manuscript:</h3>
-    <p>Please attach your manuscript. Please note that we are unable to edit PDF files.</p>
+  <div class="input pt-4">
+    <h2>Manuscript:</h2>
+    <p class="form-text">Please attach your manuscript. Please note that we are unable to edit PDF files.</p>
     <%= form.file_field :full_manuscript, required: true, class: 'form-control' %>
   </div>
 
   <!-- Developmental edit description -->
-  <div class="form-group small-menu form-section">
-    <h3>Book Description</h3>
-    <p>Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
+  <div class="input small-menu pt-4">
+    <h2>Book Description</h2>
+    <p class="form-text">Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
     <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
   </div>
 
-  <div class="form-group submit-button form-section">
-    <% if developmental_edit.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', services_developmental_edit_path(@developmental_edit), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+  <div class="button pt-4">
+    <% if developmental_edit.new_record? %>
+      <div class="d-grid gap-2 my-4">
+        <%= form.button "Submit your book for editing", type: "submit", class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
+      </div>
+    <% else %>
+      <div class="d-grid gap-2 my-4">
+        <%= form.button "Update your book", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."}  %>
       </div>
     <% end %>
-
-    <% if developmental_edit.new_record? %>
-      <%= form.button "Submit your book for editing", type: "submit", class: 'btn btn-primary btn-lg btn-block mt-3', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
-    <% else %>
-      <%= form.button "Update your book", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."}  %>
-    <% end %>
   </div>
+
 <% end %>

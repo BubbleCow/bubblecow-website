@@ -1,0 +1,30 @@
+<div class="form">
+
+  <%= form_with(model: testimonial, local: true) do |form| %>
+    <% if testimonial.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+
+        <ul>
+        <% testimonial.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input">
+      <%= form.text_field :writer, placeholder: "Add writer name", class: 'form-control', required: true %>
+    </div>
+
+    <div class="input">
+      <!-- Testimonial Text -->
+      <%= form.rich_text_area :testimonial_text, class: 'form-control', required: true %>
+    </div>
+
+    <div class="button d-grid gap-2 my-4">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  
+</div>

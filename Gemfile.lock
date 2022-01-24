@@ -87,13 +87,13 @@ GEM
       activerecord (>= 6.0, < 7.1)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    ahoy_matey (4.0.2)
+    ahoy_matey (4.0.3)
       activesupport (>= 5.2)
       device_detector
       safely_block (>= 0.2.1)
     aws-eventstream (1.2.0)
-    aws-partitions (1.547.0)
-    aws-sdk-core (3.125.1)
+    aws-partitions (1.549.0)
+    aws-sdk-core (3.125.5)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -101,7 +101,7 @@ GEM
     aws-sdk-kms (1.53.0)
       aws-sdk-core (~> 3, >= 3.125.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.111.1)
+    aws-sdk-s3 (1.111.2)
       aws-sdk-core (~> 3, >= 3.125.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.4)
@@ -115,8 +115,8 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.9.3)
-      msgpack (~> 1.0)
+    bootsnap (1.10.2)
+      msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -178,9 +178,10 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    ffi (1.15.5)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
-    geocoder (1.7.2)
+    geocoder (1.7.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -189,16 +190,19 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.1)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (2.0.0)
       rails (>= 5.0)
     io-console (0.5.11)
-    io-wait (0.2.1)
+    io-wait (0.2.0)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
+    jmespath (1.5.0)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
     jwt (2.3.0)
@@ -217,8 +221,9 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.7.1)
     minitest (5.15.0)
-    msgpack (1.4.2)
+    msgpack (1.4.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -241,7 +246,12 @@ GEM
       timeout
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.0-x86_64-darwin)
+    nokogiri (1.13.1)
+      mini_portile2 (~> 2.7.0)
+      racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.8)
     oauth2 (1.4.7)
@@ -268,7 +278,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    pg (1.2.3)
+    pg (1.3.0)
     public_suffix (4.0.6)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -318,6 +328,8 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     safely_block (0.3.0)
@@ -326,11 +338,11 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
-    sidekiq (6.3.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    sitemap_generator (6.1.2)
+    sitemap_generator (6.2.1)
       builder (~> 3.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -344,7 +356,7 @@ GEM
     strscan (3.0.1)
     thor (1.2.1)
     timeout (0.2.0)
-    turbo-rails (1.0.0)
+    turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.4)
@@ -373,7 +385,9 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   aasm
@@ -393,7 +407,9 @@ DEPENDENCIES
   friendly_id (~> 5.2, >= 5.2.5)
   geocoder
   gravatar_image_tag!
+  image_processing (~> 1.2)
   invisible_captcha
+  io-wait (= 0.2.0)
   jbuilder
   jsbundling-rails
   meta-tags
@@ -405,7 +421,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
-  rails (~> 7.0.0)
+  rails (~> 7.0.1)
   redis (~> 4.0)
   selenium-webdriver
   sidekiq (~> 6.0, >= 6.0.3)
@@ -419,7 +435,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.17
+   2.2.32

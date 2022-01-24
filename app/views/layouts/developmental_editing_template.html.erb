@@ -5,545 +5,601 @@
   </head>
 
   <body>
-    <%= render 'shared/navigation/default_navbar' %>
+    <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
     
-  <header>
-    <div class="overlay"></div>
-    <%= video_tag "write_and_erase.mp4", autoplay: true, muted: true, playsinline: true, loop: true %>
-    <div class="container index-header h-100">
-      <div class="d-flex h-100 text-center align-items-center">
-        <div class="w-100 text-white">
-          <h1 class="display-3"><%= @keyword.capitalize %> Editing</h1>
-          <h2 class="">Looking for a professional book editor? We can help.</h2>
-          <div class=" home-cta-btn">
-            <%= link_to "Submit for editing", new_services_developmental_edit_path,
-            class: "btn btn-lg btn-primary mt-2", id: 'home_hero_book_editing' %>
-            <%= link_to "Free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-lg btn-outline-primary mt-2",
-            id: 'home_hero_book_editing' %>
-          </div>
-        </div>
+
+  <!-- Hero -->
+  <div class="hero px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold"><%= @keyword.capitalize %> Editing</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="sub-title mb-4">Looking for a professional book editor? We can help.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <%= link_to "Submit for editing", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
+        <%= link_to "Free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4" %>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main class="page" id="index">
+  <div class="container developmental-editing-page">
 
     <!-- Benefits -->
     <section class="book-editing-benefits">
 
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Book Editing + Line Editing</h2>
-            <p>Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
+      <div class="row section-spacer">
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="card-title test">Book Editing + Line Editing</h2>
+              <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Multi-page Editor's Report</h2>
-            <p>Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience.</p>
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="card-title">Multi-page Editor's Report</h2>
+              <p class="card-text">Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience.</p>
+            </div>
+          </div> 
         </div>
 
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
-            <p>Book edits returned within 28 business days. We understand publishing timeframes are essential and will provide a delivery date before the editing starts.</p>
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="card mt-2">
+            <div class="card-body">
+              <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
+              <p>Book edits returned within 28 business days. We understand publishing timeframes are essential and will provide a delivery date before the editing starts.</p>
+            </div>
+          </div>
         </div>
+
+      </div>
 
     </section>
 
     <!-- pricing -->
     <section class="book-editing-pricing">
 
-        <div class="book-editing-pricing-text">
-            <h2 class="book-editing-subtitle"><%= @developmental_edit_price %> per 1000 words</h2>
-            <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
-            <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
-            <p>The price includes all editing, consultation, and after-edit care.</p>
-            <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
+      <div class="row justify-content-md-center section-spacer">
+
+        <div class="col-lg-8 mt-2">
+
+          <div class="book-editing-pricing-text">
+              <h2 class="text-center">Price Calculator</h2>
+              <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
+              <p>The cost for devleopmental editing is <%= @developmental_edit_price %> per 1000 words.</p>
+              <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
+              <p>The price includes all editing, consultation, and after-edit care.</p>
+              <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
+          </div>
+
+          <div class="book-editing-pricing-calc form card">
+            <div class="card-body">
+              <form id="theform" action="#">
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Book's Word Count</span>
+                    <input type="text" id="words" class="form-control" placeholder="Add your book's word count" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><%= @currency_symbol %></span>
+                    <input type="text" id="tot" class="form-control" placeholder="Hit the button to see the cost" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly">
+                  </div>
+
+                  <div class="d-grid gap-2">
+                      <input id="calc" type="button" value="Instantly calculate cost"
+                        class="btn btn-primary btn-lg btn-block my-3">
+                  </div>
+
+              </form>
+             </div> 
+          </div>
+
         </div>
 
-        <div class="book-editing-pricing-calc">
-            <form id="theform" action="#">
-                <div class="input-group input-group-lg mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">Word Count</span>
-                    </div>
-                    <input id="words" type="text" placeholder="" class="form-control" aria-label="Large"
-                      aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-lg mb-2">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><%= @currency_symbol %></span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="tot"
-                      readonly="readonly">
-                </div>
-
-                <div>
-                    <label></label>
-                    <input id="calc" type="button" value="Instantly calculate cost"
-                      class="btn btn-primary btn-lg btn-block my-3">
-                </div>
-            </form>
-        </div>
+      </div>
 
     </section>
+
 
     <!-- Short testimonials -->
     <section class="book-editing-short-testimonials">
 
-      <div class="book-editing-card">
-        <p>“The entire edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story.”</p>
-        <p class="book-editing-testiominal-author">Ramona Flightner. Author of the <em><%= link_to "Banished Saga", "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=Ramona+Flightner", target: "_blank" %></em>.</p>
+      <div class="row justify-content-md-center section-spacer">
+
+        <div class="col-lg-8 mt-2">
+
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">“The entire edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story.”</p>
+              <p class="card-text">Ramona Flightner. Author of the <em><%= link_to "Banished Saga", "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=Ramona+Flightner", target: "_blank" %></em>.</p>
+            </div>
+          </div>
+
+          <div class="card mt-3">
+            <div class="card-body">
+              <p class="card-text">“The most professional and personal book editing service I ever used for my work. I had the real feeling of "being read", not just edited. Definitely the best cost/benefit ratio in editing.”</p>
+              <p class="card-text">David Papini. Author of <em><%= link_to "The Taste of Emotions", "https://www.amazon.com/emotions-Rediscover-flavour-better-oneself-ebook/dp/B00TPVEMCM/ref=asap_bc?ie=UTF8", target: "_blank" %></em>.</p>
+            </div>
+          </div>
+
+          <!-- Tetimonials link -->
+          <section class="book-editing-short-testimonials-cta mt-3">
+            <div class="d-grid gap-2">
+              <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
+                Read <%= @testimonial_count %> testimonials
+              <% end %>
+            </div>
+          </section>
+
+        </div>
+
       </div>
 
-      <div class="book-editing-card">
-        <p>“The most professional and personal book editing service I ever used for my work. I had the real feeling of "being read", not just edited. Definitely the best cost/benefit ratio in editing.”</p>
-        <p class="book-editing-testiominal-author">David Papini. Author of <em><%= link_to "The Taste of Emotions", "https://www.amazon.com/emotions-Rediscover-flavour-better-oneself-ebook/dp/B00TPVEMCM/ref=asap_bc?ie=UTF8", target: "_blank" %></em>.</p>
-      </div>
-
-    </section>
-
-    <!-- Short testimonials CTA -->
-    <section class="book-editing-short-testimonials-cta">
-      <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
-        Read <%= @testimonial_count %> testimonials
-      <% end %>
     </section>
 
     <!-- Editing Service Information -->
     <section class="book-editing-service-information">
 
-      <!-- Turnaround -->
-        <h2 class="book-editing-subtitle">Editing Turnaround Time</h2>
-        <p>We will return your manuscript within <strong>twenty-eight business days</strong> (counting Monday-Friday) or
-          roughly five calendar weeks.</p>
-        <p>We are a small and dedicated team. We pick the best editor for each job. We have professional editors and
-          robust quality-control systems. We can’t rush the process.</p>
-        <p><strong>If you submitted and paid today, your feedback would be returned no later than
-            <%= proposed_date %></strong>.</p>
+      <div class="row justify-content-md-center section-spacer">
 
-        <!-- Editing -->
-        <h2 class="book-editing-subtitle">What You Get With Our Book Editing Service</h2>
-        <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable
-          standard.
-        </p>
-        <p>Combined <%= @keyword %> and line editing will provide the guidance you need to identify and correct any
-          problems
-          within your book.</p>
-        <p>Our process is focused on you, the writer, and you remain in control at all stages.</p>
-        <p>We have transparent communication, which will keep you informed at every step. We also employ tracked changes
-          and embedded comments, meaning that you have full control over what is changed within your book. We will never
-          alter your book's themes, change your voice or enforce any suggestions that revise your vision for your book.
-        </p>
-        <%= image_tag 'track-changes', class: 'image img-fluid image-border mx-auto d-block img-spacing', alt: 'Book editing with BubbleCow - tracked changes' %>
-        <p>Our product provides unrivalled customer service, guaranteed quality, all within an affordable budget.</p>
-        <p>We promise 100% anonymity and will never discuss your book with anyone other than yourself, without your
-          written permission.</p>
-        <p>We have <%= link_to "more than 100 testimonials", testimonials_path, id: '' %> from writers who wish to thank
-          us for our work on their books.</p>
-        <p>Our service consists of three key elements:</p>
-        <ol>
-          <li><%= @keyword.humanize %> editing.</li>
-          <li>Line Editing.</li>
-          <li>Editor's report.</li>
-        </ol>
-        <h3><%= @keyword.humanize %> Editing</h3>
-        <p><a href="https://en.wikipedia.org/wiki/Content_editing" target="_blank"><%= @keyword.humanize %> editing</a>
-          is also
-          called content editing, structural editing, story editing, substantive editing, comprehensive editing, macro
-          editing, or even heavy editing.</p>
-        <p>It is all the same thing.</p>
-        <p>A traditionally published author would have had both their agent and publisher provide support on the
-          editorial
-          aspects of their book. However, for the self-publishing author, this feedback must be procured by the book’s
-          creator.</p>
-        <p>Our editing package is designed to offer this support.</p>
-        <p>Our editors will not only look to highlight technical issues but will provide you with a clear road map as to
-          what you can do to fix these issues and how to become a better author in the process.</p>
+        <div class="col-lg-8 mt-2">
 
-        <h4>Editorial Approach</h4>
-        <p>The role of the <%= @keyword %> editor is to ensure that a book is of a publishable standard.</p>
-        <p>Unlike other types of editing, <%= @keyword %> editing is more about the editor's education, experience and
-          gut
-          feeling than following a pre-written manual of instructions.</p>
-        <p>This means that the <%= @keyword %> editor's skill is critical. However, to ensure that we approach every
-          book
-          in
-          the same way, our editors apply a number of questions to each book that they edit.</p>
-        <p>Here are a few of the questions (there are more, but they are often genre specific):</p>
-        <ul>
-          <li>Does the <a href="https://en.wikipedia.org/wiki/Narrative_structure" target="_blank">structure</a> of the
-            book make sense?</li>
-          <li>Is the presentation logical?</li>
-          <li>Is there a wider <a href="https://en.wikipedia.org/wiki/Story_arc" target="_blank">story arc</a> that
-            engages the reader and pulls them through the narrative?</li>
-          <li>Has a coherent <a href="https://en.wikipedia.org/wiki/Narration" target="_blank">viewpoint</a> been
-            applied?
-            Is it consistent? Does it make sense for the story</li>
-          <li>Does the chapter structure make sense? Does the writer understand scene structure?</li>
-          <li>Have <a href="https://en.wikipedia.org/wiki/List_of_narrative_techniques" target="_blank">narrative
-              techniques</a> been correctly applied?</li>
-          <li>Does each scene contain sufficient description?</li>
-          <li>Is each new character sufficiently described?</li>
-          <li>Is the <a href="https://en.wikipedia.org/wiki/Grammatical_tense" target="_blank">tense</a> consistent?
-          </li>
-          <li>Is the <a href="https://en.wikipedia.org/wiki/Characterization" target="_blank">characterization<a />
-              believable and consistent?</li>
-          <li>Are the characters sufficiently developed?</li>
-          <li>Are there any obvious plot holes?</li>
-          <li>If the novel is set in the past, are there any inconsistencies in the use of objects etc.?</li>
-          <li>Does the book's voice, style and format match the genre expectations?</li>
-          <li>Is the writer <a href="https://bubblecow.com/blog/show-don-t-tell-the-key-to-becoming-a-better-writer"
-              target="_blank">telling, when they should be showing<a />?</li>
-          <li>Are the facts accurate?</li>
-          <li>Does the book's word count meet the genre expectations? If it is too short, how can it be extended? If too
-            long, what approach should be taken?</li>
-          <li>Has the writer correctly formatted paragraphs? Will shorter or longer paragraphs better suit the style or
-            genre of the book?</li>
-          <li>If a <a href="https://en.wikipedia.org/wiki/Prologue" target="_blank">prologue</a> is used, does it match
-            the genre and make sense to the wider narrative?</li>
-          <li>Does the book need an introduction?</li>
-          <li>Does the book need additional end material, such as bibliography or epilogue?</li>
-          <li>Should the writer include information about themselves?</li>
-          <li>If relevant, is the book correctly referenced?</li>
-          <li>If images, tables and diagrams have been used, has the copyright been correctly attributed?</li>
-          <li>If included, are all footnotes or endnotes correctly presented and formatted?</li>
-        </ul>
-        <p>The editor will communicate their thoughts, directions and suggestions using embedded comments and the
-          editor's
-          report.</p>
+          <!-- Turnaround -->
+          <h2 class="book-editing-subtitle">Editing Turnaround Time</h2>
+          <p>We will return your manuscript within <strong>twenty-eight business days</strong> (counting Monday-Friday) or
+            roughly five calendar weeks.</p>
+          <p>We are a small and dedicated team. We pick the best editor for each job. We have professional editors and
+            robust quality-control systems. We can’t rush the process.</p>
+          <p><strong>If you submitted and paid today, your feedback would be returned no later than
+              <%= proposed_date %></strong>.</p>
 
-        <h4>Embedded Comments</h4>
-        <p>When editing your book, your editor will constantly be applying the questions above and will have a
-          collection
-          of thoughts and suggestions that will improve your book.</p>
-        <p>We fundamentally believe that our role is to guide and suggest but the control of the final changes should
-          always remain with the writer. Afterall, you have the clearest vision for your book.</p>
-        <p>One way that we communicate our thoughts and feelings on your book is by the use of embedded comments.</p>
-        <%= image_tag 'comment-in-word', class: 'image img-fluid image-border mx-auto d-block img-spacing', alt: 'Book editing with BubbleCow - comment example' %>
-        <p>These 'comments' are part of Word's editing tools and they will appear automatically when you open up the
-          edited manuscript. If not, then it is just a simple matter of changing one of the settings in Word. This is
-          easy
-          to do.</p>
-        <div class="embed-responsive embed-responsive-16by9 my-4">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/m7tmsWN6uH0" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p>What kind of things will you find in your comments?</p>
-        <p>There are no 'rules' as to what we will and will not include, and it changes with each writer and each book.
-          However, we see these comments as a way to start a 'dialogue' with the writer. They are our way of
-          highlighting
-          a small section of the book and suggesting what might be wrong and what you need to do to improve that
-          section.
-        </p>
-        <p>This said, the most common suggestions include:</p>
-        <ul>
-          <li>Comments about consistent sentence-level problems. For example, we might highlight a section of text that
-            we
-            feel needs more description.</li>
-          <li>Comments about wider issues, that are also addressed in the editor's report. For example, we may feel you
-            are telling, not showing. We will add a detailed explanation in the editor's report and then use comments to
-            highlight sections where this problem exists.</li>
-          <li>Comments about words or phrases we feel are not working.</li>
-          <li>Comments about sections we feel should be removed or moved.</li>
-        </ul>
-        <p>It is very difficult to generalise since each manuscript is different, but comments are the way in which your
-          editor will show you, at a granular level, where (and how), they feel you can improve your book.</p>
-        <p>However, the comments should not be considered in isolation. In addition, we will also write a detailed
-          multi-page editor’s report.</p>
+          <!-- Editing -->
+          <h2 class="book-editing-subtitle section-spacer">What You Get With Our Book Editing Service</h2>
+          <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable
+            standard.
+          </p>
+          <p>Combined <%= @keyword %> and line editing will provide the guidance you need to identify and correct any
+            problems
+            within your book.</p>
+          <p>Our process is focused on you, the writer, and you remain in control at all stages.</p>
+          <p>We have transparent communication, which will keep you informed at every step. We also employ tracked changes
+            and embedded comments, meaning that you have full control over what is changed within your book. We will never
+            alter your book's themes, change your voice or enforce any suggestions that revise your vision for your book.
+          </p>
+          <%= image_tag 'track-changes', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - tracked changes' %>
+          <p>Our product provides unrivalled customer service, guaranteed quality, all within an affordable budget.</p>
+          <p>We promise 100% anonymity and will never discuss your book with anyone other than yourself, without your
+            written permission.</p>
+          <p>We have <%= link_to "more than 100 testimonials", testimonials_path, id: '' %> from writers who wish to thank
+            us for our work on their books.</p>
+          <p>Our service consists of three key elements:</p>
+          <ol>
+            <li><%= @keyword.humanize %> editing.</li>
+            <li>Line Editing.</li>
+            <li>Editor's report.</li>
+          </ol>
+          <h3><%= @keyword.humanize %> Editing</h3>
+          <p><a href="https://en.wikipedia.org/wiki/Content_editing" target="_blank"><%= @keyword.humanize %> editing</a>
+            is also
+            called content editing, structural editing, story editing, substantive editing, comprehensive editing, macro
+            editing, or even heavy editing.</p>
+          <p>It is all the same thing.</p>
+          <p>A traditionally published author would have had both their agent and publisher provide support on the
+            editorial
+            aspects of their book. However, for the self-publishing author, this feedback must be procured by the book’s
+            creator.</p>
+          <p>Our editing package is designed to offer this support.</p>
+          <p>Our editors will not only look to highlight technical issues but will provide you with a clear road map as to
+            what you can do to fix these issues and how to become a better author in the process.</p>
 
-        <h4>Editor's Report</h4>
-        <p>This document will be your editor’s thoughts on your book.</p>
-        <p>It is a broad overview of the key issues and will act as a ‘jumping off point’ when you come to consider the
-          changes to apply to your book. </p>
-        <p>As with the comments, the exact contents of the report will change with each book. However, we have been
-          editing books since 2007, and during this time we have developed a detailed structure for our reports. This
-          acts
-          as a start point when compiling the report.</p>
-        <p>The report consists of two main parts: general thoughts and chapter comments.</p>
-        <p>In the general thoughts section, we will highlight any key issues that have surfaced during the edit. We will
-          explain why we feel that the issue needs addressing, we will provide examples of where the issue is a problem
-          (often in conjunction with the embedded comments within the manuscript) and then provide at least one solution
-          that you can be applied to fix the problem.</p>
-        <p>For example, let’s say that we feel your book is slow to start. There are a number of reasons why a narrative
-          might start slowly. It may be that the writer has included too much ‘setup’, which though they feel is
-          essential
-          to the plot, is actually slowing the pace of the book. It might also be that the writer has not really written
-          the book with any defined structure and the story lacks any kind of <a
-            href="https://narrativefirst.com/articles/demystifying-plot-points-and-the-inciting-incident-2018"
-            target="_blank">inciting incident</a> in the opening section. This would produce a story that has no real
-          narrative drive. It may also be that the writer has simply started the story at the wrong place in the plot.
-        </p>
-        <p>The problem with a slow start is that it leaves the reader feeling disconnected from a story and the writer
-          risks ‘losing’ the reader.</p>
-        <p>If we were editing a book with a slow start, this would be a major issue that we would examine in the
-          editor’s
-          report. Our first job would be to work out why the start was slow and then suggest solutions to fix the
-          problem.
-        </p>
-        <p>This means that in the example above we might suggest one of three solutions.</p>
-        <p>If we felt the ‘set up’ was the issue, we would suggest that the reader reexamines the opening section and
-          looks to remove the set up that is not immediately essential to the plot. We would then discuss ways this set
-          up
-          could be reintroduced later in the book (perhaps via speech or new scenes).</p>
-        <p>If we felt the structure was wrong, it might be a case of trying to enforce a very loose <a
-            href="https://en.wikipedia.org/wiki/Three-act_structure">three-act structure</a>. This would provide a
-          natural
-          inciting incident (an event that drives the character to action) and, therefore, give the book a natural
-          narrative arc.</p>
-        <p>If the story has started in the wrong place, then we would provide suggestions as to how the opening section
-          of
-          the book can be restructured. It might be that we feel moving the start of the story to a more significant
-          event
-          would provide a better structure. If this were the case, we’d highlight where we feel the story should start
-          and
-          then provide strategies to ensure that nothing essential to the plot was lost in the restructuring.</p>
-        <p>The aim of the report is to be a document that you can use to understand the issues within your book and how
-          they can be fixed. We never just say 'fix this' but will instead explain why it is an issue and what you need
-          to
-          do to correct the problem.</p>
-        <p>Many authors tell us the editor’s report quickly becomes an invaluable tool. Before each editing session, the
-          author will refer back to the report and get a 'feel' for the bigger picture before delving into the
-          nitty-gritty of the line edit.</p>
+          <h4>Editorial Approach</h4>
+          <p>The role of the <%= @keyword %> editor is to ensure that a book is of a publishable standard.</p>
+          <p>Unlike other types of editing, <%= @keyword %> editing is more about the editor's education, experience and
+            gut
+            feeling than following a pre-written manual of instructions.</p>
+          <p>This means that the <%= @keyword %> editor's skill is critical. However, to ensure that we approach every
+            book
+            in
+            the same way, our editors apply a number of questions to each book that they edit.</p>
+          <p>Here are a few of the questions (there are more, but they are often genre specific):</p>
+          <ul>
+            <li>Does the <a href="https://en.wikipedia.org/wiki/Narrative_structure" target="_blank">structure</a> of the
+              book make sense?</li>
+            <li>Is the presentation logical?</li>
+            <li>Is there a wider <a href="https://en.wikipedia.org/wiki/Story_arc" target="_blank">story arc</a> that
+              engages the reader and pulls them through the narrative?</li>
+            <li>Has a coherent <a href="https://en.wikipedia.org/wiki/Narration" target="_blank">viewpoint</a> been
+              applied?
+              Is it consistent? Does it make sense for the story</li>
+            <li>Does the chapter structure make sense? Does the writer understand scene structure?</li>
+            <li>Have <a href="https://en.wikipedia.org/wiki/List_of_narrative_techniques" target="_blank">narrative
+                techniques</a> been correctly applied?</li>
+            <li>Does each scene contain sufficient description?</li>
+            <li>Is each new character sufficiently described?</li>
+            <li>Is the <a href="https://en.wikipedia.org/wiki/Grammatical_tense" target="_blank">tense</a> consistent?
+            </li>
+            <li>Is the <a href="https://en.wikipedia.org/wiki/Characterization" target="_blank">characterization<a />
+                believable and consistent?</li>
+            <li>Are the characters sufficiently developed?</li>
+            <li>Are there any obvious plot holes?</li>
+            <li>If the novel is set in the past, are there any inconsistencies in the use of objects etc.?</li>
+            <li>Does the book's voice, style and format match the genre expectations?</li>
+            <li>Is the writer <a href="https://bubblecow.com/blog/show-don-t-tell-the-key-to-becoming-a-better-writer"
+                target="_blank">telling, when they should be showing<a />?</li>
+            <li>Are the facts accurate?</li>
+            <li>Does the book's word count meet the genre expectations? If it is too short, how can it be extended? If too
+              long, what approach should be taken?</li>
+            <li>Has the writer correctly formatted paragraphs? Will shorter or longer paragraphs better suit the style or
+              genre of the book?</li>
+            <li>If a <a href="https://en.wikipedia.org/wiki/Prologue" target="_blank">prologue</a> is used, does it match
+              the genre and make sense to the wider narrative?</li>
+            <li>Does the book need an introduction?</li>
+            <li>Does the book need additional end material, such as bibliography or epilogue?</li>
+            <li>Should the writer include information about themselves?</li>
+            <li>If relevant, is the book correctly referenced?</li>
+            <li>If images, tables and diagrams have been used, has the copyright been correctly attributed?</li>
+            <li>If included, are all footnotes or endnotes correctly presented and formatted?</li>
+          </ul>
+          <p>The editor will communicate their thoughts, directions and suggestions using embedded comments and the
+            editor's
+            report.</p>
 
-        <h4>Line Editing</h4>
-        <p>In addition to the <%= @keyword %> editing, we will also carry out a line edit for your book. </p>
-        <p><a href="https://en.wikipedia.org/wiki/Copy_editing" target="_blank">Line editing</a> is a form of copy
-          editing, which Wikipedia describes as the ‘process of reviewing and correcting written material to improve
-          accuracy, readability, and fitness for its purpose, and to ensure that it is free of error, omission,
-          inconsistency, and repetition.’</p>
-        <p>Some people will describe line editing as ‘mechanical editing’. This refers to the rigid nature of the line
-          editing process, which looks to fix errors in the prose to match the strict rules of a style manual.</p>
-        <p>In its simplest terms, the line editing process will involve the editor reading each line of your book and
-          applying the rules from the appropriate style manual.</p>
-        <p>Here’s an example…</p>
-        <p>The Chicago Manual of Style suggests we handle numbers in prose in the following manner:</p>
-        <blockquote class="blockquote">
-          <p>Spell out whole numbers up to (and including) one hundred (e.g., zero, one, ten, ninety-six, 104). Spell
-            out
-            numbers that begin a sentence unless it begins with a year (e.g., "Twelve drummers," "The 10 lords
-            a-leaping,"
-            "2011's quota for off-season holiday references has been filled.").</em></p>
-        </blockquote>
-        <p>Therefore, if when editing we came across the following sentence:</p>
-        <p>‘The shepherd counted 45 sheep before falling asleep.’</p>
-        <p>We would change it to…</p>
-        <p>‘The shepherd counted <strong>forty-five</strong> sheep before falling asleep.’</p>
+          <h4>Embedded Comments</h4>
+          <p>When editing your book, your editor will constantly be applying the questions above and will have a
+            collection
+            of thoughts and suggestions that will improve your book.</p>
+          <p>We fundamentally believe that our role is to guide and suggest but the control of the final changes should
+            always remain with the writer. Afterall, you have the clearest vision for your book.</p>
+          <p>One way that we communicate our thoughts and feelings on your book is by the use of embedded comments.</p>
+          <%= image_tag 'comment-in-word', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - comment example' %>
+          <p>These 'comments' are part of Word's editing tools and they will appear automatically when you open up the
+            edited manuscript. If not, then it is just a simple matter of changing one of the settings in Word. This is
+            easy
+            to do.</p>
 
-        <h4>Lightline Editing</h4>
-        <p>The line editing we apply to your prose can be described as ‘light’ line editing. This means that though we
-          will look to find and change every error we can, it is not an exhaustive process.</p>
-        <p><%= @keyword.humanize %> editing is the primary goal of the edit, and this will be the primary focus of the
-          editor.</p>
-        <p>This means that, though we work hard to catch all errors, it is not 100%. We always suggest to writers that
-          they see the line edit as guidance, rather than a replacement for proofreading. Once we have returned the
-          manuscript, you will have a clear indication of where the errors lie and will then be able to re-enforce our
-          work with your own editing.</p>
-        <p>The <%= @keyword %> editing process will stimulate some level of re-writing from you, the writer. This means
-          that
-          once you have back the edited manuscript, you will be looking to change and add new material.</p>
-        <p>Any new writing will bring new errors; we are all human.</p>
-        <%= image_tag 'sample-line-edit-screenshot', class: 'img-fluid image-border mx-auto d-block img-spacing', alt: 'Book editing with BubbleCow - line book edit sample'  %>
-        <h4>What is included in the line edit?</h4>
-        <p>The editor will read each line of your book and then when they see an error, they will make a change.</p>
-        <p>This error will be fixed using tracked changes, which means that you remain in control. If you wish to
-          ‘reject’
-          the change, then it is a simple process of saying 'no' to the change. The process will then automatically
-          revert
-          back to the original text.</p>
-        <p>If the editor sees errors that are made consistently (perhaps incorrect capitalisation of a word). They may
-          choose to apply a global find and replace. This process will see the editor asking Word to ‘find’ each
-          occasion
-          of the error and then replacing the error with the correct version. Find and replace is used with caution but
-          can be a very effective tool in adding consistency to a manuscript.</p>
+          <div class="image ratio ratio-16x9">
+            <iframe  src="https://www.youtube.com/embed/m7tmsWN6uH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
 
-        <h4>The line editing process</h4>
-        <p>As with all editing, there is a level of ‘art’ to line editing, but on the whole, it is the most mechanical
-          of
-          the editing steps.</p>
-        <p>Edits will use one of four style manuals to decide how to handle the errors and inconsistencies within a
-          manuscript. If you are using American English, the editor will use the <a
-            href="http://www.chicagomanualofstyle.org/home.html">Chicago Manual of Style</a> by default. However, they
-          can
-          use <a href="https://en.wikipedia.org/wiki/AP_Stylebook">Associated Press</a> Style Guide if you have used
-          this
-          manual during the writing process. If writing in British English, the editor will use the <a
-            href="https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/University%20of%20Oxford%20Style%20Guide.pdf"
-            target="_blank">Oxford Style Guide.</a></p>
-        <p>In addition, BubbleCow also has an internal style guide that will be consulted for certain issues. For
-          example,
-          most style guides will suggest that the correct format for the ellipsis is . . . (that’s dot space dot space
-          dot). However, though this is fine for print books, it can cause problems with digital ebook conversions where
-          the ‘white space’ is automatically removed. Therefore, our internal style guide suggests that the ellipsis is
-          best presented as … (no spaces).</p>
-        <p>The main focus of the editor, when line editing, will be to ensure the correct application of grammar and
-          punctuation. However, in addition, they will also address the following:</p>
-        <ul>
-          <li>Abbreviations and acronyms.</li>
-          <li>Additional elements, such as charts, tables, and graphs.</li>
-          <li>Capitalization.</li>
-          <li>Footnotes and endnotes.</li>
-          <li>Hyphenation.</li>
-          <li>Italicization and boldfaced type.</li>
-          <li>Numbers and numerals.</li>
-          <li>Punctuation.</li>
-          <li>Quotations.</li>
-          <li>Spelling.</li>
-        </ul>
+          <p>What kind of things will you find in your comments?</p>
+          <p>There are no 'rules' as to what we will and will not include, and it changes with each writer and each book.
+            However, we see these comments as a way to start a 'dialogue' with the writer. They are our way of
+            highlighting
+            a small section of the book and suggesting what might be wrong and what you need to do to improve that
+            section.
+          </p>
+          <p>This said, the most common suggestions include:</p>
+          <ul>
+            <li>Comments about consistent sentence-level problems. For example, we might highlight a section of text that
+              we
+              feel needs more description.</li>
+            <li>Comments about wider issues, that are also addressed in the editor's report. For example, we may feel you
+              are telling, not showing. We will add a detailed explanation in the editor's report and then use comments to
+              highlight sections where this problem exists.</li>
+            <li>Comments about words or phrases we feel are not working.</li>
+            <li>Comments about sections we feel should be removed or moved.</li>
+          </ul>
+          <p>It is very difficult to generalise since each manuscript is different, but comments are the way in which your
+            editor will show you, at a granular level, where (and how), they feel you can improve your book.</p>
+          <p>However, the comments should not be considered in isolation. In addition, we will also write a detailed
+            multi-page editor’s report.</p>
 
-        <!-- Sample Editing -->
-        <h2 class="book-editing-subtitle">Sample Editing</h2>
-        <p>Finding the right editor for your project is not easy. The chances are that you have spent months (a recent
-          survey suggested that the average time to write a book was seven months) writing your book and you, rightly,
-          want to make sure that you have the correct person for the job.</p>
-        <p>The first step is to ask us all the questions that you have, which are niggling away. We are more than happy
-          to
-          answer any questions.</p>
-        <p>The next step is to submit your book for a
-          <%= link_to "free sample edit", "https://services.bubblecow.com/books/new?job=sample_editing"%>.</p>
-        <p>The sample editing process is almost identical to the full editing process. We will look at the opening
-          section
-          of your book, normally the first 2000 words, and complete a <%= @keyword %> and line edit. We will also
-          produce
-          an
-          editor’s report.</p>
-        <p>This sample edit will give you a great indication of not only what we can do for your book, but also what
-          might
-          be wrong and what needs fixing. </p>
-        <p>The only thing we can’t do is comment on wider narrative issues. We need to read the full story before we can
-          make a judgement on certain technical and structural problems. </p>
-        <p>The sample edit will take twenty-four business hours to complete. Once the sample edit is ready, you’ll get
-          an
-          email with instructions on how to download your sample edit.</p>
-        <p>If you have questions about the sample edit, we will be happy to answer these either via email, phone or
-          Skype.
-        </p>
-        <%= link_to "Try free sample editing", "https://services.bubblecow.com/books/new?job=sample_editing", class: "btn btn-block btn-outline-primary btn-lg mb-3 p-3", id: 'submit_sample' %>
-
-        <!-- Process -->
-        <h2 class="book-editing-subtitle">The Editing Process</h2>
-        <p>The editing process normally consists of two stages: the sample edit and the full edit.</p>
-        <p>The role of the sample edit is to show you what we can offer for your book. If you don’t need a sample edit,
-          it
-          is okay to just jump ahead to the full edit.</p>
-        <p>The editing process involves the following steps:</p>
-        <ul>
-          <li>Click <%= link_to "this link", "https://services.bubblecow.com/books/new?job=sample_editing"%> to go to
-            our
-            secure sample submission page.</li>
-          <li>Create a free BubbleCow account using email and password.</li>
-          <li>Complete the submission form and attach your manuscript. This will need to be a Word document.</li>
-          <li>The manuscript is submitted to BubbleCow and uploaded to our secure server. You can find out more about our <%= link_to "file satefy policy here", services_file_safety_path %>.</li>
-          <li>A senior editor will download your manuscript onto their local machine and assess the book. If we feel we
-            can add value, the book is ‘accepted’. If we feel we can’t add value, the book is ‘rejected’ and deleted
-            from
-            the editor’s local machine.</li>
-          <li>The first 2000 words of the ‘accepted’ manuscript are edited by the senior editor. They will complete a
-            line
-            edit and a <%= @keyword %> edit. An editor’s report is also completed.</li>
-          <li>The edited manuscript and editor’s report are uploaded to our secure server. An email is automatically
-            sent
-            to inform you that the sample edit is ready. The editor deletes any files from their local machine.</li>
-          <li>The writer logs into their BubbleCow account and downloads the edited manuscript and report.</li>
-          <li>When the writer is ready to proceed, they log back into their account and submit the manuscript for full
-            editing. Additional information is required at this point, and the writer will need to fill out a new form
+          <h4>Editor's Report</h4>
+          <p>This document will be your editor’s thoughts on your book.</p>
+          <p>It is a broad overview of the key issues and will act as a ‘jumping off point’ when you come to consider the
+            changes to apply to your book. </p>
+          <p>As with the comments, the exact contents of the report will change with each book. However, we have been
+            editing books since 2007, and during this time we have developed a detailed structure for our reports. This
+            acts
+            as a start point when compiling the report.</p>
+          <p>The report consists of two main parts: general thoughts and chapter comments.</p>
+          <p>In the general thoughts section, we will highlight any key issues that have surfaced during the edit. We will
+            explain why we feel that the issue needs addressing, we will provide examples of where the issue is a problem
+            (often in conjunction with the embedded comments within the manuscript) and then provide at least one solution
+            that you can be applied to fix the problem.</p>
+          <p>For example, let’s say that we feel your book is slow to start. There are a number of reasons why a narrative
+            might start slowly. It may be that the writer has included too much ‘setup’, which though they feel is
+            essential
+            to the plot, is actually slowing the pace of the book. It might also be that the writer has not really written
+            the book with any defined structure and the story lacks any kind of <a
+              href="https://narrativefirst.com/articles/demystifying-plot-points-and-the-inciting-incident-2018"
+              target="_blank">inciting incident</a> in the opening section. This would produce a story that has no real
+            narrative drive. It may also be that the writer has simply started the story at the wrong place in the plot.
+          </p>
+          <p>The problem with a slow start is that it leaves the reader feeling disconnected from a story and the writer
+            risks ‘losing’ the reader.</p>
+          <p>If we were editing a book with a slow start, this would be a major issue that we would examine in the
+            editor’s
+            report. Our first job would be to work out why the start was slow and then suggest solutions to fix the
+            problem.
+          </p>
+          <p>This means that in the example above we might suggest one of three solutions.</p>
+          <p>If we felt the ‘set up’ was the issue, we would suggest that the reader reexamines the opening section and
+            looks to remove the set up that is not immediately essential to the plot. We would then discuss ways this set
+            up
+            could be reintroduced later in the book (perhaps via speech or new scenes).</p>
+          <p>If we felt the structure was wrong, it might be a case of trying to enforce a very loose <a
+              href="https://en.wikipedia.org/wiki/Three-act_structure">three-act structure</a>. This would provide a
+            natural
+            inciting incident (an event that drives the character to action) and, therefore, give the book a natural
+            narrative arc.</p>
+          <p>If the story has started in the wrong place, then we would provide suggestions as to how the opening section
+            of
+            the book can be restructured. It might be that we feel moving the start of the story to a more significant
+            event
+            would provide a better structure. If this were the case, we’d highlight where we feel the story should start
             and
-            upload the full manuscript.</li>
-          <li>Once the file is uploaded, a senior editor will download the file to their local machine and assess the
-            book. If the book is accepted an email is automatically sent to the writer. If we feel that we can’t add
-            value
-            to the book, it is rejected, and the writer is informed by email. The editor will delete the file from their
-            local machine.</li>
-          <li>If accepted, an email will be sent with an invoice for your edit and a link to our secure payment system.
-            We
-            work with writers from all over the world, so we can 'bill' you in the currency that is best for you. We use
-            PayPal's secure payment system, since this will allow you to use any major card for payment. You will not
-            need
-            to create a PayPal account.</li>
-          <li>Once payment has been made we will email you with a receipt for payment. You will also be given a date for
-            the lastest possible return of the edit. This will be 28 business days from payment.</li>
-          <li>An editor will be chosen for the book. The choice of editor is based on the editor’s experience in the
-            genre, their desire to edit the book and current workload. In most cases, an editor will express a desire to
-            work with the writer and the project.</li>
-          <li>An editor will be assigned to the book, and they will then be granted access to the online files. The
-            editor
-            will download the files to our Dropbox system, and they will have access to the files on their local
-            machine.
-          </li>
-          <li>The editor will complete the <%= @keyword %> and line edit, producing an editor’s report in the process.
-            Once
-            complete, they will upload the files to the secure server and delete the files from their local machine.
-          </li>
-          <li>A senior editor will access the files via our internal Dropbox system and check that the edit is ready to
-            be
-            returned to the writer. When the senior editor is happy, the files are removed from the Dropbox system, and
-            the writer is informed (by email) that the edit is ready.</li>
-          <li>The writer logs onto their account and downloads the edited files. </li>
-        </ul>
+            then provide strategies to ensure that nothing essential to the plot was lost in the restructuring.</p>
+          <p>The aim of the report is to be a document that you can use to understand the issues within your book and how
+            they can be fixed. We never just say 'fix this' but will instead explain why it is an issue and what you need
+            to
+            do to correct the problem.</p>
+          <p>Many authors tell us the editor’s report quickly becomes an invaluable tool. Before each editing session, the
+            author will refer back to the report and get a 'feel' for the bigger picture before delving into the
+            nitty-gritty of the line edit.</p>
 
-        <!-- Support -->
-        <h2 class="book-editing-subtitle">We see our interaction with writers as a long-term relationship.</h2>
-        <p>We want to be with you for the book you are writing now and all your future projects.</p>
-        <p>In addition to editorial support, we work hard to provide help with all elements of the self-publishing
-          process. This might be through blog posts, free ebooks, email exchanges or even one-to-one Skype calls.</p>
-        <p>Once you have worked with us on one book, we will remain at your side to help at every step.</p>
-        <p>What does this mean in real terms?</p>
-        <p>Once you have had your edit back, it is natural that you will have questions. We will answer these questions
-          in
-          whatever way works for you. It might be that you want to email us the questions or set up a chat, either way
-          works.</p>
-        <p><strong>As part of the service, you are entitled to a sixty-minute one-to-one chat with your editor.</strong>
-        </p>
-        <p>The next step will be for you to rewrite the sections that need more work. This will produce a new
-          manuscript.
-          As a general rule, we don’t carry out full second edits. The reason being that we have already said everything
-          we need to say. However, if you have reworked a particular section, we will be more than happy to have a look
-          at
-          that section and pass comment.</p>
-        <p>If you feel your book has changed significantly from the version we edited, it may be possible for us to
-          carry
-          out a second edit. If we feel that we can add more value a second time, we’ll book you in for a second edit.
-          The
-          charge for this edit is the same as the first. </p>
-        <p>The help will not stop there. </p>
-        <p>One advantage we possess is that we have experience of both traditional and self-publishing, as well as
-          access
-          to hundreds of writers. The chances are that if you are having a problem with the writing or publishing
-          process
-          we have already seen and solved this problem. It may well be the case that one quick email to us saves you a
-          significant amount of time.</p>
+          <h4>Line Editing</h4>
+          <p>In addition to the <%= @keyword %> editing, we will also carry out a line edit for your book. </p>
+          <p><a href="https://en.wikipedia.org/wiki/Copy_editing" target="_blank">Line editing</a> is a form of copy
+            editing, which Wikipedia describes as the ‘process of reviewing and correcting written material to improve
+            accuracy, readability, and fitness for its purpose, and to ensure that it is free of error, omission,
+            inconsistency, and repetition.’</p>
+          <p>Some people will describe line editing as ‘mechanical editing’. This refers to the rigid nature of the line
+            editing process, which looks to fix errors in the prose to match the strict rules of a style manual.</p>
+          <p>In its simplest terms, the line editing process will involve the editor reading each line of your book and
+            applying the rules from the appropriate style manual.</p>
+          <p>Here’s an example…</p>
+          <p>The Chicago Manual of Style suggests we handle numbers in prose in the following manner:</p>
+          <blockquote class="blockquote">
+            <p>Spell out whole numbers up to (and including) one hundred (e.g., zero, one, ten, ninety-six, 104). Spell
+              out
+              numbers that begin a sentence unless it begins with a year (e.g., "Twelve drummers," "The 10 lords
+              a-leaping,"
+              "2011's quota for off-season holiday references has been filled.").</em></p>
+          </blockquote>
+          <p>Therefore, if when editing we came across the following sentence:</p>
+          <p>‘The shepherd counted 45 sheep before falling asleep.’</p>
+          <p>We would change it to…</p>
+          <p>‘The shepherd counted <strong>forty-five</strong> sheep before falling asleep.’</p>
+
+          <h4>Lightline Editing</h4>
+          <p>The line editing we apply to your prose can be described as ‘light’ line editing. This means that though we
+            will look to find and change every error we can, it is not an exhaustive process.</p>
+          <p><%= @keyword.humanize %> editing is the primary goal of the edit, and this will be the primary focus of the
+            editor.</p>
+          <p>This means that, though we work hard to catch all errors, it is not 100%. We always suggest to writers that
+            they see the line edit as guidance, rather than a replacement for proofreading. Once we have returned the
+            manuscript, you will have a clear indication of where the errors lie and will then be able to re-enforce our
+            work with your own editing.</p>
+          <p>The <%= @keyword %> editing process will stimulate some level of re-writing from you, the writer. This means
+            that
+            once you have back the edited manuscript, you will be looking to change and add new material.</p>
+          <p>Any new writing will bring new errors; we are all human.</p>
+          <%= image_tag 'sample-line-edit-screenshot', class: 'img-fluid image mx-auto d-block', alt: 'Book editing with BubbleCow - line book edit sample'  %>
+          <h4>What is included in the line edit?</h4>
+          <p>The editor will read each line of your book and then when they see an error, they will make a change.</p>
+          <p>This error will be fixed using tracked changes, which means that you remain in control. If you wish to
+            ‘reject’
+            the change, then it is a simple process of saying 'no' to the change. The process will then automatically
+            revert
+            back to the original text.</p>
+          <p>If the editor sees errors that are made consistently (perhaps incorrect capitalisation of a word). They may
+            choose to apply a global find and replace. This process will see the editor asking Word to ‘find’ each
+            occasion
+            of the error and then replacing the error with the correct version. Find and replace is used with caution but
+            can be a very effective tool in adding consistency to a manuscript.</p>
+
+          <h4>The line editing process</h4>
+          <p>As with all editing, there is a level of ‘art’ to line editing, but on the whole, it is the most mechanical
+            of
+            the editing steps.</p>
+          <p>Edits will use one of four style manuals to decide how to handle the errors and inconsistencies within a
+            manuscript. If you are using American English, the editor will use the <a
+              href="http://www.chicagomanualofstyle.org/home.html">Chicago Manual of Style</a> by default. However, they
+            can
+            use <a href="https://en.wikipedia.org/wiki/AP_Stylebook">Associated Press</a> Style Guide if you have used
+            this
+            manual during the writing process. If writing in British English, the editor will use the <a
+              href="https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/University%20of%20Oxford%20Style%20Guide.pdf"
+              target="_blank">Oxford Style Guide.</a></p>
+          <p>In addition, BubbleCow also has an internal style guide that will be consulted for certain issues. For
+            example,
+            most style guides will suggest that the correct format for the ellipsis is . . . (that’s dot space dot space
+            dot). However, though this is fine for print books, it can cause problems with digital ebook conversions where
+            the ‘white space’ is automatically removed. Therefore, our internal style guide suggests that the ellipsis is
+            best presented as … (no spaces).</p>
+          <p>The main focus of the editor, when line editing, will be to ensure the correct application of grammar and
+            punctuation. However, in addition, they will also address the following:</p>
+          <ul>
+            <li>Abbreviations and acronyms.</li>
+            <li>Additional elements, such as charts, tables, and graphs.</li>
+            <li>Capitalization.</li>
+            <li>Footnotes and endnotes.</li>
+            <li>Hyphenation.</li>
+            <li>Italicization and boldfaced type.</li>
+            <li>Numbers and numerals.</li>
+            <li>Punctuation.</li>
+            <li>Quotations.</li>
+            <li>Spelling.</li>
+          </ul>
+
+          <!-- Sample Editing -->
+          <h2 class="book-editing-subtitle section-spacer">Sample Editing</h2>
+          <p>Finding the right editor for your project is not easy. The chances are that you have spent months (a recent
+            survey suggested that the average time to write a book was seven months) writing your book and you, rightly,
+            want to make sure that you have the correct person for the job.</p>
+          <p>The first step is to ask us all the questions that you have, which are niggling away. We are more than happy
+            to
+            answer any questions.</p>
+          <p>The next step is to submit your book for a
+            <%= link_to "free sample edit", "https://services.bubblecow.com/books/new?job=sample_editing"%>.</p>
+          <p>The sample editing process is almost identical to the full editing process. We will look at the opening
+            section
+            of your book, normally the first 2000 words, and complete a <%= @keyword %> and line edit. We will also
+            produce
+            an
+            editor’s report.</p>
+          <p>This sample edit will give you a great indication of not only what we can do for your book, but also what
+            might
+            be wrong and what needs fixing. </p>
+          <p>The only thing we can’t do is comment on wider narrative issues. We need to read the full story before we can
+            make a judgement on certain technical and structural problems. </p>
+          <p>The sample edit will take twenty-four business hours to complete. Once the sample edit is ready, you’ll get
+            an
+            email with instructions on how to download your sample edit.</p>
+          <p>If you have questions about the sample edit, we will be happy to answer these either via email, phone or
+            Skype.
+          </p>
+
+          <div class="d-grid gap-2">
+            <%= link_to "Try free sample editing", "https://services.bubblecow.com/books/new?job=sample_editing", class: "btn btn-outline-primary mb-3 p-3", id: 'submit_sample' %>
+          </div>
+
+          <!-- Process -->
+          <h2 class="book-editing-subtitle section-spacer">The Editing Process</h2>
+          <p>The editing process normally consists of two stages: the sample edit and the full edit.</p>
+          <p>The role of the sample edit is to show you what we can offer for your book. If you don’t need a sample edit,
+            it
+            is okay to just jump ahead to the full edit.</p>
+          <p>The editing process involves the following steps:</p>
+          <ul>
+            <li>Click <%= link_to "this link", "https://services.bubblecow.com/books/new?job=sample_editing"%> to go to
+              our
+              secure sample submission page.</li>
+            <li>Create a free BubbleCow account using email and password.</li>
+            <li>Complete the submission form and attach your manuscript. This will need to be a Word document.</li>
+            <li>The manuscript is submitted to BubbleCow and uploaded to our secure server. You can find out more about our <%= link_to "file satefy policy here", services_file_safety_path %>.</li>
+            <li>A senior editor will download your manuscript onto their local machine and assess the book. If we feel we
+              can add value, the book is ‘accepted’. If we feel we can’t add value, the book is ‘rejected’ and deleted
+              from
+              the editor’s local machine.</li>
+            <li>The first 2000 words of the ‘accepted’ manuscript are edited by the senior editor. They will complete a
+              line
+              edit and a <%= @keyword %> edit. An editor’s report is also completed.</li>
+            <li>The edited manuscript and editor’s report are uploaded to our secure server. An email is automatically
+              sent
+              to inform you that the sample edit is ready. The editor deletes any files from their local machine.</li>
+            <li>The writer logs into their BubbleCow account and downloads the edited manuscript and report.</li>
+            <li>When the writer is ready to proceed, they log back into their account and submit the manuscript for full
+              editing. Additional information is required at this point, and the writer will need to fill out a new form
+              and
+              upload the full manuscript.</li>
+            <li>Once the file is uploaded, a senior editor will download the file to their local machine and assess the
+              book. If the book is accepted an email is automatically sent to the writer. If we feel that we can’t add
+              value
+              to the book, it is rejected, and the writer is informed by email. The editor will delete the file from their
+              local machine.</li>
+            <li>If accepted, an email will be sent with an invoice for your edit and a link to our secure payment system.
+              We
+              work with writers from all over the world, so we can 'bill' you in the currency that is best for you. We use
+              PayPal's secure payment system, since this will allow you to use any major card for payment. You will not
+              need
+              to create a PayPal account.</li>
+            <li>Once payment has been made we will email you with a receipt for payment. You will also be given a date for
+              the lastest possible return of the edit. This will be 28 business days from payment.</li>
+            <li>An editor will be chosen for the book. The choice of editor is based on the editor’s experience in the
+              genre, their desire to edit the book and current workload. In most cases, an editor will express a desire to
+              work with the writer and the project.</li>
+            <li>An editor will be assigned to the book, and they will then be granted access to the online files. The
+              editor
+              will download the files to our Dropbox system, and they will have access to the files on their local
+              machine.
+            </li>
+            <li>The editor will complete the <%= @keyword %> and line edit, producing an editor’s report in the process.
+              Once
+              complete, they will upload the files to the secure server and delete the files from their local machine.
+            </li>
+            <li>A senior editor will access the files via our internal Dropbox system and check that the edit is ready to
+              be
+              returned to the writer. When the senior editor is happy, the files are removed from the Dropbox system, and
+              the writer is informed (by email) that the edit is ready.</li>
+            <li>The writer logs onto their account and downloads the edited files. </li>
+          </ul>
+
+          <!-- Support -->
+          <h3 class="book-editing-subtitle">We see our interaction with writers as a long-term relationship.</h3>
+          <p>We want to be with you for the book you are writing now and all your future projects.</p>
+          <p>In addition to editorial support, we work hard to provide help with all elements of the self-publishing
+            process. This might be through blog posts, free ebooks, email exchanges or even one-to-one Skype calls.</p>
+          <p>Once you have worked with us on one book, we will remain at your side to help at every step.</p>
+          <p>What does this mean in real terms?</p>
+          <p>Once you have had your edit back, it is natural that you will have questions. We will answer these questions
+            in
+            whatever way works for you. It might be that you want to email us the questions or set up a chat, either way
+            works.</p>
+          <p><strong>As part of the service, you are entitled to a sixty-minute one-to-one chat with your editor.</strong>
+          </p>
+          <p>The next step will be for you to rewrite the sections that need more work. This will produce a new
+            manuscript.
+            As a general rule, we don’t carry out full second edits. The reason being that we have already said everything
+            we need to say. However, if you have reworked a particular section, we will be more than happy to have a look
+            at
+            that section and pass comment.</p>
+          <p>If you feel your book has changed significantly from the version we edited, it may be possible for us to
+            carry
+            out a second edit. If we feel that we can add more value a second time, we’ll book you in for a second edit.
+            The
+            charge for this edit is the same as the first. </p>
+          <p>The help will not stop there. </p>
+          <p>One advantage we possess is that we have experience of both traditional and self-publishing, as well as
+            access
+            to hundreds of writers. The chances are that if you are having a problem with the writing or publishing
+            process
+            we have already seen and solved this problem. It may well be the case that one quick email to us saves you a
+            significant amount of time.</p>
+
+        </div>
+
+      </div>
 
     </section>
 
     <!-- Long testimonials -->
     <section class="book-editing-long-testimonials">
 
-      <div class="book-editing-card">
-        <p>“The whole process was an invaluable part of taking my story to the next level. The
-                  report was detailed and the line edit was very useful. BubbleCow was direct and honest about what
-                  worked
-                  and what didn't with my first novel and the advice was good, it made sense. BubbleCow were available
-                  before, during and after the edit for help and advice about the next steps. Gary even helped me get in
-                  contact with an agent. Overall, I was really satisfied with BubbleCow and if you are thinking about
-                  having your novel professionally edited, firstly, do it, secondly seriously consider using BubbleCow.
-                  I
-                  am glad I did.”</p>
-        <p class="book-editing-testiominal-author">Tom Savage. Author of the <em><%= link_to "Nora Baron", "https://www.amazon.com/Tom-Savage/e/B00ADSTC26/ref=dp_byline_cont_ebooks_1", target: "_blank" %></em> series</p>
+      <div class="row justify-content-md-center section-spacer">
 
-      </div>
+        <div class="col-lg-8 mt-2">
 
-      <div class="book-editing-card">
-        <p>“When I opened my novel I was surprised to find that there were around 5,000 edits
-                  and suggestions. That’s crazy. I never expected so much attention to detail. But it was all the notes
-                  that accompanied the edits that ‘really’ impressed me. Suggestions to make sentences more active.
-                  Notes
-                  on consistency. Additions to avoid confusion. Even a couple of additional paragraphs to help
-                  foreshadow
-                  events to come. While going through the edits, I started to wonder if the editor knew my book better
-                  than I did. All the feedback was great and it turned a story I felt was good into something I could be
-                  truly proud of.”</p>
-        <p class="book-editing-testiominal-author">Kevin Wolfenberger. Author of
-                  <em><%= link_to "Rise of the Elementals", "https://www.amazon.com/Rise-Elementals-Winds-Change-Book-ebook/dp/B00DAILS6E/ref=sr_1_1?ie=UTF8&qid=1517856369&sr=8-1&keywords=Kevin+Wolfenberger", target: "_blank" %></em>.</p>
+          <div class="card">
+            <div class="card-body">
+
+              <p class="card-text">The whole process was an invaluable part of taking my story to the next level. The
+                        report was detailed and the line edit was very useful. BubbleCow was direct and honest about what
+                        worked
+                        and what didn't with my first novel and the advice was good, it made sense. BubbleCow were available
+                        before, during and after the edit for help and advice about the next steps. Gary even helped me get in
+                        contact with an agent. Overall, I was really satisfied with BubbleCow and if you are thinking about
+                        having your novel professionally edited, firstly, do it, secondly seriously consider using BubbleCow.
+                        I
+                        am glad I did.”</p>
+              <p class="card-text">Tom Savage. Author of the <em><%= link_to "Nora Baron", "https://www.amazon.com/Tom-Savage/e/B00ADSTC26/ref=dp_byline_cont_ebooks_1", target: "_blank" %></em> series</p>
+
+            </div>
+          </div>
+
+          <div class="card mt-3">
+            <div class="card-body">
+
+              <p class="card-text">“When I opened my novel I was surprised to find that there were around 5,000 edits
+                        and suggestions. That’s crazy. I never expected so much attention to detail. But it was all the notes
+                        that accompanied the edits that ‘really’ impressed me. Suggestions to make sentences more active.
+                        Notes
+                        on consistency. Additions to avoid confusion. Even a couple of additional paragraphs to help
+                        foreshadow
+                        events to come. While going through the edits, I started to wonder if the editor knew my book better
+                        than I did. All the feedback was great and it turned a story I felt was good into something I could be
+                        truly proud of.”</p>
+              <p class="card-text">Kevin Wolfenberger. Author of
+                        <em><%= link_to "Rise of the Elementals", "https://www.amazon.com/Rise-Elementals-Winds-Change-Book-ebook/dp/B00DAILS6E/ref=sr_1_1?ie=UTF8&qid=1517856369&sr=8-1&keywords=Kevin+Wolfenberger", target: "_blank" %></em>.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section>
@@ -552,314 +608,225 @@
     <!-- FAQs -->
     <section class="book-editing-FAQ">
 
-    <!-- FAQ -->
-        <h2 class="book-editing-subtitle">Commonly Asked Questions</h2>
-        <p>Below are some of the most commonly asked questions we get from writers. If you have a question, please email
-          <%= mail_to "gary@bubblecow.com" %>.</p>
+      <div class="row justify-content-md-center section-spacer">
 
-        <!--Accordion wrapper-->
-        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+        <div class="col-lg-8 mt-2">
 
-          <!-- Accordion card -->
-          <div class="card">
+          <!-- FAQ -->
+          <h2 class="book-editing-subtitle">Commonly Asked Questions</h2>
+          <p>Below are some of the most commonly asked questions we get from writers. If you have a question, please email <%= mail_to "gary@bubblecow.com" %>.</p>
 
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingOne1">
-              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-                aria-controls="collapseOne1">
-                <h5 class="mb-0">
-                  Do you accept all books? <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
+          <!-- Accordian start -->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Do you accept all books?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>No, but we accept most fiction genres and all major nonfiction genres. In fact, we
+                    say yes to about 75% of the books that are submitted.</p>
+                  <p>Our goal is to add maximum value to writers. However, for this to happen we have to be the correct
+                    editors for your book. </p>
+                  <p>The most common reason we will reject a book is that the book is not far enough down the writing
+                    process for a <%= @keyword %> edit to be of maximum value.</p>
+                  <p>For example, if a book is at the ‘first draft’ stage and contains many very simple errors, we will
+                    say
+                    no. If a book’s formatting and structure are non-existent (e.g. it has no paragraphs) we will also say
+                    no. If the book sentence structure is ‘unusual’ (most common when English is not the writer’s first
+                    language), we will reject the manuscript with the suggestion that further 'low level’ editorial work
+                    is
+                    applied before it is ready for a <%= @keyword %> edit.</p>
+                  <p>The second most common reason we say no to a book is that we don’t have the editorial experience for
+                    the genre.</p>
+                  <p>We pride ourselves on both having experience in editing and deep genre knowledge. We spend a lot of
+                    time talking to writers, publishers and agents and have a good understanding of what the current
+                    trends
+                    in the marketplace look like.</p>
+                  <p>This means that if your book is not within a genre in which we specialize, we are not the best people
+                    for the job.</p>
+                  <p>We DON’T accept:</p>
+                  <ul>
+                    <li>Poetry.</li>
+                    <li>Short stories.</li>
+                    <li>Cookbooks.</li>
+                    <li>Highly technical non-fiction.</li>
+                    <li>Children's picture books.</li>
+                  </ul>
+                  <p>If you are not sure if we will accept your book’s genre, just email and ask.</p>
+                </div>
+              </div>
             </div>
-
-            <!-- Card body -->
-            <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p class="card-text">No, but we accept most fiction genres and all major nonfiction genres. In fact, we
-                  say yes to about 75% of the books that are submitted.</p>
-                <p>Our goal is to add maximum value to writers. However, for this to happen we have to be the correct
-                  editors for your book. </p>
-                <p>The most common reason we will reject a book is that the book is not far enough down the writing
-                  process for a <%= @keyword %> edit to be of maximum value.</p>
-                <p>For example, if a book is at the ‘first draft’ stage and contains many very simple errors, we will
-                  say
-                  no. If a book’s formatting and structure are non-existent (e.g. it has no paragraphs) we will also say
-                  no. If the book sentence structure is ‘unusual’ (most common when English is not the writer’s first
-                  language), we will reject the manuscript with the suggestion that further 'low level’ editorial work
-                  is
-                  applied before it is ready for a <%= @keyword %> edit.</p>
-                <p>The second most common reason we say no to a book is that we don’t have the editorial experience for
-                  the genre.</p>
-                <p>We pride ourselves on both having experience in editing and deep genre knowledge. We spend a lot of
-                  time talking to writers, publishers and agents and have a good understanding of what the current
-                  trends
-                  in the marketplace look like.</p>
-                <p>This means that if your book is not within a genre in which we specialize, we are not the best people
-                  for the job.</p>
-                <p>We DON’T accept:</p>
-                <ul>
-                  <li>Poetry.</li>
-                  <li>Short stories.</li>
-                  <li>Cookbooks.</li>
-                  <li>Highly technical non-fiction.</li>
-                  <li>Children's picture books.</li>
-                </ul>
-                <p>If you are not sure if we will accept your book’s genre, just email and ask.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Can I pick my editor?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Yes.</p>
+                  <p>At the point of submission, we will be in touch with you to discuss your book. At this point, you
+                    will
+                    have the chance to elect a certain editor. If we feel the editor is not ideal for your book, we will
+                    discuss this in detail and explain who we feel would be the best choice.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingTwo2">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
-                aria-expanded="false" aria-controls="collapseTwo2">
-                <h5 class="mb-0">
-                  Can I pick my editor? <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>Yes.</p>
-                <p>At the point of submission, we will be in touch with you to discuss your book. At this point, you
-                  will
-                  have the chance to elect a certain editor. If we feel the editor is not ideal for your book, we will
-                  discuss this in detail and explain who we feel would be the best choice.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  I want to submit my book in small chunks. Is that possible?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Yes.</p>
+                  <p>We have a minimum word count of 15,000 words. As long as you submit in chunks of this size or larger,
+                    then there’s no issue. </p>
+                  <p>In fact, we have had many authors take this approach in the past, and it always seems to work well.
+                    The
+                    key, from our viewpoint, is that you let us know that you will be submitting in chunks. This way we
+                    can
+                    ensure that you have the same editor for each submission.</p>
+                  <p>The only ‘problem’ with submitting in chunks is that it extends the overall time it will take to edit
+                    your book. One thing we can do to shorten this editing process is to ‘book’ in each chunk ahead of
+                    time.
+                    If you know that your next chunk will be ready at a set date, you can inform us of the date ahead of
+                    time, and we will be ready to start editing the moment you submit.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingThree3">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
-                aria-expanded="false" aria-controls="collapseThree3">
-                <h5 class="mb-0">
-                  I want to submit my book in small chunks. Is that possible? <i
-                    class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>Yes.</p>
-                <p>We have a minimum word count of 15,000 words. As long as you submit in chunks of this size or larger,
-                  then there’s no issue. </p>
-                <p>In fact, we have had many authors take this approach in the past, and it always seems to work well.
-                  The
-                  key, from our viewpoint, is that you let us know that you will be submitting in chunks. This way we
-                  can
-                  ensure that you have the same editor for each submission.</p>
-                <p>The only ‘problem’ with submitting in chunks is that it extends the overall time it will take to edit
-                  your book. One thing we can do to shorten this editing process is to ‘book’ in each chunk ahead of
-                  time.
-                  If you know that your next chunk will be ready at a set date, you can inform us of the date ahead of
-                  time, and we will be ready to start editing the moment you submit.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Once I have had the book edited, will the editor look at the changes?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Probably...</p>
+                  <p>We tend not to offer a second ‘full’ edit. The reason for this is that we will note everything we
+                    can,
+                    which adds value to your book, during the first edit. A second edit is unlikely to produce significant
+                    additional value.</p>
+                  <p>The exception to this rule is if you have ‘significantly’ altered the book. In this situation, a
+                    second
+                    edit may well add enough value to allow an additional edit. If you feel this is the case, then we can
+                    have a discussion and provide a cost for the additional editorial feedback.</p>
+                  <p>What we can offer is the option for us to re-assess certain sections of your book. If our feedback
+                    has
+                    suggested specific changes and you have applied them, you might wish to consult the editor to discover
+                    if you are on the correct path. </p>
+                  <p>In this situation, you would resubmit the reworked section by email, and we would provide some
+                    feedback. This additional feedback would not be a <%= @keyword %> or line edit, but would, instead,
+                    just
+                    be an assessment of what you have written. </p>
+                  <p>There’s no charge for this additional work.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingFour4">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
-                aria-expanded="false" aria-controls="collapseFour4">
-                <h5 class="mb-0">
-                  Once I have had the book edited, will the editor look at the changes? <i
-                    class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseFour4" class="collapse" role="tabpanel" aria-labelledby="headingFour4"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>Perhaps.</p>
-                <p>We tend not to offer a second ‘full’ edit. The reason for this is that we will note everything we
-                  can,
-                  which adds value to your book, during the first edit. A second edit is unlikely to produce significant
-                  additional value.</p>
-                <p>The exception to this rule is if you have ‘significantly’ altered the book. In this situation, a
-                  second
-                  edit may well add enough value to allow an additional edit. If you feel this is the case, then we can
-                  have a discussion and provide a cost for the additional editorial feedback.</p>
-                <p>What we can offer is the option for us to re-assess certain sections of your book. If our feedback
-                  has
-                  suggested specific changes and you have applied them, you might wish to consult the editor to discover
-                  if you are on the correct path. </p>
-                <p>In this situation, you would resubmit the reworked section by email, and we would provide some
-                  feedback. This additional feedback would not be a <%= @keyword %> or line edit, but would, instead,
-                  just
-                  be an assessment of what you have written. </p>
-                <p>There’s no charge for this additional work.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  If I get my book edited, will I still need a copy edit? 
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Yes.</p>
+                  <p>The line edit we offer is not a replacement for a professional proofread. The line edit will remove a
+                    significant number of errors, but it is not exhaustive. It is, instead, a tool that can be used to
+                    help
+                    prepare your book for the next stage.</p>
+                  <p>In addition, our <%= @keyword %> editing will stimulate some level of rewriting. Experience tells us
+                    that
+                    whenever we add in new material, there will be some level of errors also introduced (human nature and
+                    all that).</p>
+                  <p>This means that even if we were able to remove all errors in the line edit, you would still not be
+                    sure
+                    your manuscript was error free due to the rewrites.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingFive5">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive5"
-                aria-expanded="false" aria-controls="collapseFive5">
-                <h5 class="mb-0">
-                  If I get my book edited, will I still need a copy edit? <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseFive5" class="collapse" role="tabpanel" aria-labelledby="headingFive5"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>Yes.</p>
-                <p>The line edit we offer is not a replacement for a professional proofread. The line edit will remove a
-                  significant number of errors, but it is not exhaustive. It is, instead, a tool that can be used to
-                  help
-                  prepare your book for the next stage.</p>
-                <p>In addition, our <%= @keyword %> editing will stimulate some level of rewriting. Experience tells us
-                  that
-                  whenever we add in new material, there will be some level of errors also introduced (human nature and
-                  all that).</p>
-                <p>This means that even if we were able to remove all errors in the line edit, you would still not be
-                  sure
-                  your manuscript was error free due to the rewrites.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Is there a minimum word count?
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Yes.</p>
+                  <p>We don’t accept books of fewer than 15,000 words. </p>
+                  <p>The reason is simple. Our secret power is in editing long-form manuscripts; in other words, novels
+                    and
+                    long non-fiction books. If your book is shorter than 15,000 words, we are probably not the best match
+                    for your project.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingSix6">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseSix6"
-                aria-expanded="false" aria-controls="collapseSix6">
-                <h5 class="mb-0">
-                  Is there a minimum word count? <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseSix6" class="collapse" role="tabpanel" aria-labelledby="headingSix6"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>Yes.</p>
-                <p>We don’t accept books of fewer than 15,000 words. </p>
-                <p>The reason is simple. Our secret power is in editing long-form manuscripts; in other words, novels
-                  and
-                  long non-fiction books. If your book is shorter than 15,000 words, we are probably not the best match
-                  for your project.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  Will you ship out my book to some anonymous freelance editor?
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                   <p>No.</p>
+                  <p>We are a small team, with only a small group of full-time editors. This is the way we have designed
+                    the
+                    company. We feel that the connection between writer and editor is essential and that this can only be
+                    achieved when the writer is confident that the editor is committed to their project.</p>
+                  <p>We don’t hire freelance editors. The idea of short-term, transitory staff, is against the very core
+                    of
+                    the way we feel editing should be offered to writers. Instead, we focus on hiring long-term, dedicated
+                    and highly experienced book editors, that we can train and develop over time.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          <div class="card">
-
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingSeven7">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseSeven7"
-                aria-expanded="false" aria-controls="collapseSeven7">
-                <h5 class="mb-0">
-                  Will you ship out my book to some anonymous freelance editor? <i
-                    class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseSeven7" class="collapse" role="tabpanel" aria-labelledby="headingSeven7"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>No.</p>
-                <p>We are a small team, with only a small group of full-time editors. This is the way we have designed
-                  the
-                  company. We feel that the connection between writer and editor is essential and that this can only be
-                  achieved when the writer is confident that the editor is committed to their project.</p>
-                <p>We don’t hire freelance editors. The idea of short-term, transitory staff, is against the very core
-                  of
-                  the way we feel editing should be offered to writers. Instead, we focus on hiring long-term, dedicated
-                  and highly experienced book editors, that we can train and develop over time.</p>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  Do you keep the copyright?
+                </button>
+              </h2>
+              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>No.</p>
+                  <p>We are simply a service. You pay us; we make your book better. At no point do we take ANY rights. ALL
+                    rights remain yours at all times.</p>
+                  <p>In fact, if you are considering using any editorial service that is suggesting that they will be
+                    taking
+                    any cut of your book’s copyright, or long-term sales, please run a mile.</p>
+                </div>
               </div>
             </div>
 
-          </div>
-          <!-- Accordion card -->
 
-          <!-- Accordion card -->
-          <div class="card">
 
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingEight8">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseEight8"
-                aria-expanded="false" aria-controls="collapseEight8">
-                <h5 class="mb-0">
-                  Do you keep the copyright? <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div id="collapseEight8" class="collapse" role="tabpanel" aria-labelledby="headingEight8"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <p>No.</p>
-                <p>We are simply a service. You pay us; we make your book better. At no point do we take ANY rights. ALL
-                  rights remain yours at all times.</p>
-                <p>In fact, if you are considering using any editorial service that is suggesting that they will be
-                  taking
-                  any cut of your book’s copyright, or long-term sales, please run a mile.</p>
-              </div>
-            </div>
 
           </div>
-          <!-- Accordion card -->
+          <!-- Accordian end -->
 
         </div>
-        <!-- Accordion wrapper -->
-
+      </div>
     </section>
 
+  </div> <!-- /container -->
 
-  </main>
 
   <%= render "shared/price_calculator" %>
 
-
-
-    
     <% if @footer != "no footer" %>
       <%= render 'shared/footer' %>
     <% end %>

@@ -1,4 +1,4 @@
-module Services
+
   
   class DevelopmentalEditingPagesController < Services::ApplicationController
     skip_before_action :authenticate_user!
@@ -106,4 +106,3 @@ module Services
     end
 
   end
-end

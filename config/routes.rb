@@ -999,6 +999,19 @@ Rails.application.routes.draw do
 
   get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
 
+  # Redirects after removing 'services' for SEo benfit 
+  get "/services/book_editing", to: redirect('/book-editing')
+  get "/services/book-editing", to: redirect('/book-editing')
+  get "/services/developmental-editing", to: redirect('/developmental-editing')
+  get "/services/developmental_editing", to: redirect('/developmental-editing')
+  get "/services/content_editing", to: redirect('/content-editing')
+  get "/services/substantive_editing", to: redirect('/substantive-editing')
+  get "/services/manuscript_editing", to: redirect('/manuscript-editing')
+  get "/services/novel_editing", to: redirect('/novel-editing')  
+
+  get "/services/testimonials", to: redirect('/testimonials')
+  get "/services/file-safety", to: redirect('/file-saftey')
+
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
@@ -1007,20 +1020,19 @@ Rails.application.routes.draw do
   #  Trix youtube plugin
   resource :embed, only: :update
 
-  # NOT USING THIS!
-  namespace :admin do
-    resources :users
-    resources :announcements
-    resources :notifications
-    resources :services
-    root to: "users#index"
-  end
-
   # services
+  resources :testimonials
+
+  get 'book-editing', to: 'developmental_editing_pages#book_editing'
+  get 'developmental-editing', to: 'developmental_editing_pages#developmental_editing'
+  get 'content-editing', to: 'developmental_editing_pages#content_editing'
+  get 'substantive-editing', to: 'developmental_editing_pages#substantive_editing'
+  get 'novel-editing', to: 'developmental_editing_pages#novel_editing'
+  get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
+
   namespace :services do
     resources :genres 
     resources :service_prices
-    resources :testimonials
     resources :sample_developmental_edits do 
       put 'sample_developmental_edit_accepted' => 'state_buttons#sample_developmental_edit_accepted', on: :member
       put 'sample_developmental_edit_rejected' => 'state_buttons#sample_developmental_edit_rejected', on: :member
@@ -1031,38 +1043,19 @@ Rails.application.routes.draw do
     end
     get 'manuscript-assessment', to: 'pages#manuscript_assessment'
 
-    get 'book-editing', to: 'developmental_editing_pages#book_editing'
-    get 'developmental-editing', to: 'developmental_editing_pages#developmental_editing'
-    get 'content-editing', to: 'developmental_editing_pages#content_editing'
-    get 'substantive-editing', to: 'developmental_editing_pages#substantive_editing'
-    get 'novel-editing', to: 'developmental_editing_pages#novel_editing'
-    get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
-
     get 'mentoring', to: 'pages#mentoring'
     
     get 'copy-editing', to: 'pages#copy_editing'
     get 'proofreading', to: 'pages#copy_editing'
-    
-    get 'file-safety', to: 'pages#file_safety'
-    
+
     root to: "pages#index"
   end
 
-    # Redirects after creating services 
-    get "/book_editing", to: redirect('/services/book-editing')
-    get "/book-editing", to: redirect('/services/book-editing')
-    get "/developmental-editing", to: redirect('/services/developmental-editing')
-    get "/developmental_editing", to: redirect('/services/developmental-editing')
-    get "/content_editing", to: redirect('/services/content-editing')
-    get "/substantive_editing", to: redirect('/services/substantive-editing')
-    get "/manuscript_editing", to: redirect('/services/manuscript-editing')
-    get "/novel_editing", to: redirect('/services/novel-editing')  
-    get "/testimonials", to: redirect('/services/testimonials')  
-
-  # pages
+  # Customer pages
   get 'about', to: 'customer_pages#about'
   get 'writing_manual', to: 'customer_pages#writing_manual'
   get 'thanks', to: 'customer_pages#thanks'
+  get 'file-safety', to: 'customer_pages#file_safety'
 
   # dashboards
   get 'blog-dashboard', to: 'dashboards#blog_dashboard'
@@ -1098,8 +1091,9 @@ Rails.application.routes.draw do
   end
 
   # Users
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
-  resources :users, :only => [:index, :show, :edit, :update, :destroy]  
+  resources :users, :only => [ :index, :show, :edit, :update, :destroy]  
  
   root to: 'customer_pages#index'
 
