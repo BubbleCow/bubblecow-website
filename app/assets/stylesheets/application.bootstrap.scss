@@ -63,6 +63,14 @@ body {
     }
 }
 
+.section-spacer {
+    margin-top: 5rem;
+}
+
+.test {
+    color: red;
+}
+
 // TYPOGRAPHY
 
 $font-family-base: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -121,7 +129,6 @@ trix-toolbar .trix-button-row {
 .brand-second-word {
     color: $pal-blue;
 }
-
 
 // HEROES
 
@@ -185,10 +192,6 @@ trix-toolbar .trix-button-row {
         padding-top: 1.5rem;
     }
 
-    .section-spacer {
-        margin-top: 5rem;
-    }
-
 }
 
 // Testimonials
@@ -199,7 +202,6 @@ trix-toolbar .trix-button-row {
         padding-bottom: 1.5rem;
     }
 }
-
 
 // BLOG
 

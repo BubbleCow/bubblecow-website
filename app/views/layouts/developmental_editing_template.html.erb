@@ -21,17 +21,17 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container developmental-editing-page">
 
     <!-- Benefits -->
     <section class="book-editing-benefits">
 
-      <div class="row">
+      <div class="row section-spacer">
 
         <div class="col-lg-4 d-flex align-items-stretch">
           <div class="card mt-2">
             <div class="card-body">
-              <h2 class="card-title">Book Editing + Line Editing</h2>
+              <h2 class="card-title test">Book Editing + Line Editing</h2>
               <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
             </div>
           </div>
@@ -59,75 +59,66 @@
 
     </section>
 
-
-
-
-  </div>
-
-
-
-
-
-  <main class="page" id="index">
-
-    <!-- Benefits -->
-    <section class="book-editing-benefits">
-
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Book Editing + Line Editing</h2>
-            <p>Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
-        </div>
-
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Multi-page Editor's Report</h2>
-            <p>Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience.</p>
-        </div>
-
-        <div class="book-editing-card">
-            <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
-            <p>Book edits returned within 28 business days. We understand publishing timeframes are essential and will provide a delivery date before the editing starts.</p>
-        </div>
-
-    </section>
-
     <!-- pricing -->
     <section class="book-editing-pricing">
 
-        <div class="book-editing-pricing-text">
-            <h2 class="book-editing-subtitle"><%= @developmental_edit_price %> per 1000 words</h2>
-            <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
-            <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
-            <p>The price includes all editing, consultation, and after-edit care.</p>
-            <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
+      <div class="row justify-content-md-center section-spacer">
+
+        <div class="col-lg-8 mt-2">
+
+          <div class="book-editing-pricing-text">
+              <h2 class="book-editing-subtitle"><%= @developmental_edit_price %> per 1000 words</h2>
+              <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
+              <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
+              <p>The price includes all editing, consultation, and after-edit care.</p>
+              <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
+          </div>
+
+          <div class="book-editing-pricing-calc">
+              <form id="theform" action="#">
+                  <div class="input-group input-group-lg mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-lg">Word Count</span>
+                      </div>
+                      <input id="words" type="text" placeholder="" class="form-control" aria-label="Large"
+                        aria-describedby="inputGroup-sizing-sm">
+                  </div>
+
+                  <div class="input-group input-group-lg mb-2">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><%= @currency_symbol %></span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="tot"
+                        readonly="readonly">
+                  </div>
+
+                  <div>
+                      <label></label>
+                      <input id="calc" type="button" value="Instantly calculate cost"
+                        class="btn btn-primary btn-lg btn-block my-3">
+                  </div>
+              </form>
+          </div>
+
         </div>
 
-        <div class="book-editing-pricing-calc">
-            <form id="theform" action="#">
-                <div class="input-group input-group-lg mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">Word Count</span>
-                    </div>
-                    <input id="words" type="text" placeholder="" class="form-control" aria-label="Large"
-                      aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-lg mb-2">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><%= @currency_symbol %></span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="tot"
-                      readonly="readonly">
-                </div>
-
-                <div>
-                    <label></label>
-                    <input id="calc" type="button" value="Instantly calculate cost"
-                      class="btn btn-primary btn-lg btn-block my-3">
-                </div>
-            </form>
-        </div>
+      </div>
 
     </section>
+
+
+
+  </div> <!-- /container -->
+
+
+
+
+
+
+
+
+
+    
 
     <!-- Short testimonials -->
     <section class="book-editing-short-testimonials">
