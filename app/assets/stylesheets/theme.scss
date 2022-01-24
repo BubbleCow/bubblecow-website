@@ -1,0 +1,289 @@
+/*
+
+This is the custom styling for Bootstrap. 
+
+Ensure that the @import remains at the bottm of the page. 
+
+*/
+
+// Mixins
+
+@mixin standard-border {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+@mixin backend-box {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+// COLOURS
+
+// Primary colours - These should always be considered as the primary colors. Black is to be used very sparingly.
+$pay-blue: #00457C !default;
+$pal-blue: #0079C1 !default;
+
+// Neutral colours - The neutral palette is intended to be used sparingly to organize information and create functional environments
+$sand: #959484 !default;
+$pale-sand: #E7E5D3 !default;
+$slate: #717074 !default;
+$pale-slate: #E6E7E8 !default;
+$paler-slate: #f3f5f7 !default;
+$night: #2c2e2f !default;
+
+// Accent colours - use the accent palette to create visual interest and engagement. Please note the color pairings, the colors that appear next to one another are intended to be used together, DO NOT mix 
+
+$leaf: #6DB33f !default;
+$lime: #C2CD23 !default;
+$sea: #007C85 !default;
+$aqua: #26BCD7 !default;
+$tomato: #B32317 !default;
+$tangerine: #f8981D !default;
+$plum: #7A003C !default;
+$berry: #f15f7C !default;
+
+$primary: $pal-blue;
+$secondary:  $pale-slate;
+$success: $leaf;
+$info: $aqua;
+// $warning:    $warning,
+$danger: $plum;
+
+// GLOBAL STYLING
+
+body {
+    a {
+        text-decoration: none;
+    }
+}
+
+.section-spacer {
+    margin-top: 5rem !important;
+}
+
+.image {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+// TYPOGRAPHY
+
+$font-family-base: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $pay-blue;
+}
+
+blockquote {
+    font-size: 1rem;
+    border-left: solid 2px $sand;
+    padding-left: 1rem;
+}
+
+// FORMS 
+
+form {
+    .input, .button {
+        margin-bottom: 1rem;
+    }
+}
+
+// TRIX
+
+// Removes attachment from trix 
+.trix-button-group--file-tools {
+    display: none !important;
+}
+
+// Trix bug fix - stop toolbar warp on mobile */
+trix-toolbar .trix-button-row {
+    flex-wrap: wrap;
+}
+
+// Reduced size menu */
+
+.small-menu {
+
+    .trix-button-group--history-tools,
+    .trix-button--icon-decrease-nesting-level,
+    .trix-button--icon-increase-nesting-level {
+        display: none !important;
+    }
+}
+
+// BRANDING
+
+.brand-first-word, .brand-second-word {
+    font-family: 'Sansita', sans-serif;
+}
+
+.brand-first-word {
+    color: $pay-blue;
+}
+
+.brand-second-word {
+    color: $pal-blue;
+}
+
+// HEROES
+
+.hero {
+
+    h1 {
+        padding-bottom: 1.5rem;
+    }
+
+    .sub-title {
+        font-size: 1.75rem;
+        padding-bottom: 1rem;
+    }
+}
+
+// DEVISE
+
+.devise-form {
+    margin-top: 3rem;
+    padding: 3rem;
+    @include standard-border();
+
+    .header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .form {
+  
+        .forgotten-password-link {
+            margin-top: 2rem;
+            text-align: center;
+            a {
+                text-decoration: none;
+                font-size: 0.8rem;
+            }
+        }
+
+        .divider {
+            border: 1px solid rgba(0, 0, 0, .125);
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+// Messages
+
+.messages {
+    h1 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+// Customer Pages
+
+.customer_pages {
+    
+    h1 {
+        padding-top: 1.5rem;
+    }
+
+}
+
+// Testimonials
+
+.testimonials {
+    h1 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+// BLOG
+
+.blog {
+
+    .post {
+        .metadata {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .description {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .sidebar {
+        .item {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            margin-bottom: 1rem;
+        }
+    }
+
+}
+
+.post {
+
+    h1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .metadata {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .advert {
+
+        .divider {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            border-top: 1px solid $sand;
+        }
+        
+        .cover-image {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+// DEVELOPMENTAL EDITING PAGES
+
+.developmental-editing-page {
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+// BACKEND
+
+body#backend {
+    min-height: 100%;
+    background-color: #f5f7fa;
+}
+
+.backend-page {
+
+    h1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .box{
+        @include backend-box();
+    }
+}
