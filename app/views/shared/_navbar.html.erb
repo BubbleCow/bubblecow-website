@@ -85,6 +85,8 @@
                   <li><%= link_to "New post", new_blog_post_path, class: "dropdown-item"  %></li>
                   <li><%= link_to "Categories", blog_post_categories_path, class: "dropdown-item"  %></li>
                   <li><%= link_to "Authors", blog_post_authors_path, class: "dropdown-item"  %></li>
+                
+                <!-- Writer -->
                 <% elsif current_user.writer? %>
                    <li><%= link_to "Dashboard", writer_dashboard_path, class: "dropdown-item" %></li>
                 <% end %>
