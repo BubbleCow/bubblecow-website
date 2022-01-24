@@ -99,3 +99,6 @@ gem 'ahoy_matey'
 gem 'omniauth-facebook', '~> 5.0'
 gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
+
+#  Might have to manually update these after problems during Rails 7 update
+gem 'io-wait', '~> 0.2.1'

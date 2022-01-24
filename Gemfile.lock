@@ -409,6 +409,7 @@ DEPENDENCIES
   gravatar_image_tag!
   image_processing (~> 1.2)
   invisible_captcha
+  io-wait (~> 0.2.1)
   jbuilder
   jsbundling-rails
   meta-tags
