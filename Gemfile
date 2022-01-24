@@ -101,5 +101,5 @@ gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
 
 # I added these to get Rails 7 working, I need to remove the version and, hopefully, gem when I can.
-gem 'io-wait', '0.1.0' 
+gem 'io-wait'
 gem 'strscan', '3.0.0'

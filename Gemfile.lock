@@ -196,7 +196,7 @@ GEM
     invisible_captcha (2.0.0)
       rails (>= 5.0)
     io-console (0.5.11)
-    io-wait (0.1.0)
+    io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -409,7 +409,7 @@ DEPENDENCIES
   gravatar_image_tag!
   image_processing (~> 1.2)
   invisible_captcha
-  io-wait (= 0.1.0)
+  io-wait
   jbuilder
   jsbundling-rails
   meta-tags
