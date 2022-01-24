@@ -99,7 +99,3 @@ gem 'ahoy_matey'
 gem 'omniauth-facebook', '~> 5.0'
 gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
-
-# I added these to get Rails 7 working, I need to remove the version and, hopefully, gem when I can.
-# gem 'io-wait'
-# gem 'strscan'
