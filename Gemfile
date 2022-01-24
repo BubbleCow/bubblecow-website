@@ -101,4 +101,4 @@ gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
 
 #  Might have to manually update these after problems during Rails 7 update
-gem 'io-wait', '0.2.1'
+gem 'io-wait', '0.2.0'
