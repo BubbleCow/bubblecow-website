@@ -1,60 +1,73 @@
+<h1><%= @user.name.full %></h1>
 
-    <h1><%= @user.name.full %></h1>
+<div class="row">
+
+    <div class="col-lg-6 my-3">
     
-<div class="box">
+        <div class="box">
+            <p>Email: <%= @user.email %> </p>
+            <p>Role: <%= @user.role %> </p>
+            <p>Currency: <%= @user.currency %> </p>
+            <p>Country: <%= @user.country %> </p>
+            <p><%= link_to "Edit User", edit_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
+        </div>
 
-    <ul>
-        <li>Email:<%= @user.email %></li>
-    </ul>
+    </div>
+
+    <div class="col-lg-6">
+    
+        <div class="box mt-3">
+
+                <p>Sample Developmental Edits</p>
+                <ul>
+                    <% @sample_developmental_edits.each do |edit| %>
+                        <li>
+                            <%= link_to edit.title, services_sample_developmental_edit_path(edit) %> |
+                            <%= link_to "Destroy", services_sample_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                        </li>
+                    <% end %>
+                </ul>
+
+                <p>Developmental Edits</p>
+                <ul>
+                    <% @developmental_edits.each do |edit| %>
+                        <li>
+                            <%= link_to edit.title, services_developmental_edit_path(edit) %>
+                            <%= link_to "x", services_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                        </li>
+                    <% end %>
+                </ul>
+
+        </div>
+
+    </div>
 
 </div>
 
+<div class="row">
 
+    <div class="col">
 
-<main class="page" id="user-show">
+        <div class="box mt-3">
 
-  <div class="page-header">
-    <h1><%= @user.name.full %></h1>
-  </div>
+            <!-- Editor notes -->
+            <div class="book-editor-notes small-menu form">
+                <% if current_user.try(:admin?) %>
+                    <h3>Internal User Note:</h3>
+                    <%= form_for([@user]) do |form| %>
+                        <div class="input">
+                            <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
+                        </div>
 
-<p>Email:<%= @user.email %> </p>
-<p>Role: <%= @user.role %> </p>
-<p>Currency: <%= @user.currency %> </p>
-<p>Country: <%= @user.country %> </p>
-<p><%= link_to "Edit User", edit_user_path(@user) %>
-
-<!-- Editor notes -->
-<div class="book-editor-notes small-menu">
-    <% if current_user.try(:admin?) %>
-        <h3>Internal User Note:</h3>
-        <%= form_for([@user]) do |form| %>
-            <div class="form-group">
-                <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
+                        <div class="button">
+                            <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
-                <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-        <% end %>
-      <% end %>
+            
+        </div>
+
+    </div>
+
 </div>
-
-
-<p>Sample Developmental Edits</p>
-<ul>
-    <% @sample_developmental_edits.each do |edit| %>
-        <li>
-            <%= link_to edit.title, services_sample_developmental_edit_path(edit) %>
-            <%= link_to "x", services_sample_developmental_edit_path(edit), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
-        </li>
-    <% end %>
-</ul>
-
-<p>Developmental Edits</p>
-<ul>
-    <% @developmental_edits.each do |edit| %>
-        <li>
-            <%= link_to edit.title, services_developmental_edit_path(edit) %>
-            <%= link_to "x", services_developmental_edit_path(edit), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>
-        </li>
-    <% end %>
-</ul>
-
-</main>
