@@ -50,7 +50,7 @@ class MailingListsController < ApplicationController
   end
 
   def writing_manual_download
-
+    @footer = "no footer"
   end
 
   def writing_manual_pdf_download
