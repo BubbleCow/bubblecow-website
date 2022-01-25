@@ -33,9 +33,11 @@ class CustomerPagesController < ApplicationController
   def set_template
     case action_name
     when 'index'
-        'full_width'
+      'full_width'
+    when 'writing_manual'
+      'backend'
     else
-        'application'
+      'application'
     end
   end
 
