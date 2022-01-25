@@ -23,6 +23,21 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def redirect_subdomain
+      if request.host == 'www.bubblecow.com'
+        redirect_to 'http://bubblecow.com' + request.fullpath, :status => 301
+      end
+    end
+
+    # DEVISE ACTIONS
+
+    # White lists and sets variables
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note])
+
+    end
+
     def storable_location?
       request.get? && is_navigational_format? && !devise_controller? && !request.xhr? 
     end
@@ -30,12 +45,6 @@ class ApplicationController < ActionController::Base
     def store_user_location!
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
-    end
-
-    def redirect_subdomain
-      if request.host == 'www.bubblecow.com'
-        redirect_to 'http://bubblecow.com' + request.fullpath, :status => 301
-      end
     end
 
     def after_sign_in_path_for(resource)
@@ -56,14 +65,7 @@ class ApplicationController < ActionController::Base
       root_path
     end
 
-    # DEVISE ACTIONS
-
-    # White lists and sets variables
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note])
-
-    end
+    
 
     def sync_user
       return unless user_signed_in?
