@@ -1,19 +1,19 @@
 <!-- Writing Manual Advert -->
-<div class="cover-image"> 
-  <%= image_tag("proactive-writing-manual-cover-small", :alt => "Writing Manual", class: "img-fluid rounded mx-auto d-block", size: "" ) %>
-</div>
-
-<div class="row justify-content-lg-center">
+<div class="row">
 
   <div class="col-lg-6">
-
     <p>Claim your free eBook today and join over 25,000 writers who have read and benefited from this ebook.</p>
-    <p><em>'It is probably one of the best books on writing I've read so far.' Miz Bent</em></p>
+    <blockquote>'It is probably one of the best books on writing I've read so far.' Miz Bent</blockquote>
     <%= link_to "Find out more...", writing_manual_path %>
     <%= render 'blog/posts/adverts/writing_manual_ac_form'%>
+  </div>
 
+  <div class="col-lg-6">
+    <%= image_tag("proactive-writing-manual-cover-small", :alt => "Writing Manual", class: "img-fluid rounded mx-auto d-block", size: "" ) %>
   </div>
 
 </div>
+
+
 
             
