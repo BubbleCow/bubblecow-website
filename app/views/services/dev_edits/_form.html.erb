@@ -1,0 +1,69 @@
+<%= form_with(model: dev_edit, local: true) do |form| %>
+  <% if dev_edit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dev_edit.errors.count, "error") %> prohibited this dev_edit from being saved:</h2>
+
+      <ul>
+      <% dev_edit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.text_field :status, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :accepted_date %>
+    <%= form.datetime_field :accepted_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rejected_date %>
+    <%= form.datetime_field :rejected_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :invoice_due_date %>
+    <%= form.datetime_field :invoice_due_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :invoice_paid_date %>
+    <%= form.datetime_field :invoice_paid_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :return_date %>
+    <%= form.datetime_field :return_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :due_date %>
+    <%= form.datetime_field :due_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if dev_edit.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', dev_edit, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if dev_edit.persisted? %>
+      <%= link_to "Cancel", dev_edit, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", dev_edits_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

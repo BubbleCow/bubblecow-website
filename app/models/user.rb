@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+  has_many :books, dependent: :destroy
   has_many :developmental_edits, dependent: :destroy
   has_many :sample_developmental_edits, dependent: :destroy
 
@@ -12,7 +13,7 @@ class User < ApplicationRecord
 
   has_person_name
 
-  enum role: [:writer, :editor, :admin]
+  enum role: [:writer, :content_creator, :editor, :manager, :admin]
 
   after_initialize do
     if self.new_record?

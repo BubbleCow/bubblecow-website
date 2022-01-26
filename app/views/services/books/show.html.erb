@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to books_path, class: 'btn btn-default' do %>
+    All Books
+  <% end %>
+  <%= link_to edit_services_book_path(@book), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show book</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @book.title %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @book.user_id %></dd>
+
+  <dt>Language:</dt>
+  <dd><%= @book.language %></dd>
+
+  <dt>Genre:</dt>
+  <dd><%= @book.genre_id %></dd>
+
+  <dt>Word count:</dt>
+  <dd><%= @book.word_count %></dd>
+
+  <dt>Slug:</dt>
+  <dd><%= @book.slug %></dd>
+
+</dl>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_122403) do
+ActiveRecord::Schema.define(version: 2022_01_26_115027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,44 @@ ActiveRecord::Schema.define(version: 2022_01_10_122403) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.string "language"
+    t.integer "genre_id"
+    t.integer "word_count"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_books_on_slug", unique: true
+  end
+
+  create_table "dev_edit_samples", force: :cascade do |t|
+    t.integer "book_id"
+    t.string "status", default: "sample_developmental_edit_created"
+    t.string "user_id"
+    t.datetime "accepted_date", precision: 6
+    t.datetime "rejected_date", precision: 6
+    t.datetime "return_date", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status_value", default: 1
+  end
+
+  create_table "dev_edits", force: :cascade do |t|
+    t.integer "book_id"
+    t.string "status", default: "developmental_edit_created"
+    t.integer "user_id"
+    t.datetime "accepted_date", precision: 6
+    t.datetime "rejected_date", precision: 6
+    t.datetime "invoice_due_date", precision: 6
+    t.datetime "invoice_paid_date", precision: 6
+    t.datetime "return_date", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status_value", default: 1
   end
 
   create_table "developmental_edits", force: :cascade do |t|

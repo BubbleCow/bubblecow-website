@@ -63,6 +63,11 @@ GEM
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
     active-campaign-rails (0.2.3)
       rest-client
+    active_storage_validations (0.9.6)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activejob (7.0.1)
       activesupport (= 7.0.1)
       globalid (>= 0.3.6)
@@ -71,6 +76,8 @@ GEM
     activerecord (7.0.1)
       activemodel (= 7.0.1)
       activesupport (= 7.0.1)
+    activerecord_where_assoc (1.1.2)
+      activerecord (>= 4.1.0)
     activestorage (7.0.1)
       actionpack (= 7.0.1)
       activejob (= 7.0.1)
@@ -392,6 +399,8 @@ PLATFORMS
 DEPENDENCIES
   aasm
   active-campaign-rails
+  active_storage_validations
+  activerecord_where_assoc (~> 1.0)
   acts-as-taggable-on
   ahoy_matey
   aws-sdk-s3

@@ -1,0 +1,34 @@
+<%= form_with(model: dev_edit_sample, local: true) do |form| %>
+  <% if dev_edit_sample.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dev_edit_sample.errors.count, "error") %> prohibited this dev_edit_sample from being saved:</h2>
+
+      <ul>
+      <% dev_edit_sample.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :book_id %>
+    <%= form.number_field :book_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if dev_edit_sample.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', dev_edit_sample, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if dev_edit_sample.persisted? %>
+      <%= link_to "Cancel", dev_edit_sample, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", dev_edit_samples_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

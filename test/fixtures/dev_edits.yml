@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  user_id: 1
+  accepted_date: 2022-01-25 16:29:59
+  rejected_date: 2022-01-25 16:29:59
+  invoice_due_date: 2022-01-25 16:29:59
+  invoice_paid_date: 2022-01-25 16:29:59
+  return_date: 2022-01-25 16:29:59
+  due_date: 2022-01-25 16:29:59
+
+two:
+  status: MyString
+  user_id: 1
+  accepted_date: 2022-01-25 16:29:59
+  rejected_date: 2022-01-25 16:29:59
+  invoice_due_date: 2022-01-25 16:29:59
+  invoice_paid_date: 2022-01-25 16:29:59
+  return_date: 2022-01-25 16:29:59
+  due_date: 2022-01-25 16:29:59

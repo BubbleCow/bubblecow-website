@@ -1,11 +1,11 @@
 class UserPolicy < ApplicationPolicy
 
 	def index?
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def show?
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def edit?
@@ -13,19 +13,11 @@ class UserPolicy < ApplicationPolicy
 	end
 
 	def update?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def destroy?
-		# allow admin
-		return true if user.present? && user.admin?
-	end
-
-	private
-
-	def post
-		record
+		is_managerial_staff?
 	end
 
 end
