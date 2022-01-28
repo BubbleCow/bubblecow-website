@@ -1,16 +1,12 @@
 class DevelopmentalEditPolicy < ApplicationPolicy
 
+
 	def index?
-		# allow admin
-		return true if user.present? && user.admin?
+		user.developmental_edits || is_editorial_staff?
 	end
 
 	def show?
-		# allow admin
-		return true if user.present? && user.admin?
-
-		# allow writer to only see own post
-		user.present? && user == developmental_edit.user
+		is_owner? || is_editorial_staff?
 	end
 
 	def new?
@@ -26,21 +22,11 @@ class DevelopmentalEditPolicy < ApplicationPolicy
 	end
 
 	def update?
-		# allow admin
-		return true if user.present? && user.admin?
-
-		# allow writer to only see own post
-		user.present? && user == developmental_edit.user
+		is_owner? || is_editorial_staff?
 	end
 
 	def destroy?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
-	private
-
-	def developmental_edit
-		record
-	end
 end

@@ -1,13 +1,11 @@
 class MessagePolicy < ApplicationPolicy
     
     def index?
-		# allow admin
-		return true if user.present? && user.admin?
+		user.messages || is_managerial_staff?
 	end
 
 	def show?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_owner? || is_managerial_staff?
 	end
 
 	def new?
@@ -23,18 +21,11 @@ class MessagePolicy < ApplicationPolicy
 	end
 
 	def update?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_owner? || is_managerial_staff?
 	end
 
 	def destroy?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
-	private
-
-	def post
-		record
-	end
 end

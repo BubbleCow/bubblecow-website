@@ -1,0 +1,70 @@
+
+
+  <div class="form">
+
+    <%= form_for([:services, @book]) do |form| %>
+        <% if book.errors.any? %>
+          <div class="alert alert-danger" id="error_explanation">
+            <h3><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h3>
+
+            <ul>
+            <% book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!-- Book title -->
+        <div class="input">
+          <h2>Book Title</h2>
+          <p class="form-text">Include the title of your book.</p>
+          <%= form.text_field :title, required: true, autofocus: true, placeholder: "What's the title of your book?", class:"form-control" %>
+        </div>
+
+        <!-- Book word count -->
+        <div class="input pt-3">
+          <h2>Book Word Count</h2>
+          <p class="form-text">Please note that we have a minimum word count of 15,000 words.</p>
+          <%= form.number_field :word_count, required: true, placeholder: "Add your book's total word count.", class:"form-control" %>
+        </div>
+
+        <!-- Book laungauge -->
+        <div class="input pt-3">
+          <h2>Language</h2>
+          <p class="form-text">This will be American or British English. This will help us with the line edit.</p>
+          <%= form.select(:language, options_for_select([['American English'], ['British English']]), { prompt: "Select the type of English..." }, { class: "form-select",  required: true }) %>
+        </div>
+
+        <!-- Book genre -->
+        <div class="input pt-3">
+          <h2>Book Genre</h2>
+          <p class="form-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
+          <%= form.select(:genre_id, options_from_collection_for_select( Genre.all.order('genre_type ASC'), :id, :genre_type) , { prompt: "Select the genre of your book..." }, {class: "form-select",  required: true}) %>
+
+        </div>
+
+        <!-- Book description -->
+        <div class="input pt-3">
+          <h2>Book Description</h2>
+          <p class="form-text">Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
+          <%= form.rich_text_area :description, type: "text", class: "trix-increased-height" %>
+        </div>
+
+        <div class="button pt-3">
+          <div class="d-grid gap-2">
+            <% if @book.new_record? %>
+              <%= form.button "Create your book", type: "submit", class: 'btn btn-lg btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating..."}  %>
+            <% else %>
+              <%= form.button "Update your book", type: "submit", class: 'btn btn-lg btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."}  %>
+            <% end %>
+          </div>
+        </div>
+    
+      <% end %>
+
+    </div>
+
+  </div>
+
+

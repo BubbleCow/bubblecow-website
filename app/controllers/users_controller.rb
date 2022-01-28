@@ -13,8 +13,9 @@ class UsersController < ApplicationController
 
     def show 
       authorize @user
-      @sample_developmental_edits = @user.sample_developmental_edits
-      @developmental_edits = @user.developmental_edits
+      @books = @user.books
+      @old_sample_developmental_edits = @user.sample_developmental_edits
+      @old_developmental_edits = @user.developmental_edits
     end
 
     def edit

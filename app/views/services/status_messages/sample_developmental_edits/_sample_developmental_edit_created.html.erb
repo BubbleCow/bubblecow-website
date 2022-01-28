@@ -1,0 +1,24 @@
+<% if user_is_editorial_staff %>
+
+	<p>A new sample edit has been submitted.</p>
+	<p>This needs to be assesed and either accepted or rejected.</p>
+
+	<%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+
+		<!-- Update status by accepting or rejecting -->
+	  	<div class="form-group">
+			<%= form.select(:status, options_for_select([['Accept sample developmental edit', 'sample_developmental_edit_accepted'], ['Reject sample developmental edit', 'sample_developmental_edit_rejected']]), { prompt: "Accept or reject this edit..." }, { class: "form-select",  required: true }) %>
+		</div>
+
+        <div class="d-grid gap-2 mt-3">
+			<%= form.button "Accept or reject sample edit", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
+		</div>
+
+	<% end %>
+
+<% elsif user_is_writer %>  
+
+	<p>Thanks for submitting your book for a free sample edit.</p>
+	<p>We are currently assessing your manuscript and will get back to you shortly.</p>
+
+<% end %>

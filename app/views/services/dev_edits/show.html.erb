@@ -1,0 +1,36 @@
+<div class="page-header">
+  <%= link_to dev_edits_path, class: 'btn btn-default' do %>
+    All Dev_edits
+  <% end %>
+  <%= link_to edit_dev_edit_path(@dev_edit), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show dev_edit</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Status:</dt>
+  <dd><%= @dev_edit.status %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @dev_edit.user_id %></dd>
+
+  <dt>Accepted date:</dt>
+  <dd><%= @dev_edit.accepted_date %></dd>
+
+  <dt>Rejected date:</dt>
+  <dd><%= @dev_edit.rejected_date %></dd>
+
+  <dt>Invoice due date:</dt>
+  <dd><%= @dev_edit.invoice_due_date %></dd>
+
+  <dt>Invoice paid date:</dt>
+  <dd><%= @dev_edit.invoice_paid_date %></dd>
+
+  <dt>Return date:</dt>
+  <dd><%= @dev_edit.return_date %></dd>
+
+  <dt>Due date:</dt>
+  <dd><%= @dev_edit.due_date %></dd>
+
+</dl>
