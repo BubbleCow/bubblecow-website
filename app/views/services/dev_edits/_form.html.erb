@@ -1,0 +1,23 @@
+<%= form_with(model: [:services, @book, dev_edit], local: true) do |form| %>
+  <% if dev_edit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dev_edit.errors.count, "error") %> prohibited this dev_edit from being saved:</h2>
+
+      <ul>
+      <% dev_edit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Developmental edit submission form  -->
+  <p class="lead">To proceed with full developmental editing please attach your manuscript below and submit.</p>
+  <p>Once your manuscript is submitted it will be assessed. You will then be sent an email with instructions for payment and how to move forward.</p>     <p>Please note that we are unable to edit PDF files.</p>
+  <%= form.file_field :unedited_manuscript, class: "form-control", required: true %>
+
+  <div class="d-grid gap-2 mt-4">
+    <%= form.button "Submit your book for editing", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
+  </div>
+
+<% end %>

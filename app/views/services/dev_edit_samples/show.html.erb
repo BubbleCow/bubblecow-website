@@ -1,0 +1,15 @@
+<div class="page-header">
+  <%= link_to dev_edit_samples_path, class: 'btn btn-default' do %>
+    All Dev_edit_samples
+  <% end %>
+  <%= link_to edit_dev_edit_sample_path(@dev_edit_sample), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show dev_edit_sample</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Book:</dt>
+  <dd><%= @dev_edit_sample.book_id %></dd>
+
+</dl>

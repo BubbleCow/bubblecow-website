@@ -1,0 +1,27 @@
+<% if editorial_staff(current_user) %>
+
+    <p>Invoice has been paid and the due date set. Assign an editor to this edit.</p>
+
+    <p>Assign Editor:</p>
+    
+
+        <%= form_with(model: [:services, @book, developmental_edit], local: true) do |form| %>
+            <div class="form-group">
+                <%= form.collection_select :user_id, User.staff.order('last_name ASC'), :id, :full_name, required: true %>
+                <%= form.hidden_field :status, value: "developmental_edit_editing_underway" %>
+            </div>
+
+            <div class="form-group">
+                <%= form.button "Add Editor", class: 'button button-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Adding..."} %>
+            </div>
+        <% end %>
+  
+<% elsif current_user.try(:writer?) %>  
+
+    <p>Your book is currently being edited.</p>
+
+    <p>Your edit will be returned on, or before, <strong><%= @developmental_edit.due_date.strftime("%B %d") %></strong>.</p>
+
+<% end %>
+
+

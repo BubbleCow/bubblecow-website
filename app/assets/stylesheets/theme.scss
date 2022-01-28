@@ -111,9 +111,17 @@ trix-toolbar .trix-button-row {
 // Styles hi in posts
 
 .trix-content {
+
     h1 {
         font-size: 2rem;
     }
+}
+
+
+.trix-increased-height {
+    height: 200px !important;
+    max-height: 150px !important;
+      overflow-y: auto !important;
 }
 
 // Reduced size menu */

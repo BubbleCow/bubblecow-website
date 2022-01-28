@@ -28,7 +28,7 @@ class SampleDevelopmentalEdit < ApplicationRecord
     scope :sample_developmental_edit_accepted, -> { where(aasm_state: "sample_developmental_edit_accepted") }
     scope :sample_developmental_edit_editing_underway, -> { where(aasm_state: "sample_developmental_edit_editing_underway") }
 
-    # DSample evelopmental edititng process 
+    # Sample developmental edititng process 
     aasm do
         state :sample_developmental_edit_submitted, initial: true
         state :sample_developmental_edit_rejected

@@ -1,0 +1,28 @@
+<% if editorial_staff(current_user) %>
+
+    <p>The sample has been accepted.</p>
+
+    <p>An email has been sent to the writer, once we have a reply, assign an editor.</p>
+
+    <p>Assign Editor:</p>
+    
+
+    <%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+        <div class="form-group">
+            <%= form.collection_select :user_id, User.staff.order('last_name ASC'), :id, :full_name, required: true %>
+            <%= form.hidden_field :status, value: "sample_developmental_edit_editing_underway" %>
+        </div>
+
+        <div class="form-group">
+            <%= form.button "Add Editor", class: 'button button-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Adding..."} %>
+        </div>
+    <% end %>
+
+  
+<% elsif current_user.try(:writer?) %>  
+
+    <p>Your sample has been accepted and is currently being edited.</p>
+    <p>Your feedback will be returned within <strong>two working days</strong> from <%= @sample_developmental_edit.accepted_date.strftime("%B %d") %>.</p>
+    <p>You will receive an email when your feedback is ready for you to download from this page.</p>
+
+<% end %>

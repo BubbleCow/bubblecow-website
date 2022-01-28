@@ -9,13 +9,11 @@ class PostPolicy < ApplicationPolicy
 	end
 
 	def new?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_editorial_staff?
 	end
 
 	def create?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_editorial_staff?
 	end
 
 	def edit?
@@ -23,18 +21,11 @@ class PostPolicy < ApplicationPolicy
 	end
 
 	def update?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_editorial_staff?
 	end
 
 	def destroy?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
-	private
-
-	def post
-		record
-	end
 end

@@ -1031,6 +1031,12 @@ Rails.application.routes.draw do
   get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
 
   namespace :services do
+    resources :books do
+      resources :dev_edits
+      resources :dev_edit_samples
+      resources :mentorships
+      resources :manuscript_assessments
+    end
     resources :genres 
     resources :service_prices
     resources :sample_developmental_edits do 
@@ -1041,12 +1047,6 @@ Rails.application.routes.draw do
       put 'developmental_edit_accepted' => 'state_buttons#developmental_edit_accepted', on: :member
       put 'developmental_edit_rejected' => 'state_buttons#developmental_edit_rejected', on: :member
     end
-    get 'manuscript-assessment', to: 'pages#manuscript_assessment'
-
-    get 'mentoring', to: 'pages#mentoring'
-    
-    get 'copy-editing', to: 'pages#copy_editing'
-    get 'proofreading', to: 'pages#copy_editing'
 
     root to: "pages#index"
   end

@@ -1,8 +1,6 @@
 <div class="form">
 
-  <%= turbo_frame_tag testimonial do %>
-
-    <%= form_with(model: testimonial, local: true) do |form| %>
+  <%= form_with(model: testimonial, local: true) do |form| %>
       <% if testimonial.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
@@ -31,4 +29,3 @@
 
   <% end %>
   
-</div>

@@ -1,19 +1,19 @@
 class GenrePolicy < ApplicationPolicy
     
     def index?
-		return true if user.present? && user.admin?
+		is_staff?
 	end
 
 	def show?
-		return true if user.present? && user.admin?
+		is_staff?
 	end
 
 	def new?
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def create?
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def edit?
@@ -21,18 +21,11 @@ class GenrePolicy < ApplicationPolicy
 	end
 
 	def update?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
 	def destroy?
-		# allow admin
-		return true if user.present? && user.admin?
+		is_managerial_staff?
 	end
 
-	private
-
-	def post
-		record
-	end
 end
