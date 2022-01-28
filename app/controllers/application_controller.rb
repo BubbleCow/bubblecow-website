@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
-  before_action :redirect_subdomain
   before_action :masquerade_user!
   before_action :set_admin_navbar
 
@@ -22,12 +21,6 @@ class ApplicationController < ActionController::Base
   end  
 
   protected
-
-    def redirect_subdomain
-      if request.host == 'www.bubblecow.com'
-        redirect_to 'http://bubblecow.com' + request.fullpath, :status => 301
-      end
-    end
 
     # DEVISE ACTIONS
 
