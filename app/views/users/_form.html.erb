@@ -16,6 +16,12 @@
         <%= form.select :currency, currency_options, :required => true, class: "form-control" %>
     </div>
 
+     <div class="form-group">
+        <p>Current role: <%= user.role %></p>
+      <%= form.select(:role, options_for_select([['writer'], ['content_creator'], ['editor'], ['manager'], ['admin']]), { prompt: "Select the type of English..." }, { class: "form-select",  required: true }) %>
+    </div>
+
+
     <div class="form-group">
         <%= form.select :country, country_options, :required => true, class: "form-control" %>
     </div>
