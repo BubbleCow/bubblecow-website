@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     def index 
       @page_title = "Users"
       @users = User.all
-      @writers = User.writers
-      @editors = User.editors
+      @writers = User.writer
+      @editors = User.editor
       @admins = User.admin  
       authorize @users
     end
