@@ -54,9 +54,11 @@ class User < ApplicationRecord
   end
 
   # Scopes
-  scope :staff, -> { where('role=? OR role=?', 1, 2) }
-  scope :admins, -> { where(role: 2) }
-  scope :editors, -> { where('role=? OR role=?', 1, 2) }
-  scope :writers, -> { where(role: 0) }
+  # Scopes
+  scope :staff, -> { where('role=? OR role=? OR role=? OR role=?', 1, 2, 3, 4) }
+  scope :editorial_staff, -> { where('role=? OR role=? OR role=?', 2, 3, 4) }
+  scope :marketing_staff, -> { where('role=? OR role=? OR role=?', 1, 3, 4) }
+  scope :management, -> { where('role=? OR role=?', 2, 3) }
+
 
 end

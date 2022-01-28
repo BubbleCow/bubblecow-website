@@ -1,4 +1,5 @@
-<%= form_with(model: dev_edit_sample, local: true) do |form| %>
+<%= form_with(model: [:services, @book, dev_edit_sample], local: true) do |form| %>
+  
   <% if dev_edit_sample.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dev_edit_sample.errors.count, "error") %> prohibited this dev_edit_sample from being saved:</h2>
@@ -11,24 +12,14 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :book_id %>
-    <%= form.number_field :book_id, class: 'form-control' %>
+  <!-- Sample developmental edit submission Form -->
+  <p class="lead">To proceed with free sample developmental editing please attach your manuscript.</p>
+  <p>Your manuscript will be assessed, if we feel we can add value to your book, we will edit the first 2000 words of your book, free of charge.</p> 
+  <p>Please note that we are unable to edit PDF files.</p>
+  <%= form.file_field :unedited_manuscript, class: "form-control", required: true %>
+
+  <div class="d-grid gap-2 mt-4">
+    <%= form.button "Submit for free sample editing", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
   </div>
 
-  <div class="form-group">
-    <% if dev_edit_sample.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', dev_edit_sample, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-
-    <%= form.submit class: 'btn btn-primary' %>
-
-    <% if dev_edit_sample.persisted? %>
-      <%= link_to "Cancel", dev_edit_sample, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", dev_edit_samples_path, class: "btn btn-link" %>
-    <% end %>
-  </div>
 <% end %>

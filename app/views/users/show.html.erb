@@ -4,7 +4,9 @@
 
     <div class="col-lg-6 my-3">
     
+        <!-- User details -->
         <div class="box">
+            <h2>User Details</h2>
             <p>Email: <%= @user.email %> </p>
             <p>Role: <%= @user.role %> </p>
             <p>Currency: <%= @user.currency %> </p>
@@ -12,43 +14,8 @@
             <p><%= link_to "Edit User", edit_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
         </div>
 
-    </div>
 
-    <div class="col-lg-6">
-    
-        <div class="box mt-3">
-
-                <p>Sample Developmental Edits</p>
-                <ul>
-                    <% @sample_developmental_edits.each do |edit| %>
-                        <li>
-                            <%= link_to edit.title, services_sample_developmental_edit_path(edit) %> |
-                            <%= link_to "Destroy", services_sample_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
-                        </li>
-                    <% end %>
-                </ul>
-
-                <p>Developmental Edits</p>
-                <ul>
-                    <% @developmental_edits.each do |edit| %>
-                        <li>
-                            <%= link_to edit.title, services_developmental_edit_path(edit) %>
-                            <%= link_to "Destroy", services_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
-                        </li>
-                    <% end %>
-                </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col">
-
-        <div class="box mt-3">
+         <div class="box mt-3">
 
             <!-- Editor notes -->
             <div class="book-editor-notes small-menu form">
@@ -66,6 +33,94 @@
                 <% end %>
             </div>
             
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+    
+        <div class="box mt-3">
+
+            <h2>Books</h2>
+            <!-- Books and Edits -->
+            <% @books.each do |book| %>
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+                        <h3>
+                            <%= link_to book.title.titleize, services_book_path(book) %>
+                            <%= link_to "x", services_book_path(book), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                        
+                        </h3>
+
+                        <!-- Developmental Edit Samples -->
+                        <% if book.dev_edit_samples.present? %>
+                            
+                            <h5 class="card-text">Sample Developmental Edits</h5>
+
+                            <!-- Sample developmental edits -->
+                            <% book.dev_edit_samples.each do |sample| %>
+                                <p class="card-text">
+                                    <%= sample.unedited_manuscript.filename %> |
+                                    <%= link_to "Destroy", services_book_dev_edit_sample_path(book, sample), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                                </p>
+                            <% end %>
+
+                        <% end %>
+
+                        <!-- Developmental Edits  -->
+                        <% if book.dev_edits.present? %>
+                            
+                            <h5 class="card-text">Developmental Edits</h5>
+
+                            <!-- Sample developmental edits -->
+                            <% book.dev_edits.each do |dev_edit| %>
+                                <p class="card-text">
+                                    <%= dev_edit.unedited_manuscript.filename %> |
+                                    <%= link_to "Destroy", services_book_dev_edit_path(book, dev_edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                                </p>
+                            <% end %>
+
+                        <% end %>
+
+                    </div>
+
+                </div>
+
+            <% end %>
+
+        </div>
+
+        
+        <!-- This only show if the user has old samples or developmental edit -->
+        <% if @old_sample_developmental_edits.present? || @old_developmental_edits.present? %>
+
+            <div class="box mt-3">
+
+                <h2>Old Sample Developmental Edits</h2>
+                <p>These are edits that were submitted prior to us switching to books system in Jan 2022.</p>
+                <ul>
+                    <% @old_sample_developmental_edits.each do |edit| %>
+                        <li>
+                            <%= link_to edit.title, services_sample_developmental_edit_path(edit) %> |
+                            <%= link_to "Destroy", services_sample_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                        </li>
+                    <% end %>
+                </ul>
+
+                <h2>Old Developmental Edits</h2>
+                <ul>
+                    <% @old_developmental_edits.each do |edit| %>
+                        <li>
+                            <%= link_to edit.title, services_developmental_edit_path(edit) %>
+                            <%= link_to "Destroy", services_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                        </li>
+                    <% end %>
+                </ul>
+
+            <% end %>
+
         </div>
 
     </div>

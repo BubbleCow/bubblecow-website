@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # sets flash for notices
   def bootstrap_class_for(flash_type)
     {
       success: "alert-success",
@@ -14,23 +15,32 @@ module ApplicationHelper
     content_tag(:span, "Bubble", class: "brand-first-word") + content_tag(:span, "Cow", class: "brand-second-word")
   end
 
+  # sets active path
   def is_active?(path)       
     return 'active' if request.path == path     
   end
 
-  def side_navigation_title(path)
-    case path
-    when admin_area_blog_path
-      "Blog"
-    when services_developmental_edits_path
-      "Editing"
-    when admin_area_users_path
-      "Users"
-    when admin_area_testimonials_path
-      "Testimonials"
-    else
-      "Dashboard"
-    end
+
+  # Restricts to management
+  def user_is_management
+    current_user.manager? || current_user.admin?
   end
+
+  # Restricts to editorial
+  def user_is_editorial_staff
+      current_user.editor? || current_user.manager? || current_user.admin?
+  end
+
+  # Restricts to marketing
+  def user_is_marketing_staff
+      current_user.content_creator? || current_user.manager? || current_user.admin?
+  end
+
+  # Restricts to management
+  def user_is_writer
+    current_user.writer
+  end
+
+
 
 end

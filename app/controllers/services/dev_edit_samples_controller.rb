@@ -71,7 +71,7 @@ module Services
       end
 
       def set_dev_edit_sample
-        @dev_edit_sample = SampleDevelopmentalEdit.find(params[:id])
+        @dev_edit_sample = DevEditSample.find(params[:id])
       end
 
       def dev_edit_sample_params
