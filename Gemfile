@@ -103,4 +103,4 @@ gem 'activerecord_where_assoc', '~> 1.0'
 gem 'active_storage_validations'
 
 #  Might have to manually update these after problems during Rails 7 update
-gem 'io-wait', '0.2.0'
+gem 'io-wait'
