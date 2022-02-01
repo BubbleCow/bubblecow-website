@@ -1,13 +1,13 @@
-<% if editorial_staff(current_user) %>
+<% if user_is_editorial_staff %>
 
     <p>This edit was completed by <%= link_to @developmental_edit.user.full_name, user_path(@developmental_edit.user) %>.</p>
     <p>It was returned on <%= @developmental_edit.return_date.strftime("%B %d, %Y") %>.</p>
 
-<% elsif current_user.try(:writer?) %>  
+<% elsif user_is_writer %>  
 
     <p>Your edit feedback was completed on <%= @developmental_edit.return_date.strftime("%B %d, %Y") %>, and is now ready.</p>
     <p>Click the links in the <strong>files</strong> section below to download your files.</p>
-    <p><em>It would help greatly if you were able to leave feedback, this will allow future writers to gain an insight on how our service can be of value to their book.</em></p>
-    <%= link_to "Leave a testimonial", new_testimonial_path, class: "button button-outline-primary" %>
+    <p class="lead">It would help greatly if you were able to leave feedback, this will allow future writers to gain an insight on how our service can be of value to their book.</p>
+    <%= link_to "Leave a testimonial", new_testimonial_path, class: "btn btn-outline-primary" %>
 <% end %>
 

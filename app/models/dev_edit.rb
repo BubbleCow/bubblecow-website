@@ -1,7 +1,7 @@
 class DevEdit < ApplicationRecord
 
      # Relationships
-     belongs_to :book
+     belongs_to :book, dependent: :destroy
      belongs_to :user, optional: true
  
      # Active Storage
@@ -21,7 +21,7 @@ class DevEdit < ApplicationRecord
      scope :live_edits, -> {sorted_by_status.where.not(status: "developmental_edit_rejected")}
  
      # Check status and carries out required actions
-     def update_edit_status_information(status)
+     def update_dev_edit_status_information(status)
  
          if status == "developmental_edit_created"
  

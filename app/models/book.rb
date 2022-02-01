@@ -3,8 +3,8 @@ class Book < ApplicationRecord
     # Relationsships
     belongs_to :user
     belongs_to :genre
-    has_many :dev_edits, dependent: :destroy
-    has_many :dev_edit_samples, dependent: :destroy
+    has_many :dev_edits
+    has_many :dev_edit_samples
 
     # Action text
     has_rich_text :description

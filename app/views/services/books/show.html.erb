@@ -169,7 +169,7 @@
             <div class="box">
             
               <h3>Sample Developmental Editing</h3>
-              <%= render "services/status_messages/sample_developmental_edits/#{@sample_developmental_edit.status}", sample_developmental_edit: @sample_developmental_edit %>
+              <%= render "services/status_messages/sample_developmental_edits/#{@sample_developmental_edit.status}" %>         
             
             </div>
 
@@ -180,8 +180,7 @@
 
             <div class="box">
             
-              <h3>Files</h3>
-              <%= render "services/status_messages/sample_developmental_edits/files", sample_developmental_edit: @sample_developmental_edit %>
+              <%= render "services/status_messages/files" %>
             
             </div>
 
@@ -192,19 +191,73 @@
       </section>
 
 
-
-
-
-
-    <!-- Sample returned -->
     <% elsif @book.dev_edit_samples.present? && @sample_developmental_edit.status == "sample_developmental_edit_returned" && @book.dev_edits.blank? %>  
 
-      <%= render "services/books/service_panel/sample_edit_is_returned" %>
+      <!-- Sample returned -->
+      <section class="mt-3 mt-lg-0">
+
+        <div class="row mt-3">
+
+          <!-- Sample developmental edit status -->
+          <div class="col-lg-8">
+
+            <div class="box">
+            
+              <h3>Sample Developmental Editing</h3>
+              <%= render "services/status_messages/sample_developmental_edits/#{@sample_developmental_edit.status}" %>         
+            
+            </div>
+
+          </div>
+
+          <!-- Sample developmental edit files -->
+          <div class="col-lg-4">
+
+            <div class="box">
+            
+              <%= render "services/status_messages/files" %>
+            
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
     <!-- Edit submitted -->
-    <% elsif @dev_edit.present? %>
+    <% elsif @book.dev_edits.present? %>
 
-      <%= render "services/books/service_panel/developmental_edit_underway" %>
+      <section class="mt-3 mt-lg-0">
+
+        <div class="row mt-3">
+
+          <!-- Developmental edit status -->
+          <div class="col-lg-8">
+
+            <div class="box">
+            
+              <h3>Developmental Editing</h3>
+               <%= render "services/status_messages/developmental_edits/#{@developmental_edit.status}" %>
+
+            </div>
+
+          </div>
+
+          <!-- Developmental edit files -->
+          <div class="col-lg-4">
+
+            <div class="box">
+            
+              <%= render "services/status_messages/files" %>
+            
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
     <% end %>
 
