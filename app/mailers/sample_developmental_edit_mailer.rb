@@ -44,7 +44,7 @@ class SampleDevelopmentalEditMailer < ApplicationMailer
         @user = user
         @sample_developmental_edit = sample_developmental_edit
             mail( 
-                :to => sample_developmental_edit.editor.email,
+                :to => 'gary@bubblecow.com',
                 :subject => "#{sample_developmental_edit.title.titleize} has been assigned to your for sample editing" 
             )
     end    

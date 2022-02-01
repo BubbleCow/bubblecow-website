@@ -71,7 +71,7 @@ module Services
       end
 
       def set_dev_edit
-        @dev_edit = DevelopmentalEdit.find(params[:id])
+        @dev_edit = DevEdit.find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.
@@ -81,7 +81,7 @@ module Services
 
       # Checks to see if the status of the edit has chamged  
       def check_edit_status
-        @dev_edit.update_edit_status_information(@dev_edit.status)
+        @dev_edit.update_dev_edit_status_information(@dev_edit.status)
       end 
 
       # Sets the currency for the user

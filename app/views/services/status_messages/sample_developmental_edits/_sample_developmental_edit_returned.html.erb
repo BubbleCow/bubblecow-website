@@ -1,10 +1,13 @@
-<% if editorial_staff(current_user) %>
+<% if user_is_editorial_staff %>
 
-    <p>This sample was edited by <%= link_to @sample_developmental_edit.user.full_name, user_path(@sample_developmental_edit.user) %>.</p>
+    <p>This sample has been edited and returned.</p>
+    <p>It was edited by <%= link_to @sample_developmental_edit.user.full_name, user_path(@sample_developmental_edit.user) %>.</p>
 
-<% elsif current_user.try(:writer?) %>  
+<% elsif user_is_writer %>  
 
     <p>Your sample was completed on <%= @sample_developmental_edit.return_date.strftime("%B %d, %Y") %> and your feedback is now ready.</p>
+    <p>It was edited by <%= link_to @sample_developmental_edit.user.full_name, user_path(@sample_developmental_edit.user) %>.</p>
     <p>Click the links in the <strong>files</strong> section to download your files.</p>
 
+              <%= render 'services/dev_edits/form', dev_edit: @book.dev_edits.build %>
 <% end %>
