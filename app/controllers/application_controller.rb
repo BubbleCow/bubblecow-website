@@ -40,25 +40,37 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
+    # Redirect after sign in
     def after_sign_in_path_for(resource)
-      if current_user.admin?
-        admin_dashboard_path
-      elsif current_user.writer?
-        if stored_location_for(resource) == new_services_sample_developmental_edit_path
-          new_services_sample_developmental_edit_path
-        elsif stored_location_for(resource) == new_services_developmental_edit_path
-          new_services_developmental_edit_path
-        else 
-          writer_dashboard_path
-        end
+
+      case current_user.role
+
+      when 'admin'
+          admin_dashboard_path
+      when 'manaager'
+          manager_dashboard_path
+      when 'editor'
+          editor_path
+      when'content_creator'
+          content_creator_path
+      when 'writer'
+          # If the 
+          if current_user.books.count == 0 
+              new_services_book_path
+          elsif current_user.books.count >= 1
+              services_book_path(current_user.books.last)
+          else
+              writer_dashboard_path
+          end
+      else 
+          root_path
       end
+
     end
   
     def after_sign_out_path_for(resource)
       root_path
     end
-
-    
 
     def sync_user
       return unless user_signed_in?

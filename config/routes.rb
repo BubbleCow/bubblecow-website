@@ -1058,9 +1058,12 @@ Rails.application.routes.draw do
   get 'file-safety', to: 'customer_pages#file_safety'
 
   # dashboards
-  get 'blog-dashboard', to: 'dashboards#blog_dashboard'
+  get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
   get 'admin-dashboard', to: 'dashboards#admin_dashboard'
+  get 'manager-dashboard', to: 'dashboards#manager'
   get 'writer-dashboard', to: 'dashboards#writer_dashboard'
+
+
   get 'writer_area', to: 'dashboards#writer_dashboard'
 
   # Blog
@@ -1092,7 +1095,7 @@ Rails.application.routes.draw do
 
   # Users
 
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' }
   resources :users, :only => [ :index, :show, :edit, :update, :destroy]  
  
   root to: 'customer_pages#index'
