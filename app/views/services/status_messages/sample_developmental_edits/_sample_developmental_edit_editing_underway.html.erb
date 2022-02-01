@@ -1,4 +1,4 @@
-<% if editorial_staff(current_user) %>
+<% if user_is_editorial_staff %>
 
     <p>This sample is being edited.</p>
 
@@ -10,19 +10,19 @@
             <%= form.file_field :editors_report, required: true, class: 'form-control' %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
             <p class="form-label">Edited Sample Manuscript:</p>
             <%= form.file_field :edited_manuscript, required: true, class: 'form-control' %>
         </div>
 
         <%= form.hidden_field :status, value: "sample_developmental_edit_returned" %>
 
-        <div class="form-group">
-            <%= form.button "Upload Files", class: 'button button-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
+        <div class="form-group mt-3">
+            <%= form.button "Upload Files", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
         </div>
     <% end %>
 
-<% elsif current_user.try(:writer?) %>  
+<% elsif user_is_writer %>  
 
     <p>Your sample has been accepted and is currently being edited by <%= @sample_developmental_edit.user.full_name %>.</p>
     <p>Your feedback will be returned within <strong>two working days</strong> from <%= @sample_developmental_edit.accepted_date.strftime("%B %d") %>.</p>

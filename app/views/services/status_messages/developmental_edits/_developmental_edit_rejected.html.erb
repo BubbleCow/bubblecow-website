@@ -1,11 +1,11 @@
-<% if editorial_staff(current_user) %>
+<% if user_is_editorial_staff %>
 
     <p>This edit has been rejected.</p>
   
-<% elsif current_user.try(:writer?) %>  
+<% elsif user_is_writer %>  
 
     <p>Unfortunately, we will not be able to provide an edit.</p>
-    <p>You will receive an email will more information.</p>
+    <p>You will receive an email with more information.</p>
 
 <% end %>
 

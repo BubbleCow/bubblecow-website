@@ -1,8 +1,5 @@
 <p>
-    Your book is currently being edited by
-    <% if @developmental_edit.editor.present? %>
-        <strong><%= @developmental_edit.editor.name.full %></strong>
-    <% end %>
+    Your book is currently being edited.
 </p>
 
 <p>Your edit will be returned on, or before, <strong><%= @developmental_edit.developmental_edit_due_date.strftime("%B %d") %></strong>.</p>

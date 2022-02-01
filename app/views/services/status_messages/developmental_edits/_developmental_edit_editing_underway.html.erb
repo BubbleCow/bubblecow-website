@@ -1,26 +1,26 @@
-<% if editorial_staff(current_user) %>
+<% if user_is_editorial_staff %>
 
     <p>Upload files when edit is complete.</p>
 
-    <%= form_with(model: [:services, @book, developmental_edit], local: true) do |form| %>
-        <div class="form-group">
+    <%= form_with(model: [:services, @book, @developmental_edit], local: true) do |form| %>
+        <div class="form-group mt-3">
             <h5>Editor's Report:</h5>
-            <%= form.file_field :editors_report, required: true %>
+            <%= form.file_field :editors_report, required: true, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
             <h5>Edited Manuscript:</h5>
-            <%= form.file_field :edited_manuscript, required: true %>
+            <%= form.file_field :edited_manuscript, required: true, class: "form-control" %>
         </div>
 
         <%= form.hidden_field :status, value: "developmental_edit_returned" %>
 
-        <div class="form-group">
-            <%= form.button "Upload Files", class: 'button button-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
+        <div class="form-grou mt-3">
+            <%= form.button "Upload Files", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
         </div>
     <% end %>  
     
-<% elsif current_user.try(:writer?) %>  
+<% elsif user_is_writer %>  
 
     <p>
         Your book is currently being edited by
