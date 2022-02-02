@@ -1,62 +1,16 @@
-<!-- Nothing submitted -->
-<% if @number_of_sample_developmental_edits < 1 || @number_of_developmental_edits < 1 %>
-    <h1>Services</h1>
+<% if user_has_old_edits_and_more_than_one_book %>
 
-    <div class="row">
+    <%= render 'dashboards/user_books' %>
+    <%= render 'dashboards/old_edits' %>
 
-        <div class="col-lg-3">
-        </div>
 
-        <div class="col-lg-6">
-            <div class="box mt-1">
+<% elsif user_has_old_edits_or_samples %>
 
-                <!-- Developmental Editing -->
-                <div class="writer-dashboard-service-card">
-
-                    <h2 class="text-center"><%= link_to "Developmental Editing", services_developmental_editing_path %></h2>
-                    <p>Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
-                    <div class="d-grid gap-2">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <%= link_to "Submit for editing", new_services_developmental_edit_path, class: "btn btn-outline-primary" %>
-                    <%= link_to "Submit for sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary" %>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-lg-3">
-        </div>
-
-    </div>
+    <%= render 'dashboards/getting_started' %>
+    <%= render 'dashboards/old_edits' %>
 
 <% else %>
 
-    <h1>Books</h1>
-    <div class="row">
-
-        <!-- Jobs -->
-        <% @jobs.each do |edit| %>
-            <div class="col-lg-4">
-                <div class="box mt-2 text-center <%= is_being_edited?(edit.aasm_state) %>" >
-                    <% if edit.class == DevelopmentalEdit %>
-                        <h2>Developmental Edit</h2>
-                        <h4 class="pb-4"><em><%= edit.title.titleize %></em></h4>
-                        <div class="d-grid gap-2">
-                            <%= link_to "Go to book", services_developmental_edit_path(edit), class: "btn btn-outline-primary" %>
-                        </div>
-                    <% elsif edit.class == SampleDevelopmentalEdit %>
-                        <h2>Sample Edit</strong></h2>
-                        <h4 class="pb-4"><em><%= edit.title.titleize %></em></h4>
-                        <div class="d-grid gap-2">
-                            <%= link_to "Go to book", services_sample_developmental_edit_path(edit), class: "btn btn-outline-primary" %>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
-        <% end %>
-
-    </div>
+    <%= render 'dashboards/getting_started' %>
 
 <% end %>

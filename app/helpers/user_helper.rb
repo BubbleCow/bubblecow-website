@@ -1,5 +1,7 @@
 module UserHelper
 
+  # This helper focuses on ways in which we interact with the user.
+
   # Restricts to management
   def user_is_management
     current_user.manager? || current_user.admin?
