@@ -1,6 +1,9 @@
 class DevEditSample < ApplicationRecord
 
-     # Relationships
+    # Callbacks
+     after_save :check_status, if: :will_save_change_to_status?
+    
+    # Relationships
      belongs_to :book
      belongs_to :user, optional: true
  
@@ -17,9 +20,21 @@ class DevEditSample < ApplicationRecord
      scope :submitted, -> {where(status: "sample_developmental_edit_created")}
  
      # Check status and carries out required actions
+     def check_status
+        ActiveCampaignService.new.contact_tag_add(self.book.user, "new testing status")
+     end
+
+
+
+
      def update_sample_status_information(status)
  
-         if status == "sample_developmental_edit_accepted"
+        if status == "sample_developmental_edit_created"
+
+            # Send tag to Active Campaign
+            ActiveCampaignService.new.contact_tag_add(self.book.user, "BubbleCow - Product - Sample Developmental Editing - Submitted")
+    
+        elsif status == "sample_developmental_edit_accepted"
  
              # add status value + Add date of acceptance
              self.update(status_value: 2, accepted_date: Time.now)

@@ -3,7 +3,7 @@
 	<p>A new sample edit has been submitted.</p>
 	<p>This needs to be assesed and either accepted or rejected.</p>
 
-	<%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+	<%= form_with(model: [:services, @book, @sample_developmental_edit], local: true) do |form| %>
 
 		<!-- Update status by accepting or rejecting -->
 	  	<div class="form-group">

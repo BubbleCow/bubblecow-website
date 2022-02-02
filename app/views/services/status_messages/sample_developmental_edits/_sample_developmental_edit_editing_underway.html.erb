@@ -4,7 +4,7 @@
 
     <p>Upload files when edit is complete.</p>
 
-    <%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+    <%= form_with(model: [:services, @book, @sample_developmental_edit], local: true) do |form| %>
         <div class="form-group">
             <p class="form-label">Sample Editor's Report:</p>
             <%= form.file_field :editors_report, required: true, class: 'form-control' %>
