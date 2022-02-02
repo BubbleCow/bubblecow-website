@@ -106,18 +106,6 @@
                       </div>
                     <% end %>
 
-                  <!-- A list of books -->
-                  <% if user_has_more_than_one_book %>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><h4 class="dropdown-header">Books</h4></li>
-                    <% current_user.books.each do |book| %>
-                      <li><%= link_to book.title.titleize, services_book_path(book), class: "dropdown-item" %></li>
-                    <% end %>
-                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="Add a new book to your profile">
-                      <li><%= link_to "+ Create a new book", new_services_book_path, class: "dropdown-item" %></li>
-                    </div>
-                  <% end %>
-
                 <% end %>
 
 

@@ -1,0 +1,39 @@
+<!-- Sample devleopmental edits -->
+<% if user_has_sample_developmental_edits %>
+    <h1>Sample Developmental Edits</h1>
+    <div class="row">
+
+          <% current_user.sample_developmental_edits.each do |sample| %>
+            <div class="col-sm-4">
+                <div class="card h-100 mt-3 mt-lg-0">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= sample.title.titleize %></h4>
+                        <%= status_message(sample.aasm_state) %>
+                        <%= link_to "Go to sample", services_sample_developmental_edit_path(sample), class: "btn btn-outline-primary" %>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+    
+    </div>
+<% end %>
+
+<!-- Devleopmental edits -->
+<% if user_has_developmental_edits %>
+    <h1>Developmental Edits</h1>
+    <div class="row">
+
+          <% current_user.developmental_edits.each do |edit| %>
+            <div class="col col-lg-4 d-flex align-items-stretch">
+                <div class="card mt-3 mt-lg-0">
+                    <div class="card-body">
+                        <h4 class="card-title pb-2"><%= edit.title.titleize %></h4>
+                        <%= status_message(edit.status) %>
+                        <%= link_to "Go to edit", services_developmental_edit_path(edit), class: "btn btn-outline-primary btn-sm" %>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+    
+    </div>
+<% end %>

@@ -54,7 +54,6 @@ class ApplicationController < ActionController::Base
       when'content_creator'
           content_creator_path
       when 'writer'
-          # If the 
           if current_user.books.count == 0 
               new_services_book_path
           elsif current_user.books.count >= 1
