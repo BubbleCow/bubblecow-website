@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :services
   has_many :books
   has_many :developmental_edits
+  has_many :dev_edits
   has_many :sample_developmental_edits
+  has_many :dev_edit_samples
 
   has_rich_text :note
 

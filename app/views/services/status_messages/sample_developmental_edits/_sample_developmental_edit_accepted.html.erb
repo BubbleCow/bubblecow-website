@@ -4,10 +4,10 @@
 
     <p>An email has been sent to the writer, once we have a reply, assign an editor.</p>
 
-    <%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+    <%= form_with(model: [:services, @book, @sample_developmental_edit], local: true) do |form| %>
         <div class="form-group">
             <%= form.select(:user_id, options_from_collection_for_select( User.editorial_staff.order('last_name ASC'), :id, :full_name) , { prompt: "Assign editor..." }, {class: "form-select",  required: true}) %>
-            <%= form.hidden_field :status, value: "sample_developmental_edit_editing_underway" %>
+            <%= form.hidden_field :aasm_state, value: "sample_developmental_edit_editing_underway" %>
         </div>
 
         <div class="form-group mt-3">

@@ -4,7 +4,7 @@
 
     <p>Upload files when edit is complete.</p>
 
-    <%= form_with(model: [:services, @book, sample_developmental_edit], local: true) do |form| %>
+    <%= form_with(model: [:services, @book, @sample_developmental_edit], local: true) do |form| %>
         <div class="form-group">
             <p class="form-label">Sample Editor's Report:</p>
             <%= form.file_field :editors_report, required: true, class: 'form-control' %>
@@ -15,7 +15,7 @@
             <%= form.file_field :edited_manuscript, required: true, class: 'form-control' %>
         </div>
 
-        <%= form.hidden_field :status, value: "sample_developmental_edit_returned" %>
+        <%= form.hidden_field :aasm_state, value: "sample_developmental_edit_returned" %>
 
         <div class="form-group mt-3">
             <%= form.button "Upload Files", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>

@@ -10,11 +10,12 @@
             <%= devise_error_messages! %>
             <hr>
             <p class="form-text text-muted"><small>Complete fields below to change either your name or your email</small>.</p>
+            
             <div class="form-group">
               <%= f.text_field :name, autofocus: false, class: 'form-control', placeholder: "Full Name" %>
             </div>
 
-            <div class="input>
+            <div class="input mt-3">
               <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
             </div>
 
@@ -35,7 +36,7 @@
             <hr>
             <p class="form-text text-muted"><small>To save ANY changes to your account we need your password to confirm changes</small>.</p>
             <div class="input">
-              <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password to save changes'  %>
+              <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password to save changes', :required => true  %>
             </div>
 
             <div class="button d-grid gap-2">

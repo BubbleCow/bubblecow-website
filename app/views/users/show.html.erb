@@ -63,7 +63,7 @@
                             <% book.dev_edit_samples.each do |sample| %>
                                 <p class="card-text">
                                     <%= sample.unedited_manuscript.filename %> |
-                                    <%= link_to "Destroy - this is broken, it i deleting the book fix!", services_book_dev_edit_sample_path(book, sample), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                                    <%= link_to "Destroy - this is broken, it i deleting the book fix!", services_book_dev_edit_sample_path(book, sample), data: { "turbo-method": :delete} %>
                                 </p>
                             <% end %>
 
@@ -78,7 +78,7 @@
                             <% book.dev_edits.each do |dev_edit| %>
                                 <p class="card-text">
                                     <%= dev_edit.unedited_manuscript.filename %> |
-                                    <%= link_to "Destroy", services_book_dev_edit_path(book, dev_edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                                    <%= link_to "Destroy", services_book_dev_edit_path(book, dev_edit), data: { "turbo-method": :delete} %>
                                 </p>
                             <% end %>
 

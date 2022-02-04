@@ -1,10 +1,11 @@
 class DevelopmentalEdit < ApplicationRecord
+  include AASM 
+  
   before_save :check_state, if: :will_save_change_to_aasm_state?
   belongs_to  :user
   belongs_to  :editor, class_name: "User", foreign_key: "editor_id", optional: true
   belongs_to  :genre
   
-  include AASM 
 
     has_rich_text :description
     has_rich_text :note
