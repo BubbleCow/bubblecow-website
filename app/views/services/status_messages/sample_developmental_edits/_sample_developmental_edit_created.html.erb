@@ -7,7 +7,7 @@
 
 		<!-- Update status by accepting or rejecting -->
 	  	<div class="form-group">
-			<%= form.select(:status, options_for_select([['Accept sample developmental edit', 'sample_developmental_edit_accepted'], ['Reject sample developmental edit', 'sample_developmental_edit_rejected']]), { prompt: "Accept or reject this edit..." }, { class: "form-select",  required: true }) %>
+			<%= form.select(:aasm_state, options_for_select([['Accept sample developmental edit', 'sample_developmental_edit_accepted'], ['Reject sample developmental edit', 'sample_developmental_edit_rejected']]), { prompt: "Accept or reject this edit..." }, { class: "form-select",  required: true }) %>
 		</div>
 
         <div class="d-grid gap-2 mt-3">

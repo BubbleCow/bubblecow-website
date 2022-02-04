@@ -4,10 +4,10 @@
 	<p>This needs to be assesed and either accepted or rejected.</p>
 
 	<%= form_with(model: [:services, @book, @developmental_edit], local: true) do |form| %>
-
+		
 		<!-- Update status by accepting or rejecting -->
 	  	<div class="form-group">
-			<%= form.select(:status, options_for_select([['Accept developmental edit', 'developmental_edit_accepted'], ['Reject developmental edit', 'developmental_edit_rejected']]), { prompt: "Accept or reject this edit..." }, { class: "form-select",  required: true }) %>
+			<%= form.select(:aasm_state, options_for_select([['Accept developmental edit', 'developmental_edit_accepted'], ['Reject developmental edit', 'developmental_edit_rejected']]), { prompt: "Accept or reject this edit..." }, { class: "form-select",  required: true }) %>
 		</div>
 
 		<div class="form-group mt-3">

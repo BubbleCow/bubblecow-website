@@ -15,7 +15,7 @@
             <%= form.file_field :edited_manuscript, required: true, class: 'form-control' %>
         </div>
 
-        <%= form.hidden_field :status, value: "sample_developmental_edit_returned" %>
+        <%= form.hidden_field :aasm_state, value: "sample_developmental_edit_returned" %>
 
         <div class="form-group mt-3">
             <%= form.button "Upload Files", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
