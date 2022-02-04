@@ -1,7 +1,7 @@
 class MessagePolicy < ApplicationPolicy
     
     def index?
-		user.messages || is_managerial_staff?
+		is_managerial_staff?
 	end
 
 	def show?

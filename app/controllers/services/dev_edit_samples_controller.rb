@@ -3,8 +3,7 @@ module Services
   class DevEditSamplesController < Services::ApplicationController
     before_action :set_book
     before_action :set_dev_edit_sample, only: %i[ show edit update destroy]
-    after_action :check_sample_status, only: %i[ show edit update ]
-
+    
     def index
       @dev_edit_samples = @book.dev_edit_samples
       authorize @dev_edit_samples
@@ -26,9 +25,6 @@ module Services
     def create
       @dev_edit_sample = @book.dev_edit_samples.create(dev_edit_sample_params)
       authorize @dev_edit_sample
-
-      # Send tag to Active Campaign
-      ActiveCampaignService.new.contact_tag_add(@dev_edit_sample.book.user, "BubbleCow - Product - Sample Developmental Editing - Submitted")
 
       respond_to do |format|
         if @dev_edit_sample.save
@@ -75,13 +71,8 @@ module Services
       end
 
       def dev_edit_sample_params
-        params.require(:dev_edit_sample).permit(:book_id_integer, :status, :user_id, :accepted_date, :rejected_date, :return_date, :unedited_manuscript, :editors_report, :edited_manuscript)
+        params.require(:dev_edit_sample).permit(:book_id_integer, :aasm_state, :status, :user_id, :accepted_date, :rejected_date, :return_date, :unedited_manuscript, :editors_report, :edited_manuscript)
       end
-
-      # Checks to see if the status of the sample has chamged  
-      def check_sample_status
-        @dev_edit_sample.update_sample_status_information(@dev_edit_sample.status)
-      end 
 
   end
 

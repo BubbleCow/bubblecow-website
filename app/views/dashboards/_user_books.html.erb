@@ -1,0 +1,19 @@
+<!-- Books -->
+<% if user_has_one_or_more_books %>
+    <h1>Books</h1>
+    <div class="row">
+
+          <% current_user.books.each do |book| %>
+            <div class="col-sm-4">
+                <div class="card h-100 mt-3 mt-lg-0">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= book.title.titleize %></h4>
+                        <div><%= book.description.to_plain_text.truncate(100) %></div>
+                        <%= link_to "Go to book", services_book_path(book), class: "btn btn-outline-primary mt-3" %>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+    
+    </div>
+<% end %>

@@ -3,7 +3,6 @@ module Services
   class DevEditsController < Services::ApplicationController
     before_action :set_book
     before_action :set_dev_edit, only: %i[ show edit update destroy ]
-    after_action :check_edit_status, only: %i[ show edit update ]
     after_action :set_currency
 
     def index
@@ -76,13 +75,8 @@ module Services
 
       # Only allow a list of trusted parameters through.
       def dev_edit_params
-        params.require(:dev_edit).permit(:book_id, :status, :user_id, :accepted_date, :rejected_date, :invoice_due_date, :due_date, :invoice_paid_date, :return_date, :unedited_manuscript, :editors_report, :edited_manuscript, :status_value)
+        params.require(:dev_edit).permit(:book_id, :aasm_state, :status, :user_id, :accepted_date, :rejected_date, :invoice_due_date, :due_date, :invoice_paid_date, :return_date, :unedited_manuscript, :editors_report, :edited_manuscript, :status_value)
       end
-
-      # Checks to see if the status of the edit has chamged  
-      def check_edit_status
-        @dev_edit.update_dev_edit_status_information(@dev_edit.status)
-      end 
 
       # Sets the currency for the user
 
