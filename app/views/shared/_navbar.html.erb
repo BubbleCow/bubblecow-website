@@ -73,6 +73,7 @@
 
                 <!-- Admin -->
                 <% if current_user.admin? %>
+                  <li><%= link_to "Books", services_books_path, class: "dropdown-item" %></li>
                   <li><%= link_to "Developmental Edits", services_developmental_edits_path, class: "dropdown-item" %></li>
                   <li><%= link_to "Sample Developmental Edits", services_sample_developmental_edits_path, class: "dropdown-item" %></li>
                   <li><%= link_to "Genres", services_genres_path, class: "dropdown-item" %></li>
