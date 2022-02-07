@@ -118,7 +118,7 @@
 
           <% else %>
             <li class="nav-item">
-              <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= link_to "Log In", new_user_session_path, data: { turbo: "false" }, class: "btn btn-outline-primary" %>
             </li>	
 
           <% end %>		
