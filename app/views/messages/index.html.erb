@@ -1,5 +1,11 @@
 <h1>Messages</h1>
  
+<%= turbo_stream_from 'messages'%>
+
+<%= turbo_frame_tag 'messages' do %>
+  <%= render @messages %>
+<% end %>
+
 <div class="box">
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">

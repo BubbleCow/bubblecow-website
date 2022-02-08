@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
     layout 'backend'
 
     def admin_dashboard
+
     end
 
     def manager_dashboard
