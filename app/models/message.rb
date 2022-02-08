@@ -1,4 +1,7 @@
 class Message < ApplicationRecord
+    
+    broadcasts_to ->(message) {'messages'}, target: :message
+    
     has_rich_text :content
     has_person_name
 
