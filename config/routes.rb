@@ -305,11 +305,10 @@ Rails.application.routes.draw do
   get "/category/book-editing/feed/", to: redirect("/")
 
   # Redirect mentoring
-  get "/mentoring.html", to: redirect("/")
-  get "/mentors_for_writers.html", to: redirect("/")
-  get "/mentoring", to: redirect("/")
-  get "/mentoring-exsiting", to: redirect("/")
-  get "/mentoring-new", to: redirect("/")
+  get "/mentoring.html", to: redirect("/mentoring")
+  get "/mentors_for_writers.html", to: redirect("/mentoring")
+  get "/mentoring-exsiting", to: redirect("/mentoring")
+  get "/mentoring-new", to: redirect("mentoring/")
 
   # redirect random links to bc home page
   get "/cover-design/", to: redirect("/")
@@ -915,7 +914,6 @@ Rails.application.routes.draw do
   get "/learn/the-writing-manual/getting-professional-help-009c4727-9d20-4594-96e4-b9c9a36b30b9", to: redirect("/blog")
   get "/learn/the-writing-manual/overview", to: redirect("/blog")
   get "/learn/the-writing-manual/reading-list", to: redirect("/blog")
-  get "/mentoring.html", to: redirect("/blog")
   get "/newsletter", to: redirect("/blog")
   get "/proofreading-submission", to: redirect("/blog")
   get "/proofreading-submission/", to: redirect("/blog")
@@ -1056,6 +1054,7 @@ Rails.application.routes.draw do
   get 'writing_manual', to: 'customer_pages#writing_manual'
   get 'thanks', to: 'customer_pages#thanks'
   get 'file-safety', to: 'customer_pages#file_safety'
+  get 'mentoring', to: 'customer_pages#mentoring'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
