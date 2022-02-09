@@ -1,10 +1,4 @@
 <h1>Messages</h1>
- 
-<%= turbo_stream_from 'messages'%>
-
-<%= turbo_frame_tag 'messages' do %>
-  <%= render @messages %>
-<% end %>
 
 <div class="box">
 
@@ -26,6 +20,7 @@
             <tr>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
+              <th scope="col">Source</th>
               <th scope="col">Date</th>
               <th scope="col">Status</th>
             </tr>
@@ -41,6 +36,7 @@
                   <%= link_to message.sender_name, message_path(message) %>
                 </th>
                 <td><%= message.sender_email %></td>
+                <td><%= message.source %></td>
                 <td><%= message.created_at.strftime("%d/%m/%Y")  %></td>
                 <td>
                   <% if message.read? %>
@@ -75,6 +71,7 @@
                   <%= link_to message.sender_name, message_path(message) %>
                 </th>
                 <td><%= message.sender_email %></td>
+                <td><%= message.source %></td>
                 <td><%= message.created_at.strftime("%d/%m/%Y")  %></td>
                 <td>
                   <% if message.read? %>
@@ -117,6 +114,7 @@
               <th scope="col">Email</th>
               <th scope="col">Date</th>
               <th scope="col">Status</th>
+              <th scope="col">Source</th>
             </tr>
           </thead>
 

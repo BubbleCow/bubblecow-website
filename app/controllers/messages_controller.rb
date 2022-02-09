@@ -94,7 +94,7 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived)
+      params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived, :source)
     end
 
     def set_template
