@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
 	end
 
 	def show?
-		true
+		is_managerial_staff?
 	end
 
 	def edit?

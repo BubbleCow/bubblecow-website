@@ -54,13 +54,13 @@ class ApplicationController < ActionController::Base
       when'content_creator'
           content_creator_path
       when 'writer'
-          if current_user.books.count == 0 
-              new_services_book_path
-          elsif current_user.books.count >= 1
-              services_book_path(current_user.books.last)
-          else
-              writer_dashboard_path
-          end
+        if stored_location_for(resource) == new_services_sample_developmental_edit_path
+          new_services_sample_developmental_edit_path
+        elsif stored_location_for(resource) == new_services_developmental_edit_path
+          new_services_developmental_edit_path
+        else
+          writer_dashboard_path
+        end
       else 
           root_path
       end
