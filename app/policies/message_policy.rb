@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
 	end
 
 	def show?
-		is_owner? || is_managerial_staff?
+		is_managerial_staff?
 	end
 
 	def new?
