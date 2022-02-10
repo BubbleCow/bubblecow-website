@@ -34,39 +34,26 @@ class ApplicationPolicy
     false
   end
 
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
-  end
-
   private
-  
-  def is_staff?
-    user.content_creator? || user.editor? || user.manager? || user.admin?
-  end
 
-  def is_editorial_staff?
-    user.editor? || user.manager? || user.admin?
-  end
+    def is_staff?
+      user.content_creator? || user.editor? || user.manager? || user.admin?
+    end
 
-  def is_marketing_staff?
-    user.content_creator? || user.manager? || user.admin?
-  end
+    def is_editorial_staff?
+      user.editor? || user.manager? || user.admin?
+    end
 
-  def is_managerial_staff?
-    user.manager? || user.admin?
-  end
+    def is_marketing_staff
+      user.content_creator? || user.manager? || user.admin?
+    end
 
-  def is_owner?
-    record.user
-  end
-  
+    def is_managerial_staff?
+      user.manager? || user.admin?
+    end
+
+    def is_owner?
+      record.user
+    end
+
 end
