@@ -77,27 +77,29 @@ group :test do
   gem "webdrivers"
 end
 
+gem 'aasm'
+gem 'active_storage_validations'
+gem 'activerecord_where_assoc', '~> 1.0'
+gem 'active-campaign-rails'
+gem 'acts-as-taggable-on'
+gem 'ahoy_matey'
+gem "aws-sdk-s3", require: false
+gem 'chartkick'
 gem 'devise', '~> 4.7', '>= 4.7.0'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
 gem 'devise_masquerade', '~> 1.2'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
+gem 'geocoder'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem 'groupdate'
+gem 'invisible_captcha'
+gem 'meta-tags'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'name_of_person', '~> 1.1'
-gem 'sidekiq', '~> 6.0', '>= 6.0.3'
-gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
-gem 'whenever', require: false
-gem 'meta-tags'
-gem 'invisible_captcha'
-gem "pundit"
-gem "aws-sdk-s3", require: false
-gem 'geocoder'
-gem 'aasm'
-gem 'active-campaign-rails'
-gem 'acts-as-taggable-on'
-gem 'ahoy_matey'
 gem 'omniauth-facebook', '~> 5.0'
 gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
-gem 'activerecord_where_assoc', '~> 1.0'
-gem 'active_storage_validations'
+gem "pundit"
+gem 'sidekiq', '~> 6.0', '>= 6.0.3'
+gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
+gem 'whenever', require: false
