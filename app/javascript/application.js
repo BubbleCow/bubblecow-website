@@ -5,6 +5,8 @@ import "trix"
 import "@rails/actiontext"
 import * as bootstrap from "bootstrap"
 
+
+
 // This code is loading after turbo. ust add new code, don't forget the ;
 
 document.addEventListener("turbo:load", () => {
