@@ -1,10 +1,11 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
+import "./test"
+import * as bootstrap from "bootstrap"
 import "trix"
 import "@rails/actiontext"
-import * as bootstrap from "bootstrap"
-
+import "chartkick/chart.js"
 
 
 // This code is loading after turbo. ust add new code, don't forget the ;
@@ -12,7 +13,7 @@ import * as bootstrap from "bootstrap"
 document.addEventListener("turbo:load", () => {
 
     // Test code
-    // console.log('test is working');
+    console.log('test is working');
   
     // Bootstrap
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
