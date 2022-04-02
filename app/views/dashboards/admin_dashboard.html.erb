@@ -4,8 +4,27 @@
 
     <p>This pages should be something of value, it should be a summary of key stuff to look at each day, such as site stats and key metrics.</p>
 
-    <!-- Books -->
+    <div class="row pb-3">
 
+        <!-- Word Count for Developmental Edits -->
+        <div class="col-lg-6">
 
+            <div class="card">
+            <p>Developmental Edit Words Submitted per month</p>
+            </div>
+
+        </div>
+
+        <!-- Site visits per month -->
+        <div class="col-lg-6">
+
+            <div class="card">
+            <p>Number of monthly site visits</p>
+            <%= column_chart Ahoy::Visit.group_by_month(:started_at).count %>
+            </div>
+
+        </div>
+
+    </div>
 
 </main>
