@@ -1,0 +1,64 @@
+<table class="table table-hover mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Source</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% messages.unread.each do |message| %>
+        <tr style="font-weight:bold">
+          <th scope="row">
+            <%= link_to message.sender_name, message_path(message) %>
+          </th>
+          <td><%= message.sender_email %></td>
+          <td><%= message.source %></td>
+          <td><%= message.created_at.strftime("%d/%m/%Y")  %></td>
+          <td>
+            <%= link_to read_message_path(message), data: { "turbo-method": :put} do %>
+              <i class="bi bi-book-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as read"></i>
+            <% end %>
+          
+            <%= link_to archive_message_path(message), data: { "turbo-method": :put} do %>
+              <i class="bi bi-archive"></i>
+            <% end %>
+
+            <%= link_to message_path(message), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} do %>
+              <i class="bi bi-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+
+      <% end %>
+
+      <% messages.read.each do |message| %>
+        <tr>
+          <th>
+            <%= link_to message.sender_name, message_path(message) %>
+          </th>
+          <td><%= message.sender_email %></td>
+          <td><%= message.source %></td>
+          <td><%= message.created_at.strftime("%d/%m/%Y")  %></td>
+          <td>
+
+            <%= link_to unread_message_path(message), data: { "turbo-method": :put} do %>
+              <i class="bi bi-book" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as unread"></i>
+            <% end %>
+
+            <%= link_to archive_message_path(message), data: { "turbo-method": :put} do %>
+              <i class="bi bi-archive"></i>
+            <% end %>
+
+            <%= link_to message_path(message), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} do %>
+              <i class="bi bi-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+ </table>

@@ -1080,6 +1080,7 @@ Rails.application.routes.draw do
     put 'read' => 'messages#read', on: :member, as: :read
     put 'unread' => 'messages#unread', on: :member, as: :unread
     put 'archive' => 'messages#archive', on: :member, as: :archive
+    put 'unarchive' => 'messages#unarchive', on: :member, as: :unarchive
   end
   get '/thank-you', to: 'messages#thank_you'
 
