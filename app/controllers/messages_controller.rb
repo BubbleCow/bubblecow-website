@@ -5,8 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all
-    @unread_messages = Message.unread
-    @read_messages = Message.read
+    @unarchived_messages = Message.unarchived
     @archived_messages = Message.archived
     authorize @messages
   end
@@ -76,12 +75,12 @@ class MessagesController < ApplicationController
 
   def archive
     @message.update(archived: true)
-    redirect_to messages_path
+    redirect_to messages_path, notice: 'Message was successfully archived.' 
   end
 
   def unarchive
     @message.update(archived: false)
-    redirect_to messages_path
+    redirect_to messages_path notice: 'Message was successfully unarchived.' 
   end
 
   def thank_you
@@ -94,7 +93,7 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:sender_name, :content, :sender_email, :read, :archived, :source)
+      params.require(:message).permit(:sender_name, :content, :sender_email, :read, :unread, :archived, :source)
     end
 
     def set_template
