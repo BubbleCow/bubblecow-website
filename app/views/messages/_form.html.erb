@@ -1,4 +1,4 @@
-<%= turbo_frame_tag message do %>
+
   <%= form_with(model: message, local: true) do |form| %>
     <% if message.errors.any? %>
       <div id="error_explanation">
@@ -12,6 +12,13 @@
       </div>
     <% end %>
 
+  <% if user_signed_in? %>
+
+      <%= form.hidden_field :sender_name, value: current_user.full_name %>
+      <%= form.hidden_field :sender_email, value: current_user.email %>
+
+  <% else %>
+
     <div class="mb-3">
       <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?" %>
     </div>
@@ -19,6 +26,8 @@
     <div class="mb-3">
       <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?" %>
     </div>
+
+  <% end %>
 
     <div class="trix-content">
       <%= form.rich_text_area :content, class: 'form-control' %>
@@ -39,4 +48,4 @@
 
     </div>
   <% end %>
-<% end %>
+
