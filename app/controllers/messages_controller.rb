@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
   def show
     authorize @message
-    @message.mark_as_read(@message)
+    @message.mark_as_read
   end
 
   def new
@@ -32,10 +32,10 @@ class MessagesController < ApplicationController
         # Deliver the message email
         MessageMailer.new_message(@message).deliver_now
         
-        format.html { redirect_to thank_you_path }
+        format.html { redirect_to thank_you_path, notice: "Your message was successfully sent." }
         format.json { render :show, status: :created, location: @message }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
@@ -57,30 +57,31 @@ class MessagesController < ApplicationController
   def destroy
     authorize @message
     @message.destroy
+
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to messages_url, status: :see_other, notice: "Message was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   def read
-    @message.update(read: true)
-    redirect_to messages_path
+    @message.mark_as_read
+    redirect_to messages_url
   end
 
   def unread
-    @message.update(read: false)
-    redirect_to messages_path
+    @message.mark_as_unread
+    redirect_to messages_url
   end
 
   def archive
-    @message.update(archived: true)
-    redirect_to messages_path, notice: 'Message was successfully archived.' 
+    @message.mark_as_archived
+    redirect_to messages_url, notice: "Message was archived."
   end
 
   def unarchive
-    @message.update(archived: false)
-    redirect_to messages_path notice: 'Message was successfully unarchived.' 
+    @message.mark_as_unarchived
+    redirect_to messages_path, notice: "Message was sent to inbox."
   end
 
   def thank_you

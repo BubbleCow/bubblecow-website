@@ -43,20 +43,7 @@
           <td><%= message.sender_email %></td>
           <td><%= message.source %></td>
           <td><%= message.created_at.strftime("%d/%m/%Y")  %></td>
-          <td>
-
-            <%= link_to unread_message_path(message), data: { "turbo-method": :put} do %>
-              <i class="bi bi-book" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as unread"></i>
-            <% end %>
-
-            <%= link_to archive_message_path(message), data: { "turbo-method": :put} do %>
-              <i class="bi bi-archive"></i>
-            <% end %>
-
-            <%= link_to message_path(message), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} do %>
-              <i class="bi bi-trash"></i>
-            <% end %>
-          </td>
+          <td><%= message_status_actions(message) %></td>
         </tr>
       <% end %>
 
