@@ -14,7 +14,19 @@ class Message < ApplicationRecord
     scope :read, -> {where(read: true)}
     scope :unread, -> {where(read: false)}
 
-    def mark_as_read(message)
+    def mark_as_read
         self.update(read: true)
+    end
+
+    def mark_as_unread
+        self.update(read: false)
+    end
+
+    def mark_as_archived
+        self.update(archived: true)
+    end
+
+    def mark_as_unarchived
+        self.update(archived: false)
     end
 end

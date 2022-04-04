@@ -5,12 +5,9 @@
     <p><strong>Email: </strong><%= @message.sender_email %></p>
     <%= @message.content %>
 
-    <%= link_to "Inbox", messages_path %> |     
-    <%= mail_to @message.sender_email, "Reply", subject: "Message from BubbleCow" %> | 
-            <% if @message.archived? %>
-                <%= link_to "Inbox", messages_path %> 
-            <% else %>
-                <%= link_to "Archive", archive_message_path(@message), method: :put %> 
-            <% end %> |
-            <%= link_to "Delete", message_path(@message), data: { confirm: "Are you sure you want to kill this bad boy?", "turbo-method": :delete} %>
+    <p>Read?<%= @message.read %></p>
+        <p>archived?<%= @message.archived %></p>
+
+    <%= message_status_actions(@message) %>
+
 </div>
