@@ -5,9 +5,6 @@
     <p><strong>Email: </strong><%= @message.sender_email %></p>
     <%= @message.content %>
 
-    <p>Read?<%= @message.read %></p>
-        <p>archived?<%= @message.archived %></p>
-
     <%= message_status_actions(@message) %>
 
 </div>

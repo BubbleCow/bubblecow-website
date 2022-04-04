@@ -13,7 +13,7 @@ module MessagesHelper
         # create read link and icon
         def link_to_mark_as_read(message)
             link_to read_message_path(message), data: { "turbo-method": :put} do 
-                content_tag(:i, " ", class: "bi bi-book", "bs-data-toggle": "tooltip", "data-bs-placement": "top", "title": "Mark as read")
+                content_tag(:i, " ", class: "bi bi-book-fill", "bs-data-toggle": "tooltip", "data-bs-placement": "top", "title": "Mark as read")
             end
         end
     

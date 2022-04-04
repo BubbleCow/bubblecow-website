@@ -103,7 +103,7 @@ class ApplicationController < ActionController::Base
 
     # Sets the variables for the admin navbar
     def set_admin_navbar
-      @unread_messages = Message.all.unread
+      @unread_messages = Message.all.unarchived.unread
     end
     
 end
