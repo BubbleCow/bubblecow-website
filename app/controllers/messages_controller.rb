@@ -99,10 +99,10 @@ class MessagesController < ApplicationController
 
     def set_template
       case action_name
-      when 'new', 'thank_you'
-          'application'
-      else
+      when 'index', 'show'
           'backend'
+      else
+          'application'
       end
     end
 

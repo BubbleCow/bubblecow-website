@@ -12,11 +12,12 @@
       <%= render 'shared/navbar' %>
     <% end %>
 
-    <!-- Notices -->
-    <%= render 'shared/notices' %>
-
-    <!-- Main content -->
     <div class="container">
+
+      <!-- Notices -->
+      <%= render 'shared/notices' %>
+      
+      <!-- Main content -->
       <div class="<%= controller_name %> <%= action_name %>">
         <div class="row justify-content-lg-center">
           <div class="col-lg-8">
@@ -24,6 +25,7 @@
           </div>
         </div>
       </div>
+
     </div>
     
     <!-- Footer -->
