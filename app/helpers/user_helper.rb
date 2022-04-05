@@ -22,4 +22,9 @@ module UserHelper
     current_user.writer?
   end
 
+  # Provides last loggr in if present
+  def last_time_logged_in(user)
+    user.last_sign_in_at.strftime("%B %d, %Y") if user.last_sign_in_at.present? 
+  end
+
 end
