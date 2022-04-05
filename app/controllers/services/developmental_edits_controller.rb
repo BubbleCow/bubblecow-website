@@ -62,7 +62,7 @@ module Services
       authorize @developmental_edit
       @developmental_edit.destroy
       respond_to do |format|
-        format.html { redirect_to user_path(@user), notice: 'Developmental edit was successfully destroyed.' }
+        format.html { redirect_to user_path(@developmental_edit.user), status: :see_other, notice: "Developmental Edit was successfully destroyed." }
         format.json { head :no_content }
       end
     end

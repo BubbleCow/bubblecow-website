@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
 
     # White lists and sets variables
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note, :pen_name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note, :pen_name])
     end
 
     def storable_location?

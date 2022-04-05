@@ -1,43 +1,73 @@
-<h1><%= @user.name.full %></h1>
 
-<div class="row">
+<div class="row mt-3">
 
-    <div class="col-lg-6 my-3">
-    
-        <!-- User details -->
-        <div class="box">
-            <h2>User Details</h2>
-            <p>Email: <%= @user.email %> </p>
-            <p>Role: <%= @user.role %> </p>
-            <p>Currency: <%= @user.currency %> </p>
-            <p>Country: <%= @user.country %> </p>
-            <p><%= link_to "Edit User", edit_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
-        </div>
+    <div class="col-lg-6">
 
+        <!-- User Information -->
+        <div class="card h-100">
 
-         <div class="box mt-3">
+            <div class="card-body">
 
-            <!-- Editor notes -->
-            <div class="book-editor-notes small-menu form">
-                <% if current_user.try(:admin?) %>
-                    <h3>Internal User Note:</h3>
-                    <%= form_for([@user]) do |form| %>
-                        <div class="input">
-                            <%= form.rich_text_area :note, type: "text", class: "form-control", rows: "35", placeholder: "Only seen by editor, never the writer." %>
-                        </div>
+                <%= form_with(model: @user) do |form| %>
 
-                        <div class="button">
-                            <%= form.button "Update Note", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-                        </div>
-                    <% end %>
+                    <!-- Name -->
+                    <div class="pb-3">
+                        <%= form.text_field :name, class: 'form-control form-control-lg' %>   
+                    </div>
+
+                    <!-- Pen Name -->
+                    <div class="pb-3">
+                        <%= form.text_field :pen_name, class: 'form-control', placeholder: "Pen name" %>   
+                    </div>
+
+                    <!-- Email -->
+                    <div class="pb-3">
+                        <%= form.text_field :email, class: 'form-control' %>   
+                    </div>
+
+                    <!-- Role -->
+                    <div class="pb-3">
+                        <%= form.select(:role, options_for_select([['Writer', "writer"], ['Editor', 'editor'], ['Manager', 'manager'], ['Admin', "admin"]], :selected => @user.role), {}, {class: "form-select"}) %>  
+                    </div>
+
+                    <!-- Note -->
+                    <div class="small-menu pb-3">
+                        <%= form.rich_text_area :note, type: "text", class: "form-control", placeholder: "Only seen by editor, never the writer." %>
+                    </div>
+
+                    <!-- Submitt -->
+                    <%= form.button "Update User", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+               
+
                 <% end %>
-            </div>
-            
-        </div>
 
+            </div>
+
+        </div>
+        
     </div>
 
     <div class="col-lg-6">
+
+        <!-- User Data -->
+        <div class="card h-100 mt-2 mt-lg-0">
+
+            <div class="card-body">
+
+                <p><strong>Created: </strong><%= @user.created_at.strftime("%B %d, %Y") %></p>
+                <p><strong>Last log in: </strong> <%= last_time_logged_in(@user) %></p>
+                <p><strong>Number of log ins: </strong> <%= @user.sign_in_count %></p>
+                <p><strong>Number of Visits: </strong> <%= @user.visits.count  %></p>
+
+            </div>
+
+        </div>
+
+</div> 
+
+<div class="row">
+
+    <div class="col">
     
         <div class="box mt-3">
 
@@ -99,12 +129,12 @@
             <div class="box mt-3">
 
                 <h2>Old Sample Developmental Edits</h2>
-                <p>These are edits that were submitted prior to us switching to books system in Jan 2022.</p>
+                <p>These are edits that were submitted prior to us switching to books system.</p>
                 <ul>
                     <% @old_sample_developmental_edits.each do |edit| %>
                         <li>
                             <%= link_to edit.title, services_sample_developmental_edit_path(edit) %> |
-                            <%= link_to "Destroy", services_sample_developmental_edit_path(edit), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                            <%= link_to "Destroy", services_sample_developmental_edit_path(edit), data: {"turbo-method": :delete, turbo_confirm: "Are you sure?"} %>
                         </li>
                     <% end %>
                 </ul>

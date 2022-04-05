@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :role, :slug, :country, :currency, :note)
+      params.require(:user).permit(:first_name, :last_name, :name, :email, :role, :slug, :country, :currency, :note, :pen_name)
     end
 
     def set_side_nav_bar
