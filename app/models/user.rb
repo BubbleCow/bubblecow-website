@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
+  devise :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, :trackable
 
+  # Relationships
+  has_many :visits, class_name: "Ahoy::Visit"
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :books
@@ -11,10 +13,10 @@ class User < ApplicationRecord
   has_many :sample_developmental_edits
   has_many :dev_edit_samples
 
+  # attachments
   has_rich_text :note
 
-  has_person_name
-
+  # roles
   enum role: [:writer, :content_creator, :editor, :manager, :admin]
 
   after_initialize do
@@ -23,9 +25,6 @@ class User < ApplicationRecord
     end
   end
 
-  def full_name
-    [first_name, last_name].join(' ').titleize
-  end
 
   extend FriendlyId
   friendly_id :full_name, use: :slugged
@@ -61,5 +60,11 @@ class User < ApplicationRecord
   scope :marketing_staff, -> { where('role=? OR role=? OR role=?', 1, 3, 4) }
   scope :management, -> { where('role=? OR role=?', 2, 3) }
 
+  # Methods
+  has_person_name
+
+  def full_name
+    [first_name, last_name].join(' ').titleize
+  end
 
 end
