@@ -1,7 +1,16 @@
 <p>A new sample edit has been submitted.</p>
 <p>This needs to be assesed and either accepted or rejected.</p>
 
-<div class="btn-group" role="group">
-	<%= link_to "Accept", sample_developmental_edit_accepted_services_sample_developmental_edit_path(@sample_developmental_edit), data: { "turbo-method": :put}, class: "btn btn-success" %>
-	<%= link_to "Reject", sample_developmental_edit_rejected_services_sample_developmental_edit_path(@sample_developmental_edit), data: { "turbo-method": :put}, class: "btn btn-danger" %>
-</div>
+
+		<%= form_with(model: [:services, @sample_developmental_edit]) do |form| %>
+
+			<!-- Update status by accepting or rejecting -->
+			<div class="form-group">
+			    <%= form.select(:aasm_state, options_for_select([['Accept developmental edit', 'sample_developmental_edit_accepted'], ['Reject developmental edit', 'sample_developmental_edit_rejected']]), { prompt: "Select the type of English..." }, { class: "form-select",  required: true }) %>
+			</div>
+
+			<div class="d-grid gap-2 mt-3">
+				<%= form.button "Accept or reject edit", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
+			</div>
+
+		<% end %>
