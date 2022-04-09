@@ -2,15 +2,32 @@
 
     <h1>Admin Dashboard</h1>
 
-    <p>This pages should be something of value, it should be a summary of key stuff to look at each day, such as site stats and key metrics.</p>
+    <div class="row pb-3">
+       
+        <div class="col">
+            
+            <!-- Site visits per month -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Number of monthly overall site visits</p>
+                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <div class="row pb-3">
 
-        <!-- Word Count for Developmental Edits -->
         <div class="col-lg-6">
 
+            <!-- Word Count for Developmental Edits -->
             <div class="card">
-            <p>Developmental Edit Words Submitted per month</p>
+                <div class="card-body">
+                    <p class="card-text">Number of Developmental edit words per month </p>
+                    
+                </div>
             </div>
 
         </div>
@@ -18,9 +35,12 @@
         <!-- Site visits per month -->
         <div class="col-lg-6">
 
+            <!-- Developmental edit sample conversation rate -->
             <div class="card">
-            <p>Number of monthly site visits</p>
-            <%= column_chart Ahoy::Visit.group_by_month(:started_at).count %>
+                <div class="card-body">
+                    <p class="card-text">Developmental edit sample conversation rate per month </p>
+                    
+                </div>
             </div>
 
         </div>
