@@ -35,6 +35,8 @@ module ApplicationHelper
       render partial: 'structured_data_schemas/product_mentoring'
     when 'blog_post'
       render partial: 'structured_data_schemas/blog_post'
+    else 
+      render partial: 'structured_data_schemas/webpage'
     end
       
     
