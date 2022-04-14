@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+{ "@context": "https://schema.org", 
+ "@type": "BlogPosting",
+ "headline": "<%= @post.post_title.titleize %>",
+ "alternativeHeadline": "<%= @post.seo_title.titleize %>",
+ "image": "<%= main_app.url_for(@post.post_image) %>",
+ "editor": "Gary Smailes", 
+ "genre": "<%= @post.post_category.name.titleize %>", 
+ "keywords": "<%= @post.keywords %>", 
+ "wordcount": "<%= @post.body.to_plain_text.size %>",
+ "publisher": "BubbleCow",
+ "url": "<%= 'https://bubblecow.com' + blog_post_path(@post) %>",
+ "datePublished": "<%= @post.published_at.strftime("%Y-%d-%m") %>",
+ "dateCreated": "<%= @post.created_at.strftime("%Y-%d-%m") %>",
+ "dateModified": "<%= @post.published_at.strftime("%Y-%d-%m") %>",
+ "description": "<%= @post.seo_description.to_plain_text %>",
+ "articleBody": "<%= @post.body.to_plain_text %>",
+   "author": {
+    "@type": "Person",
+    "name": "<%= @post.post_author.name %>"
+  }
+ }
+</script>

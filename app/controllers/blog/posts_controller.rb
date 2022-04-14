@@ -18,6 +18,7 @@ module Blog
       @page_keywords = @post.keywords
       @writing_manual = MailingList.new
       ahoy.track "Viewed Article", title: @post.post_title
+      @data_type = "blog_post"
     end
 
     def new

@@ -10,6 +10,7 @@
       @page_description = "Developmental editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "developmental"
       @testimonial_count = Testimonial.all.count
+      @data_type = "product"
     end
 
     def book_editing
@@ -17,6 +18,7 @@
       @page_description = "Interested in book editing and looking for a book editor? Serving writers since 2007. 100+ testimonials. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "book"
       @testimonial_count = Testimonial.all.count
+      @data_type = "product"
     end
 
     def content_editing
