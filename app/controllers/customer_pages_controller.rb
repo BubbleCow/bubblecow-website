@@ -8,11 +8,13 @@ class CustomerPagesController < ApplicationController
     @page_description = "Book editing services for serious writers. Serving writers since 2007. 100+ testimonials."
     @testimonial_count = Testimonial.all.count
     @messages = Message.all
+    @data_type = "organization"
   end
 
   def about
     @page_title = "About BubbleCow"
     @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder."
+    @data_type = "local_business"
   end
 
   def thanks
@@ -34,6 +36,7 @@ class CustomerPagesController < ApplicationController
     @page_title = "Mentoring"
     @page_description = "One-to-one professional mentoring for writers." 
     @message = Message.new
+    @data_type = "product_mentoring"
   end
   
 
