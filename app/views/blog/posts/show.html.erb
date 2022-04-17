@@ -4,7 +4,7 @@
   <h1><%= @post.post_title.titleize %></h1>
 
   <!-- Post image -->
-  <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid" ) %>
+  <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "960x414" ) %>
 
   <!-- Post metadata -->
   <div class="metadata">
