@@ -1,8 +1,5 @@
 <main class="post">
 
-  <!-- Post title -->
-  <h1><%= @post.post_title.titleize %></h1>
-
   <!-- Post image -->
   <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "960x414" ) %>
 
@@ -19,6 +16,9 @@
     </p>
     <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "badge bg-primary" %>
   </div>
+
+  <!-- Post title -->
+  <h1><%= @post.post_title.titleize %></h1>
 
   <article>
     <!-- Post content -->
