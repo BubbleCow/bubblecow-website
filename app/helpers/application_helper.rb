@@ -39,7 +39,41 @@ module ApplicationHelper
       render partial: 'structured_data_schemas/webpage'
     end
       
-    
   end
+
+  # Sets page title if none present, this is mostly a bypass of the devise controller
+  def set_page_title_and_description(controller_name, action_name)
+    
+    # Devise: Passwords
+    if controller_name == "passwords"
+      if action_name == "new"
+        content_for :page_title, "Reset your password"
+        content_for :page_description, "Add your email for password reset instructions"
+      elsif action_name == "edit"
+        content_for :page_title, "Edit your password"
+        content_for :page_description, "Change your password"
+      end
+
+    # Devise: Sessions
+    elsif controller_name == "sessions"
+      if action_name == "new"
+        content_for :page_title, "Account log in"
+        content_for :page_description, "Log into your account"
+      end
+
+    # Devise: Registrations
+    elsif controller_name == "registrations"
+      if action_name == "new"
+        content_for :page_title, "New Account"
+        content_for :page_description, "Create a free account"
+      end
+
+    else
+      # Escape
+      content_for :page_title, "#{action_name.titleize} #{controller_name}"
+    end
+
+  end
+
 
 end
