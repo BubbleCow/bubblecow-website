@@ -436,7 +436,7 @@
             to
             answer any questions.</p>
           <p>The next step is to submit your book for a
-            <%= link_to "free sample edit", "https://services.bubblecow.com/books/new?job=sample_editing"%>.</p>
+            <%= link_to "free sample edit", new_services_sample_developmental_edit_path%>.</p>
           <p>The sample editing process is almost identical to the full editing process. We will look at the opening
             section
             of your book, normally the first 2000 words, and complete a <%= @keyword %> and line edit. We will also
@@ -456,7 +456,7 @@
           </p>
 
           <div class="d-grid gap-2">
-            <%= link_to "Try free sample editing", "https://services.bubblecow.com/books/new?job=sample_editing", class: "btn btn-outline-primary mb-3 p-3", id: 'submit_sample' %>
+            <%= link_to "Try free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary mb-3 p-3", id: 'submit_sample' %>
           </div>
 
           <!-- Process -->
@@ -467,7 +467,7 @@
             is okay to just jump ahead to the full edit.</p>
           <p>The editing process involves the following steps:</p>
           <ul>
-            <li>Click <%= link_to "this link", "https://services.bubblecow.com/books/new?job=sample_editing"%> to go to
+            <li>Click <%= link_to "this link", new_services_sample_developmental_edit_path %> to go to
               our
               secure sample submission page.</li>
             <li>Create a free BubbleCow account using email and password.</li>
