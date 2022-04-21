@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
   end
 
   def new
+    @page_title = "Get in touch"
+    @page_description = "Let us know what you are thinking."
     @message = Message.new
     authorize @message
   end
