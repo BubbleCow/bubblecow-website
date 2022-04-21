@@ -14,7 +14,7 @@
     end
 
     def book_editing
-      @page_title = "Affordable Book Editing"
+      @page_title = "Professional Book Editing"
       @page_description = "Interested in book editing and looking for a book editor? Serving writers since 2007. 100+ testimonials. Discover how our book editing will give you the feedback and help you need to lift your book to a publishable standard."
       @keyword = "book"
       @testimonial_count = Testimonial.all.count
