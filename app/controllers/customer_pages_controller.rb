@@ -24,6 +24,8 @@ class CustomerPagesController < ApplicationController
   end
 
   def writing_manual
+    @page_title = "The Writing Manual"
+    @page_description = "Download your free copy of the 'famous' Writing Manual." 
     @footer = "no footer"
   end 
 
