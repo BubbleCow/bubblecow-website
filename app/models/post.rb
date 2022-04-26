@@ -43,7 +43,7 @@ class Post < ApplicationRecord
     # set SEO values
     def set_seo
         if self.seo_title.blank?
-            self.seo_title = self.title
+            self.seo_title = self.post_title
         end
         if self.seo_description.blank?
             self.seo_description = self.description

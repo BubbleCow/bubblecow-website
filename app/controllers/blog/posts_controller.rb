@@ -13,7 +13,7 @@ module Blog
 
     def show
       authorize @post
-      @page_title = @post.title 
+      @page_title = @post.seo_title 
       @page_description = @post.seo_description.to_s
       @page_keywords = @post.keywords
       @writing_manual = MailingList.new
