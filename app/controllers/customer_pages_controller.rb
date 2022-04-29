@@ -5,7 +5,7 @@ class CustomerPagesController < ApplicationController
 
   def index
     @page_title = "Affordable Book Editing Services for self- or traditionally published writers"
-    @page_description = "Book editing services for serious writers. We have been providing developmental book editing and book mentors since 2007. 100+ testimonials."
+    @page_description = "Professional book editing services for serious writers. We have been providing developmental book editing and book mentors since 2007. 100+ testimonials."
     @testimonial_count = Testimonial.all.count
     @messages = Message.all
     @data_type = "organization"
