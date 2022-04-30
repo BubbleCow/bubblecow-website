@@ -22,13 +22,8 @@
 
   <article>
     <!-- Post content -->
-    <section class="content">
-      <!-- if markdown cotnent is present, it shows that, otherwise it defaults to old active_text content -->
-      <% if @post.content.present? %>
-        <%= markdown_to_html(@post.content) %>
-      <% else %>
-        <%= @post.body %>
-      <% end %>
+    <section class="blog-post">
+      <%= post_content %>
     </section>
   </article>
 
