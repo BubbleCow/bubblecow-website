@@ -32,9 +32,6 @@ Trix.config.blockAttributes.heading3 = {
 Trix.config.blockAttributes.heading3 = {
   tagName: 'h4'
 }
-Trix.config.textAttributes.underline = {
-  tagName: 'u'
-}
 const {lang} = Trix.config;
 /**
  * This is the default Trix toolbar. Feel free to change / manipulate it how you would like.

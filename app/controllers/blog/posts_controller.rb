@@ -82,7 +82,7 @@ module Blog
       end
 
       def post_params
-        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :topic_list)
+        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :topic_list, :content)
       end
       
       def set_template
