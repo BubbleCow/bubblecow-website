@@ -1,6 +1,7 @@
 module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+    before_action :set_blog_post_content, only: [:show]
     layout :set_template
 
     def index
@@ -19,6 +20,7 @@ module Blog
       @writing_manual = MailingList.new
       ahoy.track "Viewed Article", title: @post.post_title
       @data_type = "blog_post"
+      @blog
     end
 
     def new
@@ -91,6 +93,15 @@ module Blog
             'backend_blog'
         else
             'application'
+        end
+      end
+
+      # Look for html or trix and then converts to string, if needed, and strips tags
+      def set_blog_post_content
+        if @post.content.present?
+          @blog_post_content = ActionView::Base.full_sanitizer.sanitize(@post.content)
+        else
+          @blog_post_content =ActionView::Base.full_sanitizer.sanitize(@post.body.to_plain_text)
         end
       end
 
