@@ -14,7 +14,7 @@
  "dateCreated": "<%= @post.created_at.strftime("%Y-%d-%m") %>",
  "dateModified": "<%= @post.published_at.strftime("%Y-%d-%m") %>",
  "description": "<%= @post.seo_description.to_plain_text %>",
- "articleBody": "<%= @blog_post_content %>",
+ "articleBody": "<%= @post.body %>",
    "author": {
     "@type": "Person",
     "name": "<%= @post.post_author.name %>"
