@@ -24,6 +24,20 @@
         margin-bottom: 2rem;
     }
 
+    // Table of contents
+    .toc {
+        .child-link {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
     // FAQ
 
     .faq {
