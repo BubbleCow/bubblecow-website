@@ -46,7 +46,7 @@ class Post < ApplicationRecord
             self.seo_title = self.post_title
         end
         if self.seo_description.blank?
-            self.seo_description = self.description
+            self.seo_description = self.post_description
         end
     end
 end
