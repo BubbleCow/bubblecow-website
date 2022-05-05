@@ -6,6 +6,9 @@
 
   <body>
 
+    <!-- Google tag manager -->
+  <%= render 'shared/google_tag_manager' %>
+
     <!-- navigation -->
     <% if @nav != "no nav" %>
       <%= render 'shared/navbar' %>
@@ -25,8 +28,5 @@
     <% end %>
 
   </body>
-
-  <!-- Google tag manager -->
-  <%= render 'shared/google_tag_manager' %>
   
 </html>
