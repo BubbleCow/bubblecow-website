@@ -31,7 +31,7 @@
         <!-- Google Tag Manager -->
         <% if Rails.env.production? %>
         <script>
-        document.addEventListener('turbolinks:load', function(event) {
+        document.addEventListener("turbo:load", function(event) {
           var url = event.data.url;
 
           dataLayer.push({
