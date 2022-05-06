@@ -61,7 +61,7 @@
             
                 <div class="explanation-text">
                     <h2 class="index-subtitle pb-2">Why BubbleCow?</h2>
-                    <p>BubbleCow have been providing professional book editing services since 2007.</p>
+                    <p>BubbleCow have been providing <%= link_to "professional book editing services since 2007", about_path %>.</p>
                     <p>Our focus has always been on providing affordable book editing services to both traditional and self-publishing writers.</p>
                     <p>We employ a small team of full-time, hand-picked, and specially trained book editors and mentors.</p> 
                     <p>Unlike our competitors, we are not a marketplace for editors or middleman service for book editors.</p>
@@ -83,7 +83,7 @@
             <div class="col-lg-4">
 
                 <div class="card mt-2">
-                    <%= image_tag 'banished-love', class: 'card-img-top', alt: 'Banished Love by Ramona Flightner' %>
+                    <%= image_tag 'banished-love', class: 'card-img-top', alt: 'Banished Love by Ramona Flightner', size: "414x621" %>
                     <div class="card-body">
                         <p class="card-text">"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow's book editing services for my next novel."</p>
                         <p class="card-text">Ramona Flightner <cite title="Source Title">Banished Saga</cite></p>
@@ -95,7 +95,7 @@
             <div class="col-lg-4 mt-2">
 
                 <div class="card">
-                    <%= image_tag 'taste-of-emotions', class: 'card-img-top', alt: 'Taste of Emotions by David Papini' %>
+                    <%= image_tag 'taste-of-emotions', class: 'card-img-top', alt: 'Taste of Emotions by David Papini', size: "414x621" %>
                     <div class="card-body">
                         <p class="card-text">“BubbleCow provided my latest book with the most professional, detailed and personal developmental and line editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
                         <p class="card-text">David Papini <cite title="Source Title">The Taste of Emotions</cite></p>
@@ -107,7 +107,7 @@
             <div class="col-lg-4 mt-2">
 
                 <div class="card">
-                    <%= image_tag 'stand-and-deliver', class: 'card-img-top', alt: 'Stand and Deliver! by Ian Nichol' %>
+                    <%= image_tag 'stand-and-deliver', class: 'card-img-top', alt: 'Stand and Deliver! by Ian Nichol', size: "414x621" %>
                     <div class="card-body">
                         <p class="card-text">“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
                         <p class="card-text">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></p>
@@ -158,6 +158,7 @@
                     <p>Line editing is commonly carried out by book editors within the publishing industry when preparing a book. We feel that including line editing, alongside developmental editing means that writers, especially self-publishing writers, get the best possible service.</p>
                     <p>This means that whilst we are checking your book for structure issues and plot holes (developmental editing), we will also find sentence-level problems such as grammar, punctuation, and readability (line editing).</p>
                     <p>This is all part of the service and is included in the price.</p>
+                    <p>You can find out more about our <%= link_to "book editing services here", book_editing_path %>.</p>
                 </div>
 
             </div>
@@ -173,6 +174,7 @@
                     <p>Our system means that you will submit your manuscript with a word count of up to 15,000 words. You pay for this chunk when you submit and nothing else. There is no long-term contract, you just pay for what you need. </p>
                     <p>Once the 'chunk' is edited, you talk to your mentor, work out the problems and the process starts all over again. </p>
                     <p>Simple and cost-effective. </p>
+                    p>You can find out more about our <%= link_to "book mentoring services here", mentoring_path %>.</p>
                 </div>
 
             </div>
