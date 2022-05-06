@@ -2,44 +2,49 @@
 <div class="hero px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold">Affordable Book Editing Services</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="sub-title mb-4">Empowering writers to be successful</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <%= link_to "Find out more about book editing", services_book_editing_path, class: "btn btn-lg btn-primary" %>
-        </div>
+        <p class="sub-title mb-4">Professional book editors and mentors for serious writers</p>
     </div>
 </div>
 
 <div class="container">
 
     <!-- Benefits -->
-    <div class="row section-spacer">
+    <div class="row justify-content-center section-spacer">
 
-        <div class="col-lg-4 d-flex align-items-stretch">
+        <!-- book editing -->
+        <div class="col-lg-5">
             <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title">Satisfaction</h2>
-                    <p class="card-text">The writing process should be <strong>enjoyable and satisfying</strong> for writers. You will have spent years thinking about and writing your book. It deserves the best chance of success.</p> 
-                    <p class="card-text">Our book editors have been providing book editing services since 2007 and in that time with have worked with more than 1000 writers from all possible genres. Your book will be safe in our hands.</p>
+                <div class="card-body text-center">
+                    <h2 class="card-title pb-2">Book Editing</h2>
+                    <p class="card-text">BubbleCow book editing service provides:</p> 
+                    <ul>
+                        <li>Combined developmental editing and line editing.</li>
+                        <li>Multi-page editor's report.</li>
+                        <li>Prompt 28-day turnaround.</li>
+                        <li>Affordable price.</li>  
+                    </ul> 
+                    <div class="d-grid gap-2 pt-2">
+                        <%= link_to "Find out more...", book_editing_path , class: "btn btn-lg btn-primary" %>   
+                    </div>       
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-4 d-flex align-items-stretch">
+        <!-- Mentoring -->
+        <div class="col-lg-5">
             <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title">Control</h2>
-                    <p class="card-text">As a writer, it's essential that you remain in <strong>control of your book and your writing journey</strong> at all times. It is all too easy for the complexities of the process to pull the book from your grasp and leave you feeling lost and uncontrolled.</p> 
-                    <p class="card-text">BubbleCow understands what it means to be a writer. We know the process is exciting but scary, but we will ensure that we are part of your journey without ever trying to take control. We will let your book tell the story it was destined to tell in the best way possible.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title">Creativity</h2>
-                    <p class="card-text"><strong>The freedom to be creative is part of life.</strong> It's at the very essence of what it means to be a writer. Without the ability to be creative, writers struggle. Telling stories and bringing characters to life is an act of creativity.</p>
-                    <p class="card-text">Our role at BubbleCow is to enhance your creativity. It is to give you the tools to be more creative, to tell better stories and, to engage more fully with readers. We never want to stifle your voice, we want to set it free.</p>
+                <div class="card-body text-center">
+                    <h2 class="card-title pb-2">Mentoring</h2>
+                    <p class="card-text">BubbleCow mentoring service provides:</p> 
+                    <ul>
+                        <li>Partner with a professional book editor.</li>
+                        <li>Regular developmental editing and feedback.</li>
+                        <li>One-to-one video meetings.</li>
+                        <li>No long-term contract!</li>
+                    </ul>             
+                    <div class="d-grid gap-2 pt-2">
+                        <%= link_to "Find out more...", mentoring_path , class: "btn btn-lg btn-primary" %>   
+                    </div> 
                 </div>
             </div>
         </div>
@@ -47,7 +52,7 @@
     </div>
 
 
-    <!-- Explanation text -->
+    <!-- BubbleCow text -->
     <section class="explanation">
 
         <div class="row justify-content-md-center section-spacer">
@@ -55,23 +60,13 @@
             <div class="col-lg-8 mt-2">
             
                 <div class="explanation-text">
-                    <h2 class="index-subtitle"> What is Book Editing?</h2>
-                    <p>A professional book edit will help to <strong>lift your book to a publishable standard</strong>.</p>
-                    <p>Developmental editing is best employed when you feel you have done as much as you can with your book and are now ready to consider getting it ready for publication.</p>
-                    <p>Our unique combined developmental editing and line editing will provide insanely detailed feedback that will give you all the guidance you require to eventually publish with confidence.</p>
-                    <p>The book editor will examine your entire manuscript and in the process consider all aspects of your book, its narrative and its structure. These include issues such as readability, plot and structure, as well as line level problems such as sentence structure, grammar and punctuation. The book editor will also assess your book's suitablity for the marketplace and even help pinpoint its genre.</p>
-                </div>
-
-            </div>
-
-            <div class="col-lg-8 mt-2">
-
-                <div class="explanation-text">
-                    <h2 class="index-subtitle">When Should I Seek Professional Book Editing Services?</h2>
-                    <p>Book editing is an in-depth, labor-intensive process, that requires a professional book editor to <strong>examine and assess every element of your book</strong>, showing what works and what needs to be changed.</p>
-                    <p>Our book editors will provide you with a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
-                    <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on and that you are not making any major mistakes.</p>
-                    <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
+                    <h2 class="index-subtitle pb-2">Why BubbleCow?</h2>
+                    <p>BubbleCow have been providing professional book editing services since 2007.</p>
+                    <p>Our focus has always been on providing affordable book editing services to both traditional and self-publishing writers.</p>
+                    <p>We employ a small team of full-time, hand-picked, and specially trained book editors and mentors.</p> 
+                    <p>Unlike our competitors, we are not a marketplace for editors or middleman service for book editors.</p>
+                    <p>This means that we will not be sending your manuscript to an anonymous freelance book editor. You get to work with a specialist editor, with whom you can build a long-term relationship.</p>
+                    <p>It also means that we can provide bespoke, personalized editorial feedback, whilst keeping the costs down and providing professional editing services at a cost that works for you and your budget.</p>
                 </div>
 
             </div>
@@ -143,6 +138,63 @@
             </div>
         </div>
     </section>
+
+    <!-- Sales text -->
+    <section class="explanation pb-4">
+
+        <div class="row justify-content-md-center section-spacer">
+
+            <div class="col-lg-8 mt-2">
+            
+                <div class="explanation-text">
+                    <h2 class="index-subtitle pb-2">What is Book Editing?</h2>
+                    <p>BubbleCow provides a type of editing process called developmental editing, this is also sometimes called content editing, structural editing, story editing, comprehensive editing, macro editing, or even heavy editing.</p> 
+                    <p>However, these terms all refer to the same type of editing.</p>
+                    <p>Wikipedia describes developmental editing as "significant structuring or restructuring of a manuscript's discourse".</p>
+                    <p>In reality, developmental editing is a much more involved process.</p>
+                    <p>The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p> 
+                    <p>Some freelance developmental editors will also look out for line-level problems, such as sentence structure, grammar, and punctuation. The better editors will assess a book's suitability for the marketplace. They may also help you to pinpoint the book's genre correctly.</p>
+                    <p>It is also worth noting that we also provide line editing are part of the editing process.</p>
+                    <p>Line editing is commonly carried out by book editors within the publishing industry when preparing a book. We feel that including line editing, alongside developmental editing means that writers, especially self-publishing writers, get the best possible service.</p>
+                    <p>This means that whilst we are checking your book for structure issues and plot holes (developmental editing), we will also find sentence-level problems such as grammar, punctuation, and readability (line editing).</p>
+                    <p>This is all part of the service and is included in the price.</p>
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-2">
+            
+                <div class="explanation-text">
+                    <h2 class="index-subtitle pb-2">What is Mentoring?</h2>
+                    <p>Mentoring is sometimes called book mentoring or book coaching.</p>
+                    <p>entoring for writers is the process of partnering with an experienced professional writer, book editor, and mentor to help lift your book to a publishable standard.</p>
+                    <p>In short, you will work one-on-one with your mentor to make your book the best it can be.</p>
+                    <p>Rather than submitting the full written story in one go (as you do with book editing), mentoring allows the writer to work with a book editor from the start of your writing journey.</p>
+                    <p>Our system means that you will submit your manuscript with a word count of up to 15,000 words. You pay for this chunk when you submit and nothing else. There is no long-term contract, you just pay for what you need. </p>
+                    <p>Once the 'chunk' is edited, you talk to your mentor, work out the problems and the process starts all over again. </p>
+                    <p>Simple and cost-effective. </p>
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-2">
+            
+                <div class="explanation-text">
+                    <h2 class="index-subtitle pb-2">When Should You Seek Professional Book Editing Services?</h2>
+                    <p>Book editing is an in-depth, labor-intensive process, that requires professional book editors to examine and assess every element of your book, showing what works and what needs to be changed.</p>
+                    <p>Our book editors will provide you with a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
+                    <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on, and that you are not making any major mistakes.</p>
+                    <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
+                    <p>However, if you are just starting out, or have embarked on a new project but are struggling to finish it, then our mentoring service will be a better fit.</p>
+                    <p>This will allow you to work one-on-one with a professional editor and writer to help find ways to springboard your writing and get that book finished.</p>              
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
 
 </div>
