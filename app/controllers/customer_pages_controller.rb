@@ -26,7 +26,6 @@ class CustomerPagesController < ApplicationController
   def writing_manual
     @page_title = "The Writing Manual"
     @page_description = "Download your free copy of the 'famous' Writing Manual." 
-    @footer = "no footer"
   end 
 
   def file_safety
@@ -46,10 +45,8 @@ class CustomerPagesController < ApplicationController
 
   def set_template
     case action_name
-    when 'index', 'mentoring'
-      'full_width'
-    when 'writing_manual'
-      'backend'
+    when 'index', 'mentoring', 'writing_manual'
+      'unformatted_page'
     else
       'application'
     end

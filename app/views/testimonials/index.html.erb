@@ -1,5 +1,8 @@
-<h1>Testimonials</h1>
+<div class="header">
+  <h1>Testimonials</h1>
+</div>
 
+<div class="body">
  <% if current_user.try(:admin?) %>
   <p><%= link_to "Add testimonial", new_testimonial_path %></p>
  <% end %>
@@ -16,3 +19,4 @@
         </div>
       </div>
   <% end %>
+</div>
