@@ -1,79 +1,83 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
+<% if @footer != "no footer" %>
+     
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-light text-muted mt-5">
 
-  <!-- Section: Links  -->
-  <section class="border-top">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
+    <!-- Section: Links  -->
+    <section class="border-top">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
 
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Editorial
-          </h6>
-          <p>
-            <%= link_to "Book Editing", book_editing_path, class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "Price Calculator", book_editing_path, class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "Testimonials", testimonials_path, class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "File Safety", file_safety_path, class: "text-reset" %>
-          </p>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Editorial
+            </h6>
+            <p>
+              <%= link_to "Book Editing", book_editing_path, class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "Price Calculator", book_editing_path, class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "Testimonials", testimonials_path, class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "File Safety", file_safety_path, class: "text-reset" %>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <%= link_to "About", about_path, class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "Blog", blog_root_path, class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "Free eBook", "https://bubblecow.com/writing_manual", class: "text-reset" %>
+            </p>
+            <p>
+              <%= link_to "Contact", new_message_path, class: "text-reset" %>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p>
+            Tempest,
+            12 Tithebarn Street,
+            LIVERPOOL,
+            UK,
+            L2 2DT. 
+            </p>
+            <p><%= mail_to "gary@bubblecow.com", "gary@bubblecow.com" %></p>
+          </div>
+          <!-- Grid column -->
+
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <%= link_to "About", about_path, class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "Blog", blog_root_path, class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "Free eBook", "https://bubblecow.com/writing_manual", class: "text-reset" %>
-          </p>
-          <p>
-            <%= link_to "Contact", new_message_path, class: "text-reset" %>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p>
-          Tempest,
-          12 Tithebarn Street,
-          LIVERPOOL,
-          UK,
-          L2 2DT. 
-          </p>
-          <p><%= mail_to "gary@bubblecow.com", "gary@bubblecow.com" %></p>
-        </div>
-        <!-- Grid column -->
-
+        <!-- Grid row -->
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+    </section>
+    <!-- Section: Links  -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    <p>Copyright &copy; BubbleCow <%= Time.current.year %></p>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      <p>Copyright &copy; BubbleCow <%= Time.current.year %></p>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+<% end %>

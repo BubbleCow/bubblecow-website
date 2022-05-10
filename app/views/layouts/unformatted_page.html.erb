@@ -18,12 +18,8 @@
       <%= render 'shared/notices' %>
       
       <!-- Main content -->
-      <div class="<%= controller_name %> <%= action_name %> standard_page">
-        <div class="row justify-content-center">
-          <div class="col-sm-10 col-md-8 col-xl-6">
-            <%= yield %>
-          </div>
-        </div>
+      <div class="<%= controller_name %> <%= action_name %> unformatted_page">
+        <%= yield %>
       </div>
 
     </div>
@@ -34,4 +30,3 @@
   </body>
 
 </html>
-
