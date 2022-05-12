@@ -1009,6 +1009,7 @@ Rails.application.routes.draw do
 
   get "/services/testimonials", to: redirect('/testimonials')
   get "/services/file-safety", to: redirect('/file-saftey')
+  get "/services", to: redirect('/')
 
 
   resources :notifications, only: [:index]
