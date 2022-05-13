@@ -39,13 +39,18 @@ class CustomerPagesController < ApplicationController
     @message = Message.new
     @data_type = "product_mentoring"
   end
+
+  def book_editing_portal
+    @page_title = "Book Editing Portal"
+    @page_description = "Answer any questions you might have about book editing, including developmental editing, copy editing, proofreading and editorial assessments." 
+  end
   
 
   private
 
   def set_template
     case action_name
-    when 'index', 'mentoring', 'writing_manual'
+    when 'index', 'mentoring', 'writing_manual', 'book_editing_portal'
       'unformatted_page'
     else
       'application'
