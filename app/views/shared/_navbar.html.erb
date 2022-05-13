@@ -33,23 +33,17 @@
                       <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><%= link_to "Book Editing", book_editing_path, class: "dropdown-item" %></li>
                         <li><%= link_to "Mentoring", mentoring_path, class: "dropdown-item" %></li>
+                        <li><%= link_to "Testimonials", testimonials_path, class: "dropdown-item" %></li>
                       </ul>
                     </li>	
-
-                    <li class="nav-item">
-                      <%= link_to "Testimonials", testimonials_path, class: "nav-link" %>
-                    </li>
 
                     <li class="nav-item">
                       <%= link_to "About", about_path, class: "nav-link" %>
                     </li>
 
-                    <li class="nav-item">
-                      <%= link_to "Blog", blog_root_path, class: "nav-link" %>
-                    </li>
-
-                    <li class="nav-item">
-                      <%= link_to "Contact", new_message_path, class: "nav-link" %>
+                    <li class="nav-item"><strong>
+                      <%= link_to "Learn about book editing", book_editing_portal_path, class: "nav-link" %>
+                      </strong>
                     </li>
 
                   </ul>		 
