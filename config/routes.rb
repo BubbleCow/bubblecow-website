@@ -1056,6 +1056,7 @@ Rails.application.routes.draw do
   get 'thanks', to: 'customer_pages#thanks'
   get 'file-safety', to: 'customer_pages#file_safety'
   get 'mentoring', to: 'customer_pages#mentoring'
+  get 'book-editing-portal', to: 'customer_pages#book_editing_portal'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
