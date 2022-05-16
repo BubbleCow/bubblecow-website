@@ -4,14 +4,14 @@ class UsersController < ApplicationController
 
     def index 
       @page_title = "Users"
-      @users = User.all.order(last_sign_in_at: :desc)
+      @users = User.all.order(last_sign_in_at: :asc)
       @writers = User.writer
       @editors = User.editor
       @admins = User.admin  
       authorize @users
     end
 
-    def show 
+    def show
       authorize @user
       @books = @user.books
       @old_sample_developmental_edits = @user.sample_developmental_edits
