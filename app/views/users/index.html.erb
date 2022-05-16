@@ -22,6 +22,9 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Last log in</th>
+                        <th scope="col">No of log ins</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +32,9 @@
                         <tr>
                             <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
                             <td><%= user.email %></td>
+                            <td><%= user.created_at.strftime("%B %d, %Y") %></td>
+                            <td><%= last_time_logged_in(user) %></td>
+                            <td><%= user.sign_in_count %></td>
                         </tr>
                     <% end %>
                 </tbody>
