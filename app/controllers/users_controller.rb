@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def index 
       @page_title = "Users"
-      @users = User.all
+      @users = User.all.order(last_sign_in_at: :desc)
       @writers = User.writer
       @editors = User.editor
       @admins = User.admin  
