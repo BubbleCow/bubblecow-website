@@ -44,6 +44,7 @@ class CustomerPagesController < ApplicationController
     @page_title = "Affordable Manuscript Assessmet"
     @page_description = "Give your manuscript the best chance of succeeding with detailed editorial feedback from a professional book editor." 
     @message = Message.new
+    @testimonial_count = Testimonial.all.count
   end
 
   def book_editing_portal
