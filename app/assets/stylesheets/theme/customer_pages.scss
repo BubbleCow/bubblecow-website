@@ -19,3 +19,26 @@
     }
 
 }
+
+.services {
+
+    .background {
+        background-color: $paler-slate;
+    }
+
+    .testimonial-background {
+        background-color: $pale-slate;
+    }
+
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .information, .pannels,  {
+        h2 {
+            margin-bottom: 1.25rem;
+        }
+    }
+}
