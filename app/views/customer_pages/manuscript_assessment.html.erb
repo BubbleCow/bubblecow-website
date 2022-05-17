@@ -1,0 +1,200 @@
+<div class="services">
+
+    <!-- Hero -->
+    <header class="hero px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Manuscript Assessment</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="sub-title mb-4">Give your writing the best chance of succeeding with professional feedback</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Information pannels -->
+        <section class="pannels">
+
+            <div class="row justify-content-md-center">
+
+                <div class="col-sm-4 mt-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title">Affordable Editing</h2>
+                            <p class="card-text">Impactful editing that will not break the bank, whilst providing the feedback you need to lift your book to the next level.</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mt-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title text-center">Feedback that Works</h2>
+                            <p class="card-text">Our feedback is designed to find and solve problems. Our editors will provide solutions, not just find problems.</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mt-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title">Fast Turnaround</h2>
+                            <p class="card-text">Don't pay extra for a fast turnaround. We promise to return all manuscripts within two weeks as standard.</p> 
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div class="container">
+
+        <!-- CTA -->
+        <section class="cta-form">
+
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+
+                    <p>Complete the form to get started...</p> 
+
+                    <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
+
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?", required: true %>
+                                </div>
+
+                                <div class="mb-3">
+                                    <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?", required: true %>
+                                </div>
+
+                                <div class="trix-content">
+                                <p class="mb-2">Tell us a bit about you and your book...</p>
+                                    <%= form.rich_text_area :content, class: 'form-control' %>
+                                </div>
+
+                                <%= form.hidden_field :source, value: "mentoring" %>
+
+                                <div class="form-group">
+                                    <div class="d-grid gap-2 my-4">
+                                        <button type="submit" class="btn btn-block btn-primary">Get in touch and find out more...</button>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                    <% end %>
+
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Information -->
+    <section class="information background">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+
+                    <h2>What is Manuscript Assessment?</h2>
+                    <p>Each year thousands of writers seek professional manuscript assessment services to help lift their current manuscript to the next level. Manuscript assessments are an important part of many writers’ journey to publication.</p>
+                    <p>This type of editing service is also known as a critique, appraisal, or a structural report. They are all the same thing.</p>
+                    <p>Our service is designed to give a holistic assessment of your book, looking closely at what is working, but more importantly, what is not and what needs to be changed.</p>
+                    <p>Its goal is to help you, as a writer, produce the best book possible.</p>
+                    <p>In other words, a manuscript assessment is a service that assesses a piece of creative work, either in part or in full (depending on your budget and needs), and provides professional feedback.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Cost -->
+    <section class="information">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+
+                    <h2>Manuscript Assessment Cost</h2>
+                    <p>As you would expect from BubbleCow our pricing is simple and transparent.</p>
+                    <p>The price you pay is dependent on the word count of your book.</p> 
+                    <p>Below is a simple price calculator. There are no hidden costs.</p>
+                    CALCULATOR
+                    <p>When comparing prices, it’s also worth noting that we don't charge extra for a 'fast' return (unlike our competitors). All of our assessments will be returned within two weeks.</p>
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Testimonials -->
+    <section class="information testimonial-background">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <p>"When I finished the first draft of <em>An Illustrated Book of Bad Arguments</em>, I wanted someone to tell me how the prose came across and whether it was cohesive enough to provide value to the book's target audience. 
+                            <p>BubbleCow did just that. I am grateful for Gary's feedback, which undoubtedly helped improve the book."</p> 
+                            <p>Ali Almossawi, author of international bestseller <a href="https://en.wikipedia.org/wiki/An_Illustrated_Book_of_Bad_Arguments"><em>An Illustrated Book of Bad Arguments</em>.</p>
+                        </div>
+                    </div>
+
+                    <img src="https://bubblecow.com/assets/An_Illustrated_Book_of_Bad_Arguments" alt="alt text goes here" class="post-media img-fluid rounded mx-auto d-block" width="" height="">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Information -->
+    <section class="information background">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+
+                    <h2>What you get with a Manuscript Assessment</h2>
+                    <p>Once you have submitted your book, it will be assigned to one of our professional editors.</p>
+                    <p>The editor will carefully read your entire work. They will determine what is and isn't working in your book and write a comprehensive report.</p>
+                    <p>Though the focus of the report will differ for each book, the following elements are an essential focus for fiction.</p>
+                    <ul>
+                        <li>Character.</li>
+                        <li>Setting.</li>
+                        <li>Plot.</li>
+                        <li>Voice.</li>
+                        <li>Narrative Arc.</li>
+                        <li>Dialogue.</li>
+                        <li>Tension.</li>
+                        <li>Pace.</li>
+                    </ul>
+                    <p>If you are a non-fiction writer, the approach of the manuscript assessor is the same, but the focus is on different elements.</p>
+                    <p>The report will focus on the problems the professional editor finds, but will also provide solutions you can immediately apply to your writing.</p>
+                    <p>The report is a roadmap to lift your book to the next level.</p>
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+</div>

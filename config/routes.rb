@@ -378,9 +378,6 @@ Rails.application.routes.draw do
   # Redriect consultation
   get "/consultation", to: redirect("/")
 
-  # assessment
-  get "/manuscript-assessment", to: redirect("/")
-
   # Logins
   # get "/users/sign_in", to: redirect("https://services.bubblecow.com/users/sign_in")
   # get "/users/sign_up", to: redirect("https://services.bubblecow.com/users/sign_up")
@@ -1056,6 +1053,7 @@ Rails.application.routes.draw do
   get 'thanks', to: 'customer_pages#thanks'
   get 'file-safety', to: 'customer_pages#file_safety'
   get 'mentoring', to: 'customer_pages#mentoring'
+  get 'manuscript-assessment', to: 'customer_pages#manuscript_assessment'
   get 'book-editing-portal', to: 'customer_pages#book_editing_portal'
 
   # dashboards
