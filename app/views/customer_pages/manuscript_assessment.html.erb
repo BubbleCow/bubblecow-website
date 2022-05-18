@@ -27,7 +27,7 @@
                 <div class="col-sm-4 mt-2">
                     <div class="card">
                         <div class="card-body text-center">
-                            <h2 class="card-title text-center">Feedback that Works</h2>
+                            <h2 class="card-title text-center">Affective Feedback</h2>
                             <p class="card-text">Our feedback is designed to find and solve problems. Our editors will provide solutions, not just find problems.</p> 
                         </div>
                     </div>
@@ -57,7 +57,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-8">
 
-                    <p>Complete the form to get started...</p> 
+                    <p class="lead">Complete the form to get started...</p> 
 
                     <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
 
@@ -77,7 +77,7 @@
                                     <%= form.rich_text_area :content, class: 'form-control' %>
                                 </div>
 
-                                <%= form.hidden_field :source, value: "mentoring" %>
+                                <%= form.hidden_field :source, value: "manuscript_assessment" %>
 
                                 <div class="form-group">
                                     <div class="d-grid gap-2 my-4">
@@ -129,8 +129,30 @@
                     <p>As you would expect from BubbleCow our pricing is simple and transparent.</p>
                     <p>The price you pay is dependent on the word count of your book.</p> 
                     <p>Below is a simple price calculator. There are no hidden costs.</p>
-                    CALCULATOR
                     <p>When comparing prices, it’s also worth noting that we don't charge extra for a 'fast' return (unlike our competitors). All of our assessments will be returned within two weeks.</p>
+
+                    <div class="book-editing-pricing-calc form card">
+                        <div class="card-body">
+                        <form id="theform" action="#">
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Book's Word Count</span>
+                                <input type="text" id="words" class="form-control" placeholder="Add your book's word count" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><%= @currency_symbol %></span>
+                                <input type="text" id="tot" class="form-control" placeholder="Hit the button to see the cost" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly">
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <input id="calc" type="button" value="Instantly calculate cost"
+                                    class="btn btn-primary btn-lg btn-block my-3">
+                            </div>
+
+                        </form>
+                        </div> 
+                    </div>
 
 
                 </div>
@@ -154,7 +176,7 @@
                             
                             <div class="d-grid gap-2">
                                 <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                                    Read <%= @testimonial_count %> testimonials
+                                    Read <%= @testimonial_count %> more testimonials
                                 <% end %>
                             </div>
 
@@ -273,5 +295,6 @@
 
     </section>
 
-
 </div>
+
+  <%= render "shared/price_calculator_manuscript_assessment" %>
