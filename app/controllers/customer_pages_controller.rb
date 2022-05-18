@@ -1,7 +1,8 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  before_action :set_mentoring_price, only: [:mentoring] 
+  before_action :set_service_price, only: [:mentoring, :manuscript_assessment] 
   layout :set_template
+  
 
   def index
     @page_title = "Affordable Book Editing Services for serious writers"
@@ -68,7 +69,7 @@ class CustomerPagesController < ApplicationController
 
   private
 
-  def set_mentoring_price
+  def set_service_price
 
     if Rails.env.development?
       @country = "GB"
@@ -80,14 +81,29 @@ class CustomerPagesController < ApplicationController
     case @country
 
     when "GB", "United Kingdom"
+      @user_country = "United Kingdom"
       @currency_symbol = "&#163;".html_safe
+
       @mentoring_cost = "325"
       @mentoring_price = @currency_symbol + @mentoring_cost
+
+      @manuscript_assessment_cost_upto_20k = "350"
+      @manuscript_assessment_cost_upto_40k = "480"
+      @manuscript_assessment_cost_upto_60k = "540"
+      @manuscript_assessment_cost_over_60k = "8"
+
     else 
       @user_country = "United States"
       @currency_symbol = "&#36;".html_safe
+
       @mentoring_cost = "500"
       @mentoring_price = @currency_symbol + @mentoring_cost
+      
+      @manuscript_assessment_cost_upto_20k = "450"
+      @manuscript_assessment_cost_upto_40k = "600"
+      @manuscript_assessment_cost_upto_60k = "670"
+      @manuscript_assessment_cost_over_60k = "10"
+
     end
   end
 
