@@ -2,7 +2,7 @@
 <div class="hero px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold">Affordable Book Editing Services</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="sub-title mb-4">Professional book editors and mentors for serious writers</p>
+        <p class="sub-title mb-4">Providing professional book editors and mentors for serious writers since 2007</p>
     </div>
 </div>
 
@@ -11,39 +11,55 @@
     <!-- Benefits -->
     <div class="row justify-content-center section-spacer">
 
-        <!-- book editing -->
-        <div class="col-lg-5">
+        <!-- Manuscript Assessment -->
+        <div class="col-sm-4">
             <div class="card mt-3">
                 <div class="card-body">
-                    <h2 class="card-title pb-2 text-center">Book Editing</h2>
+                    <h2 class="card-title pb-2 text-center">Manuscript Assessment</h2>
+                    <p class="card-text text-center">Manuscript assessment service provides:</p> 
+                    <ul>
+                        <li>Affordable editing.</li>
+                        <li>Multi-page editor's report.</li>
+                        <li>Fast turnaround.</li> 
+                    </ul> 
+                    <div class="d-grid gap-2 pt-2">
+                        <%= link_to "Find out more...", manuscript_assessment_path , class: "btn btn-lg btn-outline-primary" %>   
+                    </div>       
+                </div>
+            </div>
+        </div>
+        
+        <!-- book editing -->
+        <div class="col-sm-4">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h2 class="card-title pb-2 text-center">Developmental <br> Editing</h2>
                     <p class="card-text text-center">BubbleCow book editing service provides:</p> 
                     <ul>
                         <li>Developmental editing and line editing.</li>
                         <li>Multi-page editor's report.</li>
-                        <li>Prompt 28-day turnaround.</li>
-                        <li>Affordable price.</li>  
+                        <li>Prompt 28-day turnaround.</li> 
                     </ul> 
                     <div class="d-grid gap-2 pt-2">
-                        <%= link_to "Find out more...", book_editing_path , class: "btn btn-lg btn-primary" %>   
+                        <%= link_to "Find out more...", book_editing_path , class: "btn btn-lg btn-outline-primary" %>   
                     </div>       
                 </div>
             </div>
         </div>
 
         <!-- Mentoring -->
-        <div class="col-lg-5">
+        <div class="col-sm-4">
             <div class="card mt-3">
                 <div class="card-body">
-                    <h2 class="card-title pb-2 text-center">Mentoring</h2>
+                    <h2 class="card-title pb-2 text-center">Mentoring for </br> Writers</h2>
                     <p class="card-text text-center">BubbleCow mentoring service provides:</p> 
                     <ul>
-                        <li>Partner with a professional book editor.</li>
-                        <li>Regular developmental editing and feedback.</li>
-                        <li>One-to-one video meetings.</li>
-                        <li>No long-term contract!</li>
+                        <li>Learn to write better books.</li>
+                        <li>One-to-one expert support.</li>
+                        <li>No long-term contract.</li>
                     </ul>             
                     <div class="d-grid gap-2 pt-2">
-                        <%= link_to "Find out more...", mentoring_path , class: "btn btn-lg btn-primary" %>   
+                        <%= link_to "Find out more...", mentoring_path , class: "btn btn-lg btn-outline-primary" %>   
                     </div> 
                 </div>
             </div>
@@ -144,6 +160,31 @@
 
         <div class="row justify-content-md-center section-spacer">
 
+
+            <div class="col-lg-8 mt-2">
+            
+                <div class="explanation-text">
+                    <h2 class="index-subtitle pb-2">What is Manuscript Assessment?</h2>
+                    <p>While developmental and copy editing provide detailed action-focused feedback, professional manuscript assessment services are designed to give a holistic assessment of what is working, but more importantly, what is not and what needs to be changed. 
+                    <p>In other words, a manuscript appraisal, or assessment, is a paid service that assesses a piece of creative work, either in part or in full (depending on your budget and needs), and provides feedback. 
+                    <p>It is worth noting that a partial manuscript evaluation comes with some risks. If the editor is unable to see the full scope of your book, it can make assessment of certain structural issues problematic. 
+                    <p>A manuscript assessment (also known as a critique, appraisal, or a structural report) is where a professional editor/assessor reads your manuscript as a whole, paying close attention to your story’s structure, character development, plot development, pace, setting, consistency etc. 
+                    <p>The editor will provide a written report on what’s working and what needs improvement. Though the focus of the report will differ for each novel, the following elements are an essential focus. 
+                    <ul>
+                        <li>Character.</li>
+                        <li>Setting.</li>
+                        <li>Plot.</li>
+                        <li>Voice.</li>
+                        <li>Narrative Arc.</li>
+                        <li>Dialogue.</li>
+                        <li>Tension.</li>
+                        <li>Pace.</li>
+                    </ul>
+                    <p>You can find out more about our <%= link_to "manuscript assessment service here", manuscript_assessment_path %>.</p>
+                </div>
+
+            </div>
+
             <div class="col-lg-8 mt-2">
             
                 <div class="explanation-text">
@@ -158,7 +199,7 @@
                     <p>Line editing is commonly carried out by book editors within the publishing industry when preparing a book. We feel that including line editing, alongside developmental editing means that writers, especially self-publishing writers, get the best possible service.</p>
                     <p>This means that whilst we are checking your book for structure issues and plot holes (developmental editing), we will also find sentence-level problems such as grammar, punctuation, and readability (line editing).</p>
                     <p>This is all part of the service and is included in the price.</p>
-                    <p>You can find out more about our <%= link_to "book editing services here", book_editing_path %>.</p>
+                    <p>You can find out more about our <%= link_to "book editing service here", book_editing_path %>.</p>
                 </div>
 
             </div>
@@ -175,20 +216,6 @@
                     <p>Once the 'chunk' is edited, you talk to your mentor, work out the problems and the process starts all over again. </p>
                     <p>Simple and cost-effective. </p>
                     <p>You can find out more about our <%= link_to "book mentoring services here", mentoring_path %>.</p>
-                </div>
-
-            </div>
-
-            <div class="col-lg-8 mt-2">
-            
-                <div class="explanation-text">
-                    <h2 class="index-subtitle pb-2">When Should You Seek Professional Book Editing Services?</h2>
-                    <p>Book editing is an in-depth, labor-intensive process, that requires professional book editors to examine and assess every element of your book, showing what works and what needs to be changed.</p>
-                    <p>Our book editors will provide you with a clear roadmap as to the steps that are required to lift your book to a publishable standard.</p>
-                    <p>If you are in the 'first draft' stages of the writing process, then a book edit can help you to determine that you are on the right track, that your book has enough potential to make it worth carrying on, and that you are not making any major mistakes.</p>
-                    <p>If you are in the final stages of the writing process and are close to publication (or submission to agents/publishers) and feel your book is just about 'ready', then a book edit is the best step.</p>
-                    <p>However, if you are just starting out, or have embarked on a new project but are struggling to finish it, then our mentoring service will be a better fit.</p>
-                    <p>This will allow you to work one-on-one with a professional editor and writer to help find ways to springboard your writing and get that book finished.</p>              
                 </div>
 
             </div>
