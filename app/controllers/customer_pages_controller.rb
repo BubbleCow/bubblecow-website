@@ -37,7 +37,6 @@ class CustomerPagesController < ApplicationController
     @page_title = "Mentoring"
     @page_description = "One-to-one professional mentoring for writers." 
     @message = Message.new
-    @data_type = "product_mentoring"
   end
 
   def manuscript_assessment
