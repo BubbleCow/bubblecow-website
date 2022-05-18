@@ -57,9 +57,9 @@ class CustomerPagesController < ApplicationController
 
   def set_template
     case action_name
-    when 'index', 'mentoring', 'writing_manual', 'book_editing_portal'
+    when 'index', 'writing_manual', 'book_editing_portal'
       'unformatted_page'
-    when 'manuscript_assessment'
+    when 'manuscript_assessment', 'mentoring'
       'full_width'
     else
       'application'
