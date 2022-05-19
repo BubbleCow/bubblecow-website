@@ -1055,6 +1055,8 @@ Rails.application.routes.draw do
   get 'mentoring', to: 'customer_pages#mentoring'
   get 'manuscript-assessment', to: 'customer_pages#manuscript_assessment'
   get 'book-editing-portal', to: 'customer_pages#book_editing_portal'
+  get 'terms-and-conditions', to: 'customer_pages#terms_and_conditions'
+  get 'privacy-policy', to: 'customer_pages#privacy_policy'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
