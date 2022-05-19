@@ -51,6 +51,16 @@ class CustomerPagesController < ApplicationController
     @page_title = "Book Editing Portal"
     @page_description = "Answer any questions you might have about book editing, including developmental editing, copy editing, proofreading and editorial assessments." 
   end
+
+  def terms_and_conditions
+    @page_title = "Terms and Conditions"
+    @page_description = "BubbleCow's terms of service." 
+  end
+
+  def privacy_policy
+    @page_title = "Privacy Policy"
+    @page_description = "BubbleCow's privact policy." 
+  end
   
 
   private
