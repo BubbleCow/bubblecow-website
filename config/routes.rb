@@ -995,18 +995,29 @@ Rails.application.routes.draw do
   get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
 
   # Redirects after removing 'services' for SEo benfit 
-  get "/services/book_editing", to: redirect('/book-editing')
-  get "/services/book-editing", to: redirect('/book-editing')
   get "/services/developmental-editing", to: redirect('/developmental-editing')
   get "/services/developmental_editing", to: redirect('/developmental-editing')
-  get "/services/content_editing", to: redirect('/content-editing')
-  get "/services/substantive_editing", to: redirect('/substantive-editing')
-  get "/services/manuscript_editing", to: redirect('/manuscript-editing')
-  get "/services/novel_editing", to: redirect('/novel-editing')  
 
   get "/services/testimonials", to: redirect('/testimonials')
   get "/services/file-safety", to: redirect('/file-saftey')
   get "/services", to: redirect('/')
+
+  # get "/services/developmental-editing", to: redirect('/developmental-editing')
+  
+  # get "/services/book_editing", to: redirect('/developmental-editing')
+  # get "/book_editing", to: redirect('/developmental-editing')
+
+  # get "/services/content_editing", to: redirect('/developmental-editing')
+  # get "/content_editing", to: redirect('/developmental-editing')
+
+  # get "/services/substantive_editing", to: redirect('/developmental-editing')
+  # get "/substantive_editing", to: redirect('/developmental-editing')
+
+  # get "/services/manuscript_editing", to: redirect('/developmental-editing')
+  # get "/manuscript_editing", to: redirect('/developmental-editing')
+
+  # get "/services/novel_editing", to: redirect('/developmental-editing') 
+  # get "/novel_editing", to: redirect('/developmental-editing') 
 
 
   resources :notifications, only: [:index]
@@ -1018,13 +1029,6 @@ Rails.application.routes.draw do
 
   # services
   resources :testimonials
-
-  get 'book-editing', to: 'developmental_editing_pages#book_editing'
-  get 'developmental-editing', to: 'developmental_editing_pages#developmental_editing'
-  get 'content-editing', to: 'developmental_editing_pages#content_editing'
-  get 'substantive-editing', to: 'developmental_editing_pages#substantive_editing'
-  get 'novel-editing', to: 'developmental_editing_pages#novel_editing'
-  get 'manuscript-editing', to: 'developmental_editing_pages#manuscript_editing'
 
   namespace :services do
     resources :books do
@@ -1052,6 +1056,12 @@ Rails.application.routes.draw do
   get 'writing_manual', to: 'customer_pages#writing_manual'
   get 'thanks', to: 'customer_pages#thanks'
   get 'file-safety', to: 'customer_pages#file_safety'
+  get 'developmental_editing', to: 'customer_pages#developmental_editing'
+  get 'content-editing', to: 'customer_pages#developmental_editing'
+  get 'substantive-editing', to: 'customer_pages#developmental_editing'
+  get 'novel-editing', to: 'customer_pages#developmental_editing'
+  get 'manuscript-editing', to: 'customer_pages#developmental_editing'
+  get 'book-editing', to: 'customer_pages#developmental_editing'
   get 'mentoring', to: 'customer_pages#mentoring'
   get 'manuscript-assessment', to: 'customer_pages#manuscript_assessment'
   get 'book-editing-portal', to: 'customer_pages#book_editing_portal'
