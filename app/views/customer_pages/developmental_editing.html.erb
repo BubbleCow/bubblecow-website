@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h2 class="card-title test">Book Editing + Line Editing</h2>
-                            <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure and readability. Clear, actionable advice that will allow you to create a better book.</p>
+                            <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure, and readability. Clear, actionable advice that will allow you to create a better book.</p>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
-                            <p>Feedback is returned within 28 business days. Timeframes are essential, so we will provide you a delivery date before the editing starts.</p>
+                            <p>Feedback is returned within 28 business days. Timeframes are essential, so we will provide you with a delivery date before the editing starts.</p>
                         </div>
                     </div>
                 </div>
@@ -62,11 +62,12 @@
                 <div class="col-lg-6">
 
                     <h2>What is Developmental Editing?</h2>
-                    <p>Developmental editing is known by several different names, it is called content editing, structural editing, story editing, comprehensive editing, macro editing, or even heavy editing. However, the most common alternative is called substantive editing.</p>
+                    <p>Developmental editing is known by several different names, it is called content editing, structural editing, story editing, comprehensive editing, macro editing, big picture editing, or even heavy editing. However, the most common alternative is called substantive editing.</p>
                     <p>But they are all the same.</p>
+                    <p>They are all developmental editing.</p>
                     <p>The role of the developmental editor is to ensure that a book is of a publishable standard.</p>
                     <p>Wikipedia describes developmental editing as "significant structuring or restructuring of a manuscript's discourse".</p>
-                    <p>In reality, editing is a much more involved process. The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p>
+                    <p>In reality, developmental editing is a much more involved process. The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p>
                           
                 </div>
             </div>
@@ -83,8 +84,8 @@
 
                     <div class="book-editing-pricing-text">
                         <h2>Price Calculator</h2>
-                        <p>We use a simple pricing system based on the <strong>cost per 1000 words.</strong></p>
-                        <p>The cost for devleopmental editing is <%= @developmental_edit_price %> per 1000 words.</p>
+                        <p>We use a simple pricing system for our developmental editing service, which is based on the <strong>cost per 1000 words.</strong></p>
+                        <p>The cost for developmental editing is <%= @developmental_edit_price %> per 1000 words.</p>
                         <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
                         <p>The price includes all editing, consultation, and after-edit care.</p>
                         <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
@@ -129,10 +130,10 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-6">
 
-                    <h2>Editing Turnaround Time</h2>
+                    <h2>Developmental Editing Turnaround Time</h2>
                     <p>We will return your manuscript within <strong>twenty-eight business days</strong> (counting Monday-Friday) or
                         roughly five calendar weeks.</p>
-                    <p>We are a small and dedicated team. We pick the best editor for each job. We have professional editors and
+                    <p>We are a small and dedicated team. We pick the best editor for each job. We have professional developmental editors and
                         robust quality-control systems. We can’t rush the process.</p>
                     <p><strong>If you submitted and paid today, your feedback would be returned no later than
                         <%= proposed_date %></strong>.</p>
@@ -182,55 +183,50 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-6">
 
-<!-- Editing -->
-          <h2 class="book-editing-subtitle section-spacer">What You Get With Our Book Editing Service</h2>
-          <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable
-            standard.
-          </p>
-          <p>Combined developmental and line editing will provide the guidance you need to identify and correct any
+          <!-- Editing -->
+          <h2 class="book-editing-subtitle section-spacer">What You Get With Our Developmental Editing Service</h2>
+          <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable standard.</p>
+          <p>Developmental editing focuses on helping the writer to produce the best book possible.</p>
+          <p>Combined developmental editing and line editing will provide the guidance you need to identify and correct any
             problems
             within your book.</p>
           <p>Our process is focused on you, the writer, and you remain in control at all stages.</p>
+          <p>It's all about giving you the big picture, whilst also providing the solutions that you need to fix those little problems.</p>
           <p>We have transparent communication, which will keep you informed at every step. We also employ tracked changes
             and embedded comments, meaning that you have full control over what is changed within your book. We will never
             alter your book's themes, change your voice or enforce any suggestions that revise your vision for your book.
           </p>
           <%= image_tag 'track-changes', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - tracked changes' %>
-          <p>Our product provides unrivalled customer service, guaranteed quality, all within an affordable budget.</p>
+          <p>Our product provides unrivaled customer service, and guaranteed quality, all within an affordable budget.</p>
           <p>We promise 100% anonymity and will never discuss your book with anyone other than yourself, without your
             written permission.</p>
-          <p>We have <%= link_to "more than 100 testimonials", testimonials_path, id: '' %> from writers who wish to thank
+          <p>We have <%= link_to "testimonials", testimonials_path, id: '' %> from writers who wish to thank
             us for our work on their books.</p>
           <p>Our service consists of three key elements:</p>
           <ol>
             <li>Developmental editing.</li>
-            <li>Line Editing.</li>
+            <li>Line editing.</li>
             <li>Editor's report.</li>
           </ol>
           <h3>Developmental Editing</h3>
-          <p><a href="https://en.wikipedia.org/wiki/Content_editing" target="_blank">Developmental editing</a>
-            is also
-            called content editing, structural editing, story editing, substantive editing, comprehensive editing, macro
-            editing, or even heavy editing.</p>
-          <p>It is all the same thing.</p>
           <p>A traditionally published author would have had both their agent and publisher provide support on the
             editorial
             aspects of their book. However, for the self-publishing author, this feedback must be procured by the book’s
             creator.</p>
-          <p>Our editing package is designed to offer this support.</p>
-          <p>Our editors will not only look to highlight technical issues but will provide you with a clear road map as to
+          <p>Our developmental editing package is designed to offer this support.</p>
+          <p>Our developmental editors will not only look to highlight technical issues but will provide you with a clear road map as to
             what you can do to fix these issues and how to become a better author in the process.</p>
 
           <h4>Editorial Approach</h4>
           <p>The role of the developmental editor is to ensure that a book is of a publishable standard.</p>
-          <p>Unlike other types of editing, developmental editing is more about the editor's education, experience and
+          <p>Unlike other types of editing, developmental editing is more about the editor's education, experience, and
             gut
             feeling than following a pre-written manual of instructions.</p>
           <p>This means that the developmental editor's skill is critical. However, to ensure that we approach every
             book
             in
             the same way, our editors apply a number of questions to each book that they edit.</p>
-          <p>Here are a few of the questions (there are more, but they are often genre specific):</p>
+          <p>Here are a few of the questions (there are more, but they are often genre-specific):</p>
           <ul>
             <li>Does the <a href="https://en.wikipedia.org/wiki/Narrative_structure" target="_blank">structure</a> of the
               book make sense?</li>
@@ -239,7 +235,7 @@
               engages the reader and pulls them through the narrative?</li>
             <li>Has a coherent <a href="https://en.wikipedia.org/wiki/Narration" target="_blank">viewpoint</a> been
               applied?
-              Is it consistent? Does it make sense for the story</li>
+              Is it consistent? Does it make sense for the story?</li>
             <li>Does the chapter structure make sense? Does the writer understand scene structure?</li>
             <li>Have <a href="https://en.wikipedia.org/wiki/List_of_narrative_techniques" target="_blank">narrative
                 techniques</a> been correctly applied?</li>
@@ -269,16 +265,16 @@
             <li>If images, tables and diagrams have been used, has the copyright been correctly attributed?</li>
             <li>If included, are all footnotes or endnotes correctly presented and formatted?</li>
           </ul>
-          <p>The editor will communicate their thoughts, directions and suggestions using embedded comments and the
+          <p>The developmental editor will communicate their thoughts, directions and suggestions using embedded comments and the
             editor's
             report.</p>
 
           <h4>Embedded Comments</h4>
-          <p>When editing your book, your editor will constantly be applying the questions above and will have a
+          <p>When editing your book, your developmental editor will constantly be applying the questions above and will have a
             collection
             of thoughts and suggestions that will improve your book.</p>
           <p>We fundamentally believe that our role is to guide and suggest but the control of the final changes should
-            always remain with the writer. Afterall, you have the clearest vision for your book.</p>
+            always remain with the writer. After all, you have the clearest vision for your book.</p>
           <p>One way that we communicate our thoughts and feelings on your book is by the use of embedded comments.</p>
           <%= image_tag 'comment-in-word', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - comment example' %>
           <p>These 'comments' are part of Word's editing tools and they will appear automatically when you open up the
@@ -314,6 +310,7 @@
             multi-page editor’s report.</p>
 
           <h4>Editor's Report</h4>
+          <p>A key part of the developmental editing process is the editor's report.</p>
           <p>This document will be your editor’s thoughts on your book.</p>
           <p>It is a broad overview of the key issues and will act as a ‘jumping off point’ when you come to consider the
             changes to apply to your book. </p>
@@ -330,9 +327,7 @@
             might start slowly. It may be that the writer has included too much ‘setup’, which though they feel is
             essential
             to the plot, is actually slowing the pace of the book. It might also be that the writer has not really written
-            the book with any defined structure and the story lacks any kind of <a
-              href="https://narrativefirst.com/articles/demystifying-plot-points-and-the-inciting-incident-2018"
-              target="_blank">inciting incident</a> in the opening section. This would produce a story that has no real
+            the book with any defined structure and the story lacks any kind of inciting incident in the opening section. This would produce a story that has no real
             narrative drive. It may also be that the writer has simply started the story at the wrong place in the plot.
           </p>
           <p>The problem with a slow start is that it leaves the reader feeling disconnected from a story and the writer
@@ -343,11 +338,11 @@
             problem.
           </p>
           <p>This means that in the example above we might suggest one of three solutions.</p>
-          <p>If we felt the ‘set up’ was the issue, we would suggest that the reader reexamines the opening section and
-            looks to remove the set up that is not immediately essential to the plot. We would then discuss ways this set
+          <p>If we felt the ‘setup’ was the issue, we would suggest that the reader reexamines the opening section and
+            looks to remove the setup that is not immediately essential to the plot. We would then discuss ways this set
             up
             could be reintroduced later in the book (perhaps via speech or new scenes).</p>
-          <p>If we felt the structure was wrong, it might be a case of trying to enforce a very loose <a
+          <p>If the developmental editor felt the structure was wrong, it might be a case of trying to enforce a very loose <a
               href="https://en.wikipedia.org/wiki/Three-act_structure">three-act structure</a>. This would provide a
             natural
             inciting incident (an event that drives the character to action) and, therefore, give the book a natural
@@ -369,13 +364,14 @@
 
           <h4>Line Editing</h4>
           <p>In addition to the developmental editing, we will also carry out a line edit for your book. </p>
+          <p>Whilst developmental editing focuses on the big picture, the line editor will be focused on sentence-level problems.</p>
           <p><a href="https://en.wikipedia.org/wiki/Copy_editing" target="_blank">Line editing</a> is a form of copy
             editing, which Wikipedia describes as the ‘process of reviewing and correcting written material to improve
             accuracy, readability, and fitness for its purpose, and to ensure that it is free of error, omission,
             inconsistency, and repetition.’</p>
           <p>Some people will describe line editing as ‘mechanical editing’. This refers to the rigid nature of the line
             editing process, which looks to fix errors in the prose to match the strict rules of a style manual.</p>
-          <p>In its simplest terms, the line editing process will involve the editor reading each line of your book and
+          <p>In its simplest terms, the process will involve the developmental editor reading each line of your book and
             applying the rules from the appropriate style manual.</p>
           <p>Here’s an example…</p>
           <p>The Chicago Manual of Style suggests we handle numbers in prose in the following manner:</p>
@@ -391,7 +387,7 @@
           <p>We would change it to…</p>
           <p>‘The shepherd counted <strong>forty-five</strong> sheep before falling asleep.’</p>
 
-          <h4>Lightline Editing</h4>
+          <h4>Light line Editing</h4>
           <p>The line editing we apply to your prose can be described as ‘light’ line editing. This means that though we
             will look to find and change every error we can, it is not an exhaustive process.</p>
           <p>Developmental editing is the primary goal of the edit, and this will be the primary focus of the
@@ -426,7 +422,7 @@
             manuscript. If you are using American English, the editor will use the <a
               href="http://www.chicagomanualofstyle.org/home.html">Chicago Manual of Style</a> by default. However, they
             can
-            use <a href="https://en.wikipedia.org/wiki/AP_Stylebook">Associated Press</a> Style Guide if you have used
+            use the <a href="https://en.wikipedia.org/wiki/AP_Stylebook">Associated Press</a> Style Guide if you have used
             this
             manual during the writing process. If writing in British English, the editor will use the <a
               href="https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/University%20of%20Oxford%20Style%20Guide.pdf"
@@ -452,68 +448,68 @@
             <li>Spelling.</li>
           </ul>
 
-          <!-- Sample Editing -->
-          <h2 class="book-editing-subtitle section-spacer">Sample Editing</h2>
-          <p>Finding the right editor for your project is not easy. The chances are that you have spent months (a recent
+          <!-- Sample Developmental Editing -->
+          <h2 class="book-editing-subtitle section-spacer">Sample Developmental Editing</h2>
+          <p>Finding the right developmental editor for your project is not easy. The chances are that you have spent months (a recent
             survey suggested that the average time to write a book was seven months) writing your book and you, rightly,
             want to make sure that you have the correct person for the job.</p>
           <p>The first step is to ask us all the questions that you have, which are niggling away. We are more than happy
             to
             answer any questions.</p>
           <p>The next step is to submit your book for a
-            <%= link_to "free sample edit", new_services_sample_developmental_edit_path%>.</p>
-          <p>The sample editing process is almost identical to the full editing process. We will look at the opening
+            <%= link_to "free sample developmental edit", new_services_sample_developmental_edit_path%>.</p>
+          <p>The sample developmental editing process is almost identical to the full editing process. We will look at the opening
             section
             of your book, normally the first 2000 words, and complete a developmental and line edit. We will also
             produce
             an
             editor’s report.</p>
-          <p>This sample edit will give you a great indication of not only what we can do for your book, but also what
+          <p>This sample developmental edit will give you a great indication of not only what we can do for your book, but also what
             might
             be wrong and what needs fixing. </p>
           <p>The only thing we can’t do is comment on wider narrative issues. We need to read the full story before we can
-            make a judgement on certain technical and structural problems. </p>
-          <p>The sample edit will take twenty-four business hours to complete. Once the sample edit is ready, you’ll get
+            make a judgment on certain technical and structural problems. </p>
+          <p>The sample developmental edit will take twenty-four business hours to complete. Once the sample edit is ready, you’ll get
             an
             email with instructions on how to download your sample edit.</p>
           <p>If you have questions about the sample edit, we will be happy to answer these either via email, phone or
-            Skype.
+            video chat (Skype/Zoom).
           </p>
 
           <div class="d-grid gap-2">
-            <%= link_to "Try free sample editing", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary mb-3 p-3", id: 'submit_sample' %>
+            <%= link_to "Try free sample developmetnal editing", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary mb-3 p-3", id: 'submit_sample' %>
           </div>
 
           <!-- Process -->
-          <h2 class="book-editing-subtitle section-spacer">The Editing Process</h2>
-          <p>The editing process normally consists of two stages: the sample edit and the full edit.</p>
-          <p>The role of the sample edit is to show you what we can offer for your book. If you don’t need a sample edit,
+          <h2 class="book-editing-subtitle section-spacer">The Developmental Editing Process</h2>
+          <p>The developmental editing process normally consists of two stages: the sample edit and the full edit.</p>
+          <p>The role of the sample developmental edit is to show you what we can offer for your book. If you don’t need a sample edit,
             it
             is okay to just jump ahead to the full edit.</p>
-          <p>The editing process involves the following steps:</p>
+          <p>The developmental editing process involves the following steps:</p>
           <ul>
             <li>Click <%= link_to "this link", new_services_sample_developmental_edit_path %> to go to
               our
               secure sample submission page.</li>
             <li>Create a free BubbleCow account using email and password.</li>
             <li>Complete the submission form and attach your manuscript. This will need to be a Word document.</li>
-            <li>The manuscript is submitted to BubbleCow and uploaded to our secure server. You can find out more about our <%= link_to "file satefy policy here", file_safety_path %>.</li>
-            <li>A senior editor will download your manuscript onto their local machine and assess the book. If we feel we
+            <li>The manuscript is submitted to BubbleCow and uploaded to our secure server. You can find out more about our <%= link_to "file safety policy here", file_safety_path %>.</li>
+            <li>A senior developmental editor will download your manuscript onto their local machine and assess the book. If we feel we
               can add value, the book is ‘accepted’. If we feel we can’t add value, the book is ‘rejected’ and deleted
               from
               the editor’s local machine.</li>
-            <li>The first 2000 words of the ‘accepted’ manuscript are edited by the senior editor. They will complete a
+            <li>The first 2000 words of the ‘accepted’ manuscript are edited by the senior developmental editor. They will complete a
               line
               edit and a developmental edit. An editor’s report is also completed.</li>
             <li>The edited manuscript and editor’s report are uploaded to our secure server. An email is automatically
               sent
               to inform you that the sample edit is ready. The editor deletes any files from their local machine.</li>
             <li>The writer logs into their BubbleCow account and downloads the edited manuscript and report.</li>
-            <li>When the writer is ready to proceed, they log back into their account and submit the manuscript for full
+            <li>When the writer is ready to proceed, they log back into their account and submit the manuscript for full developmental
               editing. Additional information is required at this point, and the writer will need to fill out a new form
               and
               upload the full manuscript.</li>
-            <li>Once the file is uploaded, a senior editor will download the file to their local machine and assess the
+            <li>Once the file is uploaded, a senior developmental editor will download the file to their local machine and assess the
               book. If the book is accepted an email is automatically sent to the writer. If we feel that we can’t add
               value
               to the book, it is rejected, and the writer is informed by email. The editor will delete the file from their
@@ -525,20 +521,20 @@
               need
               to create a PayPal account.</li>
             <li>Once payment has been made we will email you with a receipt for payment. You will also be given a date for
-              the lastest possible return of the edit. This will be 28 business days from payment.</li>
+              the latest possible return of the edit. This will be 28 business days from payment.</li>
             <li>An editor will be chosen for the book. The choice of editor is based on the editor’s experience in the
               genre, their desire to edit the book and current workload. In most cases, an editor will express a desire to
               work with the writer and the project.</li>
-            <li>An editor will be assigned to the book, and they will then be granted access to the online files. The
+            <li>A developmental editor will be assigned to the book, and they will then be granted access to the online files. The
               editor
               will download the files to our Dropbox system, and they will have access to the files on their local
               machine.
             </li>
-            <li>The editor will complete the developmental and line edit, producing an editor’s report in the process.
+            <li>The developmental editor will complete the developmental edit and line edit, producing an editor’s report in the process.
               Once
               complete, they will upload the files to the secure server and delete the files from their local machine.
             </li>
-            <li>A senior editor will access the files via our internal Dropbox system and check that the edit is ready to
+            <li>A senior developmental editor will access the files via our internal Dropbox system and check that the edit is ready to
               be
               returned to the writer. When the senior editor is happy, the files are removed from the Dropbox system, and
               the writer is informed (by email) that the edit is ready.</li>
@@ -546,10 +542,11 @@
           </ul>
 
           <!-- Support -->
-          <h3 class="book-editing-subtitle">We see our interaction with writers as a long-term relationship.</h3>
+          <h3 class="book-editing-subtitle">Long-term relationship with your Professional Developmental Editor</h3>
+          <p>For us, your developmental edit is just one link in the chain.</p>
           <p>We want to be with you for the book you are writing now and all your future projects.</p>
-          <p>In addition to editorial support, we work hard to provide help with all elements of the self-publishing
-            process. This might be through blog posts, free ebooks, email exchanges or even one-to-one Skype calls.</p>
+          <p>In addition to your developmental edit, we work hard to provide help with all elements of the self-publishing
+            process. This might be through blog posts, free ebooks, email exchanges or even one-to-one video calls.</p>
           <p>Once you have worked with us on one book, we will remain at your side to help at every step.</p>
           <p>What does this mean in real terms?</p>
           <p>Once you have had your edit back, it is natural that you will have questions. We will answer these questions
@@ -558,7 +555,7 @@
             works.</p>
           <p><strong>As part of the service, you are entitled to a sixty-minute one-to-one chat with your editor.</strong>
           </p>
-          <p>The next step will be for you to rewrite the sections that need more work. This will produce a new
+          <p>The next step of the developmental editing process will be for you to rewrite the sections that need more work. This will produce a new
             manuscript.
             As a general rule, we don’t carry out full second edits. The reason being that we have already said everything
             we need to say. However, if you have reworked a particular section, we will be more than happy to have a look
@@ -606,10 +603,10 @@
                 <div class="accordion-body">
                   <p>No, but we accept most fiction genres and all major nonfiction genres. In fact, we
                     say yes to about 75% of the books that are submitted.</p>
-                  <p>Our goal is to add maximum value to writers. However, for this to happen we have to be the correct
+                  <p>The goal with our developmental editing service is to add maximum value to writers. However, for this to happen we have to be the correct developmental
                     editors for your book. </p>
                   <p>The most common reason we will reject a book is that the book is not far enough down the writing
-                    process for a <%= @keyword %> edit to be of maximum value.</p>
+                    process for a developmental edit to be of maximum value.</p>
                   <p>For example, if a book is at the ‘first draft’ stage and contains many very simple errors, we will
                     say
                     no. If a book’s formatting and structure are non-existent (e.g. it has no paragraphs) we will also say
@@ -624,7 +621,7 @@
                     trends
                     in the marketplace look like.</p>
                   <p>This means that if your book is not within a genre in which we specialize, we are not the best people
-                    for the job.</p>
+                    for the job. If the match with our professional editor is not right, then we will say no.</p>
                   <p>We DON’T accept:</p>
                   <ul>
                     <li>Poetry.</li>
@@ -640,7 +637,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Can I pick my editor?
+                  Can I pick my developmental editor?
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -657,7 +654,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  I want to submit my book in small chunks. Is that possible?
+                  I want to submit my book in small chunks. Is that possible? Will my professional editor be happy?
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -688,7 +685,7 @@
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <p>Probably...</p>
-                  <p>We tend not to offer a second ‘full’ edit. The reason for this is that we will note everything we
+                  <p>We tend not to offer a second ‘full’ edit. The reason for this is that our professional editor will note everything we
                     can,
                     which adds value to your book, during the first edit. A second edit is unlikely to produce significant
                     additional value.</p>
@@ -759,15 +756,16 @@
               </h2>
               <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                   <p>No.</p>
-                  <p>We are a small team, with only a small group of full-time editors. This is the way we have designed
+                  <p>No.</p>
+                  <p>In short, we will not ship your book out to a freelance developmental editor.</p>
+                  <p>We are a small team, with only a small group of full-time developmetnal editors. This is the way we have designed
                     the
-                    company. We feel that the connection between writer and editor is essential and that this can only be
+                    company. We feel that the connection between writer and professional developmental editor is essential and that this can only be
                     achieved when the writer is confident that the editor is committed to their project.</p>
-                  <p>We don’t hire freelance editors. The idea of short-term, transitory staff, is against the very core
+                  <p>We don’t hire freelance developmental editors. The idea of short-term, transitory staff, is against the very core
                     of
                     the way we feel editing should be offered to writers. Instead, we focus on hiring long-term, dedicated
-                    and highly experienced book editors, that we can train and develop over time.</p>
+                    and highly experienced developmental editors, that we can train and develop over time.</p>
                 </div>
               </div>
             </div>
@@ -775,7 +773,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingEight">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  Do you keep the copyright?
+                  Do you keep the copyright or does it belong to the professional editor?
                 </button>
               </h2>
               <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
