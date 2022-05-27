@@ -67,6 +67,12 @@ class CustomerPagesController < ApplicationController
     @page_title = "Privacy Policy"
     @page_description = "BubbleCow's privact policy." 
   end
+
+  def may_2022_giveaway
+    @page_title = "May 2022 Manuscript Assessment Giveaway"
+    @page_description = "A one-off discounted offer for manuscript assessment." 
+    @message = Message.new
+  end
   
 
   private
@@ -75,7 +81,7 @@ class CustomerPagesController < ApplicationController
     case action_name
     when 'index', 'writing_manual', 'book_editing_portal'
       'unformatted_page'
-    when 'manuscript_assessment', 'mentoring', 'developmental_editing'
+    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway'
       'full_width'
     else
       'application'
@@ -135,7 +141,7 @@ class CustomerPagesController < ApplicationController
        # Cost of manuscript assessment
       @manuscript_assessment_cost_upto_20k = "450"
       @manuscript_assessment_cost_upto_40k = "600"
-      @manuscript_assessment_cost_upto_60k = "670"
+      @manuscript_assessment_cost_upto_60k = "680"
       @manuscript_assessment_cost_over_60k = "10"
      
     when "Austria", "AT", "Belgium", "BE", "Cyprus", "CY", "Estonia", "EE", "Finland", "FI", "France", "FR", "Germany", "DE", "Greece", "GR", "Ireland", "IE", "Italy", "IT", "Latvia", "LV", "Lithuania", "LT", "Luxembourg", "LU", "Malta", "MT", "Netherlands", "NL", "Portugal", "PT", "Slovakia", "SK", "Slovenia", "SI", "Spain"
@@ -210,7 +216,7 @@ class CustomerPagesController < ApplicationController
        # Cost of manuscript assessment
       @manuscript_assessment_cost_upto_20k = "450"
       @manuscript_assessment_cost_upto_40k = "600"
-      @manuscript_assessment_cost_upto_60k = "670"
+      @manuscript_assessment_cost_upto_60k = "680"
       @manuscript_assessment_cost_over_60k = "10"
     end
 

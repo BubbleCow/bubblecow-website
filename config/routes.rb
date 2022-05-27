@@ -1067,13 +1067,13 @@ Rails.application.routes.draw do
   get 'book-editing-portal', to: 'customer_pages#book_editing_portal'
   get 'terms-and-conditions', to: 'customer_pages#terms_and_conditions'
   get 'privacy-policy', to: 'customer_pages#privacy_policy'
+  get 'may-2022-giveaway', to: 'customer_pages#may_2022_giveaway'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
   get 'admin-dashboard', to: 'dashboards#admin_dashboard'
   get 'manager-dashboard', to: 'dashboards#manager'
   get 'writer-dashboard', to: 'dashboards#writer_dashboard'
-
 
   get 'writer_area', to: 'dashboards#writer_dashboard'
 
