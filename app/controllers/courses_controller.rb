@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def show
     authorize @course
+    @lessons = @course.lessons.order(position: :asc)
   end
 
   def new
