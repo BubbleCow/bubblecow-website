@@ -213,7 +213,6 @@ Rails.application.routes.draw do
   get "/writing-manual/engaging-your-reader", to: redirect("/writing_manual")
   get "/writing-manual/narrative-voice", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/narrative-voice", to: redirect("/writing_manual")
-  get "/courses", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/character-description", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/actions", to: redirect("/writing_manual")
   get "/learn/the-writing-manual/action-description", to: redirect("/writing_manual")
@@ -1106,9 +1105,14 @@ Rails.application.routes.draw do
   end
 
   # Users
-
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' }
   resources :users, :only => [ :index, :show, :edit, :update, :destroy]  
+
+  # Courses
+  resources :courses do
+    resources :lessons
+  end
+
  
   root to: 'customer_pages#index'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_05_114348) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_145033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,6 +115,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_114348) do
     t.index ["slug"], name: "index_books_on_slug", unique: true
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_courses_on_slug", unique: true
+  end
+
   create_table "dev_edit_samples", force: :cascade do |t|
     t.integer "book_id"
     t.string "status", default: "sample_developmental_edit_created"
@@ -180,6 +189,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_114348) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_genres_on_slug", unique: true
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "slug"
+    t.text "content"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.index ["slug"], name: "index_lessons_on_slug", unique: true
   end
 
   create_table "mailing_lists", force: :cascade do |t|
