@@ -26,4 +26,16 @@
     .course-description {
         padding-bottom: 1rem;
     }
+
+    .lesson-buttons {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid $slate;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .right-button, .left-button {
+  
+    }
 }
