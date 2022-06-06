@@ -1,0 +1,51 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Lessons</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_course_lesson_path(@course), class: 'btn btn-primary' do %>
+    Add New Lesson
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>Description</th>
+            <th>Position</th>
+            <th>Content</th>
+            <th>Course</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @lessons.each do |lesson| %>
+        <%= content_tag :tr, id: dom_id(lesson), class: dom_class(lesson) do %>
+          
+
+                      <td><%= lesson.title %></td>
+                      <td><%= lesson.description %></td>
+                      <td><%= lesson.position %></td>
+                      <td><%= lesson.content %></td>
+                      <td><%= lesson.course.title.titleize %></td>
+          
+          
+            <td><%= link_to 'Show', course_lesson_path(@course, lesson) %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

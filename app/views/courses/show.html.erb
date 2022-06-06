@@ -1,0 +1,24 @@
+<div class="header">
+  <h1><%= @course.title.titleize %></h1>
+</div>
+
+<%= course_description(@course) %>
+
+<div class="card mt-3 shadow p-3 mb-5 bg-body rounded">
+
+  <div class="card-body">
+
+    <h2>Lessons</h2>
+
+    <ul>
+
+      <% @course.lessons.each do |lesson| %>
+        <li><%= link_to lesson.title.titleize, course_lesson_path(@course, lesson) %></li>
+      <% end %>
+
+    </ul>
+
+  </div>
+
+</div>
+
