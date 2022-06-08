@@ -6,6 +6,16 @@
 
 <%= lessson_content(@lesson) %>
 
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to @course.title.titleize, course_path(@course) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @lesson.title.titleize %></li>
+  </ol>
+</nav>
+
+
 <div class="lesson-buttons">
 
   <div class="left-button">
