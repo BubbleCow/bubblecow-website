@@ -975,7 +975,6 @@ Rails.application.routes.draw do
   get "/blog/effective-dialogue", to: redirect('/blog/how-to-write-effective-dialogue-in-your-novels')
   get "/blog/using-beta-readers", to: redirect('https://proactivewriter.com/blog/how-to-get-the-most-from-your-beta-readers')
   get "/blog/understanding-conflict", to: redirect('https://proactivewriter.com/blog/understanding-the-role-of-conflict-in-writing')
-  get "/blog/importance-of-structure", to: redirect('https://proactivewriter.com/blog/the-importance-of-structure-when-writing-transform-your-novel-into-a-masterpiece')
   get "/blog/seven-self-editng-tips", to: redirect('/blog/7-editing-tips-used-by-professional-editors')
   get "/blog/what-is-the-best-book-genre-to-write", to: redirect('https://proactivewriter.com/blog/how-to-pick-a-genre-for-your-book-what-is-the-most-popular-best-selling-book-genre')
   get "/blog/show-don-t-tell-the-key-to-becoming-a-better-writer", to: redirect('/blog/show-don-t-tell-and-become-a-better-writer')
