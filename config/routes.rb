@@ -1067,6 +1067,7 @@ Rails.application.routes.draw do
   get 'terms-and-conditions', to: 'customer_pages#terms_and_conditions'
   get 'privacy-policy', to: 'customer_pages#privacy_policy'
   get 'may-2022-giveaway', to: 'customer_pages#may_2022_giveaway'
+  get 'author-platform-audit', to: 'customer_pages#author_platform_audit'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'

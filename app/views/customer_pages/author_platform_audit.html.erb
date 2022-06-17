@@ -1,0 +1,262 @@
+<div class="services">
+
+    <!-- Hero -->
+    <header class="hero px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Author Platform Audit</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="sub-title mb-4">We will assess your author platform and tell you how to improve.</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Information pannels -->
+        <section class="pannels">
+
+            <div class="row justify-content-md-center">
+
+                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title">Social Media</h2>
+                            <p class="card-text">Assessment of your social media highlighting what is working and what needs to be improved.</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title text-center">Amazon</h2>
+                            <p class="card-text">Audit of your Amazon page, focussing on book cover, sales blurb and suitablity for potential readers.</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="card-title">Internet</h2>
+                            <p class="card-text">Examination of all your web properties, such as websites, including detailed SEO audit (if suitable).</p> 
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div class="container">
+
+        <!-- CTA -->
+        <section class="cta-form">
+
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+
+                    <p class="lead">Complete the form to get started...</p> 
+
+                    <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
+
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?", required: true %>
+                                </div>
+
+                                <div class="mb-3">
+                                    <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?", required: true %>
+                                </div>
+
+                                <div class="trix-content">
+                                <p class="mb-2">Tell us a bit about you and your writing...</p>
+                                    <%= form.rich_text_area :content, class: 'form-control' %>
+                                </div>
+
+                                <%= form.hidden_field :source, value: "Author Platform Audit" %>
+
+                                <div class="form-group">
+                                    <div class="d-grid gap-2 my-4">
+                                        <button type="submit" class="btn btn-block btn-primary">Complete form to secure your place...</button>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                    <% end %>
+
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Cost -->
+    <section class="information backgroud">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+
+                    <h2>Cost</h2>
+                    <p class="lead">We charge a flat fee for the Author Platform Audit of <%= @author_platform_audit_price %>.</p>
+                    <p>This fee covers the complete audit and there are no hidden extras.</p>
+                    <p>When you are ready to proceed, you will be sent an invoice with a link to our secure PayPal server. You don't need a PayPal account and you can use any major credit or debit card to make payment.<p>
+          
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Information -->
+    <section class="information background">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+
+                    <h2>Book Marketing Matters</h2>
+                    <p>You've written your book, spent hours getting your prose perfected, and sweated over every detail, making your book the best it can be.</p>
+                    <p>Excited, you hit that publish button on Amazon, sit back, and wait…</p>
+                    <p>But nothing happens.</p>
+                    <p>Your book is live, but no one is buying, reading, or reviewing it.</p>
+                    <p>You need to do something, anything, to help readers find your book. You've worked too hard to just watch your book fail.</p>
+                    <p>It's a sad fact that it's the best marketed, not best written, books that are the most successful.</p>
+                    <p>But it's still a fact.</p>
+                    <p>Here at BubbleCow, we can help you to market your book in a way that will attract new readers.</p>
+                    <p>We can help your book become the success it deserves.</p>
+                    <p>Ask yourself…</p>
+                    <ul>
+                        <li>Are you selling fewer copies than your book deserves?</li>
+                        <li>Are you unsure where to begin when it comes to marketing your book?</li>
+                        <li>Are you clueless as to what changes to make so that your book has the best chance of being a success?</li>
+                        <li>Are you worried you're losing potential readers as they struggle to learn more about you and your book?</li>
+                        <li>Do you even know how to attract new readers and then how to make them become fans?</li>
+                        <li>Are you baffled as to why your social media and website aren't attracting new readers?</li>
+                    </ul>
+                    <p>Our Author Platform Audit will provide you with everything you need to help fix your author platform, clean up your online identity and produce social media content that will turn followers into readers and fans.</p>
+                    <p>It's simple; follow our plan and make your book a success.</p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Information -->
+    <section class="information">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+
+                    <h2>What the Audit Includes</h2>
+                    <p>Our Author Platform Audit will see a marketing expert assess your current author platform and determine what is working and what will need to be changed.</p>
+                    <p>We will show you how to link up all elements of your author platform so that you can turn followers into book buyers.</p>
+                    <p>The audit will look at four critical elements:</p>
+                    <ul>
+                        <li>Your social media.</li>
+                        <li>Your Amazon page and Amazon author page.</li>
+                        <li>Your online properties (website, blog, etc.).</li>
+                    </ul>
+                    <p>Don’t worry if you’re not doing all these things; we’ll provide clear advice on why they are important and what you can do to get started.</p>
+                    <p>We will look closely at each of these four online properties and provide you with a document containing clear instructions for what is working and what needs to be changed.</p>
+                    <p>This comprehensive document will contain simple and easy-to-apply instructions.</p>
+                
+                    <h3>Social Media</h3>
+                    <p>It is very easy to believe that social media is the magic bullet to book marketing success, but this is not the case.</p>
+                    <p>Though social media is important, it is only one element in your overall author platform.</p>
+                    <p>During our audit, we will assess each of your social media platforms and assess the following:</p>
+                    <ul>
+                        <li>The the social media output consistent and addressing potential readers?</li>
+                        <li>Is your social media voice suitable for the books you are selling?</li>
+                        <li>Is there a clear path from your social media to your Amazon page.</li>
+                    </ul>
+                    <p>This assessment will provide you with a list of the key areas that require improvement. It will also give you a clear roadmap for what you must change to make your social media more effective.</p>
+
+                    <h3>Amazon</h3>
+                    <p>Many writers ignore the importance of their Amazon page, believing all the hard work has been done in getting potential readers to the page in the first place.</p>
+                    <p>This is not the case.</p>
+                    <p>Our audit of your Amazon page will assess the following:</p>
+                    <ul>
+                    <li>Is your genre correctly assigned?</li>
+                    <li>Is your book title meeting genre expectations?</li>
+                    <li>Is your book cover meeting genre expectations?</li>
+                    <li>Is your blurb providing a hook to attract potnetial readers?</li>
+                    <li>Is your author page effective?</li>
+                    </ul>
+                    <p>The audit will create a list of actions that you need to tak to improve you Amzon page.</p>
+
+                    <h3>Online Properties</h2>
+                    <p>Our audit begins with a comprehensive examination of your online properties.</p>
+                    <p>We will examine any book-related website, blog, and other relevant online properties.</p>
+                    <p>We will look at each of these properties and ask the following questions:</p>
+                    <ul>
+                        <li>Are you presenting a clear and cohesive message across all web properties?</li>
+                        <li>Is there a clear path for potential readers from your web properties to your Amazon page?</li>
+                        <li>Are you targetting and engaging with the correct readers?</li>
+                        <li>Do you have a system to 'capture' potential readers?</li>
+                    </ul>
+                    <p>If you have a blog or website, we will also conduct an SEO audit. This will look at...</p>
+                    <ul>
+                    <li>Any technical problems that may be inhibiting your ranking in the Google search engine.</li>
+                    <li>An assessment of your key pages, the keywords bringing traffic, and potential new keywords you could target.</li>
+                    <li>An overview to future strategies to improve organic traffic to your site.</li>
+                    </ul>
+                    <p>In addition, the SEO audit will provide your site's Authority Score, the number of backlinks, estimated organic traffic, top organic keywords, the intent of visitors, and your main organic competitors.</p>
+                    <p>The audit will also provide a list of key actions to improve your position within the Google search engine.</p>
+            
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Testimonials -->
+    <section class="information testimonial-background">
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-6">
+
+                    <div class="card mb-3 mb-sm-0">
+                        <div class="card-body">
+                            <p>"This was far the best and easiest editing process that I have been through. Gary’s editing took my book to the next level.</p>
+                            <p>I am delighted with the outcome and I will definitely use Bubblecow to edit my next novel. Highly recommended."</p>
+                            <p>SL Beaumont, award winner author of the <a href="https://www.slbeaumont.com/"><em>The Kat Munro Thrillers</em></a> series.</p>
+                            
+                            <div class="d-grid gap-2">
+                                <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                                    Read <%= @testimonial_count %> more testimonials
+                                <% end %>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <%= image_tag("death_count", alt: "SL Beaumont - Death Count", class: "post-media img-fluid rounded mx-auto d-block", size: "180x280")%>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+
