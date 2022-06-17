@@ -1,6 +1,6 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
+  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit] 
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   layout :set_template
   
@@ -73,6 +73,12 @@ class CustomerPagesController < ApplicationController
     @page_description = "A one-off discounted offer for manuscript assessment." 
     @message = Message.new
   end
+
+  def author_platform_audit
+    @page_title = "Author Platform Audit"
+    @page_description = "Professional audit of your author platform." 
+    @message = Message.new
+  end
   
 
   private
@@ -81,7 +87,7 @@ class CustomerPagesController < ApplicationController
     case action_name
     when 'index', 'writing_manual', 'book_editing_portal'
       'unformatted_page'
-    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway'
+    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit'
       'full_width'
     else
       'application'
@@ -125,6 +131,10 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_60k = "540"
       @manuscript_assessment_cost_over_60k = "8"
 
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "100" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+
     when "US", "United States"
 
       @user_country = "United States"
@@ -143,6 +153,10 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_40k = "600"
       @manuscript_assessment_cost_upto_60k = "680"
       @manuscript_assessment_cost_over_60k = "10"
+
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "150" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
      
     when "Austria", "AT", "Belgium", "BE", "Cyprus", "CY", "Estonia", "EE", "Finland", "FI", "France", "FR", "Germany", "DE", "Greece", "GR", "Ireland", "IE", "Italy", "IT", "Latvia", "LV", "Lithuania", "LT", "Luxembourg", "LU", "Malta", "MT", "Netherlands", "NL", "Portugal", "PT", "Slovakia", "SK", "Slovenia", "SI", "Spain"
       
@@ -162,6 +176,10 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_40k = "570"
       @manuscript_assessment_cost_upto_60k = "640"
       @manuscript_assessment_cost_over_60k = "10"
+
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "125" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
 
 
     when "Australia", "AU"
@@ -183,6 +201,10 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_60k = "960"
       @manuscript_assessment_cost_over_60k = "15"
 
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "200" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+
     when "New Zealand", "NZ"
       @user_country = "New Zealand"
       @currency_symbol = "&#36;".html_safe
@@ -201,6 +223,10 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_60k = "1055"
       @manuscript_assessment_cost_over_60k = "15"
 
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "200" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+
     else
       @user_country = "Other"
       @currency_symbol = "&#36;".html_safe
@@ -218,6 +244,11 @@ class CustomerPagesController < ApplicationController
       @manuscript_assessment_cost_upto_40k = "600"
       @manuscript_assessment_cost_upto_60k = "680"
       @manuscript_assessment_cost_over_60k = "10"
+
+      # Cost of Author Platform Audit
+      @author_platform_audit_cost = "150" 
+      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+      
     end
 
   end
