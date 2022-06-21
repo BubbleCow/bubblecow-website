@@ -1,6 +1,6 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit] 
+  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit, :book_proposal] 
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   layout :set_template
   
@@ -79,6 +79,12 @@ class CustomerPagesController < ApplicationController
     @page_description = "Professional audit of your author platform." 
     @message = Message.new
   end
+
+  def book_proposal
+    @page_title = "Book Proposal Service"
+    @page_description = "Prepare your book for pitching to agents and publishers." 
+    @message = Message.new
+  end
   
 
   private
@@ -87,7 +93,7 @@ class CustomerPagesController < ApplicationController
     case action_name
     when 'index', 'writing_manual', 'book_editing_portal'
       'unformatted_page'
-    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit'
+    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit', 'book_proposal'
       'full_width'
     else
       'application'
@@ -135,6 +141,10 @@ class CustomerPagesController < ApplicationController
       @author_platform_audit_cost = "100" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
 
+      # Cost of book proposal
+      @book_proposal_cost = "400"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
+
     when "US", "United States"
 
       @user_country = "United States"
@@ -157,6 +167,10 @@ class CustomerPagesController < ApplicationController
       # Cost of Author Platform Audit
       @author_platform_audit_cost = "150" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+
+      # Cost of book proposal
+      @book_proposal_cost = "500"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
      
     when "Austria", "AT", "Belgium", "BE", "Cyprus", "CY", "Estonia", "EE", "Finland", "FI", "France", "FR", "Germany", "DE", "Greece", "GR", "Ireland", "IE", "Italy", "IT", "Latvia", "LV", "Lithuania", "LT", "Luxembourg", "LU", "Malta", "MT", "Netherlands", "NL", "Portugal", "PT", "Slovakia", "SK", "Slovenia", "SI", "Spain"
       
@@ -181,6 +195,9 @@ class CustomerPagesController < ApplicationController
       @author_platform_audit_cost = "125" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
 
+      # Cost of book proposal
+      @book_proposal_cost = "500"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
 
     when "Australia", "AU"
 
@@ -205,6 +222,10 @@ class CustomerPagesController < ApplicationController
       @author_platform_audit_cost = "200" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
 
+      # Cost of book proposal
+      @book_proposal_cost = "700"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
+
     when "New Zealand", "NZ"
       @user_country = "New Zealand"
       @currency_symbol = "&#36;".html_safe
@@ -227,6 +248,10 @@ class CustomerPagesController < ApplicationController
       @author_platform_audit_cost = "200" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
 
+      # Cost of book proposal
+      @book_proposal_cost = "800"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
+
     else
       @user_country = "Other"
       @currency_symbol = "&#36;".html_safe
@@ -248,6 +273,10 @@ class CustomerPagesController < ApplicationController
       # Cost of Author Platform Audit
       @author_platform_audit_cost = "150" 
       @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
+
+      # Cost of book proposal
+      @book_proposal_cost = "500"
+      @book_proposal_price =  @currency_symbol + @book_proposal_cost
       
     end
 
