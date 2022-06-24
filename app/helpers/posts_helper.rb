@@ -9,4 +9,23 @@ module PostsHelper
         end
     end
 
+    def blog_post_advert(advert_category)
+        if advert_category.blank?
+            render 'blog/posts/adverts/writing_manual'
+        elsif advert_category = 'dialogue'
+            render 'blog/posts/adverts/dialogue'
+        else
+            render 'blog/posts/adverts/writing_manual'
+        end
+    end
+
+    def current_advert_category
+        if @post.advert_category.blank?
+            'None selected will show Writing Manual'
+        else
+            @post.advert_category 
+        end
+
+    end
+
 end
