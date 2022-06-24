@@ -212,6 +212,13 @@
                 <%= form.select :post_author_id, PostAuthor.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postAuthor" %>
               </div>
 
+              <!-- Advert Category -->
+              <h5>Advert Category:</h5>
+              <p>Current advert category: <%= current_advert_category %></p>
+              <div class="input">
+                <%= form.select(:advert_category, options_for_select([['default'], ['dialogue']]), {}, {class: "form-select"}) %>
+              </div>
+
           </div>
 
           <div class="box mt-3">
