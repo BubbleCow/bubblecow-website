@@ -10,6 +10,8 @@ class LessonsController < ApplicationController
 
   def show
     authorize @lesson
+    @next_lesson = @course.lessons.find_by_position(@lesson.position + 1)
+    @previous_lesson = @course.lessons.find_by_position(@lesson.position - 1)
   end
 
   def new
@@ -65,7 +67,7 @@ class LessonsController < ApplicationController
     end
 
     def set_lesson
-      @lesson = Lesson.friendly.find(params[:id])
+      @lesson = @course.lessons.friendly.find(params[:id])
     end
 
     def lesson_params

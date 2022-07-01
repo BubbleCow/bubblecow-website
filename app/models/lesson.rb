@@ -13,14 +13,4 @@ class Lesson < ApplicationRecord
     # validations
     validates :title, presence: true
 
-
-    # Previous and next lessons
-    def previous
-        Lesson.find_by_position(position - 1)
-    end
-      
-    def next
-        Lesson.find_by_position(position + 1)
-    end
-      
 end
