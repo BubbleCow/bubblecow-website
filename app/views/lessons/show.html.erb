@@ -19,14 +19,14 @@
 <div class="lesson-buttons">
 
   <div class="left-button">
-    <% if @lesson.previous.present? %>
-      <%= link_to 'Previous Lesson', course_lesson_path(@course, @lesson.previous), class: "btn btn-outline-primary" %>
+    <% if @previous_lesson.present? %>
+      <%= link_to 'Previous Lesson', course_lesson_path(@lesson.course, @previous_lesson), class: "btn btn-outline-primary" %>
     <% end %>
   </div>
 
   <div class="right-button">
-    <% if @lesson.next.present? %>
-    <%= link_to 'Next Lesson', course_lesson_path(@course, @lesson.next), class: "btn btn-primary" %>
+    <% if @next_lesson.present? %>
+      <%= link_to 'Next Lesson', course_lesson_path(@lesson.course, @next_lesson), class: "btn btn-primary" %>
     <% end %>
   </div>
 
