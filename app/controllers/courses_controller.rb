@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def show
     authorize @course
+    @page_title = @course.title 
     @lessons = @course.lessons.order(position: :asc)
   end
 
