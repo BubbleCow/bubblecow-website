@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
 
   def show
     authorize @lesson
+    @page_title = @course.title + ' - ' + @lesson.title 
     @next_lesson = @course.lessons.find_by_position(@lesson.position + 1)
     @previous_lesson = @course.lessons.find_by_position(@lesson.position - 1)
   end
