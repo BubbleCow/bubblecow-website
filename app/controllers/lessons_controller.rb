@@ -2,6 +2,7 @@ class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course
   before_action :set_lesson, only: %i[ show edit update destroy ]
+  before_action :set_ac_tag, only: %i[ show ]
 
   def index
     @lessons = @course.lessons.order(position: :asc)
@@ -69,6 +70,19 @@ class LessonsController < ApplicationController
 
     def set_lesson
       @lesson = @course.lessons.friendly.find(params[:id])
+    end
+
+    def set_ac_tag
+      
+      case @course.ac_tag
+
+      when 'book proposal'
+
+        # Send tag to Active Campaign
+        ActiveCampaignService.new.contact_tag_add(current_user.email, "Service - Book Proposal - Interest")
+      
+      end
+
     end
 
     def lesson_params
