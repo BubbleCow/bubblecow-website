@@ -20,6 +20,20 @@
     <%= form.label :description %>
     <%= form.text_area :description, class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+    
+    <!-- Show current ac tag -->
+    <% if @course.ac_tag.present? %>
+      <p>Current ac tag: <%= @course.ac_tag %></p>
+    <% else %>
+      <p>No tag assigned</p>
+    <% end %>
+
+      <div class="input">
+        <%= form.select(:ac_tag, options_for_select([['none'], ['book proposal']]), {}, {class: "form-select"}) %>
+      </div>
+  </div>
   
   <div class="form-group">
     <% if course.persisted? %>
