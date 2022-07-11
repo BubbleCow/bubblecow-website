@@ -91,7 +91,7 @@ class CustomerPagesController < ApplicationController
 
   def set_template
     case action_name
-    when 'index', 'writing_manual', 'book_editing_portal'
+    when 'index', 'book_editing_portal'
       'unformatted_page'
     when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit', 'book_proposal'
       'full_width'
