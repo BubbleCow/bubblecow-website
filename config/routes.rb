@@ -962,7 +962,6 @@ Rails.application.routes.draw do
   get "/blog/how-to-write-a-fiction-book-proposal-part-9-writing-a-brief-synopsis", to: redirect("/")
   get "/blog/how-to-write-a-fiction-book-proposal-part-19-understanding-conflict", to: redirect("/")
   get "/blog/how-to-write-a-fiction-book-proposal-part-11-common-questions-about-pitching-your-book-to-an-agent", to: redirect("/")
-  get "/blog/how-to-write-a-book-proposal", to: redirect("/")
   get "/blog/how-to-write-a-fiction-book-proposal-part-3-the-tag-line", to: redirect("/")
   get "/blog/how-to-write-a-fiction-book-proposal-part-6-the-importance-of-word-count", to: redirect("/")
   get "/blog/how-to-write-a-fiction-book-proposal-part-7-competitor-titles", to: redirect("/")
