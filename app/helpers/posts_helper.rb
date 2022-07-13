@@ -12,8 +12,10 @@ module PostsHelper
     def blog_post_advert(advert_category)
         if advert_category.blank?
             render 'blog/posts/adverts/writing_manual'
-        elsif advert_category = 'dialogue'
+        elsif advert_category == 'dialogue'
             render 'blog/posts/adverts/dialogue'
+        elsif advert_category == 'book proposal'
+            render 'blog/posts/adverts/book_proposal'
         else
             render 'blog/posts/adverts/writing_manual'
         end
