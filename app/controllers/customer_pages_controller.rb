@@ -124,7 +124,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#163;".html_safe
      
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "15" 
+      @developmental_edit_cost = "20" 
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
@@ -151,7 +151,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#36;".html_safe
 
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "20"
+      @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
@@ -178,7 +178,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#8364;".html_safe
       
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "20"
+      @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
@@ -205,7 +205,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#36;".html_safe
 
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "30" 
+      @developmental_edit_cost = "35" 
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
       
       # Cost of mentoring
@@ -231,7 +231,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#36;".html_safe
      
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "30"
+      @developmental_edit_cost = "35"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
@@ -257,7 +257,7 @@ class CustomerPagesController < ApplicationController
       @currency_symbol = "&#36;".html_safe
 
       #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "20"
+      @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
