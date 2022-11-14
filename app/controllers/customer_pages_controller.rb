@@ -128,7 +128,7 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
-      @mentoring_cost = "325"
+      @mentoring_cost = "400"
       @mentoring_price = @currency_symbol + @mentoring_cost
 
       # Cost of manuscript assessment
@@ -182,7 +182,7 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
       # Cost of mentoring
-      @mentoring_cost = "400"
+      @mentoring_cost = "500"
       @mentoring_price = @currency_symbol + @mentoring_cost
 
       # Cost of manuscript assessment
