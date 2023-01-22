@@ -1,38 +1,47 @@
-<main class="post">
+<div itemscope itemtype="https://schema.org/NewsArticle">
 
-  <!-- Post image -->
-  <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "960x414" ) %>
-
-  <!-- Post metadata -->
-  <div class="metadata">
-    <p>
-        <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
-        <span id="post-author"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span> -  
-        <% if @post.published? %>
-          <span>Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
-        <% else %>
-          <span>Unpublished</span>.
-        <% end %>
-    </p>
-    <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "badge bg-primary" %>
-  </div>
+  <main class="post">
 
   <!-- Post title -->
-  <h1><%= @post.post_title.titleize %></h1>
+  <div itemprop="headline">
+    <h1><%= @post.post_title.titleize %></h1> 
+  </div>
 
-  <article>
-    <!-- Post content -->
-    <%= post_content %>
-  </article>
+  <!-- Post image -->
+  <div itemprop="image">
+    <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) %>
+  </div>
 
-  <section class="advert">
-  
-    <!-- Divider line -->
-    <div class="divider"></div>
+    <!-- Post metadata -->
+    <div class="metadata">
+      <p>
+          <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person" id="post-author"><span itemprop="name"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span></span> -  
+          <% if @post.published? %>
+            <span itemprop="dateModified">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
+          <% else %>
+            <span>Unpublished</span>.
+          <% end %>
+      </p>
+      <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "badge bg-primary" %>
+    </div>
 
-    <!-- Advert -->
-    <%= blog_post_advert(@post.advert_category) %>
+
+    <article>
+      <!-- Post content -->
+      <%= post_content %>
+    </article>
+
+    <section class="advert">
     
-  </section>
+      <!-- Divider line -->
+      <div class="divider"></div>
 
-</main>
+      <!-- Advert -->
+      <%= blog_post_advert(@post.advert_category) %>
+      
+    </section>
+
+  </main>
+
+  </div>

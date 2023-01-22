@@ -71,8 +71,11 @@ class ApplicationController < ActionController::Base
     end
 
     def sync_user
+      if Rails.env.development?
+      else
       return unless user_signed_in?
       ActiveCampaignService.new.contact_sync(current_user)
+      end
     end
 
     # Finds user country and adds correct currency
