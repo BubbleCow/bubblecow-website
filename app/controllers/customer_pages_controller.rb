@@ -74,12 +74,6 @@ class CustomerPagesController < ApplicationController
     @message = Message.new
   end
 
-  def author_platform_audit
-    @page_title = "Author Platform Audit"
-    @page_description = "Professional audit of your author platform." 
-    @message = Message.new
-  end
-
   def book_proposal
     @page_title = "Book Proposal Service"
     @page_description = "Prepare your book for pitching to agents and publishers." 
