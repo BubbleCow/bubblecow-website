@@ -1,6 +1,6 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit, :book_proposal] 
+  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit, :book_proposal, :copy_editing] 
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   layout :set_template
   
@@ -80,6 +80,13 @@ class CustomerPagesController < ApplicationController
     @message = Message.new
   end
   
+  def copy_editing
+    @page_title = "Copy Editing"
+    @page_description = "Bringing Clarity and Precision to Your Words" 
+    @keyword = "copy editing"
+    @message = Message.new
+  end
+  
 
   private
 
@@ -87,7 +94,7 @@ class CustomerPagesController < ApplicationController
     case action_name
     when 'index', 'book_editing_portal'
       'unformatted_page'
-    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit', 'book_proposal'
+    when 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit', 'book_proposal', 'copy_editing'
       'full_width'
     else
       'application'
@@ -121,6 +128,10 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_cost = "20" 
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "10" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
+
       # Cost of mentoring
       @mentoring_cost = "400"
       @mentoring_price = @currency_symbol + @mentoring_cost
@@ -147,6 +158,10 @@ class CustomerPagesController < ApplicationController
       #Cost of developmental editing per 1000 words.
       @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
+
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "12" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
 
       # Cost of mentoring
       @mentoring_cost = "500"
@@ -175,6 +190,10 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "12" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
+
       # Cost of mentoring
       @mentoring_cost = "500"
       @mentoring_price = @currency_symbol + @mentoring_cost
@@ -201,6 +220,10 @@ class CustomerPagesController < ApplicationController
       #Cost of developmental editing per 1000 words.
       @developmental_edit_cost = "35" 
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
+
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "18" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
       
       # Cost of mentoring
       @mentoring_cost = "580"
@@ -228,6 +251,10 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_cost = "35"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "20" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
+
       # Cost of mentoring
       @mentoring_cost = "635"
       @mentoring_price = @currency_symbol + @mentoring_cost
@@ -254,11 +281,15 @@ class CustomerPagesController < ApplicationController
       @developmental_edit_cost = "25"
       @developmental_edit_price = @currency_symbol + @developmental_edit_cost
 
+      #Cost of copys editing per 1000 words.
+      @copy_edit_cost = "12" 
+      @copy_edit_price = @currency_symbol + @copy_edit_cost
+
       # Cost of mentoring
       @mentoring_cost = "500"
       @mentoring_price = @currency_symbol + @mentoring_cost
 
-       # Cost of manuscript assessment
+      # Cost of manuscript assessment
       @manuscript_assessment_cost_upto_20k = "450"
       @manuscript_assessment_cost_upto_40k = "600"
       @manuscript_assessment_cost_upto_60k = "680"
