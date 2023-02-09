@@ -269,11 +269,10 @@ Rails.application.routes.draw do
   get "/editing/tracked-changes/", to: redirect("/book-editing")
   get "/book-services/", to: redirect("/book-editing")
   get "/developmental-edit-submission/", to: redirect("/book-editing")
-  get "/proofreading", to: redirect("/book-editing")
-  get "/professional-copy-editing", to: redirect("/book-editing")
-  get "/proof_reading_your_book.html", to: redirect("/book-editing")
-  get "/copy-editing/", to: redirect("/book-editing")
-  get "/proofreading_cn", to: redirect("/book-editing")
+  get "/proofreading", to: redirect("/copy-editing")
+  get "/professional-copy-editing", to: redirect("/copy-editing")
+  get "/proof_reading_your_book.html", to: redirect("/copy-editing")
+  get "/proofreading_cn", to: redirect("/copy-editing")
   get "/book_submission_form.php", to: redirect("/book-editing")
   get "/bubblecow_services_for_writers.html", to: redirect("/book-editing")
   get "/bubblecow-services/", to: redirect("/book-editing")
@@ -1066,6 +1065,7 @@ Rails.application.routes.draw do
   get 'privacy-policy', to: 'customer_pages#privacy_policy'
   get 'may-2022-giveaway', to: 'customer_pages#may_2022_giveaway'
   get 'book-proposal', to: 'customer_pages#book_proposal'
+  get 'copy-editing', to: 'customer_pages#copy_editing'
 
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
