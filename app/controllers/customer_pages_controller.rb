@@ -42,7 +42,7 @@ class CustomerPagesController < ApplicationController
   end
 
   def mentoring
-    @page_title = "Mentoring"
+    @page_title = "Book Mentoring"
     @page_description = "One-to-one professional mentoring for writers." 
     @message = Message.new
   end
@@ -75,13 +75,13 @@ class CustomerPagesController < ApplicationController
   end
 
   def book_proposal
-    @page_title = "Book Proposal Service"
+    @page_title = "Book Proposal Services"
     @page_description = "Prepare your book for pitching to agents and publishers." 
     @message = Message.new
   end
   
   def copy_editing
-    @page_title = "Copy Editing"
+    @page_title = "Copy Editing Services For Authors"
     @page_description = "Bringing Clarity and Precision to Your Words" 
     @keyword = "copy editing"
     @message = Message.new
