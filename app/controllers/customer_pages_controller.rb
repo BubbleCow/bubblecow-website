@@ -48,7 +48,7 @@ class CustomerPagesController < ApplicationController
   end
 
   def manuscript_assessment
-    @page_title = "Affordable Manuscript Assessmet"
+    @page_title = "Affordable Manuscript Assessment"
     @page_description = "Give your manuscript the best chance of succeeding with detailed editorial feedback from a professional book editor." 
     @message = Message.new
   end
