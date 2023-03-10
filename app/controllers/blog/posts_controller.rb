@@ -89,10 +89,8 @@ module Blog
       
       def set_template
         case action_name
-        when 'index'
-          'unformatted_page'
         when 'edit', 'new'
-            'backend_blog'
+            'full_width'
         else
             'application'
         end

@@ -1,10 +1,18 @@
-<h1></strong> <%= @message.sender_name %></h1>
+<section class="page-header">
+    <h1></strong> <%= @message.sender_name %></h1>
+</section>
 
-<div class="box">
+<section class="page-body">
 
-    <p><strong>Email: </strong><%= @message.sender_email %></p>
-    <%= @message.content %>
+    <div class="box">
 
-    <%= message_status_actions(@message) %>
+        <p><strong>Email: </strong><%= @message.sender_email %></p>
+        <%= @message.content %>
 
-</div>
+        <%= message_status_actions(@message) %>
+
+    </div>
+
+
+</section>
+

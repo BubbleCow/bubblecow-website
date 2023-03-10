@@ -6,74 +6,107 @@
     </div>
 </div>
 
-<div class="container">
-
-    <!-- Benefits -->
-    <div class="row justify-content-center section-spacer">
+<!-- Four column layout -->
+<div class="row mb-3">
+  
+    <div class="col-sm-6 col-md-6 col-lg-3">
 
         <!-- Manuscript Assessment -->
-        <div class="col-sm-4">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title pb-2 text-center">Manuscript Assessment</h2>
-                    <p class="card-text text-center">This service provides:</p> 
-                    <ul>
-                        <li>Affordable editing.</li>
-                        <li>Multi-page editor's report.</li>
-                        <li>Fast turnaround.</li> 
-                    </ul> 
-                    <div class="d-grid gap-2 pt-2">
-                        <%= link_to "Find out more...", manuscript_assessment_path , class: "btn btn-lg btn-outline-primary" %>   
-                    </div>       
-                </div>
-            </div>
-        </div>
-        
-        <!-- book editing -->
-        <div class="col-sm-4">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title pb-2 text-center">Developmental <br> Editing</h2>
-                    <p class="card-text text-center">This service provides:</p> 
-                    <ul>
-                        <li>Developmental and line editing.</li>
-                        <li>Multi-page editor's report.</li>
-                        <li>Prompt 28-day turnaround.</li> 
-                    </ul> 
-                    <div class="d-grid gap-2 pt-2">
-                        <%= link_to "Find out more...", developmental_editing_path , class: "btn btn-lg btn-outline-primary" %>   
-                    </div>       
-                </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <h2 class="card-title text-center">Manuscript</br> Assessment</h2>
+                <p class="card-text">Holistic assessment for authors looking to discover what's wrong with their book.</p>
+                <ul>
+                    <li>Comprehensive content editing.</li>
+                    <li>Multi-page editor's report.</li>
+                    <li>Fast turnaround.</li> 
+                    <li>Affordable pricing.</li>
+                </ul> 
+
+                <div class="d-grid gap-2 pt-2">
+                    <%= link_to "Find out more...", manuscript_assessment_path , class: "btn btn-outline-primary" %>   
+                </div>  
             </div>
         </div>
 
-        <!-- Mentoring -->
-        <div class="col-sm-4">
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title pb-2 text-center">Mentoring for </br> Writers</h2>
-                    <p class="card-text text-center">This service provides:</p> 
-                    <ul>
-                        <li>Learn to write better books.</li>
-                        <li>One-to-one expert support.</li>
-                        <li>No long-term contract.</li>
-                    </ul>             
-                    <div class="d-grid gap-2 pt-2">
-                        <%= link_to "Find out more...", mentoring_path , class: "btn btn-lg btn-outline-primary" %>   
-                    </div> 
-                </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-3">
+
+        <!-- Developmental Editing -->
+        <div class="card mb-2">
+            <div class="card-body">
+                <h2 class="card-title text-center">Developmental</br> Editing</h2>
+                <p class="card-text">Publisher standard feedback for authors preparing their books for publication.</p>
+                <ul>
+                    <li>Developmental editing.</li>
+                    <li>Combined line editing.</li>
+                    <li>Comprehensive editor's report.</li>
+                    <li>$20 per 1000 words.</li> 
+                </ul> 
+
+                <div class="d-grid gap-2 pt-2">
+                    <%= link_to "Find out more...", developmental_editing_path , class: "btn btn-outline-primary" %>   
+                </div> 
             </div>
         </div>
-    
+
     </div>
 
 
+    <div class="col-sm-6 col-md-6 col-lg-3">
+
+        <!-- Copy Editing -->
+        <div class="card mb-2">
+            <div class="card-body">
+                <h2 class="card-title text-center">Copy</br> Editing</h2>
+                <p class="card-text">Insanely detailed professional feedback for authors ready to publish their manuscript.</p>
+                <ul>
+                    <li>Copy editing.</li>
+                    <li>Detailed editor's report.</li>
+                    <li>Fast turnaround.</li>
+                    <li>$10 per 1000 words.</li> 
+                </ul> 
+
+                <div class="d-grid gap-2 pt-2">
+                    <%= link_to "Find out more...", copy_editing_path , class: "btn btn-outline-primary" %>   
+                </div>  
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-3">
+
+        <!-- Mentoring -->
+        <div class="card mb-2">
+            <div class="card-body">
+                <h2 class="card-title text-center">Author</br> Mentoring</h2>
+                <p class="card-text">One-to-one professional support and guidence for writers wanting write a book.</p>
+                <ul>
+                    <li>Developmental editing.</li>
+                    <li>Combined line editing.</li>
+                    <li>Comprehensive editor's report.</li>
+                    <li>No long term contract.</li> 
+                </ul> 
+
+                <div class="d-grid gap-2 pt-2">
+                    <%= link_to "Find out more...", mentoring_path , class: "btn btn-outline-primary" %>   
+                </div>  
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+   
     <!-- BubbleCow text -->
     <section class="explanation">
 
         <div class="row justify-content-md-center section-spacer">
 
-            <div class="col-lg-8 mt-2">
+            <div class="col-sm col-lg-6">
             
                 <div class="explanation-text">
                     <h2 class="index-subtitle pb-2">Why BubbleCow?</h2>
@@ -91,12 +124,15 @@
 
     </section>
 
+
+
+
     <!-- Testimonials -->
     <section class="index-testimonials">
 
         <div class="row section-spacer">
 
-            <div class="col-lg-4">
+            <div class="col-sm-4">
 
                 <div class="card mt-2">
                     <%= image_tag 'banished-love', class: 'card-img-top', alt: 'Banished Love by Ramona Flightner', size: "414x621" %>
@@ -108,7 +144,7 @@
 
             </div>
 
-            <div class="col-lg-4 mt-2">
+            <div class="col-sm-4 mt-2">
 
                 <div class="card">
                     <%= image_tag 'taste-of-emotions', class: 'card-img-top', alt: 'Taste of Emotions by David Papini', size: "414x621" %>
@@ -120,7 +156,7 @@
 
             </div>
             
-            <div class="col-lg-4 mt-2">
+            <div class="col-sm-4 mt-2">
 
                 <div class="card">
                     <%= image_tag 'stand-and-deliver', class: 'card-img-top', alt: 'Stand and Deliver! by Ian Nichol', size: "414x621" %>
@@ -161,7 +197,7 @@
         <div class="row justify-content-md-center section-spacer">
 
 
-            <div class="col-lg-8 mt-2">
+            <div class="col-sm col-lg-6 mt-2">
             
                 <div class="explanation-text">
                     <h2 class="index-subtitle pb-2">What is Manuscript Assessment?</h2>
@@ -185,7 +221,11 @@
 
             </div>
 
-            <div class="col-lg-8 mt-2">
+        </div>
+        
+        <div class="row justify-content-md-center section-spacer">
+
+            <div class="col-sm col-lg-6 mt-2">
             
                 <div class="explanation-text">
                     <h2 class="index-subtitle pb-2">What is Book Editing?</h2>
@@ -204,7 +244,11 @@
 
             </div>
 
-            <div class="col-lg-8 mt-2">
+        </div>
+        
+        <div class="row justify-content-md-center section-spacer">
+
+            <div class="col-sm col-lg-6 mt-2">
             
                 <div class="explanation-text">
                     <h2 class="index-subtitle pb-2">What is Mentoring?</h2>
@@ -220,7 +264,11 @@
 
             </div>
 
-            <div class="col-lg-8 mt-2">
+        </div>
+        
+        <div class="row justify-content-md-center section-spacer">
+
+            <div class="col-sm col-lg-6 mt-2">
             
                 <div class="explanation-text">
 
@@ -259,7 +307,7 @@
 
 
 
-</div>
+
 
 
 

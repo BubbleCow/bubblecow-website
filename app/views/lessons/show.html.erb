@@ -1,33 +1,41 @@
-<div class="header">
+<section class="page-header">
   <h1><%= @course.title.titleize %></h1>
   <hr>
   <h2><%= @lesson.title.titleize %></h2>
-</div>
+</section>
 
-<%= lessson_content(@lesson) %>
+<section class="page-body">
+
+  <!-- Lesson content -->
+  <%= lessson_content(@lesson) %>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to @course.title.titleize, course_path(@course) %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @lesson.title.titleize %></li>
+    </ol>
+  </nav>
 
 
-<!-- Breadcrumb -->
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to @course.title.titleize, course_path(@course) %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @lesson.title.titleize %></li>
-  </ol>
-</nav>
+  <div class="lesson-buttons">
 
+    <div class="left-button">
+      <% if @previous_lesson.present? %>
+        <%= link_to 'Previous Lesson', course_lesson_path(@lesson.course, @previous_lesson), class: "btn btn-outline-primary" %>
+      <% end %>
+    </div>
 
-<div class="lesson-buttons">
+    <div class="right-button">
+      <% if @next_lesson.present? %>
+        <%= link_to 'Next Lesson', course_lesson_path(@lesson.course, @next_lesson), class: "btn btn-primary" %>
+      <% end %>
+    </div>
 
-  <div class="left-button">
-    <% if @previous_lesson.present? %>
-      <%= link_to 'Previous Lesson', course_lesson_path(@lesson.course, @previous_lesson), class: "btn btn-outline-primary" %>
-    <% end %>
   </div>
 
-  <div class="right-button">
-    <% if @next_lesson.present? %>
-      <%= link_to 'Next Lesson', course_lesson_path(@lesson.course, @next_lesson), class: "btn btn-primary" %>
-    <% end %>
-  </div>
+</section>
 
-</div>
+
+
+

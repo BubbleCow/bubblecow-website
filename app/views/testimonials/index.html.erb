@@ -1,8 +1,8 @@
-<div class="header">
+<section class="page-header">
   <h1>Testimonials</h1>
-</div>
+</section>
 
-<div class="body">
+<section class="page-body">
  <% if current_user.try(:admin?) %>
   <p><%= link_to "Add testimonial", new_testimonial_path %></p>
  <% end %>
@@ -19,4 +19,5 @@
         </div>
       </div>
   <% end %>
-</div>
+  
+</section>

@@ -1,7 +1,6 @@
 module Blog
   class PostAuthorsController < Blog::ApplicationController
     before_action :set_post_author, only: [:show, :edit, :update, :destroy]
-    layout "backend"
 
     def index
       @post_authors = PostAuthor.all

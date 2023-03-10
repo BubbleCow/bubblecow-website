@@ -2,7 +2,6 @@ module Services
   
   class ServicePricesController < Services::ApplicationController
     before_action :set_service_price, only: [:show, :edit, :update, :destroy]
-    layout 'backend'
 
     def index
         @service_prices = ServicePrice.all
