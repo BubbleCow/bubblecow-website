@@ -3,7 +3,6 @@ module Services
   class SampleDevelopmentalEditsController < Services::ApplicationController
     before_action :set_sample_developmental_edit, only: [:show, :edit, :update, :destroy]
     before_action :set_service_price, only: [:new, :edit, :update]
-    layout 'backend'
 
     def index
       @sample_developmental_edits = SampleDevelopmentalEdit.all

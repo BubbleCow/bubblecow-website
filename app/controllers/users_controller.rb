@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :update]
-  layout :set_template
 
     def index 
       @page_title = "Users"
@@ -59,14 +58,6 @@ class UsersController < ApplicationController
       @unprocessed_developmental_edits = DevelopmentalEdit.developmental_edit_submitted
       @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
     end
-      
-    def set_template
-      case action_name
-      when 'show', 'index'
-          'backend'
-      else
-          'application'
-      end
-    end
+    
 
 end

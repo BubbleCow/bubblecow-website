@@ -6,175 +6,182 @@
         <div class="col-lg-6 mx-auto">
             <p class="sub-title mb-4">Get professional guidance to become a better writer</p>
         </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <%= link_to "Get Started", mentoring_path(anchor: "item-mentoring-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+            <%= link_to "Find out cost", mentoring_path(anchor: "item-mentoring-cost"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+        </div>
     </header>
 
-    <div class="container">
+<div data-spy="scroll" data-target="#toc" data-offset="0">
 
-        <!-- Information pannels -->
-        <section class="pannels">
-
-            <div class="row justify-content-md-center">
-
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title">Better quality book</h2>
-                            <p class="card-text">Our professional mentor will work with you one-on-one to help you to lift your book to a publishable standard. </p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title">Learn from experts</h2>
-                            <p class="card-text">Get professional guidance and become the best writer possible. Your mentor will give you the tools you need to be successful.</p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title">Don’t write alone</h2>
-                            <p class="card-text">A mentor will be with you each step of the process. Mentoring is a partnership but you will remain in control.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Three column layout - benefits -->
+    <div class="row mb-3">
     
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Better quality book</h2>
+                    <p class="card-text">Our professional mentor will work with you one-on-one to help you to lift your book to a publishable standard. </p> 
+                </div>
             </div>
 
-        </section>
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Learn from experts</h2>
+                    <p class="card-text">Get professional guidance and become the best writer possible. Your mentor will give you the tools you need to be successful.</p> 
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Don’t write alone</h2>
+                    <p class="card-text">A mentor will be with you each step of the process. Mentoring is a partnership but you will remain in control.</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
+</div>
 
-    <div class="container">
+<!-- single column - toc -->
+<div class="row justify-content-md-center section-spacer">
 
-        <!-- CTA -->
-        <section class="cta-form">
+    <div class="col-sm col-lg-6">
 
-            <div class="row justify-content-md-center">
-                <div class="col-lg-8">
-
-                    <p class="lead">Complete the form to get started...</p> 
-
-                    <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
-
-                        <div class="card">
-                            <div class="card-body">
-
-                                <div class="mb-3">
-                                    <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?", required: true %>
-                                </div>
-
-                                <div class="mb-3">
-                                    <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?", required: true %>
-                                </div>
-
-                                <div class="trix-content">
-                                <p class="mb-2">Tell us a bit about you and your book...</p>
-                                    <%= form.rich_text_area :content, class: 'form-control' %>
-                                </div>
-
-                                <%= form.hidden_field :source, value: "Mentoring" %>
-
-                                <div class="form-group">
-                                    <div class="d-grid gap-2 my-4">
-                                        <button type="submit" class="btn btn-block btn-primary">Get in touch and find out more...</button>
-                                    </div>
-                                </div>
-                            
-                            </div>
-                        </div>
-
-                    <% end %>
-
-
-                </div>
+        <div class="toc card bg-light" id="toc">
+            <p class="card-header"><strong>Table of Contents</strong></p>
+            <div class="card-body">
+                <ul>
+                    <li><a href="#item-what-is-mentoring">What is Mentoring?</a></li>
+                    <li><a href="#item-mentoring-cost">Mentoring Cost</a></li>
+                    <li><a href="#item-mentoring-submission">Mentoring Submission</a></li>
+                    <li><a href="#item-mentoring-process">The Process</a></li>
+                    <li><a href="#item-mentoring-editorial-feedback">Editorial Feedback</a></li>
+                    <li><a href="#item-mentoring-FAQ">Frequently Asked Questions</a></li>
+                </ul>
             </div>
+        </div>
+            
+    </div>
 
-        </section>
+</div>
+
+<!-- single column - what is mentoring -->
+<div class="row justify-content-md-center section-spacer">
+
+    <div class="col-sm col-lg-6">
+
+        <h2 id="item-what-is-mentoring">What is Mentoring?</h2>
+        <p>Mentoring for writers is the process of partnering with an experienced professional writer, editor, and mentor to help lift your book to a publishable standard.</p>
+        <p>You will work closely with your mentor to make your book the best it can be.</p>
+        <p>The goal of working with a writing mentor is to develop a long-term professional relationship with someone that has the knowledge and commitment to help you lift your book to the next level.</p>
+        <p>Not only will your mentor provide you with the skill and guidance needed to be a success, but they will also provide you with the knowledge needed to publish with confidence.</p> 
+        <p>We understand that budgets can be tight for writers, so we have developed an approach to mentoring that is <strong>cost-effective, personal, and professional</strong>. It will give you the maximum amount of long-term benefit for your investment. </p>
 
     </div>
 
-    <!-- Information -->
-    <section class="information background">
+</div>
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
+<!-- single column - cost -->
+<div class="row justify-content-md-center section-spacer">
 
-                    <h2>What is Mentoring?</h2>
-                    <p>Mentoring for writers is the process of partnering with an experienced professional writer, editor, and mentor to help lift your book to a publishable standard.</p>
-                    <p>You will work closely with your mentor to make your book the best it can be.</p>
-                    <p>The goal of working with a writing mentor is to develop a long-term professional relationship with someone that has the knowledge and commitment to help you lift your book to the next level.</p>
-                    <p>Not only will your mentor provide you with the skill and guidance needed to be a success, but they will also provide you with the knowledge needed to publish with confidence.</p> 
-                    <p>We understand that budgets can be tight for writers, so we have developed an approach to mentoring that is <strong>cost-effective, personal, and professional</strong>. It will give you the maximum amount of long-term benefit for your investment. </p>
- 
-                </div>
-            </div>
-        </div>
+    <div class="col-sm col-lg-6">
 
-    </section>
+        <h2 id="item-mentoring-cost">Mentoring Cost</h2>
+        <p class="lead">The cost of mentoring is <%= @mentoring_price %> per submission.</p>
+        <p>This fee covers the complete service and there are no hidden extras.</p>
+        <p>When you are ready to proceed, you will be sent an invoice with a link to our secure PayPal server. You don't need a PayPal account and you can use any major credit or debit card to make payment.
 
-    <!-- Cost -->
-    <section class="information">
+    </div>
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
+</div>
 
-                    <h2>Mentoring Cost</h2>
-                    <p class="lead">The cost of mentoring is <%= @mentoring_price %> per submission.</p>
-                    <p>This fee covers the complete service and there are no hidden extras.</p>
-                    <p>When you are ready to proceed, you will be sent an invoice with a link to our secure PayPal server. You don't need a PayPal account and you can use any major credit or debit card to make payment.
-  
-                </div>
-            </div>
-        </div>
+<!-- single column - submission -->
+<div class="row justify-content-md-center section-spacer">
 
-    </section>
+    <div class="col-sm col-lg-6">
 
-    <!-- Testimonials -->
-    <section class="information testimonial-background">
+        <p id="item-mentoring-submission">Complete the form to get started...</p> 
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-sm-6">
+        <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
 
-                    <div class="card mb-3 mb-sm-0">
-                        <div class="card-body">
-                            <p>"This is the first novel I have had professionally edited and I was nervous of sending in my manuscript, wondering what kind of response I would receive. My fears vanished, however, when I found Bubblecow to be so supportive. I felt that they were on my side.   just delight at reading so many positive comments and a great deal of constructive, insightful suggestions. I would highly recommend Bubblecow and have another novel lined up to send them."</p> 
-                            <p>Jax Burrows, author of muliple acclaimed novels <a href="https://www.amazon.co.uk/Jax-Burrows/e/B01N22UA2Q%3Fref=dbs_a_mng_rwt_scns_share"></a>.</p>
-                            
-                            <div class="d-grid gap-2">
-                                <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                                    Read <%= @testimonial_count %> more testimonials
-                                <% end %>
-                            </div>
+            <div class="card">
+                <div class="card-body">
 
-                        </div>
+                    <div class="mb-3">
+                        <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?", required: true %>
                     </div>
 
-                </div>
+                    <div class="mb-3">
+                        <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?", required: true %>
+                    </div>
 
-                <div class="col-sm-4">
-                    <img src="https://bubblecow.com/assets/jax-burrows" alt="jax burrows" class="post-media img-fluid rounded mx-auto d-block" width="200" height="200">
+                    <div class="trix-content">
+                    <p class="mb-2">Tell us a bit about you and your book...</p>
+                        <%= form.rich_text_area :content, class: 'form-control' %>
+                    </div>
+
+                    <%= form.hidden_field :source, value: "Mentoring" %>
+
+                    <div class="form-group">
+                        <div class="d-grid gap-2 my-4">
+                            <button type="submit" class="btn btn-block btn-primary">Get in touch and find out more...</button>
+                        </div>
+                    </div>
+                
                 </div>
             </div>
-        </div>
 
-    </section>
+        <% end %>
 
-    <!-- Information -->
-    <section class="information">
+    </div>
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
+</div>
 
-                    <h2>The Process</h2>
+<!-- Two column layout - testimonial -->
+<div class="row justify-content-sm-center section-spacer">
+
+    <div class="col-sm-4 mt-2">
+        <img src="https://bubblecow.com/assets/jax-burrows" alt="jax burrows" class="post-media img-fluid rounded mx-auto d-block" width="200" height="200">   
+    </div>
+
+    <div class="col-sm-6 mt-2">
+
+`        <div class="card mb-3 mb-sm-0">
+            <div class="card-body">
+                <p>"This is the first novel I have had professionally edited and I was nervous of sending in my manuscript, wondering what kind of response I would receive. My fears vanished, however, when I found Bubblecow to be so supportive. I felt that they were on my side.   just delight at reading so many positive comments and a great deal of constructive, insightful suggestions. I would highly recommend Bubblecow and have another novel lined up to send them."</p> 
+                <p>Jax Burrows, author of muliple acclaimed novels <a href="https://www.amazon.co.uk/Jax-Burrows/e/B01N22UA2Q%3Fref=dbs_a_mng_rwt_scns_share"></a>.</p>
+            
+                <div class="d-grid gap-2">
+                    <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                        Read <%= @testimonial_count %> more testimonials
+                    <% end %>
+                </div>
+
+            </div>
+        </div>`
+
+    </div>
+
+</div>
+
+<!-- single column - the process -->
+<div class="row justify-content-md-center section-spacer">
+
+    <div class="col-sm col-lg-6">
+
+        <h2 id="item-mentoring-process">The Process</h2>
                     <p>Mentoring is carried out in 15,000 word ‘chunks’.</p>
                     <p>There’s no contract and no commitment beyond each 15,000 word chunk. You only pay for what you submit.</p> 
                     <p>This means that you are never tied into an expensive long-term contract. Unlike other companies, we are not expecting you to commit to paying thousands before you have any inclination as to whether the process is correct for you and your book.</p> 
@@ -207,28 +214,25 @@
                     <p>On the date and time agreed, you will virtually meet with your mentor to discuss your feedback.</p> 
                     <p>This is a collaborative meeting in which the mentor will have key topics they wish to discuss. However, you are free to enter into discussion about any aspect of your book, the writing process or even eventual publication.</p> 
 
-                    <h4>Step 6 - Repeat</h4>
+                    <h3>Step 6 - Repeat</h3>
                     <p>Once you have received your feedback, and had your meeting with your mentor, then you are set for the next step. </p>
                     <p>To move forward, you will be given the time you need to implement any lessons you have learned or make changes you feel are important.</p> 
                     <p>To continue the mentoring process, simply submit the next 15,000 words, and the process restarts. If you wish, you can resubmit a previously submitted extract, though this is only recommended if you have made significant alterations. </p>
                     <p>Your relationship with your mentor has no fixed limits and can extend for as long a period of time as you wish, allowing you to submit as many 15,000 word ‘chunks’ as you need. </p>
                     <p>You remain in control at all points, and you can fit the process around your writing goals and budget.</p>
 
-                </div>
-            </div>
-        </div>
-
-    </section>
 
 
-    <!-- The Process -->
-    <section class="information background">
+    </div>
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
+</div>
 
-                    <h2>Editorial Feedback</h2>
+<!-- single column - feedback -->
+<div class="row justify-content-md-center section-spacer">
+
+    <div class="col-sm col-lg-6">
+
+        <h2 id="item-mentoring-editorial-feedback">Editorial Feedback</h2>
                     <p>The role of the mentor is to help you lift your book to the next level, ensuring it is the best it can be.</p>
                     <p>Unlike other types of feedback, the type of editing provided by a mentor is more about the mentor’s education, experience, and gut feeling than following a pre-written manual of instructions.</p>
                     <p>This means that the mentor’s skill is critical. However, to ensure that we approach every book in the same way, our mentors apply several questions to each book that they edit.</p>
@@ -261,7 +265,7 @@
                         <li>If included, are all footnotes or endnotes correctly presented and formatted?</li>
                     </ul>
 
-                    <h3 id="item-6">Embedded Comments</h3>
+                    <h3>Embedded Comments</h3>
                     <p>When editing your book, your mentor will constantly be applying the questions above and will have a collection of thoughts and suggestions that will improve your manuscript.</p>
                     <p>We fundamentally believe that our role is to guide and suggest but the control of the final changes should always remain with the writer. After all, you have the clearest vision for your book.</p>
                     <p>One way that we communicate our thoughts and feelings on your book is by the use of embedded comments.</p>
@@ -269,12 +273,12 @@
                     <p>These 'comments' are part of Word's editing tools and they will appear automatically when you open up the edited manuscript. If not, then it is just a simple matter of changing one of the settings in Word. This is easy to do.</p>
                     <p>There are no 'rules' as to what we will and will not include, and it changes with each writer and each book. However, we see these comments as a way to start a 'dialogue' with the writer. They are our way of highlighting a small section of the book and suggesting what might be wrong and what you need to do to improve that section.</p>
 
-                    <h3 id="item-7">Editor's Report</h3></p>
+                    <h3>Editor's Report</h3></p>
                     <p>In addition to embedded comments, you will also receive an editor’s report. This document will be your mentor’s thoughts on your book.</p>
                     <p>It is a broad overview of the key issues and will act as a ‘jumping off point’ when you come to consider the changes to apply to your book.</p>
                     <p>The report will highlight any key issues that have surfaced during the edit. The mentor will explain why they feel that the issue needs addressing, provide examples of where the issue is a problem (often in conjunction with the embedded comments within the manuscript), and then provide at least one solution that can be applied to fix the problem.</p>
 
-                    <h3 id="item-8">One to One Meeting</h3>
+                    <h3>One to One Meeting</h3>
                     <p>The manuscript and editor’s report will give you a clear indication of what is wrong with your book and what you need to do to fix any problems. This feedback is supported by an hour-long, one-to-one mentoring session. </p>
                     <p>This will take place either via video conference (Zoom or Skype) or via telephone. </p>
                     <p>In the meeting, your mentor will address all of the key feedback, providing detailed explanations as to what they think is wrong and what you can do to fix any issues. </p>
@@ -282,132 +286,99 @@
 
               
 
+    </div>
+
+</div>
+
+<!-- single column - FAQ -->
+<div class="row justify-content-md-center section-spacer">
+
+    <div class="col-sm col-lg-6">
+
+        <h2 id="item-mentoring-FAQ">Frequently Asked Questions</h2>
+
+        <div itemscope itemtype="https://schema.org/FAQPage" class="faq">
+
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Do you accept all books?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>No, but we accept most fiction genres and all major nonfiction genres. In fact, we
+                    say yes to about 75% of the books that are submitted.</p>
+                <p>Our goal is to add maximum value to writers. However, for this to happen we have to be the correct
+                    editors for your book. </p>
+                <p>The most common reason we will reject a book is that the book is not far enough down the writing
+                    process for a <%= @keyword %> edit to be of maximum value.</p>
+                <p>For example, if a book is at the ‘first draft’ stage and contains many very simple errors, we will
+                    say
+                    no. If a book’s formatting and structure are non-existent (e.g. it has no paragraphs) we will also say
+                    no. If the book sentence structure is ‘unusual’ (most common when English is not the writer’s first
+                    language), we will reject the manuscript with the suggestion that further 'low level’ editorial work
+                    is
+                    applied before it is ready for a <%= @keyword %> edit.</p>
+                <p>The second most common reason we say no to a book is that we don’t have the editorial experience for
+                    the genre.</p>
+                <p>We pride ourselves on both having experience in editing and deep genre knowledge. We spend a lot of
+                    time talking to writers, publishers and agents and have a good understanding of what the current
+                    trends
+                    in the marketplace look like.</p>
+                <p>This means that if your book is not within a genre in which we specialize, we are not the best people
+                    for the job.</p>
+                <p>We DON’T accept:</p>
+                <ul>
+                    <li>Poetry.</li>
+                    <li>Short stories.</li>
+                    <li>Cookbooks.</li>
+                    <li>Highly technical non-fiction.</li>
+                    <li>Children's picture books.</li>
+                </ul>
+                <p>If you are not sure if we will accept your book’s genre, just email and ask.</p>
+                </div>
                 </div>
             </div>
-        </div>
 
-    </section>
-
-
-    <!-- FAQ -->
-    <section class="information">
-
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
-
-                             <!-- FAQ -->
-          <h2 class="book-editing-subtitle" id="item-9">Commonly Asked Questions</h2>
-          <p>Below are some of the most commonly asked questions we get from writers. If you have a question, please email <%= mail_to "gary@bubblecow.com" %>.</p>
-
-          <!-- Accordian start -->
-          <div class="accordion" id="accordionExample">
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Do you accept all books?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                        <p>No, but we accept most fiction genres and all major nonfiction genres. In fact, we
-                            say yes to about 75% of the books that are submitted.</p>
-                        <p>Our goal is to add maximum value to writers. However, for this to happen we have to be the correct
-                            editors for your book. </p>
-                        <p>The most common reason we will reject a book is that the book is not far enough down the writing
-                            process for a <%= @keyword %> edit to be of maximum value.</p>
-                        <p>For example, if a book is at the ‘first draft’ stage and contains many very simple errors, we will
-                            say
-                            no. If a book’s formatting and structure are non-existent (e.g. it has no paragraphs) we will also say
-                            no. If the book sentence structure is ‘unusual’ (most common when English is not the writer’s first
-                            language), we will reject the manuscript with the suggestion that further 'low level’ editorial work
-                            is
-                            applied before it is ready for a <%= @keyword %> edit.</p>
-                        <p>The second most common reason we say no to a book is that we don’t have the editorial experience for
-                            the genre.</p>
-                        <p>We pride ourselves on both having experience in editing and deep genre knowledge. We spend a lot of
-                            time talking to writers, publishers and agents and have a good understanding of what the current
-                            trends
-                            in the marketplace look like.</p>
-                        <p>This means that if your book is not within a genre in which we specialize, we are not the best people
-                            for the job.</p>
-                        <p>We DON’T accept:</p>
-                        <ul>
-                            <li>Poetry.</li>
-                            <li>Short stories.</li>
-                            <li>Cookbooks.</li>
-                            <li>Highly technical non-fiction.</li>
-                            <li>Children's picture books.</li>
-                        </ul>
-                        <p>If you are not sure if we will accept your book’s genre, just email and ask.</p>
-                        </div>
-                    </div>
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Can I resubmit 15,000 words that have already been edited?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>You are free to resubmit edited work if you feel that it will add additional value. The writer/mentor relationship is often a long-term working arrangement, and it can sometimes be beneficial for one section of a book to be re-edited multiple times.</p> 
+                    <p>The key element is that you are in control at all points. It is important that the mentoring process enhances your creativity and you are able to work on the sections of your book that you feel are most important at any given time.</p> 
+                    <p>The choice of what section to submit next can be discussed with your mentor.</p>
                 </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Can I resubmit 15,000 words that have already been edited?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>You are free to resubmit edited work if you feel that it will add additional value. The writer/mentor relationship is often a long-term working arrangement, and it can sometimes be beneficial for one section of a book to be re-edited multiple times.</p> 
-                            <p>The key element is that you are in control at all points. It is important that the mentoring process enhances your creativity and you are able to work on the sections of your book that you feel are most important at any given time.</p> 
-                            <p>The choice of what section to submit next can be discussed with your mentor.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Can I submit less than 15,000 words?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Each mentoring session is fixed at the same price. If you wish to submit less than 15,000 words, then this is perfectly fine. However, the overall cost remains the same.</p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Can I email the mentor?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Yes, communication with the mentor is an essential part of the process. However, since you will receive an hour-long one-to-one meeting with each submission, this is the best place to discuss any in-depth issues. .</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFive">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Can I talk about issues other than writing in my meeting?
-                        </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                        <p>You are free to use the hour-long meeting in any way you see fit. It is not uncommon for writers to wish to discuss the publishing landscape or wider writing process. However, please be aware that the mentor will have a list of topics that they wish to discuss in each meeting, and if you wish to talk about other topics, it is best to warn your mentor in advance. </p>
-                        </div>
-                    </div>
-                </div>
-
-        </div>
-        <!-- Accordian end -->
-
                 </div>
             </div>
+
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Can I submit less than 15,000 words?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>Each mentoring session is fixed at the same price. If you wish to submit less than 15,000 words, then this is perfectly fine. However, the overall cost remains the same.</p>    
+                </div>
+                </div>
+            </div>
+
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Can I email my mentor?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>Yes, communication with the mentor is an essential part of the process. However, since you will receive an hour-long one-to-one meeting with each submission, this is the best place to discuss any in-depth issues. .</p>
+                </div>
+                </div>
+            </div>
+
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Can I talk about issues other than writing in my meeting?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <p>You are free to use the hour-long meeting in any way you see fit. It is not uncommon for writers to wish to discuss the publishing landscape or wider writing process. However, please be aware that the mentor will have a list of topics that they wish to discuss in each meeting, and if you wish to talk about other topics, it is best to warn your mentor in advance. </p>
+                </div>
+                </div>
+            </div>
+
+
         </div>
 
-    </section>
-
+    </div>
 
 </div>
 

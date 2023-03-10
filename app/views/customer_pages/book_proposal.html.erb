@@ -6,58 +6,131 @@
         <div class="col-lg-6 mx-auto">
             <p class="sub-title mb-4">Create a book pitch that works</p>
         </div>
+
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <%= link_to "Get Started", book_proposal_path(anchor: "item-book-proposal-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+            <%= link_to "Find out cost", book_proposal_path(anchor: "item-book-proposal-cost"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+        </div>
+
     </header>
 
-    <div class="container">
+</div>
 
-        <!-- Information pannels -->
-        <section class="pannels">
+<div data-spy="scroll" data-target="#toc" data-offset="0">
 
-            <div class="row justify-content-md-center">
+    <!-- Three column layout - benefits -->
+    <div class="row mb-3">
 
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title">Query Letter Writing</h2>
-                            <p class="card-text">We will work with you to help you write the perfect query letter for your book proposal, tailored to your book's genre. </p> 
-                        </div>
-                    </div>
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Query Letter Writing</h2>
+                    <p class="card-text">We will work with you to help you write the perfect query letter for your book proposal, tailored to your book's genre. </p> 
                 </div>
-
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title text-center">Developmental Editing</h2>
-                            <p class="card-text">Our detailed developmental editing on the first 15,000 words of your book will lift your book to a publishable standard.</p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mt-2 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h2 class="card-title">Synopsis Creation</h2>
-                            <p class="card-text">Detailed support and guidance for writing a synopsis, which will hook an agent and help make your proposal successful.</p> 
-                        </div>
-                    </div>
-                </div>
-    
             </div>
 
-        </section>
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title text-center">Developmental Editing</h2>
+                    <p class="card-text">Our detailed developmental editing on the first 15,000 words of your book will lift your book to a publishable standard.</p> 
+                </div>
+            </div>  
+
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Synopsis Creation</h2>
+                    <p class="card-text">Detailed support and guidance for writing a synopsis, which will hook an agent and help make your proposal successful.</p> 
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
+    <!-- single column - toc -->
+    <div class="row justify-content-md-center section-spacer">
 
-    <div class="container">
+        <div class="col-sm col-lg-6">
 
-        <!-- CTA -->
-        <section class="cta-form">
+            <div class="toc card bg-light" id="toc">
+                <p class="card-header"><strong>Table of Contents</strong></p>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="#item-why-book-proposal-matters">Why a Book Proposal Matters</a></li>
+                        <li><a href="#item-book-proposal-cost">Book Proposal Cost</a></li>
+                        <li><a href="#item-book-proposal-submission">Book Proposal Submission</a></li>
+                        <li><a href="#item-what-the-book-proposal-includes">What the Book Proposal Includes</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+                
+        </div>
 
-            <div class="row justify-content-md-center">
-                <div class="col-lg-8">
+    </div>
 
-                    <p class="lead">Complete the form to get started...</p> 
+    <!-- single column - why book proposal matters -->
+    <div class="row justify-content-md-center section-spacer">
+    
+        <div class="col-sm col-lg-6">
+        
+            <h2 id="item-why-book-proposal-matters">Why a Book Proposal Matters</h2>
+            <p>We all know that you get just one chance to impress an agent. </p>
+            <p>The problem is that most writers don't understand what an agent is looking for in a good pitch.</p>
+            <p>It's not what you think.</p>
+            <p>You might think a well-written book or a great idea is enough, but it's not. </p>
+            <p>These things are indeed important, but it's only part of the story.</p>
+            <p>When an agent looks at your book proposal, they are looking for a well-written book, with a great idea, in a genre they represent, with enough potential readers to attract a publisher. </p>
+            <p>A good book pitch will present the book so that it ticks as many, if not all, these boxes.</p>
+            <p>When an agent looks at your book proposal, their instinct will be to say no. After all, figures suggest that <a href="https://www.quora.com/On-average-how-many-times-is-a-manuscript-rejected-before-being-accepted-for-publication", target="_blank" >99%</a> of book proposals are rejected.</p>
+            <p>So, what can you do to get into that 1%?</p>
+            <p>The first thing is to ensure that your book is pitched to the right agent in the right genre. I know this sounds silly, but this is one of the most common reasons books are rejected - they are unsuitable for the agent. </p>
+            <p>You might have written the next Harry Potter, but if the genre is not suitable for the agent, they'll say no.</p>
+            <p>Assuming that you have pitched your book correctly, the next obstacle to overcome is to get the agent to read your extract.</p>
+            <p>To do this, you need three things:</p>
+            <ol>
+            <li>A concise query letter that explains where your book fits in the market.</li>
+            <li>A precise synopsis, written in a way that will capture agents. </li>
+            <li>The first 15,000 words of your book professionally prepared to the best possible standard.</li>
+            </ol>
+            <p>Only when you have all three things in place can you hope for a yes.</p>
+            <p>And even then, it will not be a yes; it will be a request to read the entire manuscript, but it's a start on the right path. </p>
+            <p>Our <strong>Book Proposal Service</strong> will not guarantee success, but it will guarantee that your book gets the best chance possible. </p>
+
+
+        </div>
+    
+    </div>
+
+    <!-- single column - cost -->
+    <div class="row justify-content-md-center section-spacer">
+    
+        <div class="col-sm col-lg-6">
+
+            <h2 id="item-book-proposal-cost">Cost</h2>
+            <p class="lead">We charge a flat fee for the Book Proposal Service of <%= @book_proposal_price %>.</p>
+            <p>This fee covers the complete service and there are no hidden extras.</p>
+            <p>When you are ready to proceed, you will be sent an invoice with a link to our secure PayPal server. You don't need a PayPal account and you can use any major credit or debit card to make payment.<p>
+
+        </div>
+    
+    </div>
+
+    <!-- single column - submission -->
+    <div class="row justify-content-md-center section-spacer">
+
+        <div class="col-sm col-lg-6">
+
+        <p id="item-book-proposal-submission">Complete the form to get started...</p> 
 
                     <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
 
@@ -89,127 +162,58 @@
                         </div>
 
                     <% end %>
-
-
-                </div>
-            </div>
-
-        </section>
+        
+        </div>
 
     </div>
 
+    <!-- Two column layout - testimonial -->
+    <div class="row justify-content-sm-center section-spacer">
+    
+        <div class="col-sm-4 mt-2">
+            <%= image_tag("death_count", alt: "SL Beaumont - Death Count", class: "post-media img-fluid rounded mx-auto d-block", size: "180x280")%>
+        </div>
 
-    <!-- Cost -->
-    <section class="information backgroud">
+        <div class="col-sm-6 mt-2">
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
-
-                    <h2>Cost</h2>
-                    <p class="lead">We charge a flat fee for the Book Proposal Service of <%= @book_proposal_price %>.</p>
-                    <p>This fee covers the complete service and there are no hidden extras.</p>
-                    <p>When you are ready to proceed, you will be sent an invoice with a link to our secure PayPal server. You don't need a PayPal account and you can use any major credit or debit card to make payment.<p>
-          
+        <div class="card mb-3 mb-sm-0">
+            <div class="card-body">
+                <p>"This was far the best and easiest editing process that I have been through. Gary’s editing took my book to the next level.</p>
+                <p>I am delighted with the outcome and I will definitely use Bubblecow to edit my next novel. Highly recommended."</p>
+                <p>SL Beaumont, award winner author of the <a href="https://www.slbeaumont.com/"><em>The Kat Munro Thrillers</em></a> series.</p>
+           
+                <div class="d-grid gap-2">
+                    <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                        Read <%= @testimonial_count %> more testimonials
+                    <% end %>
                 </div>
+
             </div>
         </div>
 
-    </section>
-
-    <!-- Information -->
-    <section class="information background">
-
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
-
-                    <h2>Why a Book Proposal Matters</h2>
-                    <p>We all know that you get just one chance to impress an agent. </p>
-                    <p>The problem is that most writers don't understand what an agent is looking for in a good pitch.</p>
-                    <p>It's not what you think.</p>
-                    <p>You might think a well-written book or a great idea is enough, but it's not. </p>
-                    <p>These things are indeed important, but it's only part of the story.</p>
-                    <p>When an agent looks at your book proposal, they are looking for a well-written book, with a great idea, in a genre they represent, with enough potential readers to attract a publisher. </p>
-                    <p>A good book pitch will present the book so that it ticks as many, if not all, these boxes.</p>
-                    <p>When an agent looks at your book proposal, their instinct will be to say no. After all, figures suggest that <a href="https://www.quora.com/On-average-how-many-times-is-a-manuscript-rejected-before-being-accepted-for-publication", target="_blank" >99%</a> of book proposals are rejected.</p>
-                    <p>So, what can you do to get into that 1%?</p>
-                    <p>The first thing is to ensure that your book is pitched to the right agent in the right genre. I know this sounds silly, but this is one of the most common reasons books are rejected - they are unsuitable for the agent. </p>
-                    <p>You might have written the next Harry Potter, but if the genre is not suitable for the agent, they'll say no.</p>
-                    <p>Assuming that you have pitched your book correctly, the next obstacle to overcome is to get the agent to read your extract.</p>
-                    <p>To do this, you need three things:</p>
-                    <ol>
-                    <li>A concise query letter that explains where your book fits in the market.</li>
-                    <li>A precise synopsis, written in a way that will capture agents. </li>
-                    <li>The first 15,000 words of your book professionally prepared to the best possible standard.</li>
-                    </ol>
-                    <p>Only when you have all three things in place can you hope for a yes.</p>
-                    <p>And even then, it will not be a yes; it will be a request to read the entire manuscript, but it's a start on the right path. </p>
-                    <p>Our <strong>Book Proposal Service</strong> will not guarantee success, but it will guarantee that your book gets the best chance possible. </p>
-
-
-
-                </div>
-            </div>
         </div>
 
-    </section>
+    </div>    
 
+    <!-- single column - service -->
+    <div class="row justify-content-md-center section-spacer">
+    
+        <div class="col-sm col-lg-6">
 
-    <!-- Information -->
-    <section class="information">
+            <h2 id="item-what-the-book-proposal-includes">What the Book Proposal Includes</h2>
+            <p>Our service will result in a book proposal package you can confidently submit to agents and publishers. </p>
+            <p>Several steps are required to reach this point. </p>
+            <p>The first step is the submission of your book's opening 15,000 words. Next, we will read this extract and, in collaboration with you, develop a 'pitching strategy'. This strategy will include us determining at least one genre for your book, a place in the market, and a unique selling point to use when contacting agents. </p>
+            <p>Once the strategy is in place, the detailed developmental editing will begin. </p>
+            <p>While the editing takes place, you will be given a comprehensive guide explaining how to write your query letter and synopsis. </p>
+            <p>You will complete these two documents and return them to us for assessment. We will read these closely and, together, fine-tune them to provide the best possible results. </p>
+            <p>Once the edit is complete, it will be returned to you for rewriting. </p>
+            <p>You will be ready to pitch when the extract has been rewritten, the query letter assessed, and the synopsis fine-tuned. </p>
+            <p>While we can't provide a list of agents (each book is different), we will provide close guidance in selecting your first round of agents. We will also explain how to choose future agents interested in your genre. </p>
 
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
-
-                    <h2>What the Service Includes</h2>
-                    <p>Our service will result in a book proposal package you can confidently submit to agents and publishers. </p>
-                    <p>Several steps are required to reach this point. </p>
-                    <p>The first step is the submission of your book's opening 15,000 words. Next, we will read this extract and, in collaboration with you, develop a 'pitching strategy'. This strategy will include us determining at least one genre for your book, a place in the market, and a unique selling point to use when contacting agents. </p>
-                    <p>Once the strategy is in place, the detailed developmental editing will begin. </p>
-                    <p>While the editing takes place, you will be given a comprehensive guide explaining how to write your query letter and synopsis. </p>
-                    <p>You will complete these two documents and return them to us for assessment. We will read these closely and, together, fine-tune them to provide the best possible results. </p>
-                    <p>Once the edit is complete, it will be returned to you for rewriting. </p>
-                    <p>You will be ready to pitch when the extract has been rewritten, the query letter assessed, and the synopsis fine-tuned. </p>
-                    <p>While we can't provide a list of agents (each book is different), we will provide close guidance in selecting your first round of agents. We will also explain how to choose future agents interested in your genre. </p>
-
-                </div>
-            </div>
         </div>
-
-    </section>
-
-    <!-- Testimonials -->
-    <section class="information testimonial-background">
-
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-sm-6">
-
-                    <div class="card mb-3 mb-sm-0">
-                        <div class="card-body">
-                            <p>"This was far the best and easiest editing process that I have been through. Gary’s editing took my book to the next level.</p>
-                            <p>I am delighted with the outcome and I will definitely use Bubblecow to edit my next novel. Highly recommended."</p>
-                            <p>SL Beaumont, award winner author of the <a href="https://www.slbeaumont.com/"><em>The Kat Munro Thrillers</em></a> series.</p>
-                            
-                            <div class="d-grid gap-2">
-                                <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                                    Read <%= @testimonial_count %> more testimonials
-                                <% end %>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-sm-4">
-                    <%= image_tag("death_count", alt: "SL Beaumont - Death Count", class: "post-media img-fluid rounded mx-auto d-block", size: "180x280")%>
-                </div>
-            </div>
-        </div>
-
-    </section>
+    
+    </div>
 
 </div>
+

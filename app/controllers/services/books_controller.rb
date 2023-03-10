@@ -2,7 +2,6 @@ module Services
 
   class BooksController < Services::ApplicationController
     before_action :set_book, only: %i[ show edit update destroy ]
-    layout 'backend'
 
     def index
       if current_user.writer?

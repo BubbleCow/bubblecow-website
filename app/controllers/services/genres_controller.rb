@@ -3,7 +3,6 @@ module Services
   class GenresController < Services::ApplicationController
     skip_before_action :authenticate_user!, only: [:show]
     before_action :set_genre, only: [:show, :edit, :update, :destroy]
-    layout 'backend'
 
     def index
       @genres = Genre.all

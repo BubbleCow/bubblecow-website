@@ -2,7 +2,6 @@ module Services
 
   class DevelopmentalEditsController < Services::ApplicationController
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
-    layout 'backend'
 
     def index
       @developmental_edits = DevelopmentalEdit.all

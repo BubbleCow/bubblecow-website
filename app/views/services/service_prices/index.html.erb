@@ -1,23 +1,29 @@
- <h1>Service Prices</h1>
+<section class="page-header">
+  <h1>Service Prices</h1>
+</section>
 
- <div class="box">
+<section class="page-body">
 
-    <ul>
-      <% @service_prices.each do |price| %>  
-          <li>
-              <%= link_to price.service_type, services_service_price_path(price) %> | 
-              <%= price.currency %> |
-              <%= price.price %> |
+    <div class="box">
 
-              <% if current_user.try(:admin?) %>
-                  [<%= link_to "edit", edit_services_service_price_path(price) %> | 
-                  <%= link_to "delete", services_service_price_path(price), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>]
-              <% end %>
+      <ul>
+        <% @service_prices.each do |price| %>  
+            <li>
+                <%= link_to price.service_type, services_service_price_path(price) %> | 
+                <%= price.currency %> |
+                <%= price.price %> |
 
-          </li> 
-      <% end %>
-    <ul>
+                <% if current_user.try(:admin?) %>
+                    [<%= link_to "edit", edit_services_service_price_path(price) %> | 
+                    <%= link_to "delete", services_service_price_path(price), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} %>]
+                <% end %>
 
-  <%= link_to "Add new service price", new_services_service_price_path %>
+            </li> 
+        <% end %>
+      <ul>
 
- </div>
+      <%= link_to "Add new service price", new_services_service_price_path %>
+
+    </div>
+
+</section>

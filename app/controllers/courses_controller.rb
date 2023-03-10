@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
-  layout :set_template
 
   def index
     @courses = Course.all
@@ -60,19 +59,6 @@ class CoursesController < ApplicationController
   end
 
   private
-    
-  
-    def set_template
-      case action_name
-      when 'index'
-        'unformatted_page'
-      when 
-        'full_width'
-      else
-        'application'
-      end
-    end
-
 
     def set_course
       @course = Course.friendly.find(params[:id])

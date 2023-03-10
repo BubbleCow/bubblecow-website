@@ -1,12 +1,85 @@
-/*
+/* 
 
-This is the custom styling for Bootstrap. 
+This is to add all non-bootstrap styling elements. 
+The ethos for the theme is to keep the styling to a minimum. Where possible elements should be repeated. 
+If possible resist creating custom styles. Use either exsisting style or BootStrap. 
 
-Ensure that the @import remains at the bottm of the page. 
+1. Mixins
+2. Colours
+3. Global
+4. Typography
+5. Navbar
+6. Branding
+7. Page Header
+8. Blog
+9. Post
+10. Trix
+11. Devise
+12. Forms
+13. FAQ
+
+APPLICATION TEMPLATE
+This is the default page template and should be used whenever possible.
+
+The main exception is for a yeild that requires a full-width element.
+
+The layout for the page should be:
+
+
+    <section class="page-header">
+        <h1>TITLE</h1>
+    </section>
+
+    <section class="page-body">
+    </section>
+
+FULL WIDTH TENMPLATE
+This is using 'container-fluid' and is a full width template. 
+
+<!-- single column -->
+<div class="row justify-content-md-center section-spacer">
+
+    <div class="col-sm col-lg-6">
+    </div>
+
+</div>
+
+<!-- Three column layout -->
+<div class="row mb-3">
+  
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-4">
+    </div>
+
+</div>
+
+<!-- Four column layout -->
+<div class="row mb-3">
+  
+    <div class="col-sm-6 col-lg-3">
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+    </div>
+
+</div>
+
 
 */
 
-// Mixins
+// 1. MIXINS
+/* These are site wdie mixins. */
 
 @mixin standard-border {
     border: 1px solid rgba(0, 0, 0, .125);
@@ -20,7 +93,8 @@ Ensure that the @import remains at the bottm of the page.
     padding: 1rem;
 }
 
-// COLOURS
+// 2. COLOURS
+/* These are sitewide colours. */
 
 // Primary colours - These should always be considered as the primary colors. Black is to be used very sparingly.
 $pay-blue: #00457C !default;
@@ -52,7 +126,8 @@ $info: $aqua;
 // $warning:    $warning,
 $danger: $plum;
 
-// GLOBAL STYLING
+// 3. GLOBAL
+/* These are elements that affect the whole site and are not specific to one thing. */
 
 body {
     a {
@@ -69,11 +144,19 @@ body {
     margin-bottom: 3rem;
 }
 
-// TYPOGRAPHY
+.remove_top_padding {
+    padding-top: 0rem !important;
+}
+
+.box{
+    @include backend-box();
+}
+
+// 4. TYPOGRAPHY
+/* Everything to do with fonts. */
 
 //Font
 $font-family-base: 'Poppins', sans-serif;
-
 
 h1,
 h2,
@@ -82,62 +165,43 @@ h4,
 h5,
 h6 {
     color: $pay-blue;
+    text-transform: capitalize;
+}
+
+
+h2 {
+    font-size: 1.8rem !important;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem !important;
+}
+
+h4 {
+    font-size: 1.3rem !important;
 }
 
 blockquote {
-    font-size: 1rem;
+    p {
+        font-size: 1rem !important;
+    }
     border-left: solid 2px $sand;
     padding-left: 1rem;
 }
 
-// FORMS 
+// 5. NAVBAR
+/* Styling of the navbar */
 
-form {
-    .input, .button {
-        margin-bottom: 1rem;
-    }
+.navbar {
+    margin-bottom: 0rem;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.05);
+    -webkit-animation: navigation 0.6s;
 }
 
-// TRIX
-
-// Removes attachment from trix 
-.trix-button-group--file-tools {
-    display: none !important;
-}
-
-// Trix bug fix - stop toolbar warp on mobile */
-trix-toolbar .trix-button-row {
-    flex-wrap: wrap;
-}
-
-// Styles hi in posts
-
-.trix-content {
-
-    h1 {
-        font-size: 2rem;
-    }
-}
-
-
-.trix-increased-height {
-    height: 200px !important;
-    max-height: 150px !important;
-      overflow-y: auto !important;
-}
-
-// Reduced size menu */
-
-.small-menu {
-
-    .trix-button-group--history-tools,
-    .trix-button--icon-decrease-nesting-level,
-    .trix-button--icon-increase-nesting-level {
-        display: none !important;
-    }
-}
-
-// BRANDING
+// 6. BRANDING
+/* Elements of BubbleCow branding */
 
 .brand-first-word, .brand-second-word {
     font-family: 'Sansita', sans-serif;
@@ -151,21 +215,80 @@ trix-toolbar .trix-button-row {
     color: $pal-blue;
 }
 
-// HEROES
+// 7. PAGE HEADER
+/* Styling for the page header. */
 
-.hero {
+.page-header {
+    padding-bottom: 2rem;
+}
 
-    h1 {
-        padding-bottom: 1.5rem;
+// 8. BLOG
+/* Styling for the blog page. */
+
+.blog {
+
+    .post {
+        .metadata {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .description {
+            margin-bottom: 1rem;
+        }
     }
 
-    .sub-title {
-        font-size: 1.75rem;
-        padding-bottom: 1rem;
+    .sidebar {
+        .item {
+            margin-bottom: 2rem;
+        }
+    }
+
+}
+
+// 9. BLOG
+/* Styling for the blog post page. */
+.post {
+
+    h1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .metadata {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .advert {
+
+        .divider {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            border-top: 1px solid $sand;
+        }
+        
+        .cover-image {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
     }
 }
 
-// DEVISE
+// 10. TRIX
+
+/* Removes attachment from trix */
+.trix-button-group--file-tools {
+    display: none !important;
+}
+
+/* Trix bug fix - stop toolbar warp on mobile */
+trix-toolbar .trix-button-row {
+    flex-wrap: wrap;
+}
+
+// 11. DEVISE
 
 .devise-form {
     margin-top: 3rem;
@@ -195,113 +318,24 @@ trix-toolbar .trix-button-row {
         }
     }
 }
+// 12. FORMS 
 
-// Messages
-
-.messages {
-    h1 {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-}
-
-// Customer Pages
-
-.customer_pages {
-    
-    h1 {
-        padding-top: 1.5rem;
-    }
-
-}
-
-// Testimonials
-
-.testimonials {
-    h1 {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-}
-
-// BLOG
-
-.blog {
-
-    .post {
-        .metadata {
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-        .description {
-            margin-bottom: 1rem;
-        }
-    }
-
-    .sidebar {
-        .item {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            margin-bottom: 1rem;
-        }
-    }
-
-}
-
-.post {
-
-    h1 {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-
-    .metadata {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .advert {
-
-        .divider {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            border-top: 1px solid $sand;
-        }
-        
-        .cover-image {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-    }
-}
-
-// DEVELOPMENTAL EDITING PAGES
-
-.developmental-editing-page {
-
-    h2 {
+form {
+    .input, .button {
         margin-bottom: 1rem;
     }
-}
 
-// BACKEND
-
-body#backend {
-    min-height: 100%;
-    background-color: #f5f7fa;
-}
-
-.backend-page {
-
-    h1 {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+    .text_area_size_maximum {
+        min-width: 100%;
+        height: 1000px;
     }
+}
 
-    .box{
-        @include backend-box();
+// 13. FAQ
+
+.faq {
+    h3 {
+        font-size: 1.4rem !important;
+        padding-top: 1rem;
     }
 }

@@ -1,50 +1,14 @@
-<main class="page" id="admin-dashboard">
-
+<section class="page-header">
     <h1>Admin Dashboard</h1>
+</section>
 
-    <div class="row pb-3">
-       
-        <div class="col">
-            
-            <!-- Site visits per month -->
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">Number of monthly overall site visits</p>
-                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
-                </div>
-            </div>
+<section class="page-body">
 
-        </div>
-
+<!-- Site visits per month -->
+<div class="card">
+    <div class="card-body">
+        <p class="card-text">Number of monthly overall site visits</p>
+        <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
     </div>
-
-    <div class="row pb-3">
-
-        <div class="col-lg-6">
-
-            <!-- Word Count for Developmental Edits -->
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">Number of Developmental edit words per month </p>
-                    
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Site visits per month -->
-        <div class="col-lg-6">
-
-            <!-- Developmental edit sample conversation rate -->
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">Developmental edit sample conversation rate per month </p>
-                    
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</main>
+</div>
+</section>
