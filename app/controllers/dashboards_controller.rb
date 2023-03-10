@@ -1,6 +1,5 @@
 class DashboardsController < ApplicationController
     before_action :authenticate_user!
-    layout 'backend'
 
     def admin_dashboard
 

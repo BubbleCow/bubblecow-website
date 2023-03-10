@@ -1,23 +1,24 @@
-<main class="blog">
+<section class="page-header">
+    <h1><%= @post_author.name.titleize %> Articles</h1>
+</section>
 
-  <section class="blog-layout">
+<section class="page-body">
+  <div class="row">
 
-    <div class="blog-layout-left">
-
-        <!-- Category title -->
-        <h1><%= @post_author.name.titleize %> Articles</h1>
-
-         <% @post_author.posts.published.each do |post| %>
-          <!-- blog post layout -->
-          <%= render "shared/blog_post_layout", post: post %>
-        <% end %>
+    <div class="col-lg-8  ">
+      <!-- Left column -->
+      <% @post_author.posts.published.each do |post| %>
+       <!-- blog post layout -->
+       <%= render "shared/blog_post_layout", post: post %>
+     <% end %>
     </div>
 
-    <div class="blog-layout-right">
+    <!-- Right column -->
+    <div class="col-lg-4 ">
       <!-- blog sidebar -->
       <%= render "shared/blog_sidebar" %>
     </div>
 
-  </section>
+  </div>
+</section>
 
-</main>

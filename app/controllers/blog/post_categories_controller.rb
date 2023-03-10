@@ -1,7 +1,6 @@
 module Blog
   class PostCategoriesController < Blog::ApplicationController
     before_action :set_post_category, only: [:show, :edit, :update, :destroy]
-    layout "unformatted_page"
 
     def index
       @post_categories = PostCategory.all

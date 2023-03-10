@@ -1,24 +1,27 @@
-<div class="header">
+<section class="page-header">
   <h1><%= @course.title.titleize %></h1>
-</div>
+</section>
 
-<%= course_description(@course) %>
+<section class="page-body">
 
-<div class="card mt-3 shadow p-3 mb-5 bg-body rounded">
+  <%= course_description(@course) %>
 
-  <div class="card-body">
+  <div class="card mt-3 shadow p-3 mb-5 bg-body rounded">
 
-    <h2>Lessons</h2>
+    <div class="card-body">
 
-    <ol>
+      <h2>Lessons</h2>
 
-      <% @lessons.each do |lesson| %>
-        <li><%= link_to lesson.title.titleize, course_lesson_path(@course, lesson) %></li>
-      <% end %>
+      <ol>
 
-    </ul>
+        <% @lessons.each do |lesson| %>
+          <li><%= link_to lesson.title.titleize, course_lesson_path(@course, lesson) %></li>
+        <% end %>
+
+      </ul>
+
+    </div>
 
   </div>
 
-</div>
-
+</section>

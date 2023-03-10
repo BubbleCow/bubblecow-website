@@ -1,24 +1,24 @@
-<div class="row justify-content-center">
-  <div class="col-sm-10 col-md-8">
+<section class="page-header">
+    <h1>Become a better writer</h1>
+    <p>First-rate content to help you learn and grow as a writer</p>
+</section>
 
-    <div class="row mt-5">
+<section class="page-body">
+  <div class="row">
 
+    <div class="col-lg-8  ">
       <!-- Left column -->
-      <div class="col-lg-8">
-        <% @posts.each do |post| %>
-          <!-- blog post layout -->
-          <%= render "shared/blog_post_layout", post: post %>
-        <% end %>
-      </div>
+      <% @posts.each do |post| %>
+        <!-- blog post layout -->
+        <%= render "shared/blog_post_layout", post: post %>
+      <% end %>
+    </div>
 
-      <!-- Right column -->
-      <div class="col-lg-4">
-        <!-- blog sidebar -->
-        <%= render "shared/blog_sidebar" %>
-      </div>
-
+    <!-- Right column -->
+    <div class="col-lg-4 ">
+      <!-- blog sidebar -->
+      <%= render "shared/blog_sidebar" %>
     </div>
 
   </div>
-</div>
-
+</section>

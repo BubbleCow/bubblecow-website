@@ -1,4 +1,4 @@
-<div class="backend-page form">
+<div class="form">
 
     <%= form_for([:blog, @post]) do |form| %>
 
@@ -52,7 +52,7 @@
               <div class="tab-pane fade show active" id="html" role="tabpanel" aria-labelledby="htmlTab">
                 <div class="blog-post mt-3">
                   <p class="form-text">This is the html format for blog posts. This will be shown over trix content. Use html tags, e.g. p, h2, h3 etc. More details of formatting <%= link_to "here", "https://docs.google.com/document/d/1eJ07GWNXmqwjUiMQiIXBBq9jJFPFHseHJXP1KNgWUt8/edit", target: "_blank" %>.</p>
-                  <%= form.text_area :content %>
+                  <%= form.text_area :content, class: "text_area_size_maximum" %>
                 </div>
               </div>
 

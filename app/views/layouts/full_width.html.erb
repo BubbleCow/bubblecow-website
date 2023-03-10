@@ -7,26 +7,25 @@
   <body>
 
     <!-- Google tag manager -->
-  <%= render 'shared/google_tag_manager' %>
+    <%= render 'shared/google_tag_manager' %>
 
     <!-- navigation -->
-    <% if @nav != "no nav" %>
-      <%= render 'shared/navbar' %>
-    <% end %>
+    <%= render 'shared/navbar' %>
 
-    <!-- Notices -->
-    <%= render 'shared/notices' %>
+      <!-- Notices -->
+      <%= render 'shared/notices' %>
 
-    <!-- Main content -->
-    <div class="<%= controller_name %> <%= action_name %>">
-        <%= yield %>
+    
+    <div class="container-fluid">  
+      <!-- Main content -->
+      <%= yield %>
+    </div>
+
     </div>
     
     <!-- Footer -->
-    <% if @footer != "no footer" %>
-      <%= render 'shared/footer' %>
-    <% end %>
+    <%= render 'shared/footer' %>
 
   </body>
-  
+
 </html>
