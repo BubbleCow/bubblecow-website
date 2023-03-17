@@ -256,6 +256,8 @@ blockquote {
         text-align: center;
     }
 
+    h2, h3 {padding-top: 1rem;}
+
     .metadata {
         margin-top: 2rem;
         margin-bottom: 2rem;
@@ -274,6 +276,14 @@ blockquote {
             margin-bottom: 2rem;
         }
     }
+
+    .toc {
+        margin-bottom: 2rem;
+    }
+
+    [itemprop="name"] {
+       font-size: 1.2rem !important;
+      }
 }
 
 // 10. TRIX
