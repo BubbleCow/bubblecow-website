@@ -89,7 +89,7 @@ module Blog
       
       def set_template
         case action_name
-        when 'edit', 'new'
+        when 'edit', 'new', 'show'
             'full_width'
         else
             'application'
