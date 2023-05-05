@@ -25,7 +25,6 @@ class User < ApplicationRecord
     end
   end
 
-
   extend FriendlyId
   friendly_id :full_name, use: :slugged
 
@@ -65,6 +64,41 @@ class User < ApplicationRecord
 
   def full_name
     [first_name, last_name].join(' ').titleize
+  end
+
+  # ACTIVE CAMPAIGN
+  # Calls the ac api on creation and update
+  after_create :add_contact_to_active_campaign
+  after_update :sync_contact_to_active_campaign
+
+  # Add tag to active campaign - Stays out of private so can be called from non-User models
+  def add_tag_to_active_campaign(tag_name)
+    api = ActiveCampaignApi.new
+    api.add_tag_to_contact(self.email, tag_name)
+  end
+
+  private
+
+  # set params for active campaign 
+  def contact_params
+    {
+      email: self.email,
+      firstName: self.first_name,
+      lastName: self.last_name
+    }
+  end
+
+  # add contact to active campaign 
+  def add_contact_to_active_campaign
+    api = ActiveCampaignApi.new
+    response = api.sync_contact(contact_params)
+  end
+
+  # Syncs for active campaign 
+  def sync_contact_to_active_campaign
+
+    api = ActiveCampaignApi.new
+    api.sync_contact(contact_params)
   end
 
 end
