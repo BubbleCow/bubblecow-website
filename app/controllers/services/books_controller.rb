@@ -42,7 +42,7 @@ module Services
       authorize @book
 
       # Send tag to Active Campaign
-      ActiveCampaignService.new.contact_tag_add(@book.user, "BubbleCow - Book - Created")
+      # ActiveCampaignService.new.contact_tag_add(@book.user, "BubbleCow - Book - Created")
 
       respond_to do |format|
         if @book.save
