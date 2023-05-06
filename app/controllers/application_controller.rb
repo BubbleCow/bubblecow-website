@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_country, if: :devise_controller?
-  before_action :sync_user, unless: :devise_controller?
 
   include Pundit
   protect_from_forgery with: :exception
@@ -70,13 +69,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
 
-    def sync_user
-      if Rails.env.development?
-      else
-      return unless user_signed_in?
-      ActiveCampaignService.new.contact_sync(current_user)
-      end
-    end
 
     # Finds user country and adds correct currency
     def set_country
