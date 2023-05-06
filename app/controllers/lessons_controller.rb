@@ -79,7 +79,7 @@ class LessonsController < ApplicationController
       when 'book proposal'
 
         # Send tag to Active Campaign
-        ActiveCampaignService.new.contact_tag_add(current_user.email, "Service - Book Proposal - Interest")
+        # ActiveCampaignService.new.contact_tag_add(current_user.email, "Service - Book Proposal - Interest")
       
       end
 
