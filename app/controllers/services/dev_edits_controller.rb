@@ -28,7 +28,7 @@ module Services
       authorize @dev_edit
 
       # Send tag to Active Campaign
-      ActiveCampaignService.new.contact_tag_add(@dev_edit.book.user, "BubbleCow - Product - Developmental Editing - Submitted")
+      # # ActiveCampaignService.new.contact_tag_add(@dev_edit.book.user, "BubbleCow - Product - Developmental Editing - Submitted")
 
       respond_to do |format|
         if @dev_edit.save

@@ -41,7 +41,7 @@ class DevEditSample < ApplicationRecord
             self.status_value = "1"
 
             # Update tag on active campaign
-            ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Submitted")
+            # ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Submitted")
 
         when "sample_developmental_edit_accepted"
 
@@ -52,7 +52,7 @@ class DevEditSample < ApplicationRecord
             self.accepted_date = Time.now
             
             # Update tag on active campaign
-            ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Accepted")
+            # ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Accepted")
         
         when "sample_developmental_edit_editing_underway"
 
@@ -60,7 +60,7 @@ class DevEditSample < ApplicationRecord
             self.status_value = "3"
 
             # Update tag on active campaign
-            ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Returned")
+            # ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Returned")
 
         when "sample_developmental_edit_returned"
 
@@ -71,7 +71,7 @@ class DevEditSample < ApplicationRecord
             self.return_date = Time.now
 
             # Update tag on active campaign
-            ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Accepted")
+            # ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Accepted")
 
         when "sample_developmental_edit_rejected"
 
@@ -82,7 +82,7 @@ class DevEditSample < ApplicationRecord
             self.rejected_date = Time.now
 
             # Update tag on active campaign
-            ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Rejected")
+            # ActiveCampaignService.new.contact_tag_add(self.book.user.email, "BubbleCow - Product - Sample Developmental Editing - Rejected")
         end
 
     end
