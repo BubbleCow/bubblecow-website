@@ -8,10 +8,10 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
   has_many :books
+  has_many :orders
   has_many :developmental_edits
-  has_many :dev_edits
   has_many :sample_developmental_edits
-  has_many :dev_edit_samples
+
 
   # attachments
   has_rich_text :note

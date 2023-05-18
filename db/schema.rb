@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_18_135629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,11 +107,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
     t.string "title"
     t.integer "user_id"
     t.string "language"
-    t.integer "genre_id"
     t.integer "word_count"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
     t.index ["slug"], name: "index_books_on_slug", unique: true
   end
 
@@ -123,35 +123,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
     t.datetime "updated_at", null: false
     t.string "ac_tag"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
-  end
-
-  create_table "dev_edit_samples", force: :cascade do |t|
-    t.integer "book_id"
-    t.string "status", default: "sample_developmental_edit_created"
-    t.string "user_id"
-    t.datetime "accepted_date"
-    t.datetime "rejected_date"
-    t.datetime "return_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status_value", default: 1
-    t.string "aasm_state"
-  end
-
-  create_table "dev_edits", force: :cascade do |t|
-    t.integer "book_id"
-    t.string "status", default: "developmental_edit_created"
-    t.integer "user_id"
-    t.datetime "accepted_date"
-    t.datetime "rejected_date"
-    t.datetime "invoice_due_date"
-    t.datetime "invoice_paid_date"
-    t.datetime "return_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status_value", default: 1
-    t.datetime "due_date"
-    t.string "aasm_state"
   end
 
   create_table "developmental_edits", force: :cascade do |t|
@@ -182,14 +153,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "genre_type"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_genres_on_slug", unique: true
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -234,6 +197,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.string "order_number"
+    t.index ["book_id"], name: "index_orders_on_book_id"
+    t.index ["order_number"], name: "index_orders_on_order_number", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "post_authors", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -268,6 +250,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
     t.bigint "ahoy_visit_id"
     t.string "advert_category"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "sample_developmental_edits", force: :cascade do |t|
@@ -374,6 +364,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150302) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "orders", "books"
+  add_foreign_key "orders", "users"
   add_foreign_key "services", "users"
   add_foreign_key "taggings", "tags"
 end

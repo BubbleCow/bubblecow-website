@@ -1,0 +1,13 @@
+<h1>Order Details</h1>
+
+<p>Book: <%= @order.book.title %></p>
+<p>Writer: <%= @order.book.user.full_name %></p>
+<p>Order Number: <%= @order.order_number %></p>
+
+
+<h2>Products:</h2>
+<ul>
+  <% @products.each do |product| %>
+    <li><%= product.name %></li>
+  <% end %>
+</ul>

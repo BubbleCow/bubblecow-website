@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_country, if: :devise_controller?
 
-  include Pundit
-  protect_from_forgery with: :exception
+  include Pundit::Authorization
 
   # Locks down staging - https://dzone.com/articles/block-web-crawlers-with-rails
   if ENV["DISALLOW_ALL_WEB_CRAWLERS"].present?
