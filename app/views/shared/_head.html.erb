@@ -21,16 +21,17 @@
 <%= structured_data_schema(@data_type) %>
 
 <!-- Google Tag Manager trigger for Turbolinks -->
- <script type="text/javascript">
- $(document).on('page:change', function(){
- var url = window.location.href;
+<script type="text/javascript">
+  document.addEventListener("turbo:load", function() {
+    var url = window.location.href;
 
- dataLayer.push({
- 'event':'pageView',
- 'virtualUrl': url
- });
- });
- </script>
+    dataLayer.push({
+      'event': 'pageView',
+      'virtualUrl': url
+    });
+  });
+</script>
+
  <!-- End Google Tag Manager trigger for Turbolinks -->
 
  <!-- Google Tag Manager -->

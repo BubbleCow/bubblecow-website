@@ -59,6 +59,9 @@ Rails.application.routes.draw do
     get 'copy-editing'
   end
 
+  # For price calculator
+  get 'calculate_price', to: 'customer_pages#calculate_price'
+
   # dashboards
   get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
   get 'admin-dashboard', to: 'dashboards#admin_dashboard'

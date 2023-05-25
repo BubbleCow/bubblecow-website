@@ -52,7 +52,6 @@
       
   </div>
 
-
   <!-- single column - toc -->
   <div class="row justify-content-md-center section-spacer">
 
@@ -102,7 +101,7 @@
         <div class="book-editing-pricing-text">
           <h2 id="item-price-calculator ">Price Calculator</h2>
           <p>We use a simple pricing system for our developmental editing service, which is based on the cost per 1000 words.</p>
-          <p>The cost for developmental editing is <strong><%= @developmental_edit_price %> per 1000 words.</strong></p>
+          <p>The cost for developmental editing is <strong><%= @price %>  per 1000 words.</strong></p>
           <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
           <p>The price includes all editing, consultation, and after-edit care.</p>
           <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
@@ -111,6 +110,16 @@
       </div>
 
   </div>
+
+  <div data-controller="price-calculator" data-price-calculator-product="developmental_editing">
+  Word Count: <input data-action="input->price-calculator#updatePrice" data-price-calculator-target="wordCount" type="number">
+  Price: <span data-price-calculator-target="price"></span>
+</div>
+
+<div data-controller="hello">
+  <input data-hello-target="name" type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
 
   <!-- single column - price calculator -->
   <div class="row justify-content-md-center">
