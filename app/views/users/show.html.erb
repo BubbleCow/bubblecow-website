@@ -80,40 +80,12 @@
                 <% @books.each do |book| %>
                             
                             <h3>
-                                <%= link_to book.title.titleize, services_book_path(book) %>
-                                <%= link_to "x", services_book_path(book), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
+                                <%= link_to book.title.titleize, book_path(book) %>
+                                <%= link_to "x", book_path(book), data: { "turbo-method": :delete, confirm: "Are you sure you want to kill this bad boy?"} %>
                             
                             </h3>
 
-                            <!-- Developmental Edit Samples -->
-                            <% if book.dev_edit_samples.present? %>
-                                
-                                <h5 class="card-text">Sample Developmental Edits</h5>
-
-                                <!-- Sample developmental edits -->
-                                <% book.dev_edit_samples.each do |sample| %>
-                                    <p class="card-text">
-                                        <%= sample.unedited_manuscript.filename %> |
-                                        <%= link_to "Destroy - this is broken, it i deleting the book fix!", services_book_dev_edit_sample_path(book, sample), data: { "turbo-method": :delete} %>
-                                    </p>
-                                <% end %>
-
-                            <% end %>
-
-                            <!-- Developmental Edits  -->
-                            <% if book.dev_edits.present? %>
-                                
-                                <h5 class="card-text">Developmental Edits</h5>
-
-                                <!-- Sample developmental edits -->
-                                <% book.dev_edits.each do |dev_edit| %>
-                                    <p class="card-text">
-                                        <%= dev_edit.unedited_manuscript.filename %> |
-                                        <%= link_to "Destroy", services_book_dev_edit_path(book, dev_edit), data: { "turbo-method": :delete} %>
-                                    </p>
-                                <% end %>
-
-                            <% end %>
+                           
 
                 <% end %>
             </div>

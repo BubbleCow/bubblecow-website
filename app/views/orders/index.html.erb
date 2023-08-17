@@ -1,0 +1,24 @@
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+      <th>Order Number</th> 
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.user.email %></td>
+        <td><%= link_to order.book.title, book_path(order.book) %></td>
+        <td><%= link_to order.order_number, book_order_path(order.book, order) %></td>
+        <td><%= link_to 'Destroy', book_order_path(order.book, order), method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

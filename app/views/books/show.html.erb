@@ -1,0 +1,110 @@
+<!-- Book Title -->
+<h1><%= @book.title.titleize %></h1>
+
+<div class="row">
+
+  <div class="col">
+
+    <!-- Book Information -->
+    <section class="book-information">
+
+      <div class="box">
+
+        <!-- Book metadata -->
+        <div class="metadata">
+
+          <% if user_is_management %>
+
+            <!-- User -->
+            <%= link_to @book.user.full_name, user_path(@book.user) %> 
+            
+            <% if @book.user.note.present? %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+              </svg>
+            <% end %>
+            
+            |
+          <% end %>
+
+          <!-- Language -->
+          <%= @book.language.titleize %> |
+
+          <!-- Genre -->
+          <%= @book.genre.titleize %> | 
+
+          <!-- Word count -->
+          <%= number_with_delimiter(@book.word_count) %>
+
+          <!-- Edit book detials -->
+          <%= link_to edit_book_path(@book) do %>
+            [ Update Book]
+          <% end %>
+
+        </div>
+
+        <!-- Book Description -->
+        <div class="accordion mt-3" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Book Description
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <%= form_for(@book) do |form| %>
+
+                  <div class="input">
+                      <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+                  </div>
+
+                  <div class="button">
+                    <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+                  </div>     
+
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
+
+<%= form_for [@book, Order.new] do |f| %>
+  <%= f.hidden_field :book_id, value: @book.id %>
+  <%= f.hidden_field :user_id, value: @book.user %>
+  
+  <!-- Add additional form fields here if needed -->
+  
+  <%= f.submit 'Create Order' %>
+<% end %>
+
+<h2>Orders</h2>
+<ul>
+  <% @orders.each do |order| %>
+    <li>Order ID: <%= order.id %>, Order Number: <%= order.order_number %></li>
+    <!-- Display other order details as needed -->
+  <% end %>
+</ul>
+
+
+<h2>Create Order</h2>
+<%= form_with(model: @order, url: book_orders_path(@book), method: :post) do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :book_id, value: @book.id %>
+  <% Product.all.each do |product| %>
+    <%= form.check_box :product_ids, { multiple: true }, product.id, nil %>
+    <%= product.name %>
+  <% end %>
+  <%= form.submit 'Create Order' %>
+<% end %>

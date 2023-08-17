@@ -2,6 +2,7 @@ class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
   before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit, :book_proposal, :copy_editing] 
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
+  before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment]
   layout :set_template
   
 
@@ -39,6 +40,7 @@ class CustomerPagesController < ApplicationController
     @page_title = "Affordable Developmental Editing Services"
     @page_description = "Developmental editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
     @keyword = "developmental editing"
+    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
   end
 
   def mentoring
@@ -51,6 +53,7 @@ class CustomerPagesController < ApplicationController
     @page_title = "Affordable Manuscript Assessment"
     @page_description = "Give your manuscript the best chance of succeeding with detailed editorial feedback from a professional book editor." 
     @message = Message.new
+    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
   end
 
   def book_editing_portal
@@ -85,8 +88,14 @@ class CustomerPagesController < ApplicationController
     @page_description = "Bringing Clarity and Precision to Your Words" 
     @keyword = "copy editing"
     @message = Message.new
+    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
   end
   
+  def calculate_price
+    product_pricing = ProductPricing.new(@country, params[:product])
+    price = product_pricing.calculate_price(params[:word_count])
+    render json: { price: price }
+  end
 
   private
 
@@ -105,6 +114,15 @@ class CustomerPagesController < ApplicationController
   def set_testimonial_count
     @testimonial_count = Testimonial.all.count
   end 
+
+  # Sets the country, if local its GB, if request fails defaults to US.
+  def set_country
+    begin
+      @country = Rails.env.development? ? "GB" : request.location.country
+    rescue
+      @country = "US" # default country in case of an error
+    end
+  end
 
   def set_service_price
 

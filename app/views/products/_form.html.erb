@@ -1,0 +1,11 @@
+<!-- app/views/products/_form.html.erb -->
+<%= form_with(model: product) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

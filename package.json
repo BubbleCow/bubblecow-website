@@ -13,6 +13,7 @@
     "esbuild": "^0.17.11",
     "esbuild-rails": "^1.0.3",
     "sass": "^1.52.2",
+    "stimulus": "^3.2.1",
     "trix": "^2.0.0-beta.0"
   },
   "scripts": {

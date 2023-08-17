@@ -96,38 +96,14 @@
 
         <div class="col-sm col-lg-6">
 
-            <h2 id="item-manuscript-assessment-cost">Manuscript Assessment Cost</h2>
-            <p>As you would expect from BubbleCow our pricing is simple and transparent.</p>
-            <p>The price you pay is dependent on the word count of your book.</p> 
-            <p>There are no hidden costs.</p>
-            <p>When comparing prices, it’s also worth noting that we don't charge extra for a 'fast' return (unlike our competitors). All of our assessments will be returned within two weeks.</p>
-
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Word count</th>
-                        <th scope="col">Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Up to 20,000</td>
-                        <td><%= @currency_symbol %><%= @manuscript_assessment_cost_upto_20k %></td>
-                    </tr>
-                    <tr>
-                        <td>Up to 40,000</td>
-                        <td><%= @currency_symbol %><%= @manuscript_assessment_cost_upto_40k %></td>
-                    </tr>
-                    <tr>
-                        <td>Up to 60,000</td>
-                        <td><%= @currency_symbol %><%= @manuscript_assessment_cost_upto_60k %></td>
-                    </tr>
-                    <tr>
-                        <td>Over 60,000</td>
-                        <td><%= @currency_symbol %><%= @manuscript_assessment_cost_upto_60k %> + <%= @currency_symbol %><%= @manuscript_assessment_cost_over_60k %>/1000 words over 60K</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="item-manuscript-assessment-cost">
+                <h2 id="item-price-calculator ">Price Calculator</h2>
+                <p>We use a simple pricing system for our manuscript assessment service, which is based on the cost per 1000 words.</p>
+                <p>The cost for manuscript assessment is <strong><%= @price %> per 1000 words.</strong></p>
+                <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
+                <p>The price includes all editing, consultation, and after-edit care.</p>
+                <p><em>To calculate the cost of your manuscript assessment, add your book's word count and hit the button.</em></p>
+            </div>
 
         </div>
 
