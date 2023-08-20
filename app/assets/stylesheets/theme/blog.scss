@@ -1,0 +1,22 @@
+/* Styling for the blog page. */
+
+.blog {
+
+    .post {
+        .metadata {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .description {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .sidebar {
+        .item {
+            margin-bottom: 2rem;
+        }
+    }
+
+}
