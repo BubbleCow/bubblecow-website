@@ -15,8 +15,8 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -83,6 +83,7 @@ gem 'activerecord_where_assoc', '~> 1.0'
 gem 'acts-as-taggable-on'
 gem 'ahoy_matey'
 gem "aws-sdk-s3", require: false
+gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'chartkick'
 gem 'devise', '~> 4.7', '>= 4.7.0'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
@@ -93,6 +94,7 @@ gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'groupdate'
 gem 'httparty'
 gem 'invisible_captcha'
+gem 'jquery-rails'
 gem 'meta-tags'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'name_of_person', '~> 1.1'

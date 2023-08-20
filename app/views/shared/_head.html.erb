@@ -8,9 +8,10 @@
   <%= display_meta_tags title: yield(:page_title), description: yield(:page_description), :canonical => 'https://bubblecow.com' + request.path %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_importmap_tags %>
+
 
 <%= favicon_link_tag 'favicon.ico' %>
 
