@@ -1,0 +1,16 @@
+<div class="form">
+<%= form_with(model: genre) do |form| %>
+
+
+  <div>
+    <%= form.label :genre_type, style: "display: block" %>
+    <%= form.text_field :genre_type %>
+  </div>
+
+ 
+  <div class="button">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>

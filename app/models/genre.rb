@@ -1,5 +1,6 @@
 class Genre < ApplicationRecord
     has_many :developmental_edits, dependent: :destroy
+    has_many :sample_developmental_edits, dependent: :destroy
 
     validates :genre_type, presence: true
 
