@@ -1,0 +1,28 @@
+/* 
+
+These are elements that affect the whole site and are not specific to one thing.
+
+*/
+
+body {
+    a {
+        text-decoration: none;
+    }
+}
+
+.section-spacer {
+    margin-top: 5rem !important;
+}
+
+.image {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.remove_top_padding {
+    padding-top: 0rem !important;
+}
+
+.box{
+    @include backend-box();
+}
