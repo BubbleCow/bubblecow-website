@@ -1,8 +1,8 @@
 /* 
 
-This file must load first via teh application.scss
+This file must load first via the application.scss
 
-These are site wdie mixins and colour changes. 
+These are site wide mixins and colour changes. These are often replacing Bootstap or overiding.
 
 */
 
@@ -47,7 +47,6 @@ $primary: $pal-blue;
 $secondary:  $pale-slate;
 $success: $leaf;
 $info: $aqua;
-// $warning:    $warning,
 $danger: $plum;
 
 // Fonts
