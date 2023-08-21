@@ -47,9 +47,9 @@ class ApplicationController < ActionController::Base
       when 'manaager'
           manager_dashboard_path
       when 'editor'
-          editor_path
+          root_path
       when'content_creator'
-          content_creator_path
+          root_path
       when 'writer'
         if stored_location_for(resource) == new_services_sample_developmental_edit_path
           new_services_sample_developmental_edit_path

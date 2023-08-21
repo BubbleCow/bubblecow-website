@@ -1,11 +1,11 @@
 class UserPolicy < ApplicationPolicy
 
 	def index?
-		is_managerial_staff?
+		is_staff?
 	end
 
 	def show?
-		is_managerial_staff?
+		is_staff?
 	end
 
 	def edit?
