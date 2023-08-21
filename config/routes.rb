@@ -110,6 +110,9 @@ Rails.application.routes.draw do
   # Products
   resources :products
 
+  # Genres
+  resources :genres
+
   root to: 'customer_pages#index'
 
 end
