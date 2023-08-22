@@ -10,3 +10,8 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.js"
+pin "chartkick", to: "chartkick.js"
+pin "Chart.bundle", to: "Chart.bundle.js"
+
+# Pin all JS files from the custom directory
+pin_all_from "app/javascript/custom", under: "custom"
