@@ -1,0 +1,15 @@
+<li><%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %></li>
+<li><%= link_to "Books", books_path, class: "dropdown-item" %></li>
+<li><%= link_to "Developmental Edits", services_developmental_edits_path, class: "dropdown-item" %></li>
+<li><%= link_to "Sample Developmental Edits", services_sample_developmental_edits_path, class: "dropdown-item" %></li>
+<li><%= link_to "Users", users_path, class: "dropdown-item"  %></li>
+<li><%= link_to "Testimonials", testimonials_path, class: "dropdown-item" %></li>
+<li><%= link_to "Products", products_path, class: "dropdown-item" %></li>
+<li><%= link_to "Prices", services_service_prices_path, class: "dropdown-item" %></li>
+<li><%= link_to "Genres", genres_path, class: "dropdown-item"  %></li>
+<li><hr class="dropdown-divider"></li>
+<li><%= link_to "Messages" + " (" + @unread_messages.count.to_s + ") ", messages_path, class: "dropdown-item"  %></li>
+<li><hr class="dropdown-divider"></li>
+<li><%= link_to "New post", new_blog_post_path, class: "dropdown-item"  %></li>
+<li><%= link_to "Categories", blog_post_categories_path, class: "dropdown-item"  %></li>
+<li><%= link_to "Authors", blog_post_authors_path, class: "dropdown-item"  %></li>

@@ -62,13 +62,8 @@ Rails.application.routes.draw do
   # For price calculator
   get 'calculate_price', to: 'customer_pages#calculate_price'
 
-  # dashboards
-  get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
-  get 'admin-dashboard', to: 'dashboards#admin_dashboard'
-  get 'manager-dashboard', to: 'dashboards#manager'
-  get 'writer-dashboard', to: 'dashboards#writer_dashboard'
-
-  get 'writer_area', to: 'dashboards#writer_dashboard'
+  # Dashboard
+  get 'dashboard', to: 'dashboards#show', as: 'dashboard'
 
   # Blog
   namespace :blog do
