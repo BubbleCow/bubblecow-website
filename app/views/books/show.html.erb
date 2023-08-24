@@ -1,110 +1,136 @@
-<!-- Book Title -->
-<h1><%= @book.title.titleize %></h1>
-
-<div class="row">
-
-  <div class="col">
-
-    <!-- Book Information -->
-    <section class="book-information">
-
-      <div class="box">
-
-        <!-- Book metadata -->
-        <div class="metadata">
-
-          <% if user_is_management %>
-
-            <!-- User -->
-            <%= link_to @book.user.full_name, user_path(@book.user) %> 
-            
-            <% if @book.user.note.present? %>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
-                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-              </svg>
-            <% end %>
-            
-            |
-          <% end %>
-
-          <!-- Language -->
-          <%= @book.language.titleize %> |
-
-          <!-- Genre -->
-          <%= @book.genre.titleize %> | 
-
-          <!-- Word count -->
-          <%= number_with_delimiter(@book.word_count) %>
-
-          <!-- Edit book detials -->
-          <%= link_to edit_book_path(@book) do %>
-            [ Update Book]
-          <% end %>
-
-        </div>
-
-        <!-- Book Description -->
-        <div class="accordion mt-3" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Book Description
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-
-                <%= form_for(@book) do |form| %>
-
-                  <div class="input">
-                      <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
-                  </div>
-
-                  <div class="button">
-                    <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-                  </div>     
-
-                <% end %>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
+<section>
+  <!-- Title -->
+  <div class="row">
+    <div class="col">
+      <h1 class="title"><%= @book.title.titleize %></h1>
+    </div> 
   </div>
 
-</div>
+  <!-- Metadata -->
+  <div class="row">
+    <div class="col">
+      <div class="metadata">
+        <div class="box">
+          <%= current_user&.admin? ? (link_to @book.user.full_name, user_path(@book.user)) : @book.user.full_name %> | <%= @book.word_count %> | <%= @book.language %> | <%= @book.genre %>
+            <%= link_to edit_user_book_path(@user, @book), data: { bs_toggle: "tooltip", bs_placement: "top", bs_title: "Edit Book" } do %>
+              <i class="bi bi-gear"></i>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= form_for [@book, Order.new] do |f| %>
-  <%= f.hidden_field :book_id, value: @book.id %>
-  <%= f.hidden_field :user_id, value: @book.user %>
-  
-  <!-- Add additional form fields here if needed -->
-  
-  <%= f.submit 'Create Order' %>
-<% end %>
+  <!-- Description -->
+  <div class="row mb-3">
+    <div class="col">
+      <div class="description mb-2">
 
-<h2>Orders</h2>
-<ul>
-  <% @orders.each do |order| %>
-    <li>Order ID: <%= order.id %>, Order Number: <%= order.order_number %></li>
-    <!-- Display other order details as needed -->
+        <div class="d-grid gap-2">
+          <button data-action="click->toggle#switch" data-controller="toggle" data-toggle-target="trigger" class="btn btn-light d-flex justify-content-between align-items-center pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#formCollapse" aria-expanded="false" aria-controls="formCollapse">
+            <span><i class="bi bi-body-text"></i> Book Description</span> 
+            <i data-toggle-target="icon" class="bi bi-arrow-down"></i>
+          </button>
+        </div>
+
+        <div class="collapse py-3 box" id="formCollapse">
+          <%= form_for([@book.user, @book]) do |form| %>
+
+            <div class="input">
+              <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+            </div>
+
+            <div class="button d-grid gap-2">
+              <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm my-2', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>    
+    </div>
+  </div>
+</section>
+
+<section>
+
+  <!-- Products -->
+  <% if @book_products.any? %>
+    
+    <% @book_products.each do |book_product| %>
+
+      <section>
+        <div class="row d-flex">
+            
+            <!-- Status Message -->
+            <div class="col-md-8 col-12 d-flex">
+                <div class="box flex-grow-1">
+                    
+                  <h2><%= book_product.product.name %></h2> 
+                  <%= render partial: state_partial(book_product), locals: { book_product: book_product } %>
+         
+                </div>
+            </div>
+
+            <!-- Files -->
+            <div class="col-md-4 col-12 d-flex">
+                <div class="box flex-grow-1">
+                    <h2>Files</h2>
+
+                    <ul class="no-disc-list">
+                      <% if book_product.initial_unedited_manuscript.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= book_product.initial_unedited_manuscript.filename %>">
+                          <i class="bi bi-file-earmark-text"></i>
+                          <%= link_to "Unedited Manuscript", rails_blob_path(book_product.initial_unedited_manuscript, disposition: "attachment") %>
+                        </li>
+                      <% end %>
+
+                      <% if book_product.edited_manuscript_for_paid_developmental_edit.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= book_product.edited_manuscript_for_paid_developmental_edit.filename %>">
+                          <i class="bi bi-file-earmark-text"></i>
+                          <%= link_to "Edited Manuscript", rails_blob_path(book_product.edited_manuscript_for_paid_developmental_edit, disposition: "attachment") %>
+                        </li>
+                      <% end %>
+
+                      <% if book_product.editors_report_for_paid_developmental_edit.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= book_product.editors_report_for_paid_developmental_edit.filename %>">
+                          <i class="bi bi-file-earmark-text"></i>
+                          <%= link_to "Editor's Report", rails_blob_path(book_product.editors_report_for_paid_developmental_edit, disposition: "attachment") %>
+                        </li>
+                      <% end %>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Looks to check if the book product is in active and that there's no other active book products -->
+      <% if book_product.inactive? && @book_products.active.none? %>
+        
+        <!-- Renders the new product partial -->
+        <%= render partial: 'new_product', locals: { book_product: book_product } %>
+
+      <% end %>
+
+    <% end %>
+
+  <% else %>
+
+    <!-- Renders the new product partial -->
+    <%= render partial: 'new_product', locals: { book_product: book_product } %>
+
   <% end %>
-</ul>
+
+</section>
 
 
-<h2>Create Order</h2>
-<%= form_with(model: @order, url: book_orders_path(@book), method: :post) do |form| %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.hidden_field :book_id, value: @book.id %>
-  <% Product.all.each do |product| %>
-    <%= form.check_box :product_ids, { multiple: true }, product.id, nil %>
-    <%= product.name %>
+
+<h2>Products</h2>
+
+<% @book.book_products.each do |book_product| %>
+  <% if book_product.product %>
+    <p>
+      <%= link_to book_product.product.name, book_book_product_path(@book, book_product) %>
+      <%= button_to 'Delete', book_book_product_path(@book, book_product), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
   <% end %>
-  <%= form.submit 'Create Order' %>
 <% end %>

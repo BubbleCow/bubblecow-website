@@ -7,18 +7,12 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
-  # resources :users, only: [:show]
 
   #  Trix youtube plugin
   resource :embed, only: :update
 
   # services
   resources :testimonials
-
-  # books
-  resources :books do
-    resources :orders
-  end
 
   # allows orders
   resources :orders, only: [:index]
@@ -94,8 +88,12 @@ Rails.application.routes.draw do
   end
 
   # Users
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' }
-  resources :users, :only => [ :index, :show, :edit, :update, :destroy]  
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' } 
+
+  # Books
+  resources :users do
+    resources :books
+  end 
 
   # Courses
   resources :courses do

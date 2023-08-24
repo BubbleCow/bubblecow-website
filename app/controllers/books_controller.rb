@@ -1,87 +1,99 @@
 class BooksController < ApplicationController
-    before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  
+  # Call backs
+  before_action :set_user
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_writers, only: [:new, :edit]
+  before_action :set_genres, only: [:new, :edit]
 
-    def index
-      if current_user.writer?
-        @books = current_user.books
-        @page_title = "Your Books"
-        @page_description = "A list of all your books."
-      elsif current_user.admin?
-        @books = Book.all
-        @page_title = "All Books"
-        @page_description = "A list of all books."
-      end
-      authorize @books
-    end
-  
-    def show
-      authorize @book
-      @page_title = @book.title.titleize
-      @order = Order.new(book: @book)
-      @orders = @book.orders
-    end
-  
-    def new
-      @book = current_user.books.new
-      @page_title = "Create a new book"
-      @page_description = "Create and submit a book to BubbleCow."
-      authorize @book
-    end
-  
-    def edit
-      authorize @book
-      @page_title = @book.title
-    end
-  
-    def create
-      @book = current_user.books.new book_params
-      authorize @book
-
-      # Send tag to Active Campaign
-      # ActiveCampaignService.new.contact_tag_add(@book.user, "BubbleCow - Book - Created")
-
-      respond_to do |format|
-        if @book.save
-          format.html { redirect_to @book, notice: "Book was successfully created." }
-          format.json { render :show, status: :created, location: @book }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @book.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-  
-    def update
-      authorize @book
-      respond_to do |format|
-        if @book.update(book_params)
-          format.html { redirect_to @book, notice: "Book was successfully updated." }
-          format.json { render :show, status: :ok, location: @book }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @book.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-  
-    def destroy
-      authorize @book
-      @book.destroy
-      respond_to do |format|
-        format.html { redirect_to users_path, notice: "Book was successfully destroyed." }
-        format.json { head :no_content }
-      end
-    end
-  
-    private
-  
-      def set_book
-        @book = Book.friendly.find(params[:id])
-      end
-      
-      # Only allow a list of trusted parameters through.
-      def book_params
-        params.require(:book).permit(:title, :user, :language, :genre, :word_count, :description)
-      end
+  def index
+    @books = @user.books
+    authorize @books
+    @page_title = "Books for #{@user.full_name}"
   end
 
+  def show
+    authorize @book
+    @page_title = @book.title.titleize
+    @book_product = @book.book_products.new
+    @book_products = @book.book_products.order(created_at: :desc)
+  end
+
+  def new
+    @user = User.friendly.find(params[:user_id])
+    @book = @user.books.build
+    @page_title = 'New book'
+    authorize @book
+  end
+
+  def create
+    @book = Book.new(book_params)
+    authorize @book
+    if current_user.admin?
+      @user = User.find(@book.user_id) # use the user_id from the form for admin
+    else
+      @user = current_user # use the current user for non-admins
+      @book.user_id = @user.id # set the book user_id to current user
+    end
+  
+    @book.user = @user
+  
+    if @book.save
+      redirect_to [@book.user, @book], notice: "#{@book.title.titleize} was successfully created."
+    else
+      @writers = User.writer.all
+      render :new
+    end
+  end    
+    
+  def edit
+    @page_title = "Edit #{@book.title.titleize}"
+  end
+
+  def update
+    authorize @book
+    if @book.update(book_params)
+      redirect_to [@book.user, @book], notice: "#{@book.title.titleize} was successfully updated."
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    authorize @book
+    @book.destroy
+    redirect_to user_books_url(@book.user), notice: "#{@book.title.titleize} was successfully destroyed."
+  end
+
+  private
+
+  def set_user
+    @user = User.friendly.find(params[:user_id])
+  end
+  
+  def set_book
+    @book = @user.books.friendly.find(params[:id])
+  end
+
+  def set_writers
+    @writers = User.writer.all
+  end
+  
+  def set_genres
+    @genres = Genre.all
+  end
+
+  # Only allow a list of trusted parameters through.
+  def book_params
+    params.require(:book).permit(
+      :title, 
+      :description, 
+      :word_count, 
+      :language,
+      :genre, 
+      :user_id,
+      book_products_attributes: [:id, :product_id, :initial_unedited_manuscript]
+      )
+  end
+end

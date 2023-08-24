@@ -1,7 +1,9 @@
-<!-- app/views/products/show.html.erb -->
-<h1>Product</h1>
+<h1><%= @product.name %></h1>
 
-<p><strong>Name:</strong> <%= @product.name %></p>
+<div><%= @product.description %></div>
 
-<p><%= link_to 'Edit', edit_product_path(@product) %></p>
-<p><%= link_to 'Back', products_path %></p>
+<p>$<%= @product.price_usd %></p>
+<p>£<%= @product.price_gbp %></p>
+<p>€<%= @product.price_eur %></p>
+
+<%= link_to 'Back', products_path %>

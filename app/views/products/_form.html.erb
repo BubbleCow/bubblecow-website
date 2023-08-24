@@ -1,8 +1,42 @@
-<!-- app/views/products/_form.html.erb -->
 <%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
-    <%= form.label :name %>
+    <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
+  </div>
+
+
+        <div class="input">
+            <label for="productDescription" class="form-label form-label-blue">Product Description:</label>
+           
+            <%= form.rich_text_area :description, type: "text", class: "" %>
+        </div>
+
+
+  <div>
+    <%= form.label :price_usd, style: "display: block" %>
+    <%= form.text_field :price_usd %>
+  </div>
+
+  <div>
+    <%= form.label :price_gbp, style: "display: block" %>
+    <%= form.text_field :price_gbp %>
+  </div>
+
+  <div>
+    <%= form.label :price_eur, style: "display: block" %>
+    <%= form.text_field :price_eur %>
   </div>
 
   <div>

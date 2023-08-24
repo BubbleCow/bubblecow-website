@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :visits, class_name: "Ahoy::Visit"
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :orders
-  has_many :developmental_edits
-  has_many :sample_developmental_edits
+  has_many :developmental_edits, dependent: :destroy
+  has_many :sample_developmental_edits, dependent: :destroy
 
 
   # attachments
