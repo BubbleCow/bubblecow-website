@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
     
     # Relationships
-    has_many :book_products
-    has_many :books, through: :book_products
+    has_many :orders
+    has_many :books, through: :orders
 
     # Action text
     has_rich_text :description

@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   # services
   resources :testimonials
 
-  # allows orders
-  resources :orders, only: [:index]
-
   namespace :services do
     resources :service_prices
     resources :sample_developmental_edits do 
@@ -90,10 +87,22 @@ Rails.application.routes.draw do
   # Users
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' } 
 
-  # Books
+  # Services
   resources :users do
     resources :books
   end 
+
+  resources :books, only: [] do
+    resources :orders do
+      member do
+        post 'accept'
+        post 'reject'
+        post 'invoice_sent'
+        post 'invoice_paid'
+        post 'invoice_unpaid'
+      end
+    end      
+  end
 
   # Courses
   resources :courses do

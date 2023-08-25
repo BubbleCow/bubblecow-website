@@ -1,7 +1,16 @@
 <% flash.each do |msg_type, message| %>
   <div class="alert rounded-0 <%= bootstrap_class_for(msg_type) %>">
-    <div class="d-flex justify-content-between">
-      <%= message %>
+    <% if msg_type == 'error' && message.is_a?(Array) %>
+      <p>There's a problem:</p>
+      <ul class="mb-0">
+        <% message.each do |msg| %>
+          <li><%= format_error_message(msg) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><%= message %></p>
+    <% end %>
+    <div class="d-flex justify-content-end">
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>

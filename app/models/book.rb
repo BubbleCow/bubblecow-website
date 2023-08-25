@@ -2,8 +2,10 @@ class Book < ApplicationRecord
     
     # Relationships
     belongs_to :user
+    belongs_to :genre
     has_many :orders
     accepts_nested_attributes_for :orders
+    has_many :products, through: :orders
 
     # Action text
     has_rich_text :description

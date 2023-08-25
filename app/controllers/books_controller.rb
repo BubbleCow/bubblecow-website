@@ -16,8 +16,8 @@ class BooksController < ApplicationController
   def show
     authorize @book
     @page_title = @book.title.titleize
-    @book_product = @book.book_products.new
-    @book_products = @book.book_products.order(created_at: :desc)
+    @order = @book.orders.new
+    @orders = @book.orders.order(created_at: :desc)
   end
 
   def new

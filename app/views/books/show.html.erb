@@ -50,12 +50,13 @@
   </div>
 </section>
 
+
 <section>
 
-  <!-- Products -->
-  <% if @book_products.any? %>
+  <!-- Orders -->
+  <% if @orders.any? %>
     
-    <% @book_products.each do |book_product| %>
+    <% @orders.each do |order| %>
 
       <section>
         <div class="row d-flex">
@@ -64,9 +65,9 @@
             <div class="col-md-8 col-12 d-flex">
                 <div class="box flex-grow-1">
                     
-                  <h2><%= book_product.product.name %></h2> 
-                  <%= render partial: state_partial(book_product), locals: { book_product: book_product } %>
-         
+                  <h2><%= order.product.name %></h2> 
+                  <%= render partial: state_partial(order), locals: { order: order } %>
+        
                 </div>
             </div>
 
@@ -76,24 +77,24 @@
                     <h2>Files</h2>
 
                     <ul class="no-disc-list">
-                      <% if book_product.initial_unedited_manuscript.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= book_product.initial_unedited_manuscript.filename %>">
+                      <% if order.initial_unedited_manuscript.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= order.initial_unedited_manuscript.filename %>">
                           <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Unedited Manuscript", rails_blob_path(book_product.initial_unedited_manuscript, disposition: "attachment") %>
+                          <%= link_to "Unedited Manuscript", rails_blob_path(order.initial_unedited_manuscript, disposition: "attachment") %>
                         </li>
                       <% end %>
 
-                      <% if book_product.edited_manuscript_for_paid_developmental_edit.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= book_product.edited_manuscript_for_paid_developmental_edit.filename %>">
+                      <% if order.edited_manuscript_for_paid_developmental_edit.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= order.edited_manuscript_for_paid_developmental_edit.filename %>">
                           <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Edited Manuscript", rails_blob_path(book_product.edited_manuscript_for_paid_developmental_edit, disposition: "attachment") %>
+                          <%= link_to "Edited Manuscript", rails_blob_path(order.edited_manuscript_for_paid_developmental_edit, disposition: "attachment") %>
                         </li>
                       <% end %>
 
-                      <% if book_product.editors_report_for_paid_developmental_edit.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= book_product.editors_report_for_paid_developmental_edit.filename %>">
+                      <% if order.editors_report_for_paid_developmental_edit.attached? %>
+                        <li data-bs-toggle="tooltip" title="<%= order.editors_report_for_paid_developmental_edit.filename %>">
                           <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Editor's Report", rails_blob_path(book_product.editors_report_for_paid_developmental_edit, disposition: "attachment") %>
+                          <%= link_to "Editor's Report", rails_blob_path(order.editors_report_for_paid_developmental_edit, disposition: "attachment") %>
                         </li>
                       <% end %>
                     </ul>
@@ -103,34 +104,26 @@
         </div>
       </section>
 
-      <!-- Looks to check if the book product is in active and that there's no other active book products -->
-      <% if book_product.inactive? && @book_products.active.none? %>
-        
-        <!-- Renders the new product partial -->
-        <%= render partial: 'new_product', locals: { book_product: book_product } %>
-
-      <% end %>
-
     <% end %>
 
   <% else %>
 
-    <!-- Renders the new product partial -->
-    <%= render partial: 'new_product', locals: { book_product: book_product } %>
+    <!-- Renders the new order partial -->
+    <%= render partial: 'new_order', locals: { order: @order } %>
 
   <% end %>
 
 </section>
 
 
+<h2>Orders</h2>
 
-<h2>Products</h2>
-
-<% @book.book_products.each do |book_product| %>
-  <% if book_product.product %>
+<% @book.orders.each do |order| %>
+  <% if order.product %>
     <p>
-      <%= link_to book_product.product.name, book_book_product_path(@book, book_product) %>
-      <%= button_to 'Delete', book_book_product_path(@book, book_product), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to order.product.name, book_order_path(@book, order) %>
+      <%= button_to 'Delete', book_order_path(@book, order), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
 <% end %>
+
