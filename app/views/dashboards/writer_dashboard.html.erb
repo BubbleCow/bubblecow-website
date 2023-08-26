@@ -14,3 +14,11 @@
     <%= render 'dashboards/getting_started' %>
 
 <% end %>
+
+<%= link_to 'New Book', new_user_book_path(@user), class: 'btn btn-primary' %>
+
+<ul>
+  <% @books.each do |book| %>
+    <li><%= link_to book.title, user_book_path(@user, book) %></li> 
+  <% end %>
+</ul>

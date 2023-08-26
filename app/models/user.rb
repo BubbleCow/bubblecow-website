@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :visits, class_name: "Ahoy::Visit"
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :orders
-  has_many :developmental_edits
-  has_many :sample_developmental_edits
+  has_many :developmental_edits, dependent: :destroy
+  has_many :sample_developmental_edits, dependent: :destroy
 
 
   # attachments
@@ -54,10 +54,11 @@ class User < ApplicationRecord
   end
 
   # Scopes
-  scope :staff, -> { where('role=? OR role=? OR role=? OR role=?', 1, 2, 3, 4) }
-  scope :editorial_staff, -> { where('role=? OR role=? OR role=?', 2, 3, 4) }
-  scope :marketing_staff, -> { where('role=? OR role=? OR role=?', 1, 3, 4) }
-  scope :management, -> { where('role=? OR role=?', 2, 3) }
+  scope :staff, -> { where(role: [:content_creator, :editor, :manager, :admin]) }
+  scope :editorial_staff, -> { where(role: [:content_creator, :editor, :manager]) }
+  scope :marketing_staff, -> { where(role: [:writer, :editor, :manager]) }
+  scope :management, -> { where(role: [:content_creator, :editor]) }
+  scope :editors, -> { where(role: [:editor, :admin]) }
 
   # Methods
   has_person_name

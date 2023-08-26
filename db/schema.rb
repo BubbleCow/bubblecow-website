@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_154234) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_25_155656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -205,24 +205,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_154234) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.string "order_number"
-    t.string "status"
+    t.bigint "product_id", null: false
+    t.string "aasm_state"
+    t.bigint "editor_id"
+    t.datetime "invoice_sent_at"
+    t.datetime "invoice_paid_at"
+    t.datetime "product_due_date"
+    t.date "product_returned_on"
     t.index ["book_id"], name: "index_orders_on_book_id"
-    t.index ["order_number"], name: "index_orders_on_order_number", unique: true
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["editor_id"], name: "index_orders_on_editor_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
   create_table "post_authors", force: :cascade do |t|
@@ -266,6 +262,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_154234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.decimal "price_usd", precision: 8, scale: 2
+    t.decimal "price_gbp", precision: 8, scale: 2
+    t.decimal "price_eur", precision: 8, scale: 2
+    t.decimal "price_aud", precision: 8, scale: 2
+    t.decimal "price_nzd", precision: 8, scale: 2
+    t.decimal "price_cad", precision: 8, scale: 2
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
@@ -374,7 +376,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_154234) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "books"
-  add_foreign_key "orders", "users"
   add_foreign_key "services", "users"
   add_foreign_key "taggings", "tags"
 end

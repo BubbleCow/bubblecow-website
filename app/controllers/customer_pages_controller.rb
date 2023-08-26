@@ -1,8 +1,7 @@
 class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
-  before_action :set_service_price, only: [:mentoring, :manuscript_assessment, :developmental_editing, :author_platform_audit, :book_proposal, :copy_editing] 
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
-  before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment]
+  before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
   layout :set_template
   
 
@@ -12,6 +11,9 @@ class CustomerPagesController < ApplicationController
     @testimonial_count = Testimonial.all.count
     @messages = Message.all
     @data_type = "organization"
+    @price_for_developmental_editing = ProductPricing.new(@country, 'Developmental Editing').display_product_cost
+    @price_for_copy_editing = ProductPricing.new(@country, 'Copy Editing').display_product_cost
+    @price_for_manuscript_assessment = ProductPricing.new(@country, 'Manuscript Assessment').display_product_cost
   end
 
   def about
@@ -40,21 +42,33 @@ class CustomerPagesController < ApplicationController
     @page_title = "Affordable Developmental Editing Services"
     @page_description = "Developmental editing for serious writer. Serving writers since 2007. 100+ testimonials. Discover how our combined developmental editing and line editing will give you the feedback and help you need to lift your book to a publishable standard."
     @keyword = "developmental editing"
-    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
+    @product_pricing = ProductPricing.new(@country, 'Developmental Editing')
+    @price = @product_pricing.display_product_cost
   end
 
-  def mentoring
-    @page_title = "Book Mentoring"
-    @page_description = "One-to-one professional mentoring for writers." 
+  def copy_editing
+    @page_title = "Copy Editing Services For Authors"
+    @page_description = "Bringing Clarity and Precision to Your Words" 
+    @keyword = "copy editing"
     @message = Message.new
+    @product_pricing = ProductPricing.new(@country, 'Copy Editing')
+    @price = @product_pricing.display_product_cost
   end
 
   def manuscript_assessment
     @page_title = "Affordable Manuscript Assessment"
     @page_description = "Give your manuscript the best chance of succeeding with detailed editorial feedback from a professional book editor." 
     @message = Message.new
-    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
+    @product_pricing = ProductPricing.new(@country, 'Manuscript Assessment')
+    @price = @product_pricing.display_product_cost
   end
+  
+  def mentoring
+    @page_title = "Book Mentoring"
+    @page_description = "One-to-one professional mentoring for writers." 
+    @message = Message.new
+  end
+
 
   def book_editing_portal
     @page_title = "Book Editing Portal"
@@ -83,20 +97,6 @@ class CustomerPagesController < ApplicationController
     @message = Message.new
   end
   
-  def copy_editing
-    @page_title = "Copy Editing Services For Authors"
-    @page_description = "Bringing Clarity and Precision to Your Words" 
-    @keyword = "copy editing"
-    @message = Message.new
-    @price = ProductPricing.new(@country, __method__.to_s).display_product_cost
-  end
-  
-  def calculate_price
-    product_pricing = ProductPricing.new(@country, params[:product])
-    price = product_pricing.calculate_price(params[:word_count])
-    render json: { price: price }
-  end
-
   private
 
   def set_template
@@ -108,219 +108,17 @@ class CustomerPagesController < ApplicationController
     end
   end
 
-
-  private
-
   def set_testimonial_count
     @testimonial_count = Testimonial.all.count
   end 
 
-  # Sets the country, if local its GB, if request fails defaults to US.
+  # Sets the country
   def set_country
-    begin
-      @country = Rails.env.development? ? "GB" : request.location.country
-    rescue
-      @country = "US" # default country in case of an error
-    end
-  end
-
-  def set_service_price
-
     if Rails.env.development?
       @country = "GB"
     else
       @country = request.location.country
-      # @country = "US" # - if country fails active this and block term above
     end
-
-    case @country
-
-    when "GB", "United Kingdom"
-
-      @user_country = "United Kingdom"
-      @currency_symbol = "&#163;".html_safe
-     
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "20" 
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "10" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-
-      # Cost of mentoring
-      @mentoring_cost = "400"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-      # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "350"
-      @manuscript_assessment_cost_upto_40k = "480"
-      @manuscript_assessment_cost_upto_60k = "540"
-      @manuscript_assessment_cost_over_60k = "8"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "100" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "400"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-
-    when "US", "United States"
-
-      @user_country = "United States"
-      @currency_symbol = "&#36;".html_safe
-
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "25"
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "12" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-
-      # Cost of mentoring
-      @mentoring_cost = "500"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-       # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "450"
-      @manuscript_assessment_cost_upto_40k = "600"
-      @manuscript_assessment_cost_upto_60k = "680"
-      @manuscript_assessment_cost_over_60k = "10"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "150" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "500"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-     
-    when "Austria", "AT", "Belgium", "BE", "Cyprus", "CY", "Estonia", "EE", "Finland", "FI", "France", "FR", "Germany", "DE", "Greece", "GR", "Ireland", "IE", "Italy", "IT", "Latvia", "LV", "Lithuania", "LT", "Luxembourg", "LU", "Malta", "MT", "Netherlands", "NL", "Portugal", "PT", "Slovakia", "SK", "Slovenia", "SI", "Spain"
-      
-      @user_country = "Europe"
-      @currency_symbol = "&#8364;".html_safe
-      
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "25"
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "12" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-
-      # Cost of mentoring
-      @mentoring_cost = "500"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-      # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "420"
-      @manuscript_assessment_cost_upto_40k = "570"
-      @manuscript_assessment_cost_upto_60k = "640"
-      @manuscript_assessment_cost_over_60k = "10"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "125" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "500"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-
-    when "Australia", "AU"
-
-      @user_country = "Australia"
-      @currency_symbol = "&#36;".html_safe
-
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "35" 
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "18" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-      
-      # Cost of mentoring
-      @mentoring_cost = "580"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-      # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "620"
-      @manuscript_assessment_cost_upto_40k = "850"
-      @manuscript_assessment_cost_upto_60k = "960"
-      @manuscript_assessment_cost_over_60k = "15"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "200" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "700"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-
-    when "New Zealand", "NZ"
-      @user_country = "New Zealand"
-      @currency_symbol = "&#36;".html_safe
-     
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "35"
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "20" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-
-      # Cost of mentoring
-      @mentoring_cost = "635"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-      # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "685"
-      @manuscript_assessment_cost_upto_40k = "940"
-      @manuscript_assessment_cost_upto_60k = "1055"
-      @manuscript_assessment_cost_over_60k = "15"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "200" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "800"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-
-    else
-      @user_country = "Other"
-      @currency_symbol = "&#36;".html_safe
-
-      #Cost of developmental editing per 1000 words.
-      @developmental_edit_cost = "25"
-      @developmental_edit_price = @currency_symbol + @developmental_edit_cost
-
-      #Cost of copys editing per 1000 words.
-      @copy_edit_cost = "12" 
-      @copy_edit_price = @currency_symbol + @copy_edit_cost
-
-      # Cost of mentoring
-      @mentoring_cost = "500"
-      @mentoring_price = @currency_symbol + @mentoring_cost
-
-      # Cost of manuscript assessment
-      @manuscript_assessment_cost_upto_20k = "450"
-      @manuscript_assessment_cost_upto_40k = "600"
-      @manuscript_assessment_cost_upto_60k = "680"
-      @manuscript_assessment_cost_over_60k = "10"
-
-      # Cost of Author Platform Audit
-      @author_platform_audit_cost = "150" 
-      @author_platform_audit_price =  @currency_symbol + @author_platform_audit_cost
-
-      # Cost of book proposal
-      @book_proposal_cost = "500"
-      @book_proposal_price =  @currency_symbol + @book_proposal_cost
-      
-    end
-
   end
 
 end

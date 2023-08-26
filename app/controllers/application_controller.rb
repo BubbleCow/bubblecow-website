@@ -39,29 +39,7 @@ class ApplicationController < ActionController::Base
 
     # Redirect after sign in
     def after_sign_in_path_for(resource)
-
-      case current_user.role
-
-      when 'admin'
-          admin_dashboard_path
-      when 'manaager'
-          manager_dashboard_path
-      when 'editor'
-          root_path
-      when'content_creator'
-          root_path
-      when 'writer'
-        if stored_location_for(resource) == new_services_sample_developmental_edit_path
-          new_services_sample_developmental_edit_path
-        elsif stored_location_for(resource) == new_services_developmental_edit_path
-          new_services_developmental_edit_path
-        else
-          writer_dashboard_path
-        end
-      else 
-          root_path
-      end
-
+      dashboard_path
     end
   
     def after_sign_out_path_for(resource)

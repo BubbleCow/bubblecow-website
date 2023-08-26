@@ -1,4 +1,5 @@
 class ProductPricing
+
   COUNTRY_TO_CURRENCY = {
     us: :usd,
     gb: :gbp,
@@ -13,45 +14,6 @@ class ProductPricing
     :nl, :po, :pt, :ro, :se, :si, :sk
   ].freeze
 
-  CURRENCY_VALUES = {
-    usd: { 
-      developmental_editing: 25, 
-      manuscript_assessment: 20, 
-      copy_editing: 15, 
-      ebook_conversion: 1 
-    },
-    gbp: { 
-      developmental_editing: 20, 
-      manuscript_assessment: 16, 
-      copy_editing: 12, 
-      ebook_conversion: 1 
-    },
-    eur: { 
-      developmental_editing: 25, 
-      manuscript_assessment: 20, 
-      copy_editing: 15, 
-      ebook_conversion: 1 
-    },
-    cad: { 
-      developmental_editing: 35, 
-      manuscript_assessment: 26, 
-      copy_editing: 20, 
-      ebook_conversion: 1 
-    },
-    aud: { 
-      developmental_editing: 37, 
-      manuscript_assessment: 30, 
-      copy_editing: 22, 
-      ebook_conversion: 1 
-    },
-    nzd: { 
-      developmental_editing: 40, 
-      manuscript_assessment: 32, 
-      copy_editing: 24, 
-      ebook_conversion: 1 
-    }
-  }.freeze
-
   CURRENCY_SYMBOLS = {
     usd: "$",
     gbp: "£",
@@ -63,22 +25,32 @@ class ProductPricing
 
   attr_reader :country, :product, :currency
 
-  def initialize(country, product)
+  def initialize(country, product_name)
     @country = country.downcase.to_sym
     @currency = if EU_COUNTRIES.include?(@country)
                   :eur
                 else
                   COUNTRY_TO_CURRENCY[@country]
                 end
-    @product = product.downcase.gsub(' ', '_').to_sym
+    @product = Product.find_by(name: product_name)
+    raise ArgumentError, "Product not found with name: #{product_name}" unless @product
   end
 
   def display_product_cost
-    "#{CURRENCY_SYMBOLS[currency]}#{CURRENCY_VALUES[currency][product]}"
+    "#{CURRENCY_SYMBOLS[currency]}#{formatted_price(product_price)}"
   end
 
   def calculate_price(word_count)
-    word_count.to_i * CURRENCY_VALUES[currency][product]
+    word_count.to_i * product_price
   end
 
+  def product_price
+    @product_price ||= @product.send("price_#{currency}")
+  end
+
+  private
+
+  def formatted_price(price)
+    price % 1 == 0 ? price.to_i : price
+  end
 end
