@@ -16,10 +16,12 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Manuscript </br> Assessment</h4>
+            <h2 class="my-0 fw-normal">
+                <%= link_to ("Manuscript" + "<br>" + "Assessment").html_safe, manuscript_assessment_path %>
+            </h2>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= @price_for_manuscript_assessment %><small class="text-body-secondary fw-light">/1000 words</small></h1>
+            <h2 class="card-title pricing-card-title"><%= @price_for_manuscript_assessment %><small class="text-body-secondary fw-light">/1000 words</small></h2>
             <p class="card-text">Holistic assessment for authors looking to discover what's wrong with their book.</p>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Comprehensive content editing.</li>
@@ -33,10 +35,12 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Developmental </br> Editing</h4>
+            <h2 class="my-0 fw-normal">
+                <%= link_to ("Developmental" + "<br>" + "Editing").html_safe, developmental_editing_path %>
+            </h2>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= @price_for_developmental_editing %><small class="text-body-secondary fw-light">/1000 words</small></h1>
+            <h2 class="card-title pricing-card-title"><%= @price_for_developmental_editing %><small class="text-body-secondary fw-light">/1000 words</small></h2>
             <p class="card-text">Publisher standard feedback for authors preparing their books for publication.</p>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Developmental editing.</li>
@@ -50,10 +54,12 @@
        <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Copy </br> Editing</h4>
+            <h2 class="my-0 fw-normal">
+                <%= link_to ("Copy" + "<br>" + "Editing").html_safe, copy_editing_path %>
+            </h2>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= @price_for_copy_editing %><small class="text-body-secondary fw-light">/1000 words</small></h1>
+            <h2 class="card-title pricing-card-title"><%= @price_for_copy_editing %><small class="text-body-secondary fw-light">/1000 words</small></h2>
             <p class="card-text">Insanely detailed professional feedback for authors ready to publish their manuscript.</p>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Copy editing.</li>
@@ -202,14 +208,16 @@
         <div class="col-sm col-lg-6 mt-2">
             
             <div class="explanation-text">
-                <h2 class="index-subtitle pb-2">What is Mentoring?</h2>
-                <p>Mentoring is sometimes called book mentoring or book coaching.</p>
-                <p>entoring for writers is the process of partnering with an experienced professional writer, book editor, and mentor to help lift your book to a publishable standard.</p>
-                <p>In short, you will work one-on-one with your mentor to make your book the best it can be.</p>
-                <p>Rather than submitting the full written story in one go (as you do with editing), mentoring allows the writer to work with a book editor from the start of your writing journey.</p>                    <p>Our system means that you will submit your manuscript with a word count of up to 15,000 words. You pay for this chunk when you submit and nothing else. There is no long-term contract, you just pay for what you need. </p>
-                <p>Once the 'chunk' is edited, you talk to your mentor, work out the problems and the process starts all over again. </p>
-                <p>Simple and cost-effective. </p>
-                <p>You can find out more about our <%= link_to "book mentoring services here", mentoring_path %>. Unlike our other services, cost is not based per word, but is split into chunks.</p>
+                <h2 class="index-subtitle pb-2">What is Copy Editing?</h2>
+                <p>At BubbleCow, we understand the importance of presenting polished content to your readers. That’s where our copy editing service comes into play, sometimes referred to as line editing, proof-editing, or even micro editing. This is detail-oriented editing, focusing on the 'nitty-gritty' of the text.</p>
+                <p>These terms, while they might sound different, all converge to one meticulous process.</p>
+                <p>Wikipedia defines copy editing as "the process of reviewing and correcting written material to improve accuracy, readability, and fitness for its purpose, and to ensure that it is free of error, omission, inconsistency, and repetition."</p>
+                <p>In essence, it's a thorough examination of the text.</p>
+                <p>Our skilled copy editors dive deep into your manuscript, honing in on language specifics like word choice, sentence structure, grammar, and punctuation. They work to enhance the flow and coherence of the writing, ensuring consistency in tone, style, and voice.</p>
+                <p>While developmental editors may touch upon sentence-level issues, copy editors are the last line of defense against any lingering errors or inconsistencies. They play a pivotal role in guaranteeing that a book or content speaks to its audience in the clearest, most engaging manner possible.</p>
+                <p>Furthermore, it's crucial to note that copy editing is distinct from developmental or structural editing, which evaluates a manuscript's overall narrative and organization. At BubbleCow, we consider copy editing an essential standalone service, though it complements other forms of editing impeccably.</p>
+                <p>For those who desire a fine-tuned, professional piece ready for publication or presentation, our copy editing service is invaluable. And yes, our transparent pricing model remains consistent, ensuring you're aware of every penny spent for the quality received.</p>
+                <p>Discover more about our <%= link_to "copy editing offerings here", copy_editing_path %>, where we elaborate on our pricing structure and what you can expect from our experienced team.</p>
             </div>
 
         </div>
@@ -231,7 +239,10 @@
                                 <h4 itemprop="name">How much does it cost to edit a whole book?</h3>
                                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <div itemprop="text">
-                                        <p>The cost of editing a whole book depends on the type of editing and the length of your book. Developmental editing is the most in-depth, and therefore most expensive type of editing. <strong>A typical novel is 80,000 words and, at $20 per 1000 words for developmental editing, this would cost $1600</strong>.</p>
+                                        <p>The cost of editing a whole book depends on the type of editing and the length of your book. Developmental editing is the most in-depth, and therefore most expensive type of editing. Manuscript assessment is less detailed and therefore less costly. Copy editing is the most aoffordable type of editing.<p>
+                                        <p>A typical novel is 80,000 words and, at <%= @price_for_developmental_editing %> per 1000 words for developmental editing, this would cost <%= display_cost(@price_for_developmental_editing, @country) %>.</p>
+                                        <p>A manuscript assessment for 80,000 words would be <%= @price_for_manuscript_assessment %> per 1000 words and would cost <%= display_cost(@price_for_manuscript_assessment, @country) %>.</p>
+                                        <p>Copy editing for 80,000 words would be <%= @price_for_copy_editing %> per 1000 words and would cost <%= display_cost(@price_for_copy_editing, @country) %>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -254,10 +265,4 @@
         </div>
 
 </section>
-
-
-
-
-
-
 
