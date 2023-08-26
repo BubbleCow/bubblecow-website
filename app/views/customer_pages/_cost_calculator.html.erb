@@ -21,9 +21,14 @@
 
         <!-- This hidden div will store the product's price-per-word for our Stimulus controller -->
         <div data-price-calculator-target="productPrice" data-price="<%= @product_pricing.product_price %>"></div>
+
           <div class="alert alert-success" role="alert">
-            <span class="lead">The final cost to edit: <span data-price-calculator-target="currencySymbol"><%= ProductPricing::CURRENCY_SYMBOLS[@product_pricing.currency] %></span><span data-price-calculator-target="result">0</span></span>
+            <span class="lead">
+              The final cost to edit your book: </br>
+              <span data-price-calculator-target="currencySymbol"><%= ProductPricing::CURRENCY_SYMBOLS[@product_pricing.currency] %></span><span data-price-calculator-target="result">0</span>
+            </span>
           </div>
+
         </div>    
 
       </div>
