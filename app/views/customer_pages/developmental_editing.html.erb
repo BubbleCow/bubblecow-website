@@ -93,53 +93,12 @@
 
   </div>
 
-  <!-- single column - price information -->
-  <div class="row justify-content-md-center section-spacer">
-
-      <div class="col-sm col-lg-6">
-      
-        <div class="book-editing-pricing-text">
-          <h2 id="item-price-calculator ">Price Calculator</h2>
-          <p>We use a simple pricing system for our developmental editing service, which is based on the cost per 1000 words.</p>
-          <p>The cost for developmental editing is <strong><%= @price %>  per 1000 words.</strong></p>
-          <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
-          <p>The price includes all editing, consultation, and after-edit care.</p>
-          <p><em>To calculate the cost of your edit, add your book's word count and hit the button.</em></p>
-        </div>
-      
-      </div>
-
-  </div>
-
   <!-- single column - price calculator -->
   <div class="row justify-content-md-center">
 
       <div class="col-sm col-lg-6">
-        
-        <div class="book-editing-pricing-calc form card">
-            <div class="card-body">
 
-                <form id="theform" action="#">
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Book's Word Count</span>
-                        <input type="text" id="words" class="form-control" placeholder="Add your book's word count" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><%= @currency_symbol %></span>
-                        <input type="text" id="tot" class="form-control" placeholder="Hit the button to see the cost" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly">
-                    </div>
-
-                    <div class="d-grid gap-2">
-                        <input id="calc" type="button" value="Instantly calculate cost"
-                            class="btn btn-primary btn-lg btn-block my-3">
-                    </div>
-
-                </form>
-
-            </div> 
-        </div>
+        <%= render partial: 'cost_calculator' %>
       
       </div>
 
@@ -778,5 +737,3 @@
   </div>
 
 </div>
-
-<%= render "shared/price_calculator_editing" %>

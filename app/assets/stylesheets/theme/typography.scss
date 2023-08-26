@@ -2,19 +2,6 @@
 
 These are elements related to Typography.
 
-*/
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: $pay-blue !important;
-    text-transform: capitalize;
-}
-
 
 h2 {
     font-size: 1.8rem !important;
@@ -40,4 +27,17 @@ blockquote {
 
 .page-header {
     padding-bottom: 2rem;
+}
+
+*/
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $pay-blue !important;
+    text-transform: capitalize;
 }

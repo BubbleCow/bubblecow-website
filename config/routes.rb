@@ -7,21 +7,12 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
-  # resources :users, only: [:show]
 
   #  Trix youtube plugin
   resource :embed, only: :update
 
   # services
   resources :testimonials
-
-  # books
-  resources :books do
-    resources :orders
-  end
-
-  # allows orders
-  resources :orders, only: [:index]
 
   namespace :services do
     resources :service_prices
@@ -62,13 +53,8 @@ Rails.application.routes.draw do
   # For price calculator
   get 'calculate_price', to: 'customer_pages#calculate_price'
 
-  # dashboards
-  get 'content-creator-dashboard', to: 'dashboards#content_creator_dashboard'
-  get 'admin-dashboard', to: 'dashboards#admin_dashboard'
-  get 'manager-dashboard', to: 'dashboards#manager'
-  get 'writer-dashboard', to: 'dashboards#writer_dashboard'
-
-  get 'writer_area', to: 'dashboards#writer_dashboard'
+  # Dashboard
+  get 'dashboard', to: 'dashboards#show', as: 'dashboard'
 
   # Blog
   namespace :blog do
@@ -99,8 +85,24 @@ Rails.application.routes.draw do
   end
 
   # Users
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' }
-  resources :users, :only => [ :index, :show, :edit, :update, :destroy]  
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' } 
+
+  # Services
+  resources :users do
+    resources :books
+  end 
+
+  resources :books, only: [] do
+    resources :orders do
+      member do
+        post 'accept'
+        post 'reject'
+        post 'invoice_sent'
+        post 'invoice_paid'
+        post 'invoice_unpaid'
+      end
+    end      
+  end
 
   # Courses
   resources :courses do

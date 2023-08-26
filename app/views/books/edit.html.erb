@@ -1,7 +1,4 @@
-<h1>Update <%= @book.title.titleize %></h1>
+<h1>Edit <%= @book.title.titleize %></h1>
 
-<div class="box">
+<%= render partial: 'form' %>
 
-    <%= render 'form', book: @book %>
-
-</div>
