@@ -1,22 +1,19 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["wordCount", "price"]
+  static targets = ["wordCount", "result", "productPrice", "currencySymbol"];  // <-- added "currencySymbol"
 
-  updatePrice() {
-    let wordCount = this.wordCountTarget.value
-    let product = this.data.get("product")
+  calculate() {
+    const wordCount = parseFloat(this.wordCountTarget.value) || 0;
+    const pricePerWord = parseFloat(this.productPriceTarget.dataset.price);
+    
+    let result = (wordCount / 1000) * pricePerWord;
+  
+    // Round up
+    result = Math.ceil(result);
 
-    if (wordCount !== "") {
-      fetch(`/calculate_price?word_count=${wordCount}&product=${product}`, {
-        headers: { "Accept": "application/json" },
-      })
-        .then(response => response.json())
-        .then(data => {
-          this.priceTarget.innerHTML = data.price
-        })
-    } else {
-      this.priceTarget.innerHTML = "Please enter a word count"
-    }
+    // Get the currency symbol directly from the currencySymbol target
+    const currencySymbol = this.currencySymbolTarget.textContent;
+    this.resultTarget.textContent = `${result}`;
   }
 }

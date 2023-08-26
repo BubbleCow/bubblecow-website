@@ -2,8 +2,11 @@
 
 <div><%= @product.description %></div>
 
-<p>$<%= @product.price_usd %></p>
-<p>£<%= @product.price_gbp %></p>
-<p>€<%= @product.price_eur %></p>
+<p>USD: $<%= @product.price_usd %></p>
+<p>GBP: £<%= @product.price_gbp %></p>
+<p>EUR: €<%= @product.price_eur %></p>
+<p>AUD: A$<%= @product.price_aud %></p>
+<p>NZD: NZ$<%= @product.price_nzd %></p>
+<p>CAD: C$<%= @product.price_cad %></p>
 
 <%= link_to 'Back', products_path %>
