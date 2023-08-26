@@ -15,7 +15,7 @@
       <div class="card-body">
 
         <div class="input-group mb-3 pt-2">
-          <span class="input-group-text" id="basic-addon1">Book's Word Count</span>
+          <span class="input-group-text" id="basic-addon1">Word Count</span>
           <input type="number" class="form-control form-control-lg" id="wordCount" data-action="input->price-calculator#calculate" data-price-calculator-target="wordCount">
         </div>
 
@@ -24,7 +24,7 @@
 
           <div class="alert alert-success" role="alert">
             <span class="lead">
-              The final cost to edit your book: </br>
+              Cost to edit your book: </br>
               <span data-price-calculator-target="currencySymbol"><%= ProductPricing::CURRENCY_SYMBOLS[@product_pricing.currency] %></span><span data-price-calculator-target="result">0</span>
             </span>
           </div>
