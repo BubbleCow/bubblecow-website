@@ -40,6 +40,7 @@ class BooksController < ApplicationController
     @book.user = @user
   
     if @book.save
+      flash[:success] = "#{@book.title.titleize} was successfully created."
       redirect_to [@book.user, @book], notice: "#{@book.title.titleize} was successfully created."
     else
       @writers = User.writer.all
