@@ -11,22 +11,18 @@
     <%= render 'shared/google_tag_manager' %>
 
     <!-- navigation -->
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navigation/navbar' %>
 
-      <!-- Notices -->
-      <%= render 'shared/notices' %>
+    <!-- Notices -->
+    <%= render 'shared/notices' %>
 
-    
-    <div class="container">  
-      <!-- Main content -->
-      <div class="row">
-        <div class="col-lg-8 mx-auto p-3 py-md-5  <%= controller_name %> <%= action_name %>"> 
-          <%= yield %>
-        </div>
+    <!-- main -->
+    <main class="<%= controller_name %> <%= action_name %>">
+      <div class="container">
+        <%= yield %>
       </div>
+    </main>
 
-    </div>
-    
     <!-- Footer -->
     <%= render 'shared/footer' %>
 

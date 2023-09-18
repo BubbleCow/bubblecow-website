@@ -1,44 +1,33 @@
-<%= form_with(model: [@course, lesson], local: true) do |form| %>
-  <% if lesson.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+<%= form_with(model: [ @course, @lesson ], local: true) do |form| %>
 
+  <% if @lesson.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h4>
       <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @lesson.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+  <div class="form-group input">
+    <%= form.label :title, 'Lesson Title' %>
+    <%= form.text_field :title, class: 'form-control', placeholder: "E.g., Introduction to Rails", autofocus: true %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :position %>
-    <%= form.number_field :position, class: 'form-control' %>
+  <div class="form-group input">
+    <%= form.label :content, 'Lesson Content' %>
+    <%= form.text_area :content, class: 'form-control', placeholder: "Provide the lesson content here." %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+  <div class="form-group input">
+    <%= form.label :position, "Position" %>
+    <%= form.number_field :position, min: 1, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :content %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <% if lesson.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-
+  <div class="form-group button">
     <%= form.submit class: 'btn btn-primary' %>
-
   </div>
+
 <% end %>

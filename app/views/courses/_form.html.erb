@@ -1,8 +1,7 @@
 <%= form_with(model: course, local: true) do |form| %>
   <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h4>
       <ul>
       <% course.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,18 +10,27 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+  <div class="form-group input">
+    <%= form.label :title, 'Course Title' %>
+    <%= form.text_field :title, class: 'form-control', placeholder: "E.g., Introduction to Rails", autofocus: true %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+  <div class="form-group input">
+    <%= form.label :description, 'Detailed Description' %>
+    <%= form.text_area :description, class: 'form-control', placeholder: "Provide a detailed description of the course." %>
   </div>
 
-  <div class="form-group">
-    
+  <div class="form-group input">
+    <%= form.label :description_short, 'Short Description' %>
+    <%= form.text_area :description_short, class: 'form-control', placeholder: "A brief overview of the course." %>
+  </div>
+
+  <div class="form-group input">
+    <%= form.label :access_level, "Access Level" %>
+    <%= form.select :access_level, Course.access_levels.keys.map { |key| [key.humanize, key] }, {}, { class: 'form-select' } %>
+  </div>
+
+  <div class="form-group input">
     <!-- Show current ac tag -->
     <% if @course.ac_tag.present? %>
       <p>Current ac tag: <%= @course.ac_tag %></p>
@@ -30,24 +38,13 @@
       <p>No tag assigned</p>
     <% end %>
 
-      <div class="input">
-        <%= form.select(:ac_tag, options_for_select([['none'], ['book proposal']]), {}, {class: "form-select"}) %>
-      </div>
+    <div class="input">
+      <%= form.select(:ac_tag, options_for_select([['none'], ['book proposal']]), {}, {class: "form-select"}) %>
+    </div>
   </div>
   
-  <div class="form-group">
-    <% if course.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', course, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-
+  <div class="form-group button">
     <%= form.submit class: 'btn btn-primary' %>
-
-    <% if course.persisted? %>
-      <%= link_to "Cancel", course, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", courses_path, class: "btn btn-link" %>
-    <% end %>
   </div>
+
 <% end %>

@@ -2,7 +2,6 @@ class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
-  layout :set_template
   
 
   def index
@@ -98,15 +97,6 @@ class CustomerPagesController < ApplicationController
   end
   
   private
-
-  def set_template
-    case action_name
-    when 'index', 'manuscript_assessment', 'mentoring', 'developmental_editing', 'may_2022_giveaway', 'author_platform_audit', 'book_proposal', 'copy_editing'
-      'full_width'
-    else
-      'application'
-    end
-  end
 
   def set_testimonial_count
     @testimonial_count = Testimonial.all.count

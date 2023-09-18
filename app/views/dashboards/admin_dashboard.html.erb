@@ -1,14 +1,59 @@
-<section class="page-header">
-    <h1>Admin Dashboard</h1>
-</section>
+<div class="admin_dashboard">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-12">
 
-<section class="page-body">
+            <!-- Header  -->
+            <div class="admin_dashboard__header">
+                <h1 class="admin_dashboard__title">Admin Dashboard</h1>
+            </div>
 
-<!-- Site visits per month -->
-<div class="card">
-    <div class="card-body">
-        <p class="card-text">Number of monthly overall site visits</p>
-        <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
+            <div class="admin_dashboard__stats row">
+                <!-- stats -->
+                <section class="admin_dashboard__stats-section">
+                    <!-- Site visits per month -->
+                    <div class="admin_dashboard__stats-card card">
+                        <div class="card-body">
+                            <p class="card-text">Number of monthly overall site visits</p>
+                            <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="col-md-6 mt-3">
+                <div class="admin_dashboard__card card">
+                    <div class="card-body">
+                        <h2 class="admin_dashboard__card-title">Courses</h2>
+                        <%= link_to 'New Course', new_course_path, class: 'btn btn-sm btn-outline-primary mb-3' %>
+
+                        <% @courses.each do |course| %>
+                            <div class="admin_dashboard__course-item card mt-3">
+                                <div class="admin_dashboard__course-header">
+                                    <%= link_to course.title, course_path(course), class: "admin_dashboard__course-title" %>
+                                    <%= link_to edit_course_path(course) do %>
+                                        <i class="bi bi-gear"></i>
+                                    <% end %>
+                                    <%= link_to course, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+                                        <i class="bi bi-trash"></i>
+                                    <% end %>
+                                </div>
+                                <ul class="admin_dashboard__lesson-list list-group list-group-flush">
+                                    <% course.lessons.each do |lesson| %>
+                                        <li class="admin_dashboard__lesson-item list-group-item">
+                                            <%= lesson.title %>
+                                            <%= link_to 'Edit', edit_course_lesson_path(course, lesson), class: 'btn btn-sm btn-warning float-right ml-2' %>
+                                            <%= button_to 'Delete', course_lesson_path(course, lesson), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: 'btn btn-sm btn-danger float-right' %>
+                                        </li>
+                                    <% end %>
+                                    <li class="admin_dashboard__lesson-item list-group-item">
+                                        <%= link_to 'Add Lesson', new_course_lesson_path(course), class: 'btn btn-sm btn-outline-primary' %>
+                                    </li>
+                                </ul>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 </div>
-</section>

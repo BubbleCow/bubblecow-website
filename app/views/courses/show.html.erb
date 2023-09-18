@@ -1,27 +1,30 @@
-<section class="page-header">
-  <h1><%= @course.title.titleize %></h1>
-</section>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+      <div class="course_page">
 
-<section class="page-body">
+        <!-- Header  -->
+        <div class="course_header">
+          <h1 class="course_header__title"><%= @course.title %></h1>
+        </div>
 
-  <%= course_description(@course) %>
+        <!-- Course description -->
+        <div class="course_page__description"><%= raw @course.description %></div>
 
-  <div class="card mt-3 shadow p-3 mb-5 bg-body rounded">
+        <!-- Lessons -->
+        <div class="card mt-3">
+          <div class="card-header">
+            <h2>Lessons</h2>
+          </div>
+          <ul class="list-group list-group-flush hoverable-list">
+            <% @course.lessons.order(position: :asc).select(&:persisted?).each do |lesson| %>
+              <li class="list-group-item mb-0 hoverable-list__item">
+                <%= link_to lesson.title, course_lesson_path(@course, lesson), class: "hoverable-list__link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
 
-    <div class="card-body">
-
-      <h2>Lessons</h2>
-
-      <ol>
-
-        <% @lessons.each do |lesson| %>
-          <li><%= link_to lesson.title.titleize, course_lesson_path(@course, lesson) %></li>
-        <% end %>
-
-      </ul>
 
     </div>
-
   </div>
-
-</section>
+</div>
