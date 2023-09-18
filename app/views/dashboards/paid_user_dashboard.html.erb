@@ -1,0 +1,16 @@
+<% if user_has_old_edits_and_more_than_one_book %>
+
+    <%= render 'dashboards/user_books' %>
+    <%= render 'dashboards/old_edits' %>
+
+
+<% elsif user_has_old_edits_or_samples %>
+
+    <%= render 'dashboards/getting_started' %>
+    <%= render 'dashboards/old_edits' %>
+
+<% else %>
+
+    <%= render 'dashboards/getting_started' %>
+
+<% end %>

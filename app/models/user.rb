@@ -17,11 +17,11 @@ class User < ApplicationRecord
   has_rich_text :note
 
   # roles
-  enum role: [:writer, :content_creator, :editor, :manager, :admin]
+  enum role: [:free_user, :paid_user, :editor, :manager, :admin]
 
   after_initialize do
     if self.new_record?
-      self.role ||= :writer
+      self.role ||= :free_user
     end
   end
 

@@ -5,21 +5,22 @@ class LessonsController < ApplicationController
   before_action :set_ac_tag, only: %i[ show ]
 
   def index
-    @lessons = @course.lessons.order(position: :asc)
+    @page_title = "Lessons for #{@course.title}"
+    @lessons = policy_scope(@course.lessons)
     authorize @lessons
   end
 
   def show
+    @page_title = @lesson.title.titleize
     authorize @lesson
-    @page_title = @course.title + ' - ' + @lesson.title 
-    @next_lesson = @course.lessons.find_by_position(@lesson.position + 1)
-    @previous_lesson = @course.lessons.find_by_position(@lesson.position - 1)
   end
 
   def new
-    @lesson = @course.lessons.build
+    max_position = @course.lessons.maximum(:position) || 0
+    @lesson = @course.lessons.build(position: max_position + 1)
     authorize @lesson
   end
+
 
   def edit
     authorize @lesson

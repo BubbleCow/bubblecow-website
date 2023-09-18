@@ -12,26 +12,25 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 
+  <%= favicon_link_tag 'favicon.ico' %>
 
-<%= favicon_link_tag 'favicon.ico' %>
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
 
-<!-- Fonts -->
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+  <!-- Structured Data Schema -->
+  <%= structured_data_schema(@data_type) %>
 
-<!-- Structured Data Schema -->
-<%= structured_data_schema(@data_type) %>
+  <!-- Google Tag Manager trigger for Turbolinks -->
+  <script type="text/javascript">
+    document.addEventListener("turbo:load", function() {
+      var url = window.location.href;
 
-<!-- Google Tag Manager trigger for Turbolinks -->
-<script type="text/javascript">
-  document.addEventListener("turbo:load", function() {
-    var url = window.location.href;
-
-    dataLayer.push({
-      'event': 'pageView',
-      'virtualUrl': url
+      dataLayer.push({
+        'event': 'pageView',
+        'virtualUrl': url
+      });
     });
-  });
-</script>
+  </script>
 
  <!-- End Google Tag Manager trigger for Turbolinks -->
 

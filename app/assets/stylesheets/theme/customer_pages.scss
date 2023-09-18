@@ -1,0 +1,15 @@
+// Styling customer pages
+
+.customer_pages__header {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    &__title {
+        @include header-text;
+    }
+}
+
+.customer_pages__content {
+    h2 {
+        @include header-text;
+    }
+}

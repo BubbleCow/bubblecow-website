@@ -7,6 +7,11 @@ These are site wide mixins and colour changes. These are often replacing Bootsta
 */
 
 // Mixins
+@mixin header-text {
+    color: $pay-blue !important;
+    text-transform: capitalize;
+}
+
 @mixin standard-border {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
