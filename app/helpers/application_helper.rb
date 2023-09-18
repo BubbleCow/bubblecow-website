@@ -1,6 +1,5 @@
 module ApplicationHelper
 
-
   # Outputs 'bubblecow'
   def bubblecow_name
     content_tag(:span, "Bubble", class: "brand-first-word") + content_tag(:span, "Cow", class: "brand-second-word")

@@ -1,0 +1,36 @@
+.admin_dashboard {
+    &__header {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .admin_dashboard__title {
+        @include header-text;
+    }
+
+    .admin_dashboard__stats-card.card .card-body { 
+        // Styles for the card body of the stats card
+    }
+
+    .admin_dashboard__card.card .card-body {
+        // Styles for the card body of the courses card
+    }
+
+    .admin_dashboard__card-title {
+        @include header-text;
+    }
+
+    .admin_dashboard__course-item.card .admin_dashboard__course-header {
+        // Styles for the header of the course title
+        padding: 1rem;
+    }
+
+    .admin_dashboard__course-item.card .admin_dashboard__course-title {
+        // Styles for the header of the course title
+        font-size: 1.1rem;
+    }
+
+    .admin_dashboard__lesson-list .list-group .list-group-item {
+        // Styles for an individual lesson within the list
+    }
+}

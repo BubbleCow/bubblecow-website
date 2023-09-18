@@ -106,7 +106,7 @@ Rails.application.routes.draw do
 
   # Courses
   resources :courses do
-    resources :lessons
+    resources :lessons, except: :index
   end
 
   # Products

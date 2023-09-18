@@ -2,7 +2,6 @@ module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
     before_action :set_blog_post_content, only: [:show]
-    layout :set_template
 
     def index
       @posts = Post.published
@@ -85,15 +84,6 @@ module Blog
 
       def post_params
         params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :topic_list, :content, :advert_category)
-      end
-      
-      def set_template
-        case action_name
-        when 'edit', 'new', 'show'
-            'full_width'
-        else
-            'application'
-        end
       end
 
       # Look for html or trix and then converts to string, if needed, and strips tags
