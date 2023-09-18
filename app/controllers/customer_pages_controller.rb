@@ -2,7 +2,6 @@ class CustomerPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
-  
 
   def index
     @page_title = "Affordable Book Editing Services for serious writers"
@@ -13,28 +12,6 @@ class CustomerPagesController < ApplicationController
     @price_for_developmental_editing = ProductPricing.new(@country, 'Developmental Editing').display_product_cost
     @price_for_copy_editing = ProductPricing.new(@country, 'Copy Editing').display_product_cost
     @price_for_manuscript_assessment = ProductPricing.new(@country, 'Manuscript Assessment').display_product_cost
-  end
-
-  def about
-    @page_title = "About BubbleCow"
-    @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder."
-    @data_type = "local_business"
-  end
-
-  def thanks
-    @page_title = "Thanks for your payment"
-    @page_description = "Thanks for payment. We will be in touch shortly."
-    @footer = "no footer"
-  end
-
-  def writing_manual
-    @page_title = "The Writing Manual"
-    @page_description = "Download your free copy of the 'famous' Writing Manual." 
-  end 
-
-  def file_safety
-    @page_title = "File Safety"
-    @page_description = "Discover how we ensure your manuscript is kept safe." 
   end
 
   def developmental_editing
@@ -68,26 +45,9 @@ class CustomerPagesController < ApplicationController
     @message = Message.new
   end
 
-
   def book_editing_portal
     @page_title = "Book Editing Portal"
     @page_description = "Answer any questions you might have about book editing, including developmental editing, copy editing, proofreading and editorial assessments." 
-  end
-
-  def terms_and_conditions
-    @page_title = "Terms and Conditions"
-    @page_description = "BubbleCow's terms of service." 
-  end
-
-  def privacy_policy
-    @page_title = "Privacy Policy"
-    @page_description = "BubbleCow's privact policy." 
-  end
-
-  def may_2022_giveaway
-    @page_title = "May 2022 Manuscript Assessment Giveaway"
-    @page_description = "A one-off discounted offer for manuscript assessment." 
-    @message = Message.new
   end
 
   def book_proposal

@@ -30,10 +30,6 @@ Rails.application.routes.draw do
 
   # customer pages
   scope controller: :customer_pages do
-    get 'about'
-    get 'writing_manual'
-    get 'thanks'
-    get 'file-safety'
     get 'developmental_editing'
     get 'content-editing', action: :developmental_editing
     get 'substantive-editing', action: :developmental_editing
@@ -42,12 +38,19 @@ Rails.application.routes.draw do
     get 'book-editing', action: :developmental_editing
     get 'mentoring'
     get 'manuscript-assessment'
-    get 'book-editing-portal'
-    get 'terms-and-conditions'
-    get 'privacy-policy'
-    get 'may-2022-giveaway'
     get 'book-proposal'
     get 'copy-editing'
+  end
+
+  # Static pages
+  scope controller: :static_pages do
+    get 'about'
+    get 'writing_manual'
+    get 'thanks'
+    get 'file-safety'
+    get 'book-editing-portal'
+    get 'terms-and-conditions'
+    get 'privacy-policy'  
   end
 
   # For price calculator
