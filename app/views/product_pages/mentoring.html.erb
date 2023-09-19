@@ -1,25 +1,30 @@
-<div class="services">
+<div class="product-page mentoring-page">
 
-    <!-- Hero -->
-    <header class="hero px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">Mentoring for Writers</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="sub-title mb-4">Get professional guidance to become a better writer</p>
-        </div>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <%= link_to "Get Started", mentoring_path(anchor: "item-mentoring-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-            <%= link_to "Find out cost", mentoring_path(anchor: "item-mentoring-cost"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-        </div>
-    </header>
+  <!-- Hero Section -->
+  <section class="hero-section py-5 text-center product-page__hero">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="text-center">
+                <h1 class="product-page__hero-title">Mentoring for Writers</h1>
+                <p class="product-page__hero-subtitle">Get professional guidance to become a better writer</p>
+
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+                    <%= link_to "Get Started", mentoring_path(anchor: "item-mentoring-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+                    <%= link_to "Find out cost", mentoring_path(anchor: "item-mentoring-cost"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+              </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
     <!-- Three column layout - benefits -->
-    <div class="row mb-3">
+    <div class="row product-page__section">
     
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card roduct-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title">Better quality book</h2>
                     <p class="card-text">Our professional mentor will work with you one-on-one to help you to lift your book to a publishable standard. </p> 
@@ -30,7 +35,7 @@
 
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card roduct-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title">Learn from experts</h2>
                     <p class="card-text">Get professional guidance and become the best writer possible. Your mentor will give you the tools you need to be successful.</p> 
@@ -41,7 +46,7 @@
 
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card roduct-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title">Don’t write alone</h2>
                     <p class="card-text">A mentor will be with you each step of the process. Mentoring is a partnership but you will remain in control.</p>
@@ -55,7 +60,7 @@
 </div>
 
 <!-- single column - toc -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -78,7 +83,7 @@
 </div>
 
 <!-- single column - what is mentoring -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -94,7 +99,7 @@
 </div>
 
 <!-- single column - cost -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -108,7 +113,7 @@
 </div>
 
 <!-- single column - submission -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -150,7 +155,7 @@
 </div>
 
 <!-- Two column layout - testimonial -->
-<div class="row justify-content-sm-center section-spacer">
+<div class="row justify-content-sm-center product-page__section">
 
     <div class="col-sm-4 mt-2">
         <img src="https://bubblecow.com/assets/jax-burrows" alt="jax burrows" class="post-media img-fluid rounded mx-auto d-block" width="200" height="200">   
@@ -177,7 +182,7 @@
 </div>
 
 <!-- single column - the process -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -228,7 +233,7 @@
 </div>
 
 <!-- single column - feedback -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section">
 
     <div class="col-sm col-lg-6">
 
@@ -291,7 +296,7 @@
 </div>
 
 <!-- single column - FAQ -->
-<div class="row justify-content-md-center section-spacer">
+<div class="row justify-content-md-center product-page__section product-page__faq">
 
     <div class="col-sm col-lg-6">
 

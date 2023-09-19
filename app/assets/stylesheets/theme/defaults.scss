@@ -6,25 +6,6 @@ These are site wide mixins and colour changes. These are often replacing Bootsta
 
 */
 
-// Mixins
-@mixin header-text {
-    color: $pay-blue !important;
-    text-transform: capitalize;
-}
-
-@mixin standard-border {
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
-}
-
-@mixin backend-box {
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
-    background-color: white;
-    padding: 1rem;
-}
-
-
 // Primary colours - These should always be considered as the primary colors. Black is to be used very sparingly.
 $pay-blue: #00457C !default;
 $pal-blue: #0079C1 !default;
