@@ -1,0 +1,32 @@
+// Styling for static pages
+
+.static-page { 
+    // styles for the main block
+
+    .static-page__header {
+        // styles for the header
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .static-page__header-title {
+        // styles for the title inside the header
+        @include header-text;
+    }
+
+    .static-page__content {
+        // styles for the content
+
+        h2 {
+            @include header-text;
+        }
+    }
+}
+
+
+.book-editing-portal-page {
+    .static-page__header-title {
+        // styles for the title inside the header
+        margin-bottom: 1rem;
+    }
+}
