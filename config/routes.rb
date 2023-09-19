@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     root to: "pages#index"
   end
 
-  # customer pages
-  scope controller: :customer_pages do
+  # product pages
+  scope controller: :product_pages do
     get 'developmental_editing'
     get 'content-editing', action: :developmental_editing
     get 'substantive-editing', action: :developmental_editing
@@ -118,6 +118,6 @@ Rails.application.routes.draw do
   # Genres
   resources :genres
 
-  root to: 'customer_pages#index'
+  root to: 'product_pages#index'
 
 end

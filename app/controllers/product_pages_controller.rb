@@ -1,4 +1,4 @@
-class CustomerPagesController < ApplicationController
+class ProductPagesController < ApplicationController
   before_action :authenticate_user!, only: [:blog_dashboard]
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
