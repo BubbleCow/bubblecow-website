@@ -1,28 +1,31 @@
-<div class="services">
+<div class="product-page developmental-editing-page">
 
-    <!-- Hero -->
-    <header class="hero px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">Developmental Editing</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="sub-title mb-4">Looking for a professional book editor? We can help</p>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero-section py-5 text-center product-page__hero">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="text-center">
+                <h1 class="product-page__hero-title">Developmental Editing</h1>
+                <p class="product-page__hero-subtitle">Looking for a professional book editor? We can help</p>
 
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <%= link_to "Submit for free sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-            <%= link_to "Submit for full paid edit", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
-        </div>
-
-    </header>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+                  <%= link_to "Submit for free sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+                  <%= link_to "Submit for full paid edit", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
+              </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
   <!-- Three column layout  - benefits -->
-  <div class="row mb-3">
+  <div class="row mb-3 product-page__section">
         
     <div class="col-sm-4">
-      <div class="card mt-2">
+      <div class="card product-page__benefits-card">
         <div class="card-body text-center">
-            <h2 class="card-title test">Book Editing + Line Editing</h2>
+            <h2 class="card-title">Book Editing + Line Editing</h2>
             <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure, and readability. Clear, actionable advice that will allow you to create a better book.</p>
         </div>
       </div>
@@ -30,7 +33,7 @@
       
     <div class="col-sm-4">
 
-      <div class="card mt-2">
+      <div class="card product-page__benefits-card">
         <div class="card-body text-center">
             <h2 class="card-title">Multi-page Editor's Report</h2>
             <p class="card-text">Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience and make your book better.</p>
@@ -41,7 +44,7 @@
       
     <div class="col-sm-4">
 
-      <div class="card mt-2">
+      <div class="card product-page__benefits-card">
         <div class="card-body text-center">
             <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
             <p>Feedback is returned within 28 business days. Timeframes are essential, so we will provide you with a delivery date before the editing starts.</p>
@@ -53,7 +56,7 @@
   </div>
 
   <!-- single column - toc -->
-  <div class="row justify-content-md-center section-spacer">
+  <div class="row justify-content-md-center product-page__section">
 
       <div class="col-sm col-lg-6">
 
@@ -77,7 +80,7 @@
   </div>
 
   <!-- single column - what is developmental editing-->
-  <div class="row justify-content-md-center section-spacer">
+  <div class="row justify-content-md-center product-page__section">
 
       <div class="col-sm col-lg-6">
       
@@ -94,7 +97,7 @@
   </div>
 
   <!-- single column - price calculator -->
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-md-center product-page__section">
 
       <div class="col-sm col-lg-6">
 
@@ -106,7 +109,7 @@
 
 
   <!-- single column - turnaround -->
-  <div class="row justify-content-md-center section-spacer">
+  <div class="row justify-content-md-center product-page__section">
 
       <div class="col-sm col-lg-6">
       
@@ -122,7 +125,7 @@
       
 
   <!-- Two column layout - testimonial -->
-  <div class="row justify-content-sm-center section-spacer">
+  <div class="row justify-content-sm-center product-page__section">
     
       <div class="col-sm-4 mt-2">
         <img src="https://bubblecow.com/assets/An_Illustrated_Book_of_Bad_Arguments" alt="An Illustrated Book of Bad Arguments" class="post-media img-fluid rounded mx-auto d-block" width="332" height="330">
@@ -150,7 +153,7 @@
   </div>
 
   <!-- single column - what you get -->
-  <div class="row justify-content-md-center section-spacer">
+  <div class="row justify-content-md-center product-page__section">
 
       <div class="col-sm col-lg-6">
 
@@ -550,7 +553,7 @@
   </div>
 
   <!-- single column - FAQ -->
-  <div class="row justify-content-md-center section-spacer">
+  <div class="row justify-content-md-center product-page__section product-page__FAQ">
 
     <div class="col-sm col-lg-6">
 

@@ -28,12 +28,8 @@ Rails.application.routes.draw do
     root to: "pages#index"
   end
 
-  # customer pages
-  scope controller: :customer_pages do
-    get 'about'
-    get 'writing_manual'
-    get 'thanks'
-    get 'file-safety'
+  # product pages
+  scope controller: :product_pages do
     get 'developmental_editing'
     get 'content-editing', action: :developmental_editing
     get 'substantive-editing', action: :developmental_editing
@@ -42,12 +38,19 @@ Rails.application.routes.draw do
     get 'book-editing', action: :developmental_editing
     get 'mentoring'
     get 'manuscript-assessment'
-    get 'book-editing-portal'
-    get 'terms-and-conditions'
-    get 'privacy-policy'
-    get 'may-2022-giveaway'
     get 'book-proposal'
     get 'copy-editing'
+  end
+
+  # Static pages
+  scope controller: :static_pages do
+    get 'about'
+    get 'writing_manual'
+    get 'thanks'
+    get 'file-safety'
+    get 'book-editing-portal'
+    get 'terms-and-conditions'
+    get 'privacy-policy'  
   end
 
   # For price calculator
@@ -115,6 +118,6 @@ Rails.application.routes.draw do
   # Genres
   resources :genres
 
-  root to: 'customer_pages#index'
+  root to: 'product_pages#index'
 
 end

@@ -1,25 +1,30 @@
-<div class="services">
+<div class="product-page manuscript-assessment-page">
 
-    <!-- Hero -->
-    <header class="hero px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold customer_pages__header__title">Manuscript Assessment</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="sub-title mb-4">Give your writing the best chance of succeeding with professional feedback</p>
-        </div>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
-            <%= link_to "Get Started", manuscript_assessment_path(anchor: "item-manuscript-assessment-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-            <%= link_to "Find out cost", manuscript_assessment_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-        </div>
-    </header>
+  <!-- Hero Section -->
+  <section class="hero-section py-5 text-center product-page__hero">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="text-center">
+                <h1 class="product-page__hero-title">Manuscript Assessment</h1>
+                <p class="product-page__hero-subtitle">Give your writing the best chance of succeeding with professional feedback</p>
+
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+                    <%= link_to "Get Started", manuscript_assessment_path(anchor: "item-manuscript-assessment-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+                    <%= link_to "Find out cost", manuscript_assessment_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+              </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
     <!-- Three column layout - benefits -->
-    <div class="row mb-3">
+    <div class="row product-page__section">
     
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card product-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title">Affordable Editing</h2>
                     <p class="card-text">Impactful editing that will not break the bank, whilst providing the feedback you need to lift your book to the next level.</p> 
@@ -30,7 +35,7 @@
 
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card product-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title text-center">Effective Feedback</h2>
                     <p class="card-text">Our feedback is designed to find and solve problems. Our editors will provide solutions, not just find problems.</p> 
@@ -41,7 +46,7 @@
 
         <div class="col-sm-4">
 
-            <div class="card">
+            <div class="card product-page__benefits-card">
                 <div class="card-body text-center">
                     <h2 class="card-title">Fast Turnaround</h2>
                     <p class="card-text">Don't pay extra for a fast turnaround. We promise to return all manuscripts within two weeks as standard.</p> 
@@ -53,7 +58,7 @@
     </div>
 
     <!-- single column - toc -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -76,7 +81,7 @@
     </div>
 
     <!-- single column - What is Manuscript Assessment? -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -92,7 +97,7 @@
     </div>
 
     <!-- single column - price calculator -->
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -103,7 +108,7 @@
     </div>
 
     <!-- single column - manuscript assessment submission -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -145,7 +150,7 @@
     </div>
 
     <!-- Two column layout - testimonial -->
-    <div class="row justify-content-sm-center mt-5">
+    <div class="row justify-content-sm-center product-page__section">
     
         <div class="col-sm-4 mt-2">
             <%= image_tag("death_count", alt: "SL Beaumont - Death Count", class: "post-media img-fluid rounded mx-auto d-block", size: "180x280")%>         
@@ -173,7 +178,7 @@
     </div>
 
     <!-- single column -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -223,7 +228,7 @@
     </div>
 
     <!-- single column -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 
@@ -244,7 +249,7 @@
     </div>
 
     <!-- single column -->
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center product-page__section">
 
         <div class="col-sm col-lg-6">
 

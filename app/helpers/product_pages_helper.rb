@@ -1,6 +1,6 @@
-module CustomerPagesHelper
+module ProductPagesHelper
 
-      def calculate_price(price_with_symbol)
+  def calculate_price(price_with_symbol)
     price = price_with_symbol.gsub(/[^0-9.]/, '').to_f
     price * 80
   end
