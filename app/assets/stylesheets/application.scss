@@ -1,6 +1,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap. This means 'default' must be at the top. 
 @import "actiontext.css";
-@import "theme/defaults"; 
+@import "theme/defaults";
+@import "theme/mixins"; 
 @import "theme/*"; 
 @import "theme-old/*";
 @import "bootstrap";
