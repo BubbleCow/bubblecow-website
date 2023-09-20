@@ -1,48 +1,47 @@
-<!-- Main content -->
-<div class="row">
-  <div class="col-lg-6 mx-auto p-3 py-md-5  <%= controller_name %> <%= action_name %>">  
-    <div itemscope itemtype="https://schema.org/NewsArticle">
+<div class="post-page">
 
-      <main class="post">
+  <!-- Main content -->
+  <div class="row">
+    <div class="col-lg-6 mx-auto p-3 py-md-5 ">  
+      <div itemscope itemtype="https://schema.org/NewsArticle">
 
-        <section class="page-header">
-          <!-- Post title -->
-          <div itemprop="headline">
-            <h1><%= @post.post_title.titleize %></h1> 
-          </div>
-        </section>
+        <main class="post-page__post">
 
-        <section class="page-body">
+          <section class="post-page__header">
+            <!-- Post title -->
+            <div itemprop="headline">
+              <h1 class="page__header-title"><%= @post.post_title.titleize %></h1> 
+            </div>
+          </section>
 
           <!-- Post image -->
-          <div itemprop="image">
+          <div itemprop="post-page__body-image">
             <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) %>
           </div>
 
           <!-- Post metadata -->
-          <div class="metadata">
+          <div class="post-page__metadata">
             <p>
-                <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
-                <span itemprop="author" itemscope itemtype="https://schema.org/Person" id="post-author"><span itemprop="name"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span></span> -  
-                <% if @post.published? %>
-                  <span itemprop="dateModified">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
-                <% else %>
-                  <span>Unpublished</span>.
-                <% end %>
+              <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person" id="post-author"><span itemprop="name"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span></span> -  
+              <% if @post.published? %>
+                <span itemprop="dateModified">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
+              <% else %>
+                <span>Unpublished</span>.
+              <% end %>
             </p>
+
             <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "badge bg-primary" %>
+          
           </div>
 
-          <article>
+          <article class="post-page__article">
             <!-- Post content -->
             <%= post_content %>
           </article>
 
-          <section class="advert">
+          <section class="post-page__advert">
         
-            <!-- Divider line -->
-            <div class="divider"></div>
-
             <!-- Advert -->
             <%= blog_post_advert(@post.advert_category) %>
             
@@ -50,8 +49,22 @@
 
         </section>
 
-      </main>
 
+
+        </main>
+
+      </div>
     </div>
   </div>
+
 </div>
+
+
+
+
+
+      
+
+
+
+        

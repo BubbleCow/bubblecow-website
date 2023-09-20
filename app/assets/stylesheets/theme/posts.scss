@@ -1,0 +1,116 @@
+// This is for styling the posts
+
+// This styles the blog page
+.posts-page {
+    
+    .posts-page__header {
+        // styles the header
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+
+        .posts-page__header-title {
+            // styles the header title
+            @include header-text;
+        }
+
+        .posts-page__header-subtitle {
+            // styles the header subtitle
+            font-size: 1.2rem;
+        }
+    }
+
+    .posts-page__body {
+
+        .blog-post {
+
+            .blog-post-title {
+                
+                a {
+                // stlyes link header
+                @include header-text;
+                }
+            }
+
+            .blog-post__metadata {
+                // Styles the metadata
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .blog-post-image {
+                // styles image
+            }
+
+            .blog-post-description {
+                // styles description
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .blog-post__further-reading {
+                // stylers link 
+            }
+        }
+
+    }
+
+}
+
+// This styles the post page
+
+.post-page__post {
+    // Styles the post
+
+    .post-page__header{
+    // styles the header
+
+        .page__header-title {
+            // Styles the title
+            @include header-text;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+    }
+
+    .post-page__body-image {
+        // Styles the image
+    }
+
+    .post-page__metadata {
+        // styles the metadata
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .post-page__article {
+        
+        h2, h3, h4, h5 {
+            @include header-text;
+        }
+
+        .post-media {
+            margin-top: 3rem !important;
+            margin-bottom: 3rem !important;
+        }
+
+        blockquote {
+            @include blockquote;
+        }
+
+        .toc {
+            @include toc;
+        }
+    }
+
+    .post-page__advert {
+        // Style the advert
+        margin-top: 3rem;
+        padding-top: 3rem;
+        border-top: 1px solid #000;
+        
+    }
+
+}
+
+
