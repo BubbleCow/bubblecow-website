@@ -25,3 +25,33 @@
     background-color: white;
     padding: 1rem;
 }
+
+// Styles the table of contents
+@mixin toc {
+    // styles the toc
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    .card-header {
+        // styles the title
+        font-size: 1.25rem;
+        
+    }
+
+    .card-body {
+        // Styles the body
+
+        ul li {
+     
+        }
+
+        ul li a {
+            // style the link
+      
+        }
+        p {
+            // style the answer text
+        }
+    }
+
+}
