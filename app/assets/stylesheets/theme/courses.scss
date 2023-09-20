@@ -1,5 +1,35 @@
 // Styles all courses and lessons
 
+// Styles the index page
+.courses_page {
+    
+  .courses-page__header {
+      // styles the header
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+
+      .courses-page__header-title {
+          // styles the header title
+          @include header-text;
+      }
+
+      .courses-page__header-subtitle {
+          // styles the header subtitle
+          font-size: 1.2rem;
+      }
+  }
+
+  .courses_page__course-card {
+    // Styles the course card
+
+    h2 {
+      // Style title 
+      @include header-text;
+    }
+  }
+}
+
+
 .course_header, .lesson_header {
     margin-top: 3rem;
     margin-bottom: 3rem;
