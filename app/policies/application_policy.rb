@@ -45,7 +45,7 @@ class ApplicationPolicy
     end
 
     def is_marketing_staff
-      user.content_creator? || user.manager? || user.admin?
+      user.editor? || user.manager? || user.admin?
     end
 
     def is_managerial_staff?
