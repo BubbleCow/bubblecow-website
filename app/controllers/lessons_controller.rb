@@ -1,8 +1,11 @@
 class LessonsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  before_action :store_user_location!, only: [:show] 
+  before_action :redirect_unauthenticated_users, only: [:show]
   before_action :set_course
   before_action :set_lesson, only: %i[ show edit update destroy ]
   before_action :set_ac_tag, only: %i[ show ]
+  
 
   def index
     @page_title = "Lessons for #{@course.title}"
@@ -84,6 +87,17 @@ class LessonsController < ApplicationController
       
       end
 
+    end
+
+    # Redirects users not logged in 
+    def redirect_unauthenticated_users
+      return if user_signed_in?
+      @course = Course.friendly.find(params[:course_id])
+      if @course.access_level == 'free'
+        redirect_to free_signup_path
+      else
+        redirect_to paid_signup_path
+      end
     end
 
     def lesson_params
