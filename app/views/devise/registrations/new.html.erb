@@ -6,7 +6,12 @@
 
   <div class="header">    
     <h1><%= bubblecow_name %></h1>
-    <p>Create a free account</p>
+      <!-- Set text based on url -->
+      <% if request.path == free_signup_path %>
+        <p class="lead">To access ALL free courses create a free account</p>
+      <% else %>
+        <p class="lead">Create a free account</p>
+      <% end %>
   </div>
 
   <div class="form">
@@ -47,7 +52,7 @@
       <%= invisible_captcha :subtitle %>
 
       <div class="d-grid gap-2"> 
-        <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary btn-block" %>
+        <%= link_to "Already have an account? Log In", new_user_session_path, class: "btn btn-outline-primary btn-block" %>
       </div>
 
     <% end %>
