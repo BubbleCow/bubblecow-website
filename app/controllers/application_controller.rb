@@ -20,31 +20,45 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    # DEVISE ACTIONS
+  # DEVISE ACTIONS
 
-    # White lists and sets variables
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note, :pen_name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note, :pen_name])
-    end
+  # White lists and sets variables
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :country, :currency, :note, :pen_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :country, :currency, :note, :pen_name])
+  end
 
-    def storable_location?
-      request.get? && is_navigational_format? && !devise_controller? && !request.xhr? 
-    end
-
-    def store_user_location!
-      # :user is the scope we are authenticating
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr? 
+  end
+  
+  def store_user_location!
+    excluded_paths = [free_signup_path, paid_signup_path]
+    if !user_signed_in? && !excluded_paths.include?(request.fullpath)
       store_location_for(:user, request.fullpath)
+      Rails.logger.debug "Stored location: #{request.fullpath}"
     end
-
-    # Redirect after sign in
-    def after_sign_in_path_for(resource)
+  end
+  
+  
+  def after_sign_in_path_for(resource)
+    stored_path = stored_location_for(resource)
+    if stored_path && stored_path.include?('lesson')
+      stored_path
+    else
       dashboard_path
     end
+  end
   
-    def after_sign_out_path_for(resource)
-      root_path
-    end
+  def after_sign_up_path_for(resource)
+    after_sign_in_path_for(resource)
+  end
+  
+  
+  
+  def after_sign_out_path_for(resource)
+    root_path
+  end
 
 
     # Finds user country and adds correct currency
