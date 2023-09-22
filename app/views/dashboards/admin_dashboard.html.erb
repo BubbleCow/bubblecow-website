@@ -20,40 +20,62 @@
                 </section>
             </div>
 
-            <section class="col-md-6 mt-3">
-                <div class="admin_dashboard__card card">
-                    <div class="card-body">
-                        <h2 class="admin_dashboard__card-title">Courses</h2>
-                        <%= link_to 'New Course', new_course_path, class: 'btn btn-sm btn-outline-primary mb-3' %>
+            <div class="row">
 
-                        <% @courses.each do |course| %>
-                            <div class="admin_dashboard__course-item card mt-3">
-                                <div class="admin_dashboard__course-header">
-                                    <%= link_to course.title, course_path(course), class: "admin_dashboard__course-title" %>
-                                    <%= link_to edit_course_path(course) do %>
-                                        <i class="bi bi-gear"></i>
-                                    <% end %>
-                                    <%= link_to course, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
-                                        <i class="bi bi-trash"></i>
-                                    <% end %>
-                                </div>
-                                <ul class="admin_dashboard__lesson-list list-group list-group-flush">
-                                    <% course.lessons.each do |lesson| %>
+                <!-- Courses -->
+                <section class="col-md-6 mt-3">
+                    <div class="admin_dashboard__card card">
+                        <div class="card-body">
+                            <h2 class="admin_dashboard__card-title">Courses</h2>
+                            <%= link_to 'New Course', new_course_path, class: 'btn btn-sm btn-outline-primary mb-3' %>
+
+                            <% @courses.each do |course| %>
+                                <div class="admin_dashboard__course-item card mt-3">
+                                    <div class="admin_dashboard__course-header">
+                                        <%= link_to course.title, course_path(course), class: "admin_dashboard__course-title" %>
+                                        <%= link_to edit_course_path(course) do %>
+                                            <i class="bi bi-gear"></i>
+                                        <% end %>
+                                        <%= link_to course, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                                            <i class="bi bi-trash"></i>
+                                        <% end %>
+                                    </div>
+                                    <ul class="admin_dashboard__lesson-list list-group list-group-flush">
+                                        <% course.lessons.each do |lesson| %>
+                                            <li class="admin_dashboard__lesson-item list-group-item">
+                                                <%= link_to lesson.title, course_lesson_path(course, lesson) %>
+                                                <%= link_to edit_course_lesson_path(course, lesson) do %>
+                                                    <i class="bi bi-gear"></i> <!-- Edit icon -->
+                                                <% end %>
+                                                <%= link_to course_lesson_path(course, lesson), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                                                    <i class="bi bi-trash"></i> <!-- Delete icon -->
+                                                <% end %>
+                                            </li>
+                                        <% end %>
                                         <li class="admin_dashboard__lesson-item list-group-item">
-                                            <%= lesson.title %>
-                                            <%= link_to 'Edit', edit_course_lesson_path(course, lesson), class: 'btn btn-sm btn-warning float-right ml-2' %>
-                                            <%= button_to 'Delete', course_lesson_path(course, lesson), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: 'btn btn-sm btn-danger float-right' %>
+                                            <%= link_to 'Add Lesson', new_course_lesson_path(course), class: 'btn btn-sm btn-outline-primary' %>
                                         </li>
-                                    <% end %>
-                                    <li class="admin_dashboard__lesson-item list-group-item">
-                                        <%= link_to 'Add Lesson', new_course_lesson_path(course), class: 'btn btn-sm btn-outline-primary' %>
-                                    </li>
-                                </ul>
-                            </div>
-                        <% end %>
+                                    </ul>
+                                </div>
+                            <% end %>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+                <!-- Messages -->
+                <section class="col-md-6 mt-3">
+                    <div class="admin_dashboard__card card">
+                        <div class="card-body">
+                            <h2 class="admin_dashboard__card-title">Messages</h2>
+                            
+
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
         </div>
     </div>
 </div>
