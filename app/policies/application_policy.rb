@@ -37,7 +37,7 @@ class ApplicationPolicy
   private
 
     def is_staff?
-      user.content_creator? || user.editor? || user.manager? || user.admin?
+      user.editor? || user.manager? || user.admin?
     end
 
     def is_editorial_staff?

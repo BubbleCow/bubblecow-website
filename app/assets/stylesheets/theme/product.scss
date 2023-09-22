@@ -1,0 +1,29 @@
+// Styling the products
+
+.products-page {
+    
+    .products-page__header {
+        // styles the header
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+
+        .posts-page__header-title {
+            // styles the header title
+            @include header-text;
+        }
+
+    }
+    
+    .products-page__body {
+        // styles the body
+        
+        .products-page__body-description {
+            // Styles the description
+            margin-bottom: 2rem;
+        }
+
+    }
+
+
+    
+}

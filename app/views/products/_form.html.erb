@@ -1,6 +1,6 @@
 <%= form_with(model: product) do |form| %>
   <% if product.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
       <ul>
         <% product.errors.each do |error| %>
@@ -10,48 +10,66 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group input">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="input">
-    <label for="productDescription" class="form-label form-label-blue">Product Description:</label>
-    <%= form.rich_text_area :description, type: "text", class: "" %>
+  <div class="form-group input">
+    <%= form.label :description, "Product Description:", class: "form-label form-label-blue" %>
+    <%= form.rich_text_area :description, type: "text", class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :price_usd, style: "display: block" %>
-    <%= form.text_field :price_usd %>
+  <!-- Prices with currency symbols -->
+  <div class="form-group input">
+    <%= form.label :price_usd, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <%= form.text_field :price_usd, class: "form-control", aria_label: "Amount (to the nearest dollar)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price_gbp, style: "display: block" %>
-    <%= form.text_field :price_gbp %>
+  <div class="form-group input">
+    <%= form.label :price_gbp, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">£</span>
+      <%= form.text_field :price_gbp, class: "form-control", aria_label: "Amount (to the nearest pound)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price_eur, style: "display: block" %>
-    <%= form.text_field :price_eur %>
+  <div class="form-group input">
+    <%= form.label :price_eur, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">€</span>
+      <%= form.text_field :price_eur, class: "form-control", aria_label: "Amount (to the nearest euro)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price_aud, style: "display: block" %>
-    <%= form.text_field :price_aud %>
+  <div class="form-group input">
+    <%= form.label :price_aud, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">A$</span>
+      <%= form.text_field :price_aud, class: "form-control", aria_label: "Amount (to the nearest Australian dollar)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price_nzd, style: "display: block" %>
-    <%= form.text_field :price_nzd %>
+  <div class="form-group input">
+    <%= form.label :price_nzd, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">NZ$</span>
+      <%= form.text_field :price_nzd, class: "form-control", aria_label: "Amount (to the nearest New Zealand dollar)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :price_cad, style: "display: block" %>
-    <%= form.text_field :price_cad %>
+  <div class="form-group input">
+    <%= form.label :price_cad, class: "form-label" %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">C$</span>
+      <%= form.text_field :price_cad, class: "form-control", aria_label: "Amount (to the nearest Canadian dollar)" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
-

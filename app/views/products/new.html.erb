@@ -1,9 +1,31 @@
-<h1>New product</h1>
+<div class="products-page">
 
-<%= render "form", product: @product %>
+  <!-- Header Section -->
+  <div class="row justify-content-center">
 
-<br>
+    <div class="col-lg-6 col-12">
 
-<div>
-  <%= link_to "Back to products", products_path %>
+      <div class="products-page__header">
+        <h1 class="posts-page__header-title">New Product</h1>
+      </div>
+
+      <!-- Body Section -->
+        <section class="products-page__body">
+
+          <div class="row">
+
+            <div class="col">
+
+              <%= render "form", product: @product %>
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </div>
+
+  </div>
+
 </div>
