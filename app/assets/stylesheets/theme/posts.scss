@@ -89,6 +89,12 @@
             @include header-text;
         }
 
+        h1, h2 {
+            font-weight: 600;
+        }
+
+        h2 {margin-top: 2rem;}
+
         .post-media {
             margin-top: 3rem !important;
             margin-bottom: 3rem !important;
@@ -100,6 +106,10 @@
 
         .toc {
             @include toc;
+        }
+
+        .faq {
+            h3 {font-size: 1.3rem;}
         }
     }
 
