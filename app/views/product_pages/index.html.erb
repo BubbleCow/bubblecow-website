@@ -1,30 +1,33 @@
-<div class="product-page index-page">
+<!-- Hero --> 
+<section class="my-5 pb-5 home-page__hero">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg home-page__hero-container">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3 home-page__hero-content">
+            <h1 class="display-4 fw-bold lh-1 pb-3 home-page__hero-title">Book Editing: From Draft to Publication</h1>
+            <p class="lead home-page__hero-description">Affordable Book Editing Services: Enhancing Your Book's Plot, Readability, and Market Fit.</p>
+            <%= button_to "Explore Our Services", root_path, class: "btn btn-outline-primary" %>    
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg d-none d-lg-block home-page__hero-image-container">
+            <img class="rounded-3 home-page__hero-image" src="https://media.istockphoto.com/id/1216763292/photo/smiling-mature-woman-writing-in-a-notebook-while-working-from-home.jpg?s=170667a&w=0&k=20&c=YtcyMKATVzpMsVtchVmx_AZCectfbX-z0uCG081ay7o=" alt="" width="720">
+        </div>
+    </div>
+</section>
 
-    <!-- Hero --> 
-    <section class="my-5 pb-5 product-page__hero">
-        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                <h1 class="display-4 fw-bold lh-1 pb-3 product-page__hero-title">Affordable Book Editing Services</h1>
-                <p class="lead">Providing professional editing services for serious writers since 2007. Discover the editorial feedback you need to lift your book to the next level and prepare it for publication.</p>
-            </div>
-            <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg d-none d-lg-block">
-                <img class="rounded-lg-3" src="https://media.istockphoto.com/id/1216763292/photo/smiling-mature-woman-writing-in-a-notebook-while-working-from-home.jpg?s=170667a&w=0&k=20&c=YtcyMKATVzpMsVtchVmx_AZCectfbX-z0uCG081ay7o=" alt="" width="720">
+<!-- Products -->
+<section class="home-page__services">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="home-page__services-header"></h2>
             </div>
         </div>
-    </section>
-
-    <!-- Products -->
-    <section>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex align-items-stretch">
 
             <!-- manuscript assessment -->
-            <div class="col">
-
-                <div class="card mb-4 rounded-3 shadow-sm product-page__product-card">
-
+            <div class="col mb-2">
+                <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
                     <div class="card-header py-3">
                         <h2 class="my-0 fw-normal">
-                            <%= link_to ("Manuscript" + "<br>" + "Assessment").html_safe, manuscript_assessment_path, class: "product-page__product-card-title" %>
+                            <%= link_to ("Manuscript" + "<br>" + "Assessment").html_safe, manuscript_assessment_path, class: "home-page__service-card-title" %>
                         </h2>
                     </div>
                     
@@ -32,25 +35,20 @@
                         <h2 class="card-title pricing-card-title"><%= @price_for_manuscript_assessment %><small class="text-body-secondary fw-light">/1000 words</small></h2>
                         <p class="card-text">Holistic assessment for authors looking to discover what's wrong with their book.</p>
                         <ul class="list-unstyled mt-3 mb-4">
-                        <li>Comprehensive content editing.</li>
-                        <li>Multi-page editor's report.</li>
-                        <li>Fast turnaround.</li>
+                            <li>Comprehensive editing.</li>
+                            <li>Multi-page editor's report.</li>
+                            <li>Fast turnaround.</li>
                         </ul>
                         <%= link_to "Find out more...", manuscript_assessment_path, class: "w-100 btn btn-lg btn-primary" %>
                     </div>
-
                 </div>
-
             </div>
-
-            <!-- Developmental editing -->
-            <div class="col">
-
-                <div class="card mb-4 rounded-3 shadow-sm product-page__product-card">
-
+                        <!-- Developmental editing -->
+            <div class="col mb-2">
+                <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
                     <div class="card-header py-3">
                         <h2 class="my-0 fw-normal">
-                            <%= link_to ("Developmental" + "<br>" + "Editing").html_safe, developmental_editing_path, class: "product-page__product-card-title" %>
+                            <%= link_to ("Developmental" + "<br>" + "Editing").html_safe, developmental_editing_path, class: "home-page__service-card-title" %>
                         </h2>
                     </div>
 
@@ -64,19 +62,15 @@
                         </ul>
                         <%= link_to "Find out more...", developmental_editing_path, class: "w-100 btn btn-lg btn-primary" %>
                     </div>
-
                 </div>
-                
             </div>
 
             <!-- Copy editing -->
-            <div class="col">
-
-                <div class="card mb-4 rounded-3 shadow-sm product-page__product-card">
-
+            <div class="col mb-2">
+                <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
                     <div class="card-header py-3">
                         <h2 class="my-0 fw-normal">
-                            <%= link_to ("Copy" + "<br>" + "Editing").html_safe, copy_editing_path, class: "product-page__product-card-title" %>
+                            <%= link_to ("Copy" + "<br>" + "Editing").html_safe, copy_editing_path, class: "home-page__service-card-title" %>
                         </h2>
                     </div>
 
@@ -90,205 +84,272 @@
                         </ul>
                         <%= link_to "Find out more...", copy_editing_path, class: "w-100 btn btn-lg btn-primary" %>
                     </div>
-
                 </div>
             </div>
 
         </div>
+    </div>
+</section>
 
-    </section>
 
-    <!-- Why bubblecow? -->
-    <section>
 
-        <div class="row justify-content-md-center product-page__section">
 
-            <div class="col-sm col-lg-6">
-                
-                <div class="explanation-text">
-                    <h2 class="index-subtitle pb-2">Why BubbleCow?</h2>
-                    <p>BubbleCow have been providing <%= link_to "professional book editing services since 2007", about_path %>.</p>
-                    <p>Our focus has always been on providing affordable book editing services to both traditional and self-publishing writers.</p>
-                    <p>The editing process is complex and time-consuming, so to ensure we provide the best possible service we employ a small team of full-time, hand-picked, and specially trained book editors and mentors.</p> 
-                    <p>Unlike our competitors, we are not a marketplace for editors or middleman service for book editors.</p>
-                    <p>This means that we will not be sending your manuscript to an anonymous freelance book editor. You get to work with a specialist editor, with whom you can build a long-term relationship.</p>
-                    <p>It also means that we can provide the bespoke and personalized book editing service you need, whilst keeping the costs down and providing editorial feedback at a cost that works for you and your budget.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Testimonials -->
-    <section>
-        <div class="row product-page__section ">
-            <div class="col-sm-4 d-flex">
-                <div class="card flex-grow-1 mt-2">
-                    <%= image_tag 'banished-love', class: 'card-img-top img-fluid', alt: 'Banished Love by Ramona Flightner', size: "414x621" %>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text mb-auto">"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow's editing services for my next novel."</p>
-                        <p class="card-text">Ramona Flightner <cite title="Source Title">Banished Saga</cite></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex">
-                <div class="card flex-grow-1 mt-2">
-                    <%= image_tag 'taste-of-emotions', class: 'card-img-top img-fluid', alt: 'Taste of Emotions by David Papini', size: "414x621" %>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text mb-auto">“BubbleCow provided my latest book with the most professional, detailed and personal developmental and line editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
-                        <p class="card-text">David Papini <cite title="Source Title">The Taste of Emotions</cite></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex">
-                <div class="card flex-grow-1 mt-2">
-                    <%= image_tag 'stand-and-deliver', class: 'card-img-top img-fluid', alt: 'Stand and Deliver! by Ian Nichol', size: "414x621" %>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text mb-auto">“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
-                        <p class="card-text">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></p>
-                    </div>
-                </div>
+<!-- Why Choose BubbleCow -->
+<section class="home__why-choose py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-title">Why Choose BubbleCow?</h2>
             </div>
         </div>
-    </section>
-
-    <section class="index-testimonials-link mt-5">
-
         <div class="row">
-
-            <div class="col mt-4">
-
-                <div class="d-grid gap-2">
-
-                    <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block" do %>
-                        Read <%= @testimonial_count %> testimonials
-                    <% end %>
-
-                </div>
-
-            </div>
-            
-        </div>
-
-    </section>
-
-    <!-- Explanation -->
-    <section class="explanation pb-4 product-page__section ">
-
-        <div class="row justify-content-md-center section-spacer">
-
-            <div class="col-sm col-lg-6 mt-2">
-                
-                <div class="explanation-text">
-                    <h2 class="index-subtitle pb-2">What is Manuscript Assessment?</h2>
-                    <p>While developmental and copy editing provide detailed action-focused feedback, professional manuscript assessment services are designed to provide a book editing service that give a holistic assessment of what is working, but more importantly, what is not and what needs to be changed.</p> 
-                    <p>In other words, a manuscript appraisal, or assessment, is a paid service that assesses a piece of creative work, either in part or in full (depending on your budget and needs), and provides feedback.</p> 
-                    <p>It is worth noting that a partial manuscript evaluation comes with some risks. If the editor is unable to see the full scope of your book, it can make assessment of certain structural issues problematic.</p> 
-                    <p>A manuscript assessment (also known as a critique, appraisal, or a structural report) is where a professional editor/assessor reads your manuscript as a whole, paying close attention to your story’s structure, character development, plot development, pace, setting, consistency etc.</p> 
-                    <p>The editor will provide a written report on what’s working and what needs improvement. Though the focus of the report will differ for each novel, the following elements are an essential focus.</p> 
-                    <ul>
-                        <li>Character.</li>
-                        <li>Setting.</li>
-                        <li>Plot.</li>
-                        <li>Voice.</li>
-                        <li>Narrative Arc.</li>
-                        <li>Dialogue.</li>
-                        <li>Tension.</li>
-                        <li>Pace.</li>
-                    </ul>
-                    <p>You can find out more about our <%= link_to "manuscript assessment service here", manuscript_assessment_path %>. This will give you more details and explain how our price per word system works.</p>
-                </div>
-
-            </div>
-
-        </div>
-            
-        <div class="row justify-content-md-center product-page__section">
-
-            <div class="col-sm col-lg-6 mt-2">
-                
-                <div class="explanation-text">
-                    <h2 class="index-subtitle pb-2">What is Book Editing?</h2>
-                    <p>BubbleCow provides a type of editing called developmental editing, this is also sometimes called content editing, structural editing, story editing, comprehensive editing, macro editing, or even heavy editing. This is 'big picture' ediitng.</p> 
-                    <p>However, these terms all refer to the same type of editing.</p>
-                    <p>Wikipedia describes this type of editing as "significant structuring or restructuring of a manuscript's discourse".</p>
-                    <p>In reality, it is a much more involved process.</p>
-                    <p>The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p> 
-                    <p>Some freelance developmental editors will also look out for line-level problems, such as sentence structure, grammar, and punctuation. The better editors will assess a book's suitability for the marketplace. They may also help you to pinpoint the book's genre correctly.</p>
-                    <p>It is also worth noting that we also provide line editing are part of the editing process. This is not copy editing.</p>
-                    <p>This editing is commonly carried out by professional book editors within the publishing industry when preparing a book. We feel that including line editing, alongside developmental editing means that writers, especially self-publishing writers, get the best possible service.</p>
-                    <p>This means that whilst we are checking your book for structure issues and plot holes (developmental editing), we will also find sentence-level problems such as grammar, punctuation, and readability.</p>
-                    <p>This is all part of the service and is included in the price.</p>
-                    <p>You can find out more about our <%= link_to "book editing service here", book_editing_path %>. This will give you more details and explain how our price per word system works.</p>
-                </div>
-
-            </div>
-
-        </div>
-            
-        <div class="row justify-content-md-center product-page__section">
-
-            <div class="col-sm col-lg-6 mt-2">
-                
-                <div class="explanation-text">
-                    <h2 class="index-subtitle pb-2">What is Copy Editing?</h2>
-                    <p>At BubbleCow, we understand the importance of presenting polished content to your readers. That’s where our copy editing service comes into play, sometimes referred to as line editing, proof-editing, or even micro editing. This is detail-oriented editing, focusing on the 'nitty-gritty' of the text.</p>
-                    <p>These terms, while they might sound different, all converge to one meticulous process.</p>
-                    <p>Wikipedia defines copy editing as "the process of reviewing and correcting written material to improve accuracy, readability, and fitness for its purpose, and to ensure that it is free of error, omission, inconsistency, and repetition."</p>
-                    <p>In essence, it's a thorough examination of the text.</p>
-                    <p>Our skilled copy editors dive deep into your manuscript, honing in on language specifics like word choice, sentence structure, grammar, and punctuation. They work to enhance the flow and coherence of the writing, ensuring consistency in tone, style, and voice.</p>
-                    <p>While developmental editors may touch upon sentence-level issues, copy editors are the last line of defense against any lingering errors or inconsistencies. They play a pivotal role in guaranteeing that a book or content speaks to its audience in the clearest, most engaging manner possible.</p>
-                    <p>Furthermore, it's crucial to note that copy editing is distinct from developmental or structural editing, which evaluates a manuscript's overall narrative and organization. At BubbleCow, we consider copy editing an essential standalone service, though it complements other forms of editing impeccably.</p>
-                    <p>For those who desire a fine-tuned, professional piece ready for publication or presentation, our copy editing service is invaluable. And yes, our transparent pricing model remains consistent, ensuring you're aware of every penny spent for the quality received.</p>
-                    <p>Discover more about our <%= link_to "copy editing offerings here", copy_editing_path %>, where we elaborate on our pricing structure and what you can expect from our experienced team.</p>
-                </div>
-
-            </div>
-
-        </div>
-            
-            <div class="row justify-content-md-center product-page__section product-page__FAQ ">
-
-                <div class="col-sm col-lg-6 mt-2">
-                
-                    <div class="explanation-text">
-
-                        <h2>Frequently Asked Questions</h2>
-                        <p>Below are some frequently asked questions that will provide you more information.</p>
-
-                            <div itemscope itemtype="https://schema.org/FAQPage" class="faq">
-                            
-                                <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                    <h3 itemprop="name">How much does it cost to edit a whole book?</h3>
-                                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                        <div itemprop="text">
-                                            <p>The cost of editing a whole book depends on the type of editing and the length of your book. Developmental editing is the most in-depth, and therefore most expensive type of editing. Manuscript assessment is less detailed and therefore less costly. Copy editing is the most aoffordable type of editing.<p>
-                                            <p>A typical novel is 80,000 words and, at <%= @price_for_developmental_editing %> per 1000 words for developmental editing, this would cost <%= display_cost(@price_for_developmental_editing, @country) %>.</p>
-                                            <p>A manuscript assessment for 80,000 words would be <%= @price_for_manuscript_assessment %> per 1000 words and would cost <%= display_cost(@price_for_manuscript_assessment, @country) %>.</p>
-                                            <p>Copy editing for 80,000 words would be <%= @price_for_copy_editing %> per 1000 words and would cost <%= display_cost(@price_for_copy_editing, @country) %>.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                    <h3 itemprop="name">Who can I get to edit my book??</h3>
-                                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                        <div itemprop="text">
-                                            <p><strong>A professional book editor will edit your book</strong>. A developmental editor is normally the best option for an author who has completed their book. The book editor will check your book's plot, assess it's structure and provide feedback to help improve the book's readability.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                            </div>
-
+            <div class="col-md-8 mx-auto">
+                <!-- Professional Services -->
+                <div class="d-flex mb-4 align-items-start">
+                    <div class="icon me-4">
+                        <i class="bi bi-book text-primary"></i>
                     </div>
-
+                    <div>
+                        <h3 class="feature-title mb-2">Professional Services</h3>
+                        <p>BubbleCow has been at the forefront of professional book editing since 2007. Our seasoned team of full-time, hand-picked, and specially trained book editors and mentors are dedicated to elevating your manuscript to publication standards.</p>
+                    </div>
                 </div>
+                <!-- Affordable Pricing -->
+                <div class="d-flex mb-4 align-items-start">
+                    <div class="icon me-4">
+                        <i class="bi bi-cash text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="feature-title mb-2">Affordable Pricing</h3>
+                        <p>We pride ourselves on offering affordable book editing services to both traditional and self-publishing writers without compromising on quality. Our pricing structure is designed to accommodate your budget, making professional editing accessible.</p>
+                    </div>
+                </div>
+                <!-- Personalized Experience -->
+                <div class="d-flex mb-4 align-items-start">
+                    <div class="icon me-4">
+                        <i class="bi bi-person-check text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="feature-title mb-2">Personalized Experience</h3>
+                        <p>At BubbleCow, you're not just another manuscript. Unlike marketplace models, we connect you with a specialist editor to foster a long-term relationship. This personalized approach ensures a bespoke editing service tailored to your manuscript's needs while keeping costs affordable and transparent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+
+<!-- Our Process -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-title">Our Process</h2>
+                <p class="text-muted">A step-by-step guide to how we work with you to prepare your book for publication.</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Step 1 -->
+            <div class="col-md-2">
+                <div class="process-step text-center"">
+                    <img src="https://cdn.discordapp.com/ephemeral-attachments/1159066532698128445/1166074107662700564/the_endless_knot_office_or_desk_background_IconGraphic_A_graphi_6787224e-6723-465f-a329-e38c14c01a75.png?ex=65492a23&is=6536b523&hm=03f8413b643a2adbb5e4669fe191690a02dc98e615ed75e7d170b647ac50cc5c&" alt="Step 1" class="img-fluid mb-3">
+                    <h4>Step 1</h4>
+                    <h5 class="text-center">Submission</h5>
+                    <p class="text-muted text-center">Submit your manuscript and tell us your publication goals.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-2">
+                <div class="process-step text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1159066532698128445/1166075518429433996/the_endless_knot_IconGraphic_deskoffice_based_on_this_1950cd87-507b-45fb-8706-f95ffae3804b.png?ex=65492b74&is=6536b674&hm=1b9de040ed372eb45671878abb70d7e1ad957bc4be1388c14e78445b401b964a&" alt="Step 2" class="img-fluid mb-3">
+                    <h4>Step 2</h4>
+                    <h5>Assignment</h5>
+                    <p class="text-muted">We assign the best-suited editor from our small team.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-2">
+                <div class="process-step text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1159066532698128445/1166076013546057815/the_endless_knot_IconGraphic_A_pen_icon_or_an_icon_representing_d0c98b23-7b4b-4371-b544-afe7108e62f8.png?ex=65492bea&is=6536b6ea&hm=7acdd6301b0d119a72769bb8fd138c0f3175551b2e63944b1a67ba3d5f7eced3&" alt="Step 3" class="img-fluid mb-3">
+                    <h4>Step 3</h4>
+                    <h5>Editing</h5>
+                    <p class="text-muted">Your editor meticulously reads and edits your manuscript.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-md-2">
+                <div class="process-step text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1159066532698128445/1166077032522854430/the_endless_knot_Step_4_Feedback_and_Revisions_IconGraphic_A_ch_6f8c51e0-bfb9-409a-8643-7a08d5ca3a3a.png?ex=65492cdd&is=6536b7dd&hm=32cdd6d0b174f1fe8d218852658337a05cd3080cb5eecc4afa79f6a078bdda31&" alt="Step 4" class="img-fluid mb-3">
+                    <h4>Step 4</h4>
+                    <h5>Feedback</h5>
+                    <p class="text-muted">We provide feedback and suggested revisions for your book.</p>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="col-md-2">
+                <div class="process-step text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1159066532698128445/1166077753121050715/the_endless_knot_IconGraphic_A_checkmark_tick_icon_on_a_documen_5c61dba3-53ba-4e84-9678-7a083a65f66e.png?ex=65492d89&is=6536b889&hm=7c827959b9e679fd597dbb7690ddbb2d468004b6d0b3ca3876b30d36e99c1434&" alt="Step 5" class="img-fluid mb-3">
+                    <h4>Step 5</h4>
+                    <h5>Report</h5>
+                    <p class="text-muted">We revise feedback and prepare editor's report your manuscript.</p>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="col-md-2">
+                <div class="process-step text-center">
+                    <img src="https://cdn.discordapp.com/attachments/1159066532698128445/1166078152825643068/the_endless_knot_IconGraphic_A_download_icon_or_a_document_icon_8ff7e0f4-060a-438d-bae4-7d345f1cd270.png?ex=65492de8&is=6536b8e8&hm=10d614e8c4737944485dfac8410508bf79a3544d52976c98b4a5a5f0ef3bc7ca&" alt="Step 6" class="img-fluid mb-3">
+                    <h4>Step 6</h4>
+                    <h5>Delivery</h5>
+                    <p class="text-muted">We return your manuscript and you receive your feedback.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="pt-5">
+    <div class="row justify-content-center product-page__section">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-lg-3 d-flex">
+                    <div class="card flex-grow-1 mt-2 h-100">
+                        <%= image_tag 'banished-love', class: 'card-img-top img-fluid', alt: 'Banished Love by Ramona Flightner' %>
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text mb-auto">"The entire developmental edit was simply extraordinary. The editor’s report was highly detailed, encouraging me to think about my novel in new ways and challenging me to improve my story. I will be using BubbleCow's editing services for my next novel."</p>
+                            <p class="card-text">Ramona Flightner <cite title="Source Title">Banished Saga</cite></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 d-flex">
+                    <div class="card flex-grow-1 mt-2 h-100">
+                        <%= image_tag 'taste-of-emotions', class: 'card-img-top img-fluid', alt: 'Taste of Emotions by David Papini' %>
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text mb-auto">“BubbleCow provided my latest book with the most professional, detailed and personal developmental and line editing service I have ever used. I had the real feeling of my novel "being read" and not just edited. This is definitely the best cost to benefit ratio in editing.”</p>
+                            <p class="card-text">David Papini <cite title="Source Title">The Taste of Emotions</cite></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 d-flex">
+                    <div class="card flex-grow-1 mt-2 h-100">
+                        <%= image_tag 'stand-and-deliver', class: 'card-img-top img-fluid', alt: 'Stand and Deliver! by Ian Nichol' %>
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text mb-auto">“BubbleCow made formatting suggestions and waffle excisions that will make my book a hugely commercial product. In terms of structure, suggested ideas have allowed me to improve my book's chapter introductions and conclusions enormously.”</p>
+                            <p class="card-text">Ian Nichol <cite title="Source Title">Stand and Deliver!</cite></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials button -->
+<section class="testimonials-button">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="row justify-content-center">
+                    <div class="col mt-4">
+                        <div class="d-grid gap-2 testimonials-button__grid">
+                            <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block testimonials-button__link" do %>
+                                Read <%= @testimonial_count %> testimonials
+                            <% end %>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section id="faq-section" class="faq-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="row justify-content-center">
+    <div itemscope itemtype="https://schema.org/FAQPage" class="faq container">
+        <h2 class="faq__title text-center mb-5" id="faq">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <!-- FAQ Item 1 -->
+            <div class="faq__block card mb-2">
+                <h4 class="faq__question card-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    How to do book editing?
+                </h4>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="card-body">
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text" class="faq__answer">
+                                <p>Book editing is a multi-step process that involves assessing and revising a manuscript to improve its clarity, coherence, and overall quality. Here's a simplified approach to book editing:</p>
+                                <ol>
+                                    <li><strong>Self-Editing:</strong> Before seeking professional help, authors should conduct several rounds of self-editing to catch obvious errors and refine the manuscript.</li>
+                                    <li><strong>Professional Editing:</strong> Engage a professional editor to provide feedback and make corrections. This typically includes developmental editing to refine the story, and copy editing to correct grammar and consistency issues.</li>
+                                    <li><strong>Revisions:</strong> Use the feedback from the editor to make necessary revisions.</li>
+                                    <li><strong>Proofreading:</strong> After revisions, a proofreader should review the manuscript for any remaining errors before publication.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="faq__block card mb-2">
+                <h4 class="faq__question card-header" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How much do book editors get paid UK?
+                </h4>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="card-body">
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text" class="faq__answer">
+                                <p>In the UK, book editors can earn anywhere from £20 to £50 per hour depending on their experience, the complexity of the project, and the type of editing required. Freelance editors may set their own rates, while editors employed by publishing houses or editing services may have fixed salaries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="faq__block card mb-2">
+                <h4 class="faq__question card-header" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Why is book editing so expensive?
+                </h4>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="card-body">
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text" class="faq__answer">
+                                <p>Book editing is a labor-intensive process that requires a high degree of skill, knowledge, and experience. Editors need to meticulously review and revise a manuscript, which can be time-consuming. Furthermore, the value of a professional editor's expertise in enhancing the quality and marketability of a book justifies the cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-    </section>
+            <!-- FAQ Item -->
+            <div class="faq__block card mb-2">
+                <h4 class="faq__question card-header" id="headingFive" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    How much does it cost to edit a whole book?
+                </h4>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                    <div class="card-body">
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text" class="faq__answer">
+                                <p>The cost of editing a whole book depends on the type of editing and the length of your book. Developmental editing is the most in-depth, and therefore most expensive type of editing. Manuscript assessment is less detailed and therefore less costly. Copy editing is the most affordable type of editing.</p>
+                                <p>A typical novel is 80,000 words and, at <%= @price_for_developmental_editing %> per 1000 words for developmental editing, this would cost <%= display_cost(@price_for_developmental_editing, @country) %>.</p>
+                                <p>A manuscript assessment for 80,000 words would be <%= @price_for_manuscript_assessment %> per 1000 words and would cost <%= display_cost(@price_for_manuscript_assessment, @country) %>.</p>
+                                <p>Copy editing for 80,000 words would be <%= @price_for_copy_editing %> per 1000 words and would cost <%= display_cost(@price_for_copy_editing, @country) %>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </div>
+</div>
+</div>
+</div>
+        </div>
+    </div>
+</section>
