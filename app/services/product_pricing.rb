@@ -53,8 +53,11 @@ class ProductPricing
   def determine_currency
     if EU_COUNTRIES.include?(@country)
       :eur
+    elsif COUNTRY_TO_CURRENCY.key?(@country)
+      COUNTRY_TO_CURRENCY[@country]
     else
-      COUNTRY_TO_CURRENCY[@country] || :usd
+      :usd  # default to USD
     end
   end
+  
 end
