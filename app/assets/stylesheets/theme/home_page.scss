@@ -1,0 +1,61 @@
+// Styleing for the home page
+
+
+.home-page__hero {
+    background-color: #f8f9fa; /* Adjust the background color to your preference */
+}
+
+.home-page__hero-title {
+    color: $pay-blue;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.home-page__hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+}
+
+.home-page__hero-image-container {
+    max-width: 100%; /* Ensures the image container doesn't overflow its parent */
+}
+
+.home__why-choose .section-title {
+    font-size: 36px;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+.home__why-choose .icon {
+    font-size: 48px;
+}
+.home__why-choose .feature-title {
+    font-size: 24px;
+}
+
+.our-process-section {
+    background-color: #f9f9f9;
+}
+.our-process-section .icon img {
+    max-width: 100px;  /* Adjust size as needed */
+    margin: 0 auto;  /* Center image */
+}
+.our-process-section h2 {
+    font-weight: bold;
+}
+
+.faq-section {
+    background-color: #fff; /* Light background to distinguish section */
+    padding: 40px; /* Padding for spacing */
+}
+.faq__question {
+    cursor: pointer; /* Hand cursor on hover over question */
+    position: relative; /* Relative positioning for icon */
+}
+.faq__question::before {
+    content: '\002B'; /* Plus sign */
+    position: absolute;
+    left: -30px; /* Positioning icon to the left of text */
+}
+.faq__question.collapsed::before {
+    content: '\2212'; /* Minus sign */
+}

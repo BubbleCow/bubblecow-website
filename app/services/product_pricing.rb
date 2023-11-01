@@ -27,11 +27,7 @@ class ProductPricing
 
   def initialize(country, product_name)
     @country = country.downcase.to_sym
-    @currency = if EU_COUNTRIES.include?(@country)
-                  :eur
-                else
-                  COUNTRY_TO_CURRENCY[@country]
-                end
+    @currency = determine_currency
     @product = Product.find_by(name: product_name)
     raise ArgumentError, "Product not found with name: #{product_name}" unless @product
   end
@@ -52,5 +48,13 @@ class ProductPricing
 
   def formatted_price(price)
     price % 1 == 0 ? price.to_i : price
+  end
+
+  def determine_currency
+    if EU_COUNTRIES.include?(@country)
+      :eur
+    else
+      COUNTRY_TO_CURRENCY[@country] || :usd
+    end
   end
 end
