@@ -245,110 +245,42 @@
 </section>
 
 
-<!-- Testimonials button -->
-<section class="testimonials-button">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10">
-                <div class="row justify-content-center">
-                    <div class="col mt-4">
-                        <div class="d-grid gap-2 testimonials-button__grid">
-                            <%= link_to testimonials_path, class: "btn btn-lg btn-outline-primary btn-block testimonials-button__link" do %>
-                                Read <%= @testimonial_count %> testimonials
-                            <% end %>
-                        </div>
-                    </div>    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <!-- FAQ Section -->
 <section id="faq-section" class="faq-section py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
                 <div class="row justify-content-center">
-    <div itemscope itemtype="https://schema.org/FAQPage" class="faq container">
-        <h2 class="faq__title text-center mb-5" id="faq">Frequently Asked Questions</h2>
-        <div class="accordion" id="faqAccordion">
-            <!-- FAQ Item 1 -->
-            <div class="faq__block card mb-2">
-                <h4 class="faq__question card-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    How to do book editing?
-                </h4>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                    <div class="card-body">
-                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text" class="faq__answer">
-                                <p>Book editing is a multi-step process that involves assessing and revising a manuscript to improve its clarity, coherence, and overall quality. Here's a simplified approach to book editing:</p>
-                                <ol>
-                                    <li><strong>Self-Editing:</strong> Before seeking professional help, authors should conduct several rounds of self-editing to catch obvious errors and refine the manuscript.</li>
-                                    <li><strong>Professional Editing:</strong> Engage a professional editor to provide feedback and make corrections. This typically includes developmental editing to refine the story, and copy editing to correct grammar and consistency issues.</li>
-                                    <li><strong>Revisions:</strong> Use the feedback from the editor to make necessary revisions.</li>
-                                    <li><strong>Proofreading:</strong> After revisions, a proofreader should review the manuscript for any remaining errors before publication.</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FAQ Item 2 -->
-            <div class="faq__block card mb-2">
-                <h4 class="faq__question card-header" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    How much do book editors get paid UK?
-                </h4>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                    <div class="card-body">
-                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text" class="faq__answer">
-                                <p>In the UK, book editors can earn anywhere from £20 to £50 per hour depending on their experience, the complexity of the project, and the type of editing required. Freelance editors may set their own rates, while editors employed by publishing houses or editing services may have fixed salaries.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FAQ Item 3 -->
-            <div class="faq__block card mb-2">
-                <h4 class="faq__question card-header" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Why is book editing so expensive?
-                </h4>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                    <div class="card-body">
-                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text" class="faq__answer">
-                                <p>Book editing is a labor-intensive process that requires a high degree of skill, knowledge, and experience. Editors need to meticulously review and revise a manuscript, which can be time-consuming. Furthermore, the value of a professional editor's expertise in enhancing the quality and marketability of a book justifies the cost.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- FAQ Item -->
-            <div class="faq__block card mb-2">
-                <h4 class="faq__question card-header" id="headingFive" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    How much does it cost to edit a whole book?
-                </h4>
-                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                    <div class="card-body">
-                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text" class="faq__answer">
-                                <p>The cost of editing a whole book depends on the type of editing and the length of your book. Developmental editing is the most in-depth, and therefore most expensive type of editing. Manuscript assessment is less detailed and therefore less costly. Copy editing is the most affordable type of editing.</p>
-                                <p>A typical novel is 80,000 words and, at <%= @price_for_developmental_editing %> per 1000 words for developmental editing, this would cost <%= display_cost(@price_for_developmental_editing, @country) %>.</p>
-                                <p>A manuscript assessment for 80,000 words would be <%= @price_for_manuscript_assessment %> per 1000 words and would cost <%= display_cost(@price_for_manuscript_assessment, @country) %>.</p>
-                                <p>Copy editing for 80,000 words would be <%= @price_for_copy_editing %> per 1000 words and would cost <%= display_cost(@price_for_copy_editing, @country) %>.</p>
+                    <!-- Wrap the faq container with mainEntity ofPage schema -->
+                    <div itemscope itemtype="https://schema.org/FAQPage" class="faq container">
+                        <meta itemprop="mainEntity" content="https://schema.org/Question"/>
+                        <h2 class="faq__title text-center mb-5" id="faq">Frequently Asked Questions</h2>
+                        <div class="accordion" id="faqAccordion">
+
+                            <!-- FAQ Item 1 -->
+                            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq__block card mb-2">
+                                <h4 itemprop="name" class="faq__question card-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How to do book editing?
+                                </h4>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                            <div itemprop="text" class="faq__answer">
+                                                <!-- Answer Content -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Repeat for other FAQ items, ensuring each has the `itemscope`, `itemprop="mainEntity"`, and `itemtype="https://schema.org/Question"` attributes -->
+
                         </div>
                     </div>
+
                 </div>
             </div>
-
-</div>
-</div>
-</div>
-</div>
         </div>
     </div>
 </section>
