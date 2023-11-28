@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
     before_action :authenticate_user!
+    layout :set_page_template
 
     def show
         @page_title = 'Dashboard'
@@ -19,6 +20,24 @@ class DashboardsController < ApplicationController
         # Renders the correct template
         render "#{@user.role}_dashboard", fallbacks: ['escape_dashboard']
     end
+
+    private
+
+    def set_page_template
+        case action_name
+        when 
+          'templates/page_template_tiny'
+        when
+          'templates/page_template_small'
+        when
+          'templates/page_template_medium'
+        when 'show'
+          'templates/page_template_large'
+        else
+          'application' 
+        end
+      end
+    
     
 end
   

@@ -75,11 +75,11 @@
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
 
                 <% if current_user.free_user? || current_user.paid_user? %>
-                  <%= render partial: 'shared/navigation/user' %>
+                  <%= render partial: 'shared/layout/navigation/user' %>
                 <% elsif current_user.admin? %>
-                  <%= render partial: 'shared/navigation/admin' %>
+                  <%= render partial: 'shared/layout/navigation/admin' %>
                 <% else %>
-                  <%= render partial: 'shared/navigation/escape' %>
+                  <%= render partial: 'shared/layout/navigation/escape' %>
                 <% end %>    
 
                 <!-- All -->
@@ -88,6 +88,7 @@
                 <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li> 
                           
               </ul>
+                 </ul>
                         
             </li>	
 
