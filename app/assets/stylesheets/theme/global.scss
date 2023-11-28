@@ -1,12 +1,20 @@
-// This is styling used in more than one location
+// Styling that is accessable across the site
 
-body {
 
-    // Removes styling from the links across the site.
-    a {
+
+/* Tags */
+a {
         text-decoration: none;
-    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $pay-blue;
 }
 
 
-
+/* Page Header */
+.header {
+    // Styles the header div at the top of pages
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}

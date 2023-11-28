@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
     
+    layout :set_page_template
+
     def about
         @page_title = "About BubbleCow"
         @page_description = "BubbleCow started editing books and helping writers to success in 2007. Discover the BubbleCow story and meet our founder."
@@ -32,5 +34,22 @@ class StaticPagesController < ApplicationController
         @page_description = "BubbleCow's privact policy." 
     end
 
+    private
+
+    def set_page_template
+      case action_name
+      when 
+        'templates/page_template_tiny'
+      when 'about', 'file_safety', 'privacy_policy', 'terms_and_conditions', 'thanks'
+        'templates/page_template_small'
+      when 
+        'templates/page_template_medium'
+      when 
+        'templates/page_template_large'
+      else
+        'application' 
+      end
+    end
+  
 
 end
