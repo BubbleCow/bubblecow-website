@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= render 'shared/head' %>
+    <%= render 'shared/layout/head' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -10,10 +10,10 @@
   <body>
 
     <!-- Google tag manager -->
-  <%= render 'shared/google_tag_manager' %>
+  <%= render 'shared/layout/google_tag_manager' %>
 
     <!-- Notices -->
-    <%= render 'shared/notices' %>
+    <%= render 'shared/layout/notices' %>
 
     <!-- Main content -->
     <div class="container">
