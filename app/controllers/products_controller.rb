@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  layout :set_layout
 
   def index
     @products = Product.all
@@ -70,4 +71,18 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :price_usd, :price_gbp, :price_eur, :price_aud, :price_nzd, :price_cad, :description)
     end
+
+    def set_layout
+      case action_name
+      when  'new', 'edit'
+          'page_templates/page_small'
+      when 'index'
+          'page_templates/page_medium'
+      when
+          'page_templates/page_large'
+      else
+        'application'
+      end
+    end
+
 end
