@@ -1,6 +1,7 @@
 module Blog
   class PostCategoriesController < Blog::ApplicationController
     before_action :set_post_category, only: [:show, :edit, :update, :destroy]
+    layout :set_layout
 
     def index
       @post_categories = PostCategory.all
@@ -66,6 +67,19 @@ module Blog
 
       def post_category_params
         params.require(:post_category).permit(:name, :slug)
+      end
+
+      def set_layout
+        case action_name
+        when
+            'page_templates/page_small'
+        when 'index', 'new', 'edit'
+            'page_templates/page_medium'
+        when
+            'page_templates/page_large'
+        else
+          'application'
+        end
       end
 
   end
