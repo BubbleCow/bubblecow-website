@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-    <%= render 'shared/layout/head' %>
+  <%= render 'shared/layout/head' %>
 
   <body>
 
@@ -14,9 +14,15 @@
     <!-- Notices -->
     <%= render 'shared/layout/notices' %>
 
-    <!-- main -->
+    <!-- Main -->
     <main>
-      <%= yield %>
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -25,4 +31,3 @@
   </body>
 
 </html>
-

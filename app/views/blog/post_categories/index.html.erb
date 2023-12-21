@@ -19,10 +19,9 @@
         <tr>
           <td><%= post_category.name %></td>
           <td><%= post_category.slug %></td>
-          <td><%= link_to 'Show', blog_post_category_path(post_category) %></td>
-          <td><%= link_to 'Edit', edit_blog_post_category_path(post_category) %></td>
-          <td><%= link_to 'Destroy', blog_post_category_path(post_category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+          <td><%= link_to 'Show', blog_post_category_path(post_category), class: "btn btn-outline-success btn-sm" %></td>
+          <td><%= link_to 'Edit', edit_blog_post_category_path(post_category), class: "btn btn-outline-success btn-sm" %></td>
+          <td><%= button_to 'Delete', blog_post_category_path(post_category), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to kill this bad boy?" }}, class: 'btn btn-sm btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>
