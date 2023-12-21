@@ -1,31 +1,8 @@
-<div class="products-page">
 
-  <!-- Header Section -->
-  <div class="row justify-content-center">
-
-    <div class="col-lg-6 col-12">
-
-      <div class="products-page__header">
-        <h1 class="posts-page__header-title">Edit <%= @product.name.titleize %> </h1>
+      <div class="header">
+        <h1 class="products-edit__header-title">Edit <%= @product.name.titleize %> </h1>
       </div>
 
-      <!-- Body Section -->
-        <section class="products-page__body">
 
-          <div class="row">
-
-            <div class="col">
 
               <%= render "form", product: @product %>
-
-            </div>
-
-          </div>
-
-        </section>
-
-    </div>
-
-  </div>
-
-</div>
