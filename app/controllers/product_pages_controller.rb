@@ -1,6 +1,7 @@
 class ProductPagesController < ApplicationController
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
+  layout :set_layout
 
   def index
     @page_title = "Affordable Book Editing Services for serious writers"
@@ -67,6 +68,19 @@ class ProductPagesController < ApplicationController
       @country = "GB"
     else
       @country = request.location.country
+    end
+  end
+
+  def set_layout
+    case action_name
+    when
+        'page_templates/page_small'
+    when 
+        'page_templates/page_medium'
+    when 'index'
+        'page_templates/page_large'
+    else
+      'application'
     end
   end
 
