@@ -77,7 +77,7 @@ class ProductPagesController < ApplicationController
         'page_templates/page_small'
     when 
         'page_templates/page_medium'
-    when 'index'
+    when 'index', 'developmental_editing', 'copy_editing', 'manuscript_assessment', 'mentoring', 'book_editing_portal', 'book_proposal'
         'page_templates/page_large'
     else
       'application'
