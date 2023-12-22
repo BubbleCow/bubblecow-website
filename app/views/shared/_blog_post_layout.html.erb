@@ -10,7 +10,7 @@
             </div>
 
             <!-- Post metadata -->
-            <div class="card-text blog-post__metadata">    
+            <div class="card-text blog-post__metadata mb-3">    
                 <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "25x25" ) %>   
                 <%= post.post_author.name %> - Updated: <%= post.published_at.strftime("%b %d, %Y.") %>
             </div>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Post read more -->
-            <div class="card-link blog-post__further-reading">
+            <div class="card-link blog-post__further-reading mt-3">
                 <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post) %></p>
             </div>
 
