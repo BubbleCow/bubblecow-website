@@ -1,6 +1,7 @@
 module Blog
   class PostAuthorsController < Blog::ApplicationController
     before_action :set_post_author, only: [:show, :edit, :update, :destroy]
+    layout :set_layout
 
     def index
       @post_authors = PostAuthor.all
@@ -66,6 +67,19 @@ module Blog
 
       def post_author_params
         params.require(:post_author).permit(:name, :slug)
+      end
+
+      def set_layout
+        case action_name
+        when  'new', 'edit'
+            'page_templates/page_small'
+        when 'index'
+            'page_templates/page_medium'
+        when 
+            'page_templates/page_large'
+        else
+          'application'
+        end
       end
 
     end
