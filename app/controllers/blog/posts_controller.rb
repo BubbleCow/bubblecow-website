@@ -2,6 +2,7 @@ module Blog
   class PostsController < Blog::ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
     before_action :set_blog_post_content, only: [:show]
+    layout :set_layout
 
     def index
       @posts = Post.published
@@ -78,6 +79,8 @@ module Blog
     end
     
     private
+
+
       def set_post
         @post = Post.friendly.find(params[:id])
       end
@@ -92,6 +95,19 @@ module Blog
           @blog_post_content = ActionView::Base.full_sanitizer.sanitize(@post.content)
         else
           @blog_post_content =ActionView::Base.full_sanitizer.sanitize(@post.body.to_plain_text)
+        end
+      end
+
+      def set_layout
+        case action_name
+        when  
+            'page_templates/page_small'
+        when
+            'page_templates/page_medium'
+        when 'new', 'edit'
+            'page_templates/page_large'
+        else
+          'application'
         end
       end
 
