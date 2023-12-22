@@ -1,70 +1,42 @@
 <div class="post-page">
-
-  <!-- Main content -->
   <div class="row">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-5 mx-auto p-3 py-md-5 ">  
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 mx-auto p-3 py-md-5">  
       <div itemscope itemtype="https://schema.org/NewsArticle">
-
         <main class="post-page__post">
-
           <section class="post-page__header">
-            <!-- Post title -->
-            <div itemprop="headline">
-              <h1 class="page__header-title"><%= @post.post_title.titleize %></h1> 
-            </div>
+            <h1 itemprop="headline" class="page__header-title"><%= @post.post_title.titleize %></h1> 
           </section>
 
-          <!-- Post image -->
-          <div itemprop="post-page__body-image">
-            <%= image_tag(@post.post_image, :alt => @post.title, class: "img-fluid", size: "" ) %>
+          <div itemprop="image" class="post-page__body-image">
+            <%= image_tag(@post.post_image, alt: @post.title, class: "img-fluid") %>
           </div>
 
-          <!-- Post metadata -->
           <div class="post-page__metadata">
             <p>
-              <%= image_tag("gary-smailes", :alt => "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40" ) %>
-              <span itemprop="author" itemscope itemtype="https://schema.org/Person" id="post-author"><span itemprop="name"><%= link_to @post.post_author.name, blog_post_author_path(@post.post_author) %></span></span> -  
+              <%= image_tag("gary-smailes", alt: "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "40x40") %>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <a itemprop="url" href="<%= blog_post_author_path(@post.post_author) %>">
+                  <span itemprop="name"><%= @post.post_author.name %></span>
+                </a>
+              </span> -  
               <% if @post.published? %>
                 <span itemprop="dateModified">Updated: <%= @post.published_at.strftime("%b %d, %Y") %></span>
               <% else %>
                 <span>Unpublished</span>.
               <% end %>
             </p>
-
             <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), class: "badge bg-primary" %>
-          
           </div>
 
-          <article class="post-page__article">
-            <!-- Post content -->
+          <article itemprop="articleBody" class="post-page__article">
             <%= post_content %>
           </article>
 
           <section class="post-page__advert">
-        
-            <!-- Advert -->
             <%= blog_post_advert(@post.advert_category) %>
-            
           </section>
-
-        </section>
-
-
-
         </main>
-
       </div>
     </div>
   </div>
-
 </div>
-
-
-
-
-
-      
-
-
-
-        
