@@ -196,7 +196,7 @@
               <!-- Post Category -->
               <h5>Category:</h5>
               <div class="input">
-                <%= form.select :post_category_id, PostCategory.all.map {|c| [c.name, c.id]},  {}, class: "form-select", id: "postCategory" %>
+                <%= form.select :post_category_id, category_options, {}, { class: "form-select", id: "postCategory" } %>
               </div>
 
               <!-- Post Topic -->
