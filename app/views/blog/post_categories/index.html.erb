@@ -3,39 +3,31 @@
 </section>
 
 <section class="page-body">
-
-<div class="box">
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Slug</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @post_categories.each do |post_category| %>
+  <div class="box">
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <td><%= post_category.name %></td>
-          <td><%= post_category.slug %></td>
-          <td><%= link_to 'Show', blog_post_category_path(post_category), class: "btn btn-outline-success btn-sm" %></td>
-          <td><%= link_to 'Edit', edit_blog_post_category_path(post_category), class: "btn btn-outline-success btn-sm" %></td>
-          <td><%= button_to 'Delete', blog_post_category_path(post_category), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to kill this bad boy?" }}, class: 'btn btn-sm btn-danger' %></td>
+          <th scope="col">Name</th>
+          <th scope="col">Parent Category</th>
+          <th scope="col" colspan="3">Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @post_categories.each do |post_category| %>
+          <% if post_category.parent_category.nil? %>
+            <%= render 'category_row', category: post_category, level: 0 %>
+            <% post_category.child_categories.each do |child_category| %>
+              <%= render 'category_row', category: child_category, level: 1 %>
+              <!-- Add more nesting levels here if needed -->
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-</div>
+  <br>
 
-<br>
-
-<%= link_to 'New Category', new_blog_post_category_path %>
+  <%= link_to 'New Category', new_blog_post_category_path, class: "btn btn-primary" %>
 
 </section>
-
-
-
-
-

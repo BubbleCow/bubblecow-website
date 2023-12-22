@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_17_081107) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_22_101250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -236,6 +236,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_17_081107) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_category_id"
     t.index ["slug"], name: "index_post_categories_on_slug", unique: true
   end
 
@@ -378,6 +379,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_17_081107) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "books"
+  add_foreign_key "post_categories", "post_categories", column: "parent_category_id"
   add_foreign_key "services", "users"
   add_foreign_key "taggings", "tags"
 end
