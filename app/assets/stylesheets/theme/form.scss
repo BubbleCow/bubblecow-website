@@ -1,0 +1,51 @@
+// Styles forms
+
+/* Form */
+
+.form__container {
+    /* Styles the form container */
+  }
+  
+  .form__base {
+    /* Styles the base form element */
+  }
+  
+  .form__row {
+    /* Styles for form rows */
+  }
+  
+  .form__group {
+    /* Styles for form groups, typically used for form input and its label */
+    margin-bottom: 1rem;
+  }
+  
+  .form__label {
+    /* Styles for form labels */
+    margin-bottom: 0.5rem;
+  }
+  
+  .form__explainer-text {
+    /* Styles the explainer text */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form__input {
+    /* Styles for form inputs */
+    margin-bottom: 1rem;
+  }
+  
+  .form__submit {
+    /* Styles for submit button */
+  }
+  
+  .form__data-item {
+    /* Styles for individual data items, like user metadata */
+  }
+
+  // Textarea styling
+  textarea.form-control {
+    overflow: hidden;
+    resize: none; // Prevent manual resizing
+  }
+    
