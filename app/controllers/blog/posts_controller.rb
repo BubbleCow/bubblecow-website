@@ -102,7 +102,7 @@ module Blog
         case action_name
         when 
             'page_templates/page_small'
-        when
+        when 'index'
             'page_templates/page_medium'
         when 'new', 'edit'
             'page_templates/page_large'

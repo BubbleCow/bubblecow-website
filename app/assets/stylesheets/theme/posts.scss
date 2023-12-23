@@ -1,5 +1,7 @@
 // This is to style the posts controller
 
+/* This is for the SHOW page */
+
 .post-show__image {
     // Styles the image
 }
@@ -45,7 +47,6 @@
     }
 }
 
-
 .post-show__advert {
     // Style the advert
     margin-top: 3rem;
@@ -53,3 +54,20 @@
     border-top: 1px solid #000;
     
 }
+
+/* This is for the INDEX page */
+
+.posts-index__header {
+    // styles the header
+
+}
+
+.posts-index__header-title {
+    // Styles the header title
+    
+}
+
+.posts-index__header-title {
+    // Styles the header sub-title
+}
+
