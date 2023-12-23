@@ -84,7 +84,7 @@ module Blog
 
       def set_layout
         case action_name
-        when 'index', 'new', 'edit'
+        when 'index', 'new', 'edit', 'show'
           'page_templates/page_medium'
         else
           'application'
