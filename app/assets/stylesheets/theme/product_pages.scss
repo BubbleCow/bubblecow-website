@@ -1,2 +1,62 @@
 // This is styling for the product pages controller
 
+.product-page__hero {
+    // styles the hero
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+    text-align: center;
+}
+
+.product-page__hero-text {
+    // Styles the text block
+    margin-bottom: 3rem;
+}
+
+.product-page__hero-title {
+    // styles the hero title
+    font-size: 3rem;
+}
+
+.product-page__hero-subtitle {
+    // styles the hero subtitle
+    margin-top: 1rem;
+    font-size: 1.4rem;
+}
+
+.product-page__section {
+    // styles the sections
+    margin-bottom: 5rem;
+}
+
+.product-page__section-benefits {
+    // Styles the benefits section
+    margin-bottom: 7rem;
+}
+.product-page__benefits-card {
+    // Styles the benefit card
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-page__benefits-card-title {
+    // Styles the benefit card title
+    margin-bottom: 2rem;
+}
+
+.product_pages__image {
+    // Styles the images
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.product_pages__content-title {
+    // Styles main titles within the content
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.product_pages__content-subtitle {
+    // Styles subtitles within the content
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
