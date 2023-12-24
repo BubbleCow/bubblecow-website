@@ -1,19 +1,18 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-lg-6">
-    <div class="customer_pages">
+<!-- header -->
+<div class="header testimonials__header">
+  <h1 class="testimonials__header-title">Testimonials</h1>
+</div>
 
-        <div class="customer_pages__header">
-            <h1 class="customer_pages__header__title">Testimonials</h1>
-        </div>
-    
-        <section class="customer_pages__content">
-          <% if current_user.try(:admin?) %>
-            <p><%= link_to "Add testimonial", new_testimonial_path %></p>
-          <% end %>
+<!-- Testimonials -->
+<section class="testimonials__content">
+  
+  <% if current_user.try(:admin?) %>
+    <p><%= link_to "Add testimonial", new_testimonial_path %></p>
+  <% end %>
 
-            <% @testimonials.each do |testimonial| %>
-                <div class="card mb-3">
-                  <div class="card-body">
+  <% @testimonials.each do |testimonial| %>
+    <div class="card mb-3">
+      <div class="card-body">
                     <p class="card-text"><%= testimonial.testimonial_text %></p>
                     <h6 class="card-subtitle"><%= testimonial.writer.titleize %></h6>
                     <% if current_user.try(:admin?) %>
@@ -25,7 +24,3 @@
             <% end %>
         </section>
    
-
-</div>
-</div>
-</div>

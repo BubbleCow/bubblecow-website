@@ -1,164 +1,174 @@
-<div class="product-page developmental-editing-page">
+<!-- Hero Section -->
+<div class="container">
+  <div class="row">
+    <section class="product-page__hero">
 
-  <!-- Hero Section -->
-  <section class="hero-section py-5 text-center product-page__hero">
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="text-center">
-                <h1 class="product-page__hero-title">Developmental Editing</h1>
-                <p class="product-page__hero-subtitle">Looking for a professional book editor? We can help</p>
-
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
-                  <%= link_to "Submit for free sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-                  <%= link_to "Submit for full paid edit", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
-              </div>
-              </div>
-          </div>
+      <!-- text -->
+      <div class="product-page__hero-text">
+        <h1 class="product-page__hero-title">Developmental Editing</h1>
+        <p class="product-page__hero-subtitle">Looking for a professional book editor? We can help</p>
       </div>
-  </section>
+      
+      <!-- buttons -->
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+        <%= link_to "Submit for free sample", new_services_sample_developmental_edit_path, class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+        <%= link_to "Submit for full paid edit", new_services_developmental_edit_path, class: "btn btn-primary btn-lg px-4 gap-3" %>
+      </div>
+      
+    </section>
+  </div>
+</div>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
-  <!-- Three column layout  - benefits -->
-  <div class="row mb-3 product-page__section">
-        
-    <div class="col-sm-4">
-      <div class="card product-page__benefits-card">
-        <div class="card-body text-center">
-            <h2 class="card-title">Book Editing + Line Editing</h2>
-            <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure, and readability. Clear, actionable advice that will allow you to create a better book.</p>
-        </div>
-      </div>
-    </div>
-      
-    <div class="col-sm-4">
+  <!-- benefits -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section-benefits">
+        <div class="row g-4">
 
-      <div class="card product-page__benefits-card">
-        <div class="card-body text-center">
-            <h2 class="card-title">Multi-page Editor's Report</h2>
-            <p class="card-text">Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience and make your book better.</p>
-        </div>
-      </div>
-
-    </div>
-      
-    <div class="col-sm-4">
-
-      <div class="card product-page__benefits-card">
-        <div class="card-body text-center">
-            <h2 class="book-editing-subtitle">Prompt 28 Day Turnaround</h2>
-            <p>Feedback is returned within 28 business days. Timeframes are essential, so we will provide you with a delivery date before the editing starts.</p>
-        </div>
-      </div>
-
-    </div>
-      
-  </div>
-
-  <!-- single column - toc -->
-  <div class="row justify-content-md-center product-page__section">
-
-      <div class="col-sm col-lg-6">
-
-        <div class="toc card bg-light" id="toc">
-          <p class="card-header"><strong>Table of Contents</strong></p>
-            <div class="card-body">
-              <ul>
-                <li><a href="#item-1">What Is Developmental Editing?</a></li>
-                <li><a href="#item-price-calculator">Price Calculator</a></li>
-                <li><a href="#item-3">Developmental Editing Turnaround Time</a></li>
-                <li><a href="#item-4">What You Get With Our Developmental Editing Service</a></li>
-                <li><a href="#item-5">Sample Developmental Editing</a></li>
-                <li><a href="#item-6">The Developmental Editing Process</a></li>
-                <li><a href="#item-7">Frequently Asked Questions</a></li>
-              </ul>
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Developmental & Line Editing</h2>
+                <p class="card-text">Comprehensive book editing and editorial feedback of your book's plot, structure, and readability. Clear, actionable advice that will allow you to create a better book.</p>
+              </div>
             </div>
-        </div>
+          </div>
           
-      </div>
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Multiple page Editor's Report</h2>
+                <p class="card-text">Extensive multi-page editor's report, which will highlight and explain the big problems within your book. Benefit from our editorial experience and make your book better.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-text product-page__benefits-card-title">Prompt 28 Day Turnaround</h2>
+                <p>Feedback is returned within 28 business days. Timeframes are essential, so we will provide you with a delivery date before the editing starts.</p>
+              </div>
+            </div>
+          </div>
 
+        </div>
+      </section>
+    </div>
   </div>
 
-  <!-- single column - what is developmental editing-->
-  <div class="row justify-content-md-center product-page__section">
+  <!-- toc -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
-      <div class="col-sm col-lg-6">
-      
-        <h2 id="item-1">What is Developmental Editing?</h2>
-        <p>Developmental editing is known by several different names, it is called content editing, structural editing, story editing, comprehensive editing, macro editing, big picture editing, or even heavy editing. However, the most common alternative is called substantive editing.</p>
-        <p>But they are all the same.</p>
-        <p>They are all developmental editing.</p>
-        <p>The role of the developmental editor is to ensure that a book is of a publishable standard.</p>
-        <p>Wikipedia describes developmental editing as "significant structuring or restructuring of a manuscript's discourse".</p>
-        <p>In reality, developmental editing is a much more involved process. The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p>
-            
-      </div>
+          <div class="toc card bg-light" id="toc">
+            <p class="card-header"><strong>Table of Contents</strong></p>
+              <div class="card-body">
+                <ul>
+                  <li><a href="#what-developmental-editing">What Is Developmental Editing?</a></li>
+                  <li><a href="#price-calculator">Price Calculator</a></li>
+                  <li><a href="#turnaround-time">Developmental Editing Turnaround Time</a></li>
+                  <li><a href="#what-you-get">What You Get With Our Developmental Editing Service</a></li>
+                  <li><a href="#sample-editing">Sample Developmental Editing</a></li>
+                  <li><a href="#editing-process">The Developmental Editing Process</a></li>
+                  <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ul>
+              </div>
+          </div>
 
+      </section>
+    </div>
   </div>
 
-  <!-- single column - price calculator -->
-  <div class="row justify-content-md-center product-page__section">
+  <!-- what is developmental editing-->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
+        
+          <h2 id="what-developmental-editing" class="product_pages__content-title">What is Developmental Editing?</h2>
+          <p>Developmental editing is known by several different names, it is called content editing, structural editing, story editing, comprehensive editing, macro editing, big picture editing, or even heavy editing. However, the most common alternative is called substantive editing.</p>
+          <p>But they are all the same.</p>
+          <p>They are all developmental editing.</p>
+          <p>The role of the developmental editor is to ensure that a book is of a publishable standard.</p>
+          <p>Wikipedia describes developmental editing as "significant structuring or restructuring of a manuscript's discourse".</p>
+          <p>In reality, developmental editing is a much more involved process. The editor will examine the entire manuscript in the process, considering all aspects of the book, including its narrative and structure. They will also consider readability, plot, and structure.</p>
 
-      <div class="col-sm col-lg-6">
+      </section>   
+    </div>
+  </div>
+
+  <!-- price calculator -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
         <%= render partial: 'cost_calculator' %>
       
-      </div>
-
+      </section>
+    </div>
   </div>
 
 
-  <!-- single column - turnaround -->
-  <div class="row justify-content-md-center product-page__section">
-
-      <div class="col-sm col-lg-6">
+  <!-- turnaround -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
       
-        <h2 id="item-3">Developmental Editing Turnaround Time</h2>
+        <h2 id="turnaround-time" class="product_pages__content-title">Developmental Editing Turnaround Time</h2>
         <p>We will return your manuscript within <strong>twenty-eight business days</strong> (counting Monday-Friday) or roughly five calendar weeks.</p>
         <p>We are a small and dedicated team. We pick the best editor for each job. We have professional developmental editors and robust quality-control systems. We can’t rush the process.</p>
         <p><strong>If you submitted and paid today, your feedback would be returned no later than
         <%= proposed_date %></strong>.</p>
         
-      </div>
-
+      </section>
+    </div>
   </div>
       
 
-  <!-- Two column layout - testimonial -->
-  <div class="row justify-content-sm-center product-page__section">
+  <!-- testimonial -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section">
+
+        <div class="row justify-content-center">
     
-      <div class="col-sm-4 mt-2">
-        <img src="https://bubblecow.com/assets/An_Illustrated_Book_of_Bad_Arguments" alt="An Illustrated Book of Bad Arguments" class="post-media img-fluid rounded mx-auto d-block" width="332" height="330">
-      </div>
-
-      <div class="col-sm-6 mt-2">
-
-        <div class="card mb-3 mb-sm-0">
-          <div class="card-body">
-              <p>"When I finished the first draft of <em>An Illustrated Book of Bad Arguments</em>, I wanted someone to tell me how the prose came across and whether it was cohesive enough to provide value to the book's target audience. 
-              <p>BubbleCow did just that. I am grateful for Gary's feedback, which undoubtedly helped improve the book."</p> 
-              <p>Ali Almossawi, author of international bestseller <a href="https://en.wikipedia.org/wiki/An_Illustrated_Book_of_Bad_Arguments"><em>An Illustrated Book of Bad Arguments</em></a>.</p>
-              
-              <div class="d-grid gap-2">
-                  <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                      Read <%= @testimonial_count %> more testimonials
-                  <% end %>
-              </div>
-
+          <div class="col-sm-4 mt-2">
+            <img src="https://bubblecow.com/assets/An_Illustrated_Book_of_Bad_Arguments" alt="An Illustrated Book of Bad Arguments" class="post-media img-fluid rounded mx-auto d-block" width="332" height="330">
           </div>
+
+          <div class="col-sm-6 mt-2">
+
+            <div class="card mb-3 mb-sm-0">
+              <div class="card-body">
+                  <p>"When I finished the first draft of <em>An Illustrated Book of Bad Arguments</em>, I wanted someone to tell me how the prose came across and whether it was cohesive enough to provide value to the book's target audience. 
+                  <p>BubbleCow did just that. I am grateful for Gary's feedback, which undoubtedly helped improve the book."</p> 
+                  <p>Ali Almossawi, author of international bestseller <a href="https://en.wikipedia.org/wiki/An_Illustrated_Book_of_Bad_Arguments"><em>An Illustrated Book of Bad Arguments</em></a>.</p>
+                  
+                  <div class="d-grid gap-2">
+                      <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                          Read <%= @testimonial_count %> more testimonials
+                      <% end %>
+                  </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
+      </section>
+    </div>
   </div>
 
-  <!-- single column - what you get -->
-  <div class="row justify-content-md-center product-page__section">
-
-      <div class="col-sm col-lg-6">
+  <!-- what you get -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
       <!-- Editing -->
-      <h2 id="item-4">What You Get With Our Developmental Editing Service</h2>
+      <h2 id="what-you-get" class="product_pages__content-title">What You Get With Our Developmental Editing Service</h2>
       <p>Our unique book editing service will provide the feedback you need to lift your book to a publishable standard.</p>
       <p>Developmental editing focuses on helping the writer to produce the best book possible.</p>
       <p>Combined developmental editing and line editing will provide the guidance you need to identify and correct any
@@ -170,7 +180,9 @@
         and embedded comments, meaning that you have full control over what is changed within your book. We will never
         alter your book's themes, change your voice or enforce any suggestions that revise your vision for your book.
       </p>
-      <%= image_tag 'track-changes', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - tracked changes' %>
+      <div class="product_pages__image">
+        <%= image_tag 'track-changes', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - tracked changes' %>
+      </div>
       <p>Our product provides unrivaled customer service, and guaranteed quality, all within an affordable budget.</p>
       <p>We promise 100% anonymity and will never discuss your book with anyone other than yourself, without your
         written permission.</p>
@@ -182,7 +194,7 @@
         <li>Line editing.</li>
         <li>Editor's report.</li>
       </ol>
-      <h3>Developmental Editing</h3>
+      <h3 class="product_pages__content-subtitle">Developmental Editing</h3>
       <p>A traditionally published author would have had both their agent and publisher provide support on the
         editorial
         aspects of their book. However, for the self-publishing author, this feedback must be procured by the book’s
@@ -191,7 +203,7 @@
       <p>Our developmental editors will not only look to highlight technical issues but will provide you with a clear road map as to
         what you can do to fix these issues and how to become a better author in the process.</p>
 
-      <h4>Editorial Approach</h4>
+      <h4 class="product_pages__content-subtitle">Editorial Approach</h4>
       <p>The role of the developmental editor is to ensure that a book is of a publishable standard.</p>
       <p>Unlike other types of editing, developmental editing is more about the editor's education, experience, and
         gut
@@ -240,23 +252,24 @@
         <li>If included, are all footnotes or endnotes correctly presented and formatted?</li>
       </ul>
       <p>The developmental editor will communicate their thoughts, directions and suggestions using embedded comments and the
-        editor's
-        report.</p>
+        editor's report.</p>
 
-      <h4>Embedded Comments</h4>
+      <h4 class="product_pages__content-subtitle">Embedded Comments</h4>
       <p>When editing your book, your developmental editor will constantly be applying the questions above and will have a
         collection
         of thoughts and suggestions that will improve your book.</p>
       <p>We fundamentally believe that our role is to guide and suggest but the control of the final changes should
         always remain with the writer. After all, you have the clearest vision for your book.</p>
       <p>One way that we communicate our thoughts and feelings on your book is by the use of embedded comments.</p>
-      <%= image_tag 'comment-in-word', class: 'image img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - comment example' %>
+      <div class="product_pages__image">
+        <%= image_tag 'comment-in-word', class: 'image img-fluid mx-auto d-block product_pages__image', alt: 'Book editing with BubbleCow - comment example' %>
+      </div>
       <p>These 'comments' are part of Word's editing tools and they will appear automatically when you open up the
         edited manuscript. If not, then it is just a simple matter of changing one of the settings in Word. This is
         easy
         to do.</p>
 
-      <div class="image ratio ratio-16x9">
+      <div class="product_pages__image ratio ratio-16x9">
         <iframe  src="https://www.youtube.com/embed/m7tmsWN6uH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
@@ -283,7 +296,7 @@
       <p>However, the comments should not be considered in isolation. In addition, we will also write a detailed
         multi-page editor’s report.</p>
 
-      <h4>Editor's Report</h4>
+      <h4 class="product_pages__content-subtitle">Editor's Report</h4>
       <p>A key part of the developmental editing process is the editor's report.</p>
       <p>This document will be your editor’s thoughts on your book.</p>
       <p>It is a broad overview of the key issues and will act as a ‘jumping off point’ when you come to consider the
@@ -336,7 +349,7 @@
         author will refer back to the report and get a 'feel' for the bigger picture before delving into the
         nitty-gritty of the line edit.</p>
 
-      <h4>Line Editing</h4>
+      <h4 class="product_pages__content-subtitle">Line Editing</h4>
       <p>In addition to the developmental editing, we will also carry out a line edit for your book. </p>
       <p>Whilst developmental editing focuses on the big picture, the line editor will be focused on sentence-level problems.</p>
       <p><a href="https://en.wikipedia.org/wiki/Copy_editing" target="_blank">Line editing</a> is a form of copy
@@ -374,8 +387,10 @@
         that
         once you have back the edited manuscript, you will be looking to change and add new material.</p>
       <p>Any new writing will bring new errors; we are all human.</p>
-      <%= image_tag 'sample-line-edit-screenshot', class: 'img-fluid image mx-auto d-block', alt: 'Book editing with BubbleCow - line book edit sample'  %>
-      <h4>What is included in the line edit?</h4>
+      <div class="product_pages__image">
+        <%= image_tag 'sample-line-edit-screenshot', class: 'img-fluid mx-auto d-block', alt: 'Book editing with BubbleCow - line book edit sample'  %>
+      </div>
+      <h4 class="product_pages__content-subtitle">What is included in the line edit?</h4>
       <p>The editor will read each line of your book and then when they see an error, they will make a change.</p>
       <p>This error will be fixed using tracked changes, which means that you remain in control. If you wish to
         ‘reject’
@@ -388,7 +403,7 @@
         of the error and then replacing the error with the correct version. Find and replace is used with caution but
         can be a very effective tool in adding consistency to a manuscript.</p>
 
-      <h4>The line editing process</h4>
+      <h4 class="product_pages__content-subtitle">The line editing process</h4>
       <p>As with all editing, there is a level of ‘art’ to line editing, but on the whole, it is the most mechanical
         of
         the editing steps.</p>
@@ -423,7 +438,7 @@
       </ul>
 
       <!-- Sample Developmental Editing -->
-      <h2 id="item-5">Sample Developmental Editing</h2>
+      <h2 id="sample-editing" class="product_pages__content-title">Sample Developmental Editing</h2>
       <p>Finding the right developmental editor for your project is not easy. The chances are that you have spent months (a recent
         survey suggested that the average time to write a book was seven months) writing your book and you, rightly,
         want to make sure that you have the correct person for the job.</p>
@@ -455,7 +470,7 @@
       </div>
 
       <!-- Process -->
-      <h2 id="item-6">The Developmental Editing Process</h2>
+      <h2 id="editing-process" class="product_pages__content-title">The Developmental Editing Process</h2>
       <p>The developmental editing process normally consists of two stages: the sample edit and the full edit.</p>
       <p>The role of the sample developmental edit is to show you what we can offer for your book. If you don’t need a sample edit,
         it
@@ -548,8 +563,8 @@
         we have already seen and solved this problem. It may well be the case that one quick email to us saves you a
         significant amount of time.</p>
 
-      </div>
-
+      </section>
+    </div>
   </div>
 
   <!-- single column - FAQ -->
@@ -557,13 +572,13 @@
 
     <div class="col-sm col-lg-6">
 
-      <h2 id="item-7">Frequently Asked Questions</h2>
+      <h2 id="faq" class="product_pages__content-title">Frequently Asked Questions</h2>
       <p>Below are some frequently asked questions that will provide you with more information.</p>
       
       <div itemscope itemtype="https://schema.org/FAQPage" class="faq">
       
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <h3 itemprop="name">Do you accept all books?</h3>
+          <h3 itemprop="name" class="product_pages__content-subtitle">Do you accept all books?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <div itemprop="text">
               <p>No, but we accept most fiction genres and all major nonfiction genres. In fact, we
@@ -602,7 +617,7 @@
 
 
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Can I pick my developmental editor?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">Can I pick my developmental editor?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>Yes.</p>
@@ -616,7 +631,7 @@
 
         
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">I want to submit my book in small chunks. Is that possible? Will my editor be happy?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">I want to submit my book in small chunks. Is that possible? Will my editor be happy?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>Yes.</p>
@@ -638,7 +653,7 @@
 
         
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Once I have had the book edited, will the editor look at the changes?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">Once I have had the book edited, will the editor look at the changes?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>Probably...</p>
@@ -665,7 +680,7 @@
 
         
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">If I get my book edited, will I still need a copy edit?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">If I get my book edited, will I still need a copy edit?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>Yes.</p>
@@ -686,7 +701,7 @@
         </div>
 
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Is there a minimum word count?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">Is there a minimum word count?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>Yes.</p>
@@ -700,7 +715,7 @@
         </div>
 
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Will you ship out my book to some anonymous freelance editor?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">Will you ship out my book to some anonymous freelance editor?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>No.</p>
@@ -718,7 +733,7 @@
         </div>
 
         <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Do you keep the copyright or does it belong to the professional editor?</h3>
+        <h3 itemprop="name" class="product_pages__content-subtitle">Do you keep the copyright or does it belong to the professional editor?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
             <p>No.</p>
@@ -738,5 +753,4 @@
     </div>
 
   </div>
-
 </div>

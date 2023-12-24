@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy, :read, :unread, :archive, :unarchive]
   before_action :authenticate_user!, only: [:index, :show, :destroy]
+  layout :set_layout
 
   def index
     @messages = Message.all
@@ -96,6 +97,19 @@ class MessagesController < ApplicationController
 
     def message_params
       params.require(:message).permit(:sender_name, :content, :sender_email, :read, :unread, :archived, :source)
+    end
+
+    def set_layout
+      case action_name
+      when 'new', 'thank_you', 'show'
+          'page_templates/page_small'
+      when
+          'page_templates/page_medium'
+      when 'index'
+          'page_templates/page_large'
+      else
+        'application'
+      end
     end
 
 end

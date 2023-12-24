@@ -7,7 +7,6 @@ import "Chart.bundle"
 
 // Custom
 import "custom/bootstrap_extensions";
-import "custom/trix_extensions";
 import "custom/google_tag_manager";
 import "custom/form_extensions";
 

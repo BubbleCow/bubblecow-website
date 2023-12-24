@@ -100,9 +100,9 @@ module Blog
 
       def set_layout
         case action_name
-        when  
+        when 
             'page_templates/page_small'
-        when
+        when 'index'
             'page_templates/page_medium'
         when 'new', 'edit'
             'page_templates/page_large'

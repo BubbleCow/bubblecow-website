@@ -13,13 +13,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @post_categories.each do |post_category| %>
-          <% if post_category.parent_category.nil? %>
-            <%= render 'category_row', category: post_category, level: 0 %>
-            <% post_category.child_categories.each do |child_category| %>
-              <%= render 'category_row', category: child_category, level: 1 %>
-              <!-- Add more nesting levels here if needed -->
-            <% end %>
+        <% @parent_categories.each do |parent_category| %>
+          <%= render 'category_row', category: parent_category, level: 0 %>
+          <% parent_category.child_categories.order(:name).each do |child_category| %>
+            <%= render 'category_row', category: child_category, level: 1 %>
           <% end %>
         <% end %>
       </tbody>

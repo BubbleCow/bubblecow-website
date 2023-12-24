@@ -1,209 +1,184 @@
-<div class="product-page copy-editing-page">
+<!-- Hero Section -->
+<div class="container">
+  <div class="row">
+    <section class="product-page__hero">
 
-  <!-- Hero Section -->
-  <section class="hero-section py-5 text-center product-page__hero">
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="text-center">
-                <h1 class="product-page__hero-title">Copy Editing</h1>
-                <p class="product-page__hero-subtitle">Bringing Clarity and Precision to Your Words</p>
-
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
-                    <%= link_to "Get Started", copy_editing_path(anchor: "item-submit-your-book-for-copy-editing"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-                    <%= link_to "Find out cost", copy_editing_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-                </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
+        <!-- text -->
+        <div class="product-page__hero-text">
+            <h1 class="product-page__hero-title">Copy Editing</h1>
+            <p class="product-page__hero-subtitle">Bringing Clarity and Precision to Your Words</p>
+        </div>
+      
+        <!-- buttons -->
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+            <%= link_to "Get Started", copy_editing_path(anchor: "item-submit-your-book-for-copy-editing"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+            <%= link_to "Find out cost", copy_editing_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+        </div>
+        
+    </section>
+  </div>
+</div>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
+  <!-- benefits -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section-benefits">
+        <div class="row g-4">
 
-<!-- Three column layout - benefits -->
-<div class="row product-page__section">
-  
-    <div class="col-sm-4">
-
-        <div class="card product-page__benefits-card">
-            <div class="card-body text-center">
-                <h2 class="card-title test">Accurate Checking</h2>
-                <p class="card-text">A meticulous review of your writing to identify and correct any spelling, grammar, punctuation, or typographical errors.
-                </p>
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Accurate Checking</h2>
+                <p class="card-text">A meticulous review of your writing to identify and correct any spelling, grammar, punctuation, or typographical errors.</p>
+              </div>
             </div>
-        </div>
-
-    </div>
-
-    <div class="col-sm-4">
-
-        <div class="card product-page__benefits-card">
-            <div class="card-body text-center">
-                <h2 class="card-title">Swift Turnaround</h2>
-                <p class="card-text">Fast, efficient and insanely detailed copy editing service with fast turnaround times to meet your publishing deadlines.</p>
-            </div>
-        </div>
-    
-    </div>
-
-    <div class="col-sm-4">
-
-        <div class="card product-page__benefits-card">
-            <div class="card-body text-center">
-                <h2 class="book-editing-subtitle">Experienced Editors</h2>
-                <p>Experienced copy editors with a keen eye using a rigorous process to ensure that your writing is ready for publication.</p>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- single column - toc -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
-
-      <div class="toc card bg-light" id="toc">
-        <p class="card-header"><strong>Table of Contents</strong></p>
-          <div class="card-body">
-            <ul>
-              <li><a href="#item-what-is-copy-editing">What is copy Editing?</a></li>
-              <li><a href="#item-benefits-of-copy-editing">Benefits of copy Editing</a></li>
-              <li><a href="#item-copy-editing-process">Copy Editing Process</a></li>
-              <li><a href="#item-our-qualifications-and-experience">Our Qualifications and Experience</a></li>
-              <li><a href="#item-price-calculator">Price Calculator</a></li>
-              <li><a href="#item-submit-your-book-for-copy-editing">Submit Your Book For Copy Editing</a></li>
-              <li><a href="#item-faq">Frequently Asked Questions</a></li>
-            </ul>
           </div>
-      </div>
-        
+          
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Swift Turnaround</h2>
+                <p class="card-text">Fast, efficient and insanely detailed copy editing service with fast turnaround times to meet your publishing deadlines.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-text product-page__benefits-card-title">Experienced Editors</h2>
+                <p>Experienced copy editors with a keen eye using a rigorous process to ensure that your writing is ready for publication.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </div>
+  </div>
 
-</div>
+  <!-- toc -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
+          <div class="toc card bg-light" id="toc">
+            <p class="card-header"><strong>Table of Contents</strong></p>
+              <div class="card-body">
+                <ul>
+                    <li><a href="#item-what-is-copy-editing">What is copy Editing?</a></li>
+                    <li><a href="#item-benefits-of-copy-editing">Benefits of copy Editing</a></li>
+                    <li><a href="#item-copy-editing-process">Copy Editing Process</a></li>
+                    <li><a href="#item-our-qualifications-and-experience">Our Qualifications and Experience</a></li>
+                    <li><a href="#item-price-calculator">Price Calculator</a></li>
+                    <li><a href="#item-submit-your-book-for-copy-editing">Submit Your Book For Copy Editing</a></li>
+                    <li><a href="#item-faq">Frequently Asked Questions</a></li>
+                </ul>
+              </div>
+          </div>
 
-<!-- single column - what is copy editing -->
-<div class="row justify-content-md-center product-page__section">
+      </section>
+    </div>
+  </div>
 
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-what-is-copy-editing">What is Copy Editing?</h2>
+  <!-- what is copy editing-->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
+        
+        <h2 id="what-developmental-editing" class="product_pages__content-title">What is Copy Editing?</h2>
         <p>Welcome to our copy editing service for self-publishing book authors. We understand that writing a book is a labor of love, and the last thing you want is for your hard work to be marred by typos, grammatical errors, and other mistakes.</p>
         <p>Our professional copy editors have the skills and experience to help you create a polished, professional-looking book that you'll be proud to publish. Whether you're a first-time author or a seasoned pro, we can help you refine your writing and ensure that your book is the best it can be.</p>
         <p>Keep reading to learn more about our copy editing services and how we can help you turn your book into a masterpiece.</p>                   
-                
-
-    </div>
-
-</div>
-
-<!-- single column - benefits -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-benefits-of-copy-editing">Benefits of Copy Editing</h2>
-        <p>When you hire a professional copy editor, you're investing in your book's success. Here are just a few of the benefits you can expect:</p>
-        <ul>
-        <li><em>Improved readability:</em> Our editors will help you eliminate awkward phrasing, clarify confusing passages, and make your writing more engaging and readable for your audience.</li>
-        <li><em>Increased accuracy:</em> We'll catch typos, grammatical errors, and other mistakes that can detract from your book's credibility and professional image.</li>
-        <li><em>Enhanced credibility:</em> A professionally edited book gives your readers confidence in your writing and expertise and helps you establish yourself as a trusted authority in your field.</li>
-        <li><em>Saved time:</em> Our editors work quickly and efficiently to get your book back to you promptly, so you can get back to writing or other important tasks.</li>
-        </ul>
-        <p>With our copy editing services, you can be sure that your book is the best it can be and that you're putting your best foot forward with your readers.</p>
-
-    </div>
-
-</div>
-
-<!-- Two column layout - testimonial -->
-<div class="row justify-content-sm-center product-page__section">
-  
-    <div class="col-sm-4 mt-2">
-        <img src="https://bubblecow.com/assets/phil_Williams" alt="Phil M Williams" class="post-media img-fluid rounded mx-auto d-block" width="" height="">
-    </div>
-
-    <div class="col-sm-6 mt-2">
-
-      <div class="card mb-3 mb-sm-0">
-        <div class="card-body">
-            <p>"The price seemed reasonable so I thought, Why not give them a try? I sent in the first book of my series. The copy edit was great, catching much that many readers missed. And the suggestions to make the text clearer were spot on. I will count on BubbleCow for any ebook I want to publish from now on."</p> 
-            <p>Phil M Williams, <a href="https://philwbooks.com/"><em>international bestseller </em></a>.</p>
        
-            <div class="d-grid gap-2">
-                <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                    Read <%= @testimonial_count %> more testimonials
-                <% end %>
+      </section>   
+    </div>
+  </div>
+
+  <!-- testimonial -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section">
+
+        <div class="row justify-content-center">
+    
+            <div class="col-sm-4 mt-2">
+                <img src="https://bubblecow.com/assets/phil_Williams" alt="Phil M Williams" class="post-media img-fluid rounded mx-auto d-block" width="" height="">
+            </div>
+
+            <div class="col-sm-6 mt-2">
+
+                <div class="card mb-3 mb-sm-0">
+                    <div class="card-body">
+                        <p>"The price seemed reasonable so I thought, Why not give them a try? I sent in the first book of my series. The copy edit was great, catching much that many readers missed. And the suggestions to make the text clearer were spot on. I will count on BubbleCow for any ebook I want to publish from now on."</p> 
+                        <p>Phil M Williams, <a href="https://philwbooks.com/"><em>international bestseller </em></a>.</p>    
+                        
+                        <div class="d-grid gap-2">
+                            <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                                Read <%= @testimonial_count %> more testimonials
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-      </div>
 
+      </section>
     </div>
+  </div>
 
+
+<!-- process -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+        <section class="product-page__section">
+
+            <h2 id="item-copy-editing-process" class="product_pages__content-title">Copy Editing Process</h2>
+            <p>Our copy editing process is straightforward and designed to get you the best results in the shortest amount of time. Here's how it works:</p>
+            <ol>
+            <li><strong>Complete the form:</strong> To get things rolling, just fill out <%= link_to "the form", "#item-submit-your-book-for-copy-editing" %>, and we will get back to you ASAP. </li>
+            <li><strong>Submit your manuscript:</strong> Once you are happy with what we can offer, send us your book manuscript, either as a Word document or in another file format of your choice.</li>
+            <li><strong>Get a quote:</strong> We'll review your manuscript and provide you with a quote for our services based on the length of your book and the level of editing you need. This will be the same as the price quoted by the <%= link_to "price calculator", "#item-price-calculator" %>.</li>
+            <li><strong>Pay for the service:</strong> Once you've accepted our quote, we will send you an email invoice. You make payment, we'll get started on the copy editing process.</li>
+            <li><strong>Edit and review:</strong> Our professional copy editors will review your manuscript and make suggestions and corrections to improve your writing and make your book the best it can be.</li>
+            <li><strong>Get your edited manuscript:</strong> When the editing process is complete, we'll send you a copy of your edited manuscript, along with a list of the changes and suggestions we've made.</li>
+            </ol>
+            <p>It's that simple! With our copy editing services, you can get the peace of mind that comes with knowing your book is in good hands, and that it will be the best it can be when you publish it.</p>
+
+            <h2 id="item-our-qualifications-and-experience" class="product_pages__content-title">Our Qualifications and Experience</h2>
+            <p>Our team of copy editors is made up of experienced professionals who have a passion for helping authors bring their writing to the next level. Here's a little more about what sets us apart:</p>
+            <ul>
+            <li><strong>Education and training:</strong> Our editors hold degrees in English, journalism, or a related field, and have received specialized training in copy editing and proofreading.</li>
+            <li><strong>Years of experience:</strong> With an average of 5+ years of experience, our editors have worked on a wide variety of projects, from fiction and non-fiction books to academic papers and technical documents.</li>
+            <li><strong>Commitment to excellence:</strong> We're committed to providing our clients with the highest quality editing services possible, and we take pride in our attention to detail and our ability to help authors improve their writing.</li>
+            </ul>
+            <p>When you work with us, you can be sure that your book is in good hands. Our editors are dedicated to helping you achieve your publishing goals and creating a book that you'll be proud of for years to come.</p>
+   
+        </section>
+    </div>
 </div>
 
-<!-- single column - process -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-copy-editing-process">Copy Editing Process</h2>
-        <p>Our copy editing process is straightforward and designed to get you the best results in the shortest amount of time. Here's how it works:</p>
-        <ol>
-          <li><strong>Complete the form:</strong> To get things rolling, just fill out <%= link_to "the form", "#item-submit-your-book-for-copy-editing" %>, and we will get back to you ASAP. </li>
-          <li><strong>Submit your manuscript:</strong> Once you are happy with what we can offer, send us your book manuscript, either as a Word document or in another file format of your choice.</li>
-          <li><strong>Get a quote:</strong> We'll review your manuscript and provide you with a quote for our services based on the length of your book and the level of editing you need. This will be the same as the price quoted by the <%= link_to "price calculator", "#item-price-calculator" %>.</li>
-          <li><strong>Pay for the service:</strong> Once you've accepted our quote, we will send you an email invoice. You make payment, we'll get started on the copy editing process.</li>
-          <li><strong>Edit and review:</strong> Our professional copy editors will review your manuscript and make suggestions and corrections to improve your writing and make your book the best it can be.</li>
-          <li><strong>Get your edited manuscript:</strong> When the editing process is complete, we'll send you a copy of your edited manuscript, along with a list of the changes and suggestions we've made.</li>
-        </ol>
-        <p>It's that simple! With our copy editing services, you can get the peace of mind that comes with knowing your book is in good hands, and that it will be the best it can be when you publish it.</p>
-
-    </div>
-
-</div>
-
-<!-- single column - qualifications -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-our-qualifications-and-experience">Our Qualifications and Experience</h2>
-        <p>Our team of copy editors is made up of experienced professionals who have a passion for helping authors bring their writing to the next level. Here's a little more about what sets us apart:</p>
-        <ul>
-          <li><strong>Education and training:</strong> Our editors hold degrees in English, journalism, or a related field, and have received specialized training in copy editing and proofreading.</li>
-          <li><strong>Years of experience:</strong> With an average of 5+ years of experience, our editors have worked on a wide variety of projects, from fiction and non-fiction books to academic papers and technical documents.</li>
-          <li><strong>Commitment to excellence:</strong> We're committed to providing our clients with the highest quality editing services possible, and we take pride in our attention to detail and our ability to help authors improve their writing.</li>
-        </ul>
-        <p>When you work with us, you can be sure that your book is in good hands. Our editors are dedicated to helping you achieve your publishing goals and creating a book that you'll be proud of for years to come.</p>
-      
-    </div>
-
-</div>
-    
-<!-- single column - price calculator -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
+  <!-- price calculator -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
         <%= render partial: 'cost_calculator' %>
-        
+      
+      </section>
     </div>
+  </div>
 
-</div>
 
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+        <section class="product-page__section">
 
-<!-- single column - submission -->
-<div class="row justify-content-md-center product-page__section">
-
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-submit-your-book-for-copy-editing">Submit Your Book For Copy Editing</h2>
+        <h2 id="item-submit-your-book-for-copy-editing" class="product_pages__content-title">Submit Your Book For Copy Editing</h2>
         <p>Don't settle for a book that's less than perfect. Let our professional copy editors help you take your writing to the next level. With years of experience and a commitment to excellence, we're here to help you succeed.</p>
         <p class="lead">Complete the form to get started...</p> 
 
@@ -238,16 +213,15 @@
 
         <% end %>
 
+        </section>
     </div>
-
 </div>
 
-<!-- single column - faq -->
-<div class="row justify-content-md-center product-page__section product-page__faq">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+        <section class="product-page__section">
 
-    <div class="col-sm col-lg-6">
-
-        <h2 id="item-faq">Frequently Asked Questions</h2>
+       <h2 id="item-faq" class="product_pages__content-title">Frequently Asked Questions</h2>
         <p>We understand that you may have questions about our copy editing services, so we've compiled a list of frequently asked questions to help you get the information you need:</p>
                    
             <div itemscope itemtype="https://schema.org/FAQPage" class="faq">
@@ -277,28 +251,9 @@
                 </div>
 
             </div>
-        
-        </div>
-    
-    
-    </div>
 
+</section>
 </div>
-
-
-
 </div>
 
 </div>
-
-
-    
-
-  
-
-
-
-
-
-
-

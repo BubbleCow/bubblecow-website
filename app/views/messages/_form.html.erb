@@ -1,51 +1,45 @@
-
-  <%= form_with(model: message, local: true) do |form| %>
+<div class="form__container">
+  <%= form_with(model: message, local: true, class: 'form__base') do |form| %>
     <% if message.errors.any? %>
-      <div id="error_explanation">
+      <div id="error_explanation" class="form__row">
         <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
         <ul>
-        <% message.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <% message.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>
 
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <%= form.hidden_field :sender_name, value: current_user.full_name, class: 'form__data-item' %>
+      <%= form.hidden_field :sender_email, value: current_user.email, class: 'form__data-item' %>
+    <% else %>
+      <div class="form__group">
+        <%= form.text_field :sender_name, class: 'form-control form__input', placeholder: "What's your name?" %>
+      </div>
 
-      <%= form.hidden_field :sender_name, value: current_user.full_name %>
-      <%= form.hidden_field :sender_email, value: current_user.email %>
+      <div class="form__group">
+        <%= form.email_field :sender_email, class: 'form-control form__input', placeholder: "What's your email?" %>
+      </div>
+    <% end %>
 
-  <% else %>
-
-    <div class="mb-3">
-      <%= form.text_field :sender_name, class: 'form-control', placeholder: "What's your name?" %>
+    <div class="form__group trix-content">
+      <%= form.rich_text_area :content, class: 'form-control form__input', placeholder: "What do you have to say?" %>
     </div>
 
-    <div class="mb-3">
-      <%= form.email_field :sender_email, class: 'form-control', placeholder: "What's your email?" %>
-    </div>
-
-  <% end %>
-
-    <div class="trix-content">
-      <%= form.rich_text_area :content, class: 'form-control', placeholder: "What do you have to say?" %>
-    </div>
-
-    <div class="form-group">
+    <div class="form__group">
       <% if message.persisted? %>
         <div class="float-right">
-          <%= link_to 'Destroy', message, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', message, method: :delete, class: "text-danger form__submit", data: { confirm: 'Are you sure?' } %>
         </div>
       <% end %>
 
-      <%= form.hidden_field :source, value: "contact form" %>
+      <%= form.hidden_field :source, value: "contact form", class: 'form__data-item' %>
 
       <div class="d-grid gap-2 my-4">
-        <button type="submit" class="btn btn-block btn-primary">Send Message</button>
+        <%= form.submit "Send Message", class: "btn btn-block btn-primary form__submit" %>
       </div>
-
     </div>
   <% end %>
-
+</div>
