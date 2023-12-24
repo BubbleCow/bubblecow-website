@@ -1,10 +1,6 @@
 // Mixins for the site
 
-@mixin header-text {
-    color: $pay-blue !important;
-    text-transform: capitalize;
-}
-
+/* Blockquote - sytling for the global blockquote */
 @mixin blockquote {
     padding-left: 1rem;            /* Provides space between the text and the border */
     border-left: 4px solid #ccc;   /* Gray border on the left */
@@ -14,19 +10,8 @@
     margin-right: 0;               /* Reset right margin */
 }
 
-@mixin standard-border {
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
-}
+/* TOC -  Styles the table of contents */
 
-@mixin backend-box {
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
-    background-color: white;
-    padding: 1rem;
-}
-
-// Styles the table of contents
 @mixin toc {
     // styles the toc
     margin-top: 3rem;
@@ -55,3 +40,26 @@
     }
 
 }
+
+
+
+// DEL THESE?
+@mixin header-text {
+    color: $pay-blue !important;
+    text-transform: capitalize;
+}
+
+
+
+@mixin standard-border {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+@mixin backend-box {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    background-color: white;
+    padding: 1rem;
+}
+

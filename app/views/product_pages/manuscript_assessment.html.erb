@@ -1,118 +1,118 @@
-<div class="product-page manuscript-assessment-page">
+<!-- Hero Section -->
+<div class="container">
+  <div class="row">
+    <section class="product-page__hero">
 
-  <!-- Hero Section -->
-  <section class="hero-section py-5 text-center product-page__hero">
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="text-center">
-                <h1 class="product-page__hero-title">Manuscript Assessment</h1>
-                <p class="product-page__hero-subtitle">Give your writing the best chance of succeeding with professional feedback</p>
-
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
-                    <%= link_to "Get Started", manuscript_assessment_path(anchor: "item-manuscript-assessment-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-                    <%= link_to "Find out cost", manuscript_assessment_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
-              </div>
-              </div>
-          </div>
+      <!-- text -->
+      <div class="product-page__hero-text">
+        <h1 class="product-page__hero-title">Manuscript Assessment</h1>
+        <p class="product-page__hero-subtitle">Give your writing the best chance of succeeding with professional feedback</p>
       </div>
-  </section>
+      
+      <!-- buttons -->
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center product-page__hero-buttons">
+        <%= link_to "Get Started", manuscript_assessment_path(anchor: "item-manuscript-assessment-submission"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+        <%= link_to "Find out cost", manuscript_assessment_path(anchor: "item-price-calculator"), class: "btn btn-outline-primary btn-lg px-4 gap-3" %>
+      </div>
+      
+    </section>
+  </div>
+</div>
 
 <div data-spy="scroll" data-target="#toc" data-offset="0">
 
-    <!-- Three column layout - benefits -->
-    <div class="row product-page__section">
-    
-        <div class="col-sm-4">
+  <!-- benefits -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section-benefits">
+        <div class="row g-4">
 
-            <div class="card product-page__benefits-card">
-                <div class="card-body text-center">
-                    <h2 class="card-title">Affordable Editing</h2>
-                    <p class="card-text">Impactful editing that will not break the bank, whilst providing the feedback you need to lift your book to the next level.</p> 
-                </div>
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Affordable Editing</h2>
+                <p class="card-text">Impactful editing that will not break the bank, whilst providing the feedback you need to lift your book to the next level.</p>
+              </div>
             </div>
-
-        </div>
-
-        <div class="col-sm-4">
-
-            <div class="card product-page__benefits-card">
-                <div class="card-body text-center">
-                    <h2 class="card-title text-center">Effective Feedback</h2>
-                    <p class="card-text">Our feedback is designed to find and solve problems. Our editors will provide solutions, not just find problems.</p> 
-                </div>
-            </div>   
-
-        </div>
-
-        <div class="col-sm-4">
-
-            <div class="card product-page__benefits-card">
-                <div class="card-body text-center">
-                    <h2 class="card-title">Fast Turnaround</h2>
-                    <p class="card-text">Don't pay extra for a fast turnaround. We promise to return all manuscripts within two weeks as standard.</p> 
-                </div>
+          </div>
+          
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-title product-page__benefits-card-title">Effective Feedback</h2>
+                <p class="card-text">Our feedback is designed to find and solve problems. Our editors will provide solutions, not just find problems.</p>
+              </div>
             </div>
+          </div>
+          
+          <div class="col-12 col-md-4">
+            <div class="card product-page__benefits-card h-100">
+              <div class="card-body">
+                <h2 class="card-text product-page__benefits-card-title">Fast Turnaround</h2>
+                <p>Don't pay extra for a fast turnaround. We promise to return all manuscripts within two weeks as standard..</p>
+              </div>
+            </div>
+          </div>
 
         </div>
-
+      </section>
     </div>
+  </div>
 
-    <!-- single column - toc -->
-    <div class="row justify-content-md-center product-page__section">
+  <!-- toc -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
-        <div class="col-sm col-lg-6">
-
-            <div class="toc card bg-light" id="toc">
-                <p class="card-header"><strong>Table of Contents</strong></p>
-                <div class="card-body">
-                    <ul>
+          <div class="toc card bg-light" id="toc">
+            <p class="card-header"><strong>Table of Contents</strong></p>
+              <div class="card-body">
+                <ul>
                     <li><a href="#item-what-is-manuscript-assessment">What is Manuscript Assessment?</a></li>
                     <li><a href="#item-manuscript-assessment-cost">Manuscript Assessment Cost</a></li>
                     <li><a href="#item-manuscript-assessment-submission">Manuscript Assessment Submission</a></li>
                     <li><a href="#item-what-you-get-with-manuscript-assessment">What you get with a Manuscript Assessment</a></li>
                     <li><a href="#item-manuscript-assessment-process">Manuscript Assessment Process</a></li>
                     <li><a href="#item-when-should-you-get-a-manuscript-assessment">When should you get a manuscript assessment?</a></li>
-                    </ul>
-                </div>
-            </div>
-                
-        </div>
+                </ul>
+              </div>
+          </div>
 
+      </section>
     </div>
+  </div>
 
-    <!-- single column - What is Manuscript Assessment? -->
-    <div class="row justify-content-md-center product-page__section">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
-        <div class="col-sm col-lg-6">
-
-            <h2 id="item-what-is-manuscript-assessment">What is Manuscript Assessment?</h2>
+            <h2 id="item-what-is-manuscript-assessment" class="product_pages__content-title">What is Manuscript Assessment?</h2>
             <p>Each year thousands of writers seek professional manuscript assessment services to help lift their current manuscript to the next level. Manuscript assessments are an important part of many writers’ journey to publication.</p>
             <p>This type of editing service is also known as a critique, appraisal, or a structural report. They are all the same thing.</p>
             <p>Our service is designed to give a holistic assessment of your book, looking closely at what is working, but more importantly, what is not and what needs to be changed.</p>
             <p>Its goal is to help you, as a writer, produce the best book possible.</p>
             <p>In other words, a manuscript assessment is a service that assesses a piece of creative work, either in part or in full (depending on your budget and needs), and provides professional feedback.</p>
 
-        </div>
-
+      </section>   
     </div>
+  </div>
 
-    <!-- single column - price calculator -->
-    <div class="row justify-content-md-center product-page__section">
+  <!-- price calculator -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <section class="product-page__section">
 
-        <div class="col-sm col-lg-6">
-
-            <%= render partial: 'cost_calculator' %>
-            
-        </div>
-
+        <%= render partial: 'cost_calculator' %>
+      
+      </section>
     </div>
+  </div>
 
-    <!-- single column - manuscript assessment submission -->
-    <div class="row justify-content-md-center product-page__section">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-6">
+            <section class="product-page__section">
 
-        <div class="col-sm col-lg-6">
-
-        <p id="item-manuscript-assessment-submission">Complete the form to get started...</p> 
+            <p id="item-manuscript-assessment-submission">Complete the form to get started...</p> 
 
             <%= form_for @message, url: {controller: "messages", action: "create"} do |form| %> 
 
@@ -145,44 +145,49 @@
 
             <% end %>
 
+            </section>
         </div>
-
     </div>
 
-    <!-- Two column layout - testimonial -->
-    <div class="row justify-content-sm-center product-page__section">
+  <!-- testimonial -->
+  <div class="row justify-content-center"> 
+    <div class="col-10">
+      <section class="product-page__section">
+
+        <div class="row justify-content-center">
     
-        <div class="col-sm-4 mt-2">
+          <div class="col-sm-4 mt-2">
             <%= image_tag("death_count", alt: "SL Beaumont - Death Count", class: "post-media img-fluid rounded mx-auto d-block", size: "180x280")%>         
-        </div>
+            </div>
 
-        <div class="col-sm-6 mt-2">
+          <div class="col-sm-6 mt-2">
 
-        <div class="card mb-3 mb-sm-0">
-            <div class="card-body">
+            <div class="card mb-3 mb-sm-0">
+              <div class="card-body">
                 <p>"This was far the best and easiest editing process that I have been through. Gary’s editing took my book to the next level.</p>
                 <p>I am delighted with the outcome and I will definitely use Bubblecow to edit my next novel. Highly recommended."</p>
                 <p>SL Beaumont, award winner author of the <a href="https://www.slbeaumont.com/"><em>The Kat Munro Thrillers</em></a> series.</p>
-        
-                <div class="d-grid gap-2">
-                    <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
-                        Read <%= @testimonial_count %> more testimonials
-                    <% end %>
-                </div>
-
+                     
+                  <div class="d-grid gap-2">
+                      <%= link_to testimonials_path, class: "btn btn-outline-primary" do %>
+                          Read <%= @testimonial_count %> more testimonials
+                      <% end %>
+                  </div>
+              </div>
             </div>
-        </div>
+          </div>
 
         </div>
 
+      </section>
     </div>
+  </div>
 
-    <!-- single column -->
-    <div class="row justify-content-md-center product-page__section">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+        <section class="product-page__section">
 
-        <div class="col-sm col-lg-6">
-
-            <h2 id="item-what-you-get-with-manuscript-assessment">What you get with a Manuscript Assessment</h2>
+            <h2 id="item-what-you-get-with-manuscript-assessment" class="product_pages__content-title">What you get with a Manuscript Assessment</h2>
             <p>Once you have submitted your book, it will be assigned to one of our professional editors.</p>
             <p>The editor will carefully read your entire work. They will determine what is and isn't working in your book and write a comprehensive report.</p>
             <p>Editors will critically assess your book using a set of relevant questions. These will vary from book-to-book, but the list below will provide a good understanding of the editor’s mindset.</p> 
@@ -223,16 +228,7 @@
             <p>The report will focus on the problems the professional editor finds, but will also provide solutions you can immediately apply to your writing.</p>
             <p>The report is a roadmap to lift your book to the next level.</p>
 
-        </div>
-
-    </div>
-
-    <!-- single column -->
-    <div class="row justify-content-md-center product-page__section">
-
-        <div class="col-sm col-lg-6">
-
-            <h2 id="item-manuscript-assessment-process">Manuscript Assessment Process</h2>
+            <h2 id="item-manuscript-assessment-process" class="product_pages__content-title">Manuscript Assessment Process</h2>
             <p>The process for your manuscript assessment is as follows:</p>
             <ol>
                 <li>Add your name and email to the form at the top of this page. At the same time, tell us a little about you and your book. No need to submit a manuscript or make any payment at this stage.</li>
@@ -244,32 +240,23 @@
                 <li>You assess the feedback and return with any questions you may have.</li>
             </ol>
 
-        </div>
-
-    </div>
-
-    <!-- single column -->
-    <div class="row justify-content-md-center product-page__section">
-
-        <div class="col-sm col-lg-6">
-
-            <h2 id="item-when-should-you-get-a-manuscript-assessment">When should you get a manuscript assessment?</h2>
+            <h2 id="item-when-should-you-get-a-manuscript-assessment" class="product_pages__content-title">When should you get a manuscript assessment?</h2>
             <p>Deciding when the time is right for a manuscript assessment is a personal choice, depending on you and your book.</p>
             <p>However, there are several common scenarios in which a professional manuscript evaluation is the correct choice.</p>
             
-            <h3>You are stuck and don't know what to do next?</h3>
+            <h3 class="product_pages__content-subtitle">You are stuck and don't know what to do next?</h3>
             <p>Let's face it, creative writing is hard.</p>
             <p>Imagine working on the first draft of a novel, but you have come to a grinding halt; perhaps the book has lost momentum, or the structure isn't working the way you had hoped, or you have just run out of ideas.</p>
             <p>At this point, you don't want to invest in a full developmental edit and just need some guidance to kickstart the writing process; this is when a manuscript assessment is a perfect choice.</p>
             <p>An assessment will give you a clear outline of what is working and what you need to do to get the book to the next stage, without breaking the bank.</p>
             
-            <h3>You are worried your book is just not good enough</h3>
+            <h3 class="product_pages__content-subtitle">You are worried your book is just not good enough</h3>
             <p>After investing hours developing your book, be that fiction or non-fiction, you are now at a stage where you are just not sure that your work is good enough.</p>
             <p>You have been focusing on writing for so long that you can't see the wood for the trees.</p>
             <p>This is when an assessment is a great option.</p>
             <p>A professional assessment of your work will give you a clear indication of what you are doing right and what's not working the way you had hoped. The evaluation will provide you with a clear roadmap to what you need to do to lift the book to a publishable standard.</p>
             
-            <h3>It's just the wrong time for developmental editing</h3>
+            <h3 class="product_pages__content-subtitle">It's just the wrong time for developmental editing</h3>
             <p>A professional developmental edit is an essential part of the publication process, but only when the time is right.</p>
             <p>A developmental edit is an intense and comprehensive assessment of every element of your book. It’s what you need when you have taken your writing as far as you possibly can without outside help.</p>
             <p>If you are confident that your book is close to being publication-ready, it is probably time to invest in developmental editing.</p>
@@ -278,22 +265,25 @@
             <p>What if you know there are issues with your story, but you still need some guidance on the best way forward?</p>
             <p>In these situations, a full developmental edit is just not the right choice. Instead, a manuscript assessment will give you the feedback you need.</p>
             
-            <h3>You are thinking about approaching an agent</h3>
+            <h3 class="product_pages__content-subtitle">You are thinking about approaching an agent</h3>
             <p>If you are considering the traditional publishing route, then, at some point, you will need to consider a literary agent before you can approach a publishing house.</p>
             <p>However, you know you only get one chance with a literary agent, and you want to make sure there are no glaring issues with your book.</p>
             <p>The last thing you want is for your book to be rejected because you missed a simple solution to fix the problem.</p>
             <p>This is when a manuscript appraisal is a good option. It will give you an assessment of your book, without having to invest in a full developmental edit.</p>
             
-            <h3>Your budget is tight</h3>
+            <h3 class="product_pages__content-subtitle">Your budget is tight</h3>
             <p>Let's not kid ourselves; publishing a book requires a budget. Sometimes, you just don't have the money to stretch to all the bells and whistles.</p>
             <p>While an assessment is not a replacement for a more comprehensive developmental edit, it will provide you with essential feedback at a price that will fit your budget.</p>
             <p>So, when the money's tight, but you still need professional feedback, an assessment might just be the answer.</p>
 
-        </div>
+        </section>
+    </div>
+</div>
 
-    </div>    
+
 
 </div>
+
 
 
 

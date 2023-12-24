@@ -1,43 +1,32 @@
-<div class="posts-page">
+<!-- Header -->
+<div class="header posts-index__header">
+    <h1 class="posts-index__header-title">Become a better writer</h1>
+    <p class="posts-index__header-subtitle">First-rate content to help you learn and grow as a writer</p>
+</div>
 
-    <!-- Header Section -->
-    <div class="row justify-content-center">
+<!-- Body -->
+<section class="row">
 
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-
-          <div class="posts-page__header">
-              <h1 class="posts-page__header-title">Become a better writer</h1>
-              <p class="posts-page__header-subtitle">First-rate content to help you learn and grow as a writer</p>
-          </div>
-
-          <!-- Body Section -->
-          <section class="posts-page__body">
-
-              <div class="row">
-
-                  <!-- Left column for Posts -->
-                  <div class="col-lg-8">
-                      <% @posts.each do |post| %>
-                          <!-- Individual Blog Post -->
-                          <%= render "shared/blog_post_layout", post: post %>
-                      <% end %>
-                  </div>
-
-                  <!-- Right column for Sidebar -->
-                  <div class="col-lg-4">
-                      <!-- Blog Sidebar Content -->
-                      <%= render "shared/blog_sidebar" %>
-                  </div>
-
-              </div>
-
-          </section>
-
-        </div>
-
+    <!-- Left column for Posts -->
+    <div class="col-lg-8">
+        <% @posts.each do |post| %>
+            <!-- Individual Blog Post -->
+            <%= render "shared/post_card", post: post %>
+        <% end %>
     </div>
 
-</div>
+    <!-- Right column for Sidebar -->
+    <div class="col-lg-4">
+        <!-- Blog Sidebar Content -->
+        <%= render "shared/posts_sidebar" %>
+    </div>
+
+</section>
+
+
+  
+
+
 
 
 

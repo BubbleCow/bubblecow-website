@@ -1,35 +1,28 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-    <div class="customer_pages">
+<!-- Header -->
+<div class="header post-category-show__header">
+    <h1 class="post-category-show__header-title"><%= @post_category.name.titleize %></h1>
+</div>
 
-    <div class="header pt-5">
-        <h1 class="customer_pages__header__title"><%= @post_category.name.titleize %></h1>
+<!-- Body -->
+<section class="row">
+
+    <!-- Left column for Posts -->
+    <div class="col-lg-8">
+        <% @post_category.posts.published.each do |post| %>
+            <!-- Individual Blog Post -->
+            <%= render "shared/post_card", post: post %>
+        <% end %>
     </div>
 
-
-<section class="page-body">
-  <div class="row">
-
-    <div class="col-lg-8  ">
-      <!-- Left column -->
-      <% @post_category.posts.published.each do |post| %>
-        <!-- blog post layout -->
-        <%= render "shared/blog_post_layout", post: post %>
-      <% end %>
+    <!-- Right column for Sidebar -->
+    <div class="col-lg-4">
+        <!-- Blog Sidebar Content -->
+        <%= render "shared/posts_sidebar" %>
     </div>
 
-    <!-- Right column -->
-    <div class="col-lg-4 ">
-      <!-- blog sidebar -->
-      <%= render "shared/blog_sidebar" %>
-    </div>
-
-  </div>
 </section>
 
 
-</div>
-</div>
-</div>
+
 
 

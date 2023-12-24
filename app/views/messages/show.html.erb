@@ -1,18 +1,17 @@
-<section class="page-header">
-    <h1></strong> <%= @message.sender_name %></h1>
-</section>
+<div class="card messages-show">
+    <div class="card-body">
 
-<section class="page-body">
+        <section class="header messages-show__header">
+            <h1 class="messages-show__header-index"><%= @message.sender_name %></h1>
+        </section>
 
-    <div class="box">
+        <div class="messages-show__content">
+            <p>Email: <%= @message.sender_email %></p>
+            <%= @message.content %>
 
-        <p><strong>Email: </strong><%= @message.sender_email %></p>
-        <%= @message.content %>
-
-        <%= message_status_actions(@message) %>
+            <%= message_status_actions(@message) %>
+        </div>
 
     </div>
-
-
-</section>
+</div>
 

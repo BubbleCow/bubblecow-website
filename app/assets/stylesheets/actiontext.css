@@ -29,3 +29,8 @@
   padding: 0 !important;
   max-width: 100% !important;
 }
+
+/* Removes buttons from trix */
+.trix-button-group--file-tools, .trix-button-group--block-tools, .trix-button--icon-strike, .trix-button--icon-link {
+  display: none !important;
+}

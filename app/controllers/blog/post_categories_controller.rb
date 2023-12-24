@@ -6,6 +6,7 @@ module Blog
     # Display all categories, optionally in a hierarchical manner
     def index
       @post_categories = PostCategory.all
+      @parent_categories = PostCategory.where(parent_category_id: nil).order(:name)
       authorize @post_categories
     end
 
@@ -83,7 +84,7 @@ module Blog
 
       def set_layout
         case action_name
-        when 'index', 'new', 'edit'
+        when 'index', 'new', 'edit', 'show'
           'page_templates/page_medium'
         else
           'application'

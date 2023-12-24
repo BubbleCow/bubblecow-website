@@ -1,17 +1,8 @@
-<div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-    
-        <div class="message_page">
-
-            <div class="message-page__header">
-                <h1 class="message-page__header-title">Get in Touch</h1>
-            </div>
-
-            <section class="message_page__content">
-                <%= render 'form', message: @message %>
-            </section>
-
-        </div>
-
-    </div>
+<!-- title -->
+<div class="header messages-new__header">
+    <h1 class="messages-new__header-title">Get in Touch</h1>
 </div>
+
+<section class="messages_new__content">
+    <%= render 'form', message: @message %>
+</section>
