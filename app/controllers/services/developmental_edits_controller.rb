@@ -2,6 +2,7 @@ module Services
 
   class DevelopmentalEditsController < Services::ApplicationController
     before_action :set_developmental_edit, only: [:show, :edit, :update, :destroy]
+    layout :set_layout
 
     def index
       @developmental_edits = DevelopmentalEdit.all
@@ -73,6 +74,19 @@ module Services
 
       def developmental_edit_params
         params.require(:developmental_edit).permit(:title, :user_id, :slug, :word_count, :language, :description, :genre_id, :full_manuscript, :edited_manuscript, :editors_report, :note, :aasm_state, :invoice_due_date, :invoice_paid_date, :developmental_edit_due_date, :editor_id, :edit_return_date)
+      end
+
+      def set_layout
+        case action_name
+        when 'new', 'edit'
+            'page_templates/page_small'
+        when 
+            'page_templates/page_medium'
+        when 
+            'page_templates/page_large'
+        else
+          'application'
+        end
       end
 
   end

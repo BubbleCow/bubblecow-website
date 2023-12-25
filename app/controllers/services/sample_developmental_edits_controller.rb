@@ -3,6 +3,7 @@ module Services
   class SampleDevelopmentalEditsController < Services::ApplicationController
     before_action :set_sample_developmental_edit, only: [:show, :edit, :update, :destroy]
     before_action :set_service_price, only: [:new, :edit, :update]
+    layout :set_layout
 
     def index
       @sample_developmental_edits = SampleDevelopmentalEdit.all
@@ -77,6 +78,19 @@ module Services
     
       def set_service_price
         @service_price = ServicePrice.find_by(currency: current_user.currency)
+      end
+
+      def set_layout
+        case action_name
+        when 'new', 'edit'
+            'page_templates/page_small'
+        when 
+            'page_templates/page_medium'
+        when 
+            'page_templates/page_large'
+        else
+          'application'
+        end
       end
 
     end
