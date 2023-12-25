@@ -1,74 +1,72 @@
-<%= form_for([:services, @sample_developmental_edit]) do |form| %>
-  
-  <!-- Sample developmental edit errors -->
-  <% if sample_developmental_edit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sample_developmental_edit.errors.count, "error") %> prohibited this sample_developmental_edit from being saved:</h2>
+<%= form_for([:services, @sample_developmental_edit], html: { class: 'form__base' }) do |form| %>
+  <div class="form__container">
+    <!-- Sample developmental edit errors -->
+    <% if @sample_developmental_edit.errors.any? %>
+      <div id="error_explanation" class="form__row">
+        <h2><%= pluralize(@sample_developmental_edit.errors.count, "error") %> prohibited this sample_developmental_edit from being saved:</h2>
 
-      <ul>
-      <% sample_developmental_edit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <!-- Sample developmental title -->
-  <div class="input">
-    <h2>Book Title:</h2>
-    <p class="form-text">Include the title of your book.</p>
-    <%= form.text_field :title, required: true, autofocus: true, class: 'form-control', placeholder: "Add your book's title." %>
-  </div>
-
-  <!-- Sample developmental edit word count -->
-  <div class="input pt-4">
-    <h2>Book Word Count:</h2>
-    <p class="form-text">Include the final word count of your complete manuscript. If you are unsure of the final word count, include your best estimation.</p>
-    <%= form.number_field :word_count, required: true, class: 'form-control', placeholder: "Add your book's total word count." %>
-  </div>
-
-  <!-- Sample developmental edit laungauge -->
-  <div class="input pt-4">
-    <h2>Language:</h2>
-    <p class="form-text">This will be American or British English.</p>
-    <%= form.select(:language, options_for_select([['American English'], ['British English']]), {}, {class: "form-select"}) %>
-  </div>
-
-
-  <!-- Sample developmental genre -->
-  <div class="input pt-4">
-    <h2>Book Genre:</h2>
-    <p class="form-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
-    <%= form.select(:genre_id, options_from_collection_for_select( Genre.all.order('LOWER(genre_type) ASC'), :id, :genre_type) , {}, {class: "form-select"}) %>
-  </div>
-
-
-  <!-- Sample developmental edit full manuscript  -->
-  <div class="input pt-4">
-    <h2>Sample Manuscript:</h2>
-    <p class="form-text">Please attach your manuscript.</p>
-    <p class="form-text">We will edit the first 2000 words of your book, free of charge. You can either attached a manuscript that contains just the words your want editing, or you can attach the full book.</p> 
-    <p class="form-text">Please note that we are unable to edit PDF files.</p>
-    <%= form.file_field :sample_developmental_edit_manuscript, required: true, class: 'form-control' %>
-  </div>
-
-
-  <!-- Sample developmental edit description -->
-  <div class="input small-menu pt-4">
-    <h2>Book Description</h2>
-    <p class="form-text">Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
-    <%= form.rich_text_area :description, type: "text", class: "form-control" %>
-  </div>
-
-  <div class="button pt-4">
-    <% if sample_developmental_edit.new_record? %>
-      <div class="d-grid gap-2 my-4">
-        <%= form.button "Submit your book for sample editing", type: "submit", class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
-      </div>
-    <% else %>
-      <div class="d-grid gap-2 my-4">
-        <%= form.button "Update your book", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."}  %>
+        <ul>
+          <% @sample_developmental_edit.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
+
+    <!-- Sample developmental title -->
+    <div class="form__group">
+      <h2 class="form__label">Book Title:</h2>
+      <p class="form__explainer-text">Include the title of your book.</p>
+      <%= form.text_field :title, required: true, autofocus: true, class: 'form-control form__input', placeholder: "Add your book's title." %>
+    </div>
+
+    <!-- Sample developmental edit word count -->
+    <div class="form__group">
+      <h2 class="form__label">Book Word Count:</h2>
+      <p class="form__explainer-text">Include the final word count of your complete manuscript. If you are unsure of the final word count, include your best estimation.</p>
+      <%= form.number_field :word_count, required: true, class: 'form-control form__input', placeholder: "Add your book's total word count." %>
+    </div>
+
+    <!-- Sample developmental edit language -->
+    <div class="form__group">
+      <h2 class="form__label">Language:</h2>
+      <p class="form__explainer-text">This will be American or British English.</p>
+      <%= form.select(:language, options_for_select([['American English'], ['British English']]), {}, {class: "form-select form__input"}) %>
+    </div>
+
+    <!-- Sample developmental genre -->
+    <div class="form__group">
+      <h2 class="form__label">Book Genre:</h2>
+      <p class="form__explainer-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
+      <%= form.select(:genre_id, options_from_collection_for_select(Genre.all.order('LOWER(genre_type) ASC'), :id, :genre_type), {}, {class: "form-select form__input"}) %>
+    </div>
+
+    <!-- Sample developmental edit full manuscript -->
+    <div class="form__group">
+      <h2 class="form__label">Sample Manuscript:</h2>
+      <p class="form__explainer-text">Please attach your manuscript.</p>
+      <p class="form__explainer-text">We will edit the first 2000 words of your book, free of charge. You can either attached a manuscript that contains just the words your want editing, or you can attach the full book.</p> 
+      <p class="form__explainer-text">Please note that we are unable to edit PDF files.</p>
+      <%= form.file_field :sample_developmental_edit_manuscript, required: true, class: 'form-control form__input' %>
+    </div>
+
+    <!-- Sample developmental edit description -->
+    <div class="form__group small-menu">
+      <h2 class="form__label">Book Description</h2>
+      <p class="form__explainer-text">Tell us about your book. Include any information that you feel will help the editor. Please include any information about elements you are either having issues with or wish us to consider in detail.</p>
+      <%= form.rich_text_area :description, type: "text", class: "form-control form__input" %>
+    </div>
+
+    <div class="form__submit">
+      <% if @sample_developmental_edit.new_record? %>
+        <div class="d-grid gap-2 my-4">
+          <%= form.button "Submit your book for sample editing", type: "submit", class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."}  %>
+        </div>
+      <% else %>
+        <div class="d-grid gap-2 my-4">
+          <%= form.button "Update your book", type: "submit", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."}  %>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% end %>
