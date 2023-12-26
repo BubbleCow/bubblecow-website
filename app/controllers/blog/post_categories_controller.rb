@@ -5,7 +5,7 @@ module Blog
 
     # Display all categories, optionally in a hierarchical manner
     def index
-      @post_categories = PostCategory.all
+      @post_categories = PostCategory.all.order(:name)
       @parent_categories = PostCategory.where(parent_category_id: nil).order(:name)
       authorize @post_categories
     end
