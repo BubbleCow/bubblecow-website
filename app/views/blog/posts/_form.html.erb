@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form__container">
 
     <%= form_for([:blog, @post]) do |form| %>
 
@@ -23,7 +23,7 @@
             <% end %>
 
             <!-- Post title -->
-            <div class="input">
+            <div class="form_input">
               <%= form.text_field :post_title, type: "text", class: "form-control form-control-lg", id: "postTitle", placeholder: "Add the post's title...", :required => true %>
               <p class="form-text">This the title of the post and not the SEO title or permalink. However, if these are left blank, this will be used for each.</p>
             </div>
@@ -109,16 +109,6 @@
                 <% end %>
 
                 <div id="post-section-submission">
-
-                  <% if @post.persisted? %>
-                    <%= link_to blog_post_path(post), method: :delete, data: { confirm: "Are you sure you want to kill this bad boy?"} do %>
-                      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg>
-                    <% end %>
-                    
-                  <% end %>
                       
                   <div class="d-grid gap-2">    
                     <%= form.button "Save Post", type: "submit", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."} %>
@@ -261,3 +251,7 @@
     <% end %>
 
 </div>
+
+                  <% if @post.persisted? %>
+                    <%= button_to 'Delete', blog_post_path(post), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to kill this bad boy?" }}, class: 'btn btn-sm btn-danger' %>                    
+                  <% end %>
