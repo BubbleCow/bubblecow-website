@@ -1,4 +1,4 @@
-<section class="page-header">
+<section class="header">
   <h1>Post Categories</h1>
 </section>
 
@@ -14,9 +14,21 @@
       </thead>
       <tbody>
         <% @parent_categories.each do |parent_category| %>
-          <%= render 'category_row', category: parent_category, level: 0 %>
+          <tr>
+            <td><%= parent_category.name %></td>
+            <td>No Parent</td>
+            <td><%= link_to 'Show', [ :blog, parent_category ] %></td>
+            <td><%= link_to 'Edit', edit_blog_post_category_path(parent_category) %></td>
+            <td><%= link_to 'Delete', [ :blog, parent_category ], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
           <% parent_category.child_categories.order(:name).each do |child_category| %>
-            <%= render 'category_row', category: child_category, level: 1 %>
+            <tr>
+              <td style="padding-left: 20px;"><%= child_category.name %></td>
+              <td><%= parent_category.name %></td>
+              <td><%= link_to 'Show', [ :blog, child_category ] %></td>
+              <td><%= link_to 'Edit', edit_blog_post_category_path(child_category) %></td>
+              <td><%= link_to 'Delete', [ :blog, child_category ], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
           <% end %>
         <% end %>
       </tbody>
@@ -26,5 +38,4 @@
   <br>
 
   <%= link_to 'New Category', new_blog_post_category_path, class: "btn btn-primary" %>
-
 </section>
