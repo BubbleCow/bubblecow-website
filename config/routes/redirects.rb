@@ -990,4 +990,8 @@ Rails.application.routes.draw do
   get "/services/file-safety", to: redirect('/file-saftey')
   get "/services", to: redirect('/')
 
+  # Redirect to developmental-editing
+  get "/developmental_editing", to: redirect('/developmental-editing') 
+  get "/book-editing", to: redirect('/developmental-editing')
+
 end

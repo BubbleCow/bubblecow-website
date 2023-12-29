@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   # product pages
   scope controller: :product_pages do
-    get 'developmental_editing'
+    get 'developmental-editing'
     get 'content-editing', action: :developmental_editing
     get 'substantive-editing', action: :developmental_editing
     get 'novel-editing', action: :developmental_editing
