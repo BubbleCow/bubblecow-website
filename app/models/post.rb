@@ -27,6 +27,11 @@ class Post < ApplicationRecord
     default_scope { order(created_at: :desc) }
     scope :published, -> {where(published: true)}
 
+    # finds posts in the same post category
+    scope :in_same_post_category_except_current, -> (post_category_id, current_post_id) {
+        where(post_category_id: post_category_id).where.not(id: current_post_id)
+    }
+
     private
 
     # Sets published at date, removes if unpublished

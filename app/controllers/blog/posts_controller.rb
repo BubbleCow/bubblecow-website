@@ -21,6 +21,7 @@ module Blog
       ahoy.track "Viewed Article", title: @post.post_title
       @data_type = "blog_post"
       @blog
+      @related_posts = Post.in_same_post_category_except_current(@post.post_category_id, @post.id)
     end
 
     def new
