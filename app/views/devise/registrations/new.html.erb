@@ -19,22 +19,22 @@
 
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="input">
+      <div class="form__input">
         <label for="signInName" class="form-label">Name:</label>
         <%= f.text_field :name, autofocus: true, id: "signInName", class: 'form-control', placeholder: "Add your full name" %>
       </div>
 
-      <div class="input">
+      <div class="form__input">
         <label for="signInEmail" class="form-label">Email:</label>
         <%= f.email_field :email, autocomplete: "email", class: 'form-control', id: "signInEmail", type: "email", placeholder: "Add your email" %>
       </div>
 
-      <div class="input">
+      <div class="form__input">
         <label for="signInPassword" class="form-label">Password:</label>
         <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: "signInPassword", type: "password", placeholder: "Add a password" %>
       </div>
 
-      <div class="input">
+      <div class="form__input">
         <label for="signInPasswordConfirm" class="form-label">Confirm Password:</label>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: "signInPasswordConfirm", type: "password",placeholder: "Confirm your password" %>
       </div>
