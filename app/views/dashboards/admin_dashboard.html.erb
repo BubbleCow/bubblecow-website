@@ -1,38 +1,83 @@
-<div class="admin_dashboard">
-    <div class="row justify-content-center">
-        <div class="col-xl-10 col-12">
+
 
             <!-- Header  -->
-            <div class="admin_dashboard__header">
-                <h1 class="admin_dashboard__title">Admin Dashboard</h1>
+            <div class="header">
+                <h1>Admin Dashboard</h1>
             </div>
 
-            <div class="admin_dashboard__stats row">
+            <div class="row">
                 <!-- stats -->
-                <section class="admin_dashboard__stats-section">
-                    <!-- Site visits per month -->
-                    <div class="admin_dashboard__stats-card card">
-                        <div class="card-body">
-                            <p class="card-text">Number of monthly overall site visits</p>
-                            <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
-                        </div>
-                    </div>
-                </section>
+<section>
+    <!-- Bootstrap Tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="one-year-tab" data-bs-toggle="tab" data-bs-target="#one-year" type="button" role="tab" aria-controls="one-year" aria-selected="true">12 Months</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="two-year-tab" data-bs-toggle="tab" data-bs-target="#two-year" type="button" role="tab" aria-controls="two-year" aria-selected="false">24 Months</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="last-week-tab" data-bs-toggle="tab" data-bs-target="#last-week" type="button" role="tab" aria-controls="last-week" aria-selected="false">Last Week</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="last-month-tab" data-bs-toggle="tab" data-bs-target="#last-month" type="button" role="tab" aria-controls="last-month" aria-selected="false">Last Month</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="one-year" role="tabpanel" aria-labelledby="one-year-tab">
+            <!-- Chart for 12 Months -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Number of monthly overall site visits (Last 12 months)</p>
+                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="two-year" role="tabpanel" aria-labelledby="two-year-tab">
+            <!-- Chart for 24 Months -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Number of monthly overall site visits (Last 24 months)</p>
+                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 24, format: "%b %Y").count %>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="last-week" role="tabpanel" aria-labelledby="last-week-tab">
+            <!-- Chart for Last Week -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Number of daily site visits (Last week)</p>
+                    <%= column_chart Ahoy::Visit.group_by_day(:started_at, last: 7, format: "%A").count, xtitle: "Day of the Week", ytitle: "Visits" %>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
+            <!-- Chart for Last Month -->
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Number of daily site visits (Last month)</p>
+                    <%= column_chart Ahoy::Visit.group_by_day(:started_at, last: 30, format: "%-d %b").count, xtitle: "Date", ytitle: "Visits" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
             </div>
 
             <div class="row">
 
                 <!-- Courses -->
                 <section class="col-md-6 mt-3">
-                    <div class="admin_dashboard__card card">
+                    <div class="card">
                         <div class="card-body">
-                            <h2 class="admin_dashboard__card-title">Courses</h2>
+                            <h2 class="dashboard__card-title">Courses</h2>
                             <%= link_to 'New Course', new_course_path, class: 'btn btn-sm btn-outline-primary mb-3' %>
 
                             <% @courses.each do |course| %>
-                                <div class="admin_dashboard__course-item card mt-3">
-                                    <div class="admin_dashboard__course-header">
-                                        <%= link_to course.title, course_path(course), class: "admin_dashboard__course-title" %>
+                                <div class="card mt-3">
+                                    <div class="">
+                                        <%= link_to course.title, course_path(course), class: "" %>
                                         <%= link_to edit_course_path(course) do %>
                                             <i class="bi bi-gear"></i>
                                         <% end %>
@@ -40,9 +85,9 @@
                                             <i class="bi bi-trash"></i>
                                         <% end %>
                                     </div>
-                                    <ul class="admin_dashboard__lesson-list list-group list-group-flush">
+                                    <ul class="list-group list-group-flush">
                                         <% course.lessons.each do |lesson| %>
-                                            <li class="admin_dashboard__lesson-item list-group-item">
+                                            <li class="list-group-item">
                                                 <%= link_to lesson.title, course_lesson_path(course, lesson) %>
                                                 <%= link_to edit_course_lesson_path(course, lesson) do %>
                                                     <i class="bi bi-gear"></i> <!-- Edit icon -->
@@ -52,7 +97,7 @@
                                                 <% end %>
                                             </li>
                                         <% end %>
-                                        <li class="admin_dashboard__lesson-item list-group-item">
+                                        <li class="list-group-item">
                                             <%= link_to 'Add Lesson', new_course_lesson_path(course), class: 'btn btn-sm btn-outline-primary' %>
                                         </li>
                                     </ul>
@@ -66,7 +111,7 @@
                 <section class="col-md-6 mt-3">
                     <div class="admin_dashboard__card card">
                         <div class="card-body">
-                            <h2 class="admin_dashboard__card-title">Messages</h2>
+                            <h2 class="dashboard__card-title">Messages</h2>
                             
 
 
@@ -76,6 +121,3 @@
 
             </div>
 
-        </div>
-    </div>
-</div>

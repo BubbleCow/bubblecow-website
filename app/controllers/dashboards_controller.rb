@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
     before_action :authenticate_user!
-    layout :set_page_template
+    layout :set_layout
 
     def show
         @page_title = 'Dashboard'
@@ -23,20 +23,18 @@ class DashboardsController < ApplicationController
 
     private
 
-    def set_page_template
-        case action_name
-        when 
-          'templates/page_template_tiny'
-        when
-          'templates/page_template_small'
-        when
-          'templates/page_template_medium'
-        when 'show'
-          'templates/page_template_large'
-        else
-          'application' 
-        end
+    def set_layout
+      case action_name
+      when 
+          'page_templates/page_small'
+      when 'show'
+          'page_templates/page_medium'
+      when 
+          'page_templates/page_large'
+      else
+        'application'
       end
+    end
     
     
 end
