@@ -5,8 +5,8 @@ class LessonsController < ApplicationController
   before_action :set_course
   before_action :set_lesson, only: %i[ show edit update destroy ]
   before_action :set_ac_tag, only: %i[ show ]
+  layout :set_layout
   
-
   def index
     @page_title = "Lessons for #{@course.title}"
     @lessons = policy_scope(@course.lessons)
@@ -103,4 +103,18 @@ class LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(:title, :description, :slug, :content, :course_id, :position)
     end
+
+    def set_layout
+      case action_name
+      when 'new', 'edit', 'show'
+          'page_templates/page_small'
+      when 
+          'page_templates/page_medium'
+      when 
+          'page_templates/page_large'
+      else
+        'application'
+      end
+    end
+
 end

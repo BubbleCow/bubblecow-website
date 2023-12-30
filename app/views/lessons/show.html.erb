@@ -1,14 +1,12 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-lg-10 col-xl-6">
-    <div class="lesson_page">
+
 
       <!-- Header  -->
-      <div class="lesson_header">
-        <h1 class="lesson_header__title"><%= @lesson.title %></h1>
+      <div class="header">
+        <h1 class=""><%= @lesson.title %></h1>
       </div>
       
       <!-- Lesson  content -->
-      <div class="lesson_page__content"><%= raw @lesson.content %></div>
+      <div class=""><%= raw @lesson.content %></div>
 
       <!-- Next lesson -->
       <div class="next-lesson d-flex justify-content-center mt-5 lesson_page--next-lesson">
@@ -17,7 +15,3 @@
           <%= link_to "Next Lesson", course_lesson_path(@lesson.course, @lesson.next_lesson), class: 'btn btn-primary ml-2' %>
         <% end %>
       </div>
-
-    </div>
-  </div>
-</div>

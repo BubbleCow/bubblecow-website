@@ -1,0 +1,30 @@
+// Styles the courses controller
+
+
+
+// List on the course show page
+.hoverable-list {
+    &__item {
+      transition: background-color 0.3s ease; // Smooth transition effect
+      cursor: pointer; // Changes the cursor to a hand when hovering
+      border-radius: 5px; // Rounded corners
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Subtle shadow
+      margin-bottom: 0; // As per your styles
+  
+      &:hover {
+        background-color: #f5f5f5; // Gray background on hover
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Slightly more pronounced shadow on hover
+      }
+    }
+  
+    &__link {
+      text-decoration: none; // Removes the underline
+      color: inherit; // Inherits the color from its parent, which should be the default
+      display: block; // As per your styles
+      position: relative; // As per your styles
+  
+      &:hover {
+        color: inherit; // Keeps the color the same even on hover
+      }
+    }
+  }

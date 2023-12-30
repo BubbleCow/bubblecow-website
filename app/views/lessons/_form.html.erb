@@ -1,33 +1,39 @@
-<%= form_with(model: [ @course, @lesson ], local: true) do |form| %>
+<div class="card">
+  <div class="card-body form__base">
 
-  <% if @lesson.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h4><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h4>
-      <ul>
-        <% @lesson.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: [ @course, @lesson ], local: true) do |form| %>
 
-  <div class="form-group input">
-    <%= form.label :title, 'Lesson Title' %>
-    <%= form.text_field :title, class: 'form-control', placeholder: "E.g., Introduction to Rails", autofocus: true %>
+      <% if @lesson.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h4><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h4>
+          <ul>
+            <% @lesson.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form__group">
+        <%= form.label :title, 'Lesson Title', class: 'form__label' %>
+        <%= form.text_field :title, class: 'form-control form__input', placeholder: "E.g., Introduction to Rails", autofocus: true %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :content, 'Lesson Content', class: 'form__label' %>
+        <%= form.text_area :content, class: 'form-control form__input', placeholder: "Provide the lesson content here." %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :position, "Position", class: 'form__label' %>
+        <%= form.number_field :position, min: 1, class: 'form-control form__input' %>
+      </div>
+
+      <div class="form__group form__submit">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
+
+    <% end %>
+
   </div>
-
-  <div class="form-group input">
-    <%= form.label :content, 'Lesson Content' %>
-    <%= form.text_area :content, class: 'form-control', placeholder: "Provide the lesson content here." %>
-  </div>
-
-  <div class="form-group input">
-    <%= form.label :position, "Position" %>
-    <%= form.number_field :position, min: 1, class: 'form-control' %>
-  </div>
-
-  <div class="form-group button">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
-
-<% end %>
+</div>
