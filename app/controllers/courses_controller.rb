@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
+  layout :set_layout
 
   def index
     @courses = Course.all
@@ -68,5 +69,18 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :description, :slug, :description_short, :access_level, :ac_tag)
     end
-    
+  
+    def set_layout
+      case action_name
+      when 'show'
+          'page_templates/page_small'
+      when 'new', 'index', 'edit'
+          'page_templates/page_medium'
+      when 
+          'page_templates/page_large'
+      else
+        'application'
+      end
+    end
+
 end

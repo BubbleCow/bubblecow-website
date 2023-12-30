@@ -1,50 +1,52 @@
-<%= form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h4><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h4>
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: course, local: true, html: { class: 'form__base' }) do |form| %>
+      <% if course.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h4><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h4>
+          <ul>
+          <% course.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group input">
-    <%= form.label :title, 'Course Title' %>
-    <%= form.text_field :title, class: 'form-control', placeholder: "E.g., Introduction to Rails", autofocus: true %>
-  </div>
+      <div class="form__group">
+        <%= form.label :title, 'Course Title', class: 'form__label' %>
+        <%= form.text_field :title, class: 'form-control form__input', placeholder: "E.g., Introduction to Rails", autofocus: true %>
+      </div>
 
-  <div class="form-group input">
-    <%= form.label :description, 'Detailed Description' %>
-    <%= form.text_area :description, class: 'form-control', placeholder: "Provide a detailed description of the course." %>
-  </div>
+      <div class="form__group">
+        <%= form.label :description, 'Detailed Description', class: 'form__label' %>
+        <%= form.text_area :description, class: 'form-control form__input', placeholder: "Provide a detailed description of the course." %>
+      </div>
 
-  <div class="form-group input">
-    <%= form.label :description_short, 'Short Description' %>
-    <%= form.text_area :description_short, class: 'form-control', placeholder: "A brief overview of the course." %>
-  </div>
+      <div class="form__group">
+        <%= form.label :description_short, 'Short Description', class: 'form__label' %>
+        <%= form.text_area :description_short, class: 'form-control form__input', placeholder: "A brief overview of the course." %>
+      </div>
 
-  <div class="form-group input">
-    <%= form.label :access_level, "Access Level" %>
-    <%= form.select :access_level, Course.access_levels.keys.map { |key| [key.humanize, key] }, {}, { class: 'form-select' } %>
-  </div>
+      <div class="form__group">
+        <%= form.label :access_level, "Access Level", class: 'form__label' %>
+        <%= form.select :access_level, Course.access_levels.keys.map { |key| [key.humanize, key] }, {}, { class: 'form-select form__input' } %>
+      </div>
 
-  <div class="form-group input">
-    <!-- Show current ac tag -->
-    <% if @course.ac_tag.present? %>
-      <p>Current ac tag: <%= @course.ac_tag %></p>
-    <% else %>
-      <p>No tag assigned</p>
+      <div class="form__group">
+        <% if course.ac_tag.present? %>
+          <p class="form__data-item">Current ac tag: <%= course.ac_tag %></p>
+        <% else %>
+          <p class="form__data-item">No tag assigned</p>
+        <% end %>
+
+        <div class="form__input">
+          <%= form.select(:ac_tag, options_for_select([['none'], ['book proposal']]), {}, {class: "form-select form__input"}) %>
+        </div>
+      </div>
+      
+      <div class="form__group form__submit">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
     <% end %>
-
-    <div class="input">
-      <%= form.select(:ac_tag, options_for_select([['none'], ['book proposal']]), {}, {class: "form-select"}) %>
-    </div>
-  </div>
-  
-  <div class="form-group button">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
-
-<% end %>
+  </div>  
+</div>
