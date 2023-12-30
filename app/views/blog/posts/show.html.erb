@@ -65,7 +65,7 @@
           <h2>Further Reading</h2>
           <ul>
             <% @related_posts.each do |post| %>
-              <li><%= link_to post.title.titleize, blog_post_path(post) %></li>
+              <li><%= link_to post.post_title.titleize, blog_post_path(post) %></li>
             <% end %>
           </ul>
         <% end %>
