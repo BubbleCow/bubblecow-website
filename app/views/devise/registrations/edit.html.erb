@@ -15,11 +15,11 @@
             <hr>
             <p class="form-text text-muted"><small>Complete fields below to change either your name or your email</small>.</p>
             
-            <div class="form-group">
+            <div class="form-group form__input">
               <%= f.text_field :name, autofocus: false, class: 'form-control', placeholder: "Full Name" %>
             </div>
 
-            <div class="input mt-3">
+            <div class="form__input">
               <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
             </div>
 
@@ -28,12 +28,12 @@
             <% end %>
 
             <hr>
-            <p class="form-text text-muted"><small>To change password add your new password to first field, plus confirm this password in the second field. <em>Leave both blank if you don't want to change it</em>.</small></p>
-            <div class="input">
+            <p class="form-text text-muted "><small>To change password add your new password to first field, plus confirm this password in the second field. <em>Leave both blank if you don't want to change it</em>.</small></p>
+            <div class="form__input ">
               <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'New Password'  %>
             </div>
 
-            <div class="input">
+            <div class="form__input ">
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'  %>
             </div>
             
