@@ -26,7 +26,7 @@
                 <h2 class="card-title dashboard__card-title text-center">Free Courses</h2>
                 <ul>
                     <% @courses.each do |course| %>
-                        <li><%= link_to course.title, course_path(course)%></li>
+                        <li><%= link_to course.title.titleize, course_path(course)%></li>
                     <% end %>
                 </ul>
   
@@ -40,7 +40,11 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h2 class="card-title dashboard__card-title text-center">Free eBooks</h2>
-
+                <ul>
+                    <% @ebooks.each do |ebook| %>
+                        <li><%= link_to ebook.title.titleize, ebook_path(ebook)%></li>
+                    <% end %>
+                </ul>
             </div>
         </div>
 

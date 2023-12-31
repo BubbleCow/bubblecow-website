@@ -11,6 +11,12 @@ h1, h2, h3, h4, h5, h6 {
     color: $pay-blue !important;
 }
 
+// Makes button_to an inline element
+.button_to,
+.button_to div {
+  display: inline;
+}
+
 /* Navbar - styling related to the navbar */
 
 .navbar {
