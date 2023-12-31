@@ -18,7 +18,17 @@
 
      <div class="form-group">
         <p>Current role: <%= user.role %></p>
-      <%= form.select(:role, options_for_select([['writer'], ['content_creator'], ['editor'], ['manager'], ['admin']]), { prompt: "Select the type of English..." }, { class: "form-select",  required: true }) %>
+        <%= form.select(:role, 
+            options_for_select([
+                ['Free User', 'free_user'], 
+                ['Paid User', 'paid_user'], 
+                ['Editor', 'editor'], 
+                ['Manager', 'manager'], 
+                ['Admin', 'admin']
+            ]), 
+            { prompt: "Select Role" }, 
+            { class: "form-select", required: true }) %>
+
     </div>
 
 
