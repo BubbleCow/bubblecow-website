@@ -994,4 +994,9 @@ Rails.application.routes.draw do
   get "/developmental_editing", to: redirect('/developmental-editing') 
   get "/book-editing", to: redirect('/developmental-editing')
 
+  # Redirect writing manual
+  ['writing_manual', 'writing_manual_download', 'writing_manual_pdf_download'].each do |path|
+    get "/#{path}", to: redirect('/ebooks')
+  end  
+
 end

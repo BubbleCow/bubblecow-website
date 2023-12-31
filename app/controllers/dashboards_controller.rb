@@ -17,6 +17,8 @@ class DashboardsController < ApplicationController
 
         @courses = Course.all
         @ebooks = Ebook.all
+
+        @user_signup_data = User.group_by_week(:created_at, last: 52).count
         
         # Renders the correct template
         render "#{@user.role}_dashboard", fallbacks: ['escape_dashboard']
