@@ -20,11 +20,6 @@ class DashboardsController < ApplicationController
         # Renders the correct template
         render "#{@user.role}_dashboard", fallbacks: ['escape_dashboard']
 
-        @visits_12_months = Ahoy::Visit.visits_excluding_messages_new(12, :group_by_month)
-        @visits_24_months = Ahoy::Visit.visits_excluding_messages_new(24, :group_by_month)
-        @visits_last_week = Ahoy::Visit.visits_excluding_messages_new(7, :group_by_day)
-        @visits_last_month = Ahoy::Visit.visits_excluding_messages_new(30, :group_by_day)
-
     end
 
     private
