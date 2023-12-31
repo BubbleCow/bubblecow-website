@@ -45,7 +45,6 @@ Rails.application.routes.draw do
   # Static pages
   scope controller: :static_pages do
     get 'about'
-    get 'writing_manual'
     get 'thanks'
     get 'file-safety'
     get 'book-editing-portal'
@@ -80,8 +79,6 @@ Rails.application.routes.draw do
 
   # Mailing List
   resources :mailing_lists
-  get '/writing_manual_download', to: 'mailing_lists#writing_manual_download'
-  get '/writing_manual_pdf_download', to: "mailing_lists#writing_manual_pdf_download"
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
