@@ -17,10 +17,10 @@
                             <button class="nav-link" id="two-year-tab" data-bs-toggle="tab" data-bs-target="#two-year" type="button" role="tab" aria-controls="two-year" aria-selected="false">24 Months</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="last-week-tab" data-bs-toggle="tab" data-bs-target="#last-week" type="button" role="tab" aria-controls="last-week" aria-selected="false">Last Week</button>
+                            <button class="nav-link" id="last-month-tab" data-bs-toggle="tab" data-bs-target="#last-month" type="button" role="tab" aria-controls="last-month" aria-selected="false">Last Month</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="last-month-tab" data-bs-toggle="tab" data-bs-target="#last-month" type="button" role="tab" aria-controls="last-month" aria-selected="false">Last Month</button>
+                            <button class="nav-link" id="last-week-tab" data-bs-toggle="tab" data-bs-target="#last-week" type="button" role="tab" aria-controls="last-week" aria-selected="false">Last Week</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -29,7 +29,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Number of monthly overall site visits (Last 12 months)</p>
-                                    <%= column_chart @visits_12_months %>
+                                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 12, format: "%b %Y").count %>
                                 </div>
                             </div>
                         </div>
@@ -38,16 +38,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Number of monthly overall site visits (Last 24 months)</p>
-                                    <%= column_chart @visits_24_months %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="last-week" role="tabpanel" aria-labelledby="last-week-tab">
-                            <!-- Chart for Last Week -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-text">Number of daily site visits (Last week)</p>
-                                    <%= column_chart @visits_last_week %>
+                                    <%= column_chart Ahoy::Visit.group_by_month(:started_at, last: 24, format: "%b %Y").count %>
                                 </div>
                             </div>
                         </div>
@@ -55,13 +46,23 @@
                             <!-- Chart for Last Month -->
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-text">Number of daily site visits (Last month)</p>
-                                    <%= column_chart @visits_last_month %>
+                                    <p class="card-text">Number of daily site visits (Last Month)</p>
+                                    <%= column_chart Ahoy::Visit.group_by_day(:started_at, last: 30, format: "%-d %b").count, xtitle: "Date", ytitle: "Visits" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="last-week" role="tabpanel" aria-labelledby="last-week-tab">
+                            <!-- Chart for Last Week -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text">Number of daily site visits (Last Week)</p>
+                                    <%= column_chart Ahoy::Visit.group_by_day(:started_at, last: 7, format: "%A").count, xtitle: "Day of the Week", ytitle: "Visits" %>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
 
             </div>
 
