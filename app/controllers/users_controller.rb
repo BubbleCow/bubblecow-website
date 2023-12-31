@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [ :show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  layout :set_layout
 
-    def index 
+    def index
       @page_title = "Users"
       @users = User.all.order(last_sign_in_at: :asc)
-      @writers = User.writer
+      @free_users = User.free_user
+      @paid_users = User.paid_user
       @editors = User.editor
-      @admins = User.admin  
+      @managers = User.manager
+      @admins = User.admin
       authorize @users
     end
+  
 
     def show
       authorize @user
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
       authorize @user
       @user.destroy
       respond_to do |format|
-        format.html { redirect_to admin_area_users_path, notice: 'User was successfully destroyed.' }
+        format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -59,5 +63,17 @@ class UsersController < ApplicationController
       @unprocessed_sample_developmental_edits = SampleDevelopmentalEdit.sample_developmental_edit_submitted
     end
     
+    def set_layout
+      case action_name
+      when 
+          'page_templates/page_small'
+      when 'index', 'show', 'edit'
+          'page_templates/page_medium'
+      when 
+          'page_templates/page_large'
+      else
+        'application'
+      end
+    end
 
 end

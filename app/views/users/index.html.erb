@@ -1,101 +1,43 @@
-<section class="page-header">
+<section class="header">
     <h1>Users</h1>
 </section>
 
 <section class="page-body">
-
 <div class="box">
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="writer-tab" data-bs-toggle="tab" data-bs-target="#writer" type="button" role="tab" aria-controls="writer" aria-selected="true">Writers</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor" type="button" role="tab" aria-controls="editor" aria-selected="false">Editors</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="false">Admin</button>
-    </li>
+        <!-- Add tabs for each user role -->
+        <% [:free_user, :paid_user, :editor, :manager, :admin].each_with_index do |role, index| %>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link <%= 'active' if index.zero? %>" id="<%= role %>-tab" data-bs-toggle="tab" data-bs-target="#<%= role %>" type="button" role="tab" aria-controls="<%= role %>" aria-selected="<%= 'true' if index.zero? %>"><%= role.to_s.humanize %></button>
+            </li>
+        <% end %>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="writer" role="tabpanel" aria-labelledby="writer-tab">
-    
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Created</th>
-                        <th scope="col">Last log in</th>
-                        <th scope="col">No log ins</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @writers.each do |user| %>
+        <!-- Tab panes for each user role -->
+        <% [:free_user, :paid_user, :editor, :manager, :admin].each_with_index do |role, index| %>
+            <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="<%= role %>" role="tabpanel" aria-labelledby="<%= role %>-tab">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
-                            <td><%= user.email %></td>
-                            <td><%= user.created_at.strftime("%B %d, %Y") %></td>
-                            <td><%= last_time_logged_in(user) %></td>
-                            <td><%= user.sign_in_count %></td>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col"></th>
                         </tr>
-                    <% end %>
-                </tbody>
-            </table>
-    
+                    </thead>
+                    <tbody>
+                        <% instance_variable_get("@#{role}s").each do |user| %>
+                            <tr>
+                                <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
+                                <td><%= user.email %></td>
+                                <td><%= button_to 'Delete', user_path(user), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to leave this bound and gagged?" }}, class: 'btn btn-outline-danger' %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        <% end %>
     </div>
-
-    <div class="tab-pane fade" id="editor" role="tabpanel" aria-labelledby="editor-tab">
-    
-        <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @editors.each do |user| %>
-                        <tr>
-                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
-                            <td><%= user.email %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-    
-    </div>
-
-    <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-    
-        <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @admins.each do |user| %>
-                        <tr>
-                            <th scope="row"><%= link_to user.full_name, user_path(user) %></th>
-                            <td><%= user.email %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-    
-    </div>
-
-    </div>
-
-    
 </div>
-
 </section>
-
-
-
-
-
