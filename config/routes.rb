@@ -112,8 +112,11 @@ Rails.application.routes.draw do
     resources :lessons, except: :index
   end
 
-  get 'free_signup', to: 'courses_registrations#free_signup', as: 'free_signup'
-  get 'paid_signup', to: 'courses_registrations#paid_signup', as: 'paid_signup'  
+  # eBooks
+  resources :ebooks
+
+  get 'free_signup', to: 'free_resources_registrations#free_signup', as: 'free_signup'
+  get 'paid_signup', to: 'free_resources_registrations#paid_signup', as: 'paid_signup'  
 
   # Products
   resources :products

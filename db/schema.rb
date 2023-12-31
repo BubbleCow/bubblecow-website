@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_22_101250) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_31_105651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -144,6 +144,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_101250) do
     t.integer "editor_id"
     t.datetime "edit_return_date", precision: nil
     t.index ["slug"], name: "index_developmental_edits_on_slug", unique: true
+  end
+
+  create_table "ebooks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "version"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_ebooks_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

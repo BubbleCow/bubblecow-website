@@ -1,0 +1,44 @@
+<div class="header">
+  <h1>eBooks</h1>
+</div>
+
+<% if current_user.try(:admin?) %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ebooks.each do |ebook| %>
+        <tr>
+          <td><%= ebook.title %></td>
+          <td><%= ebook.description %></td>
+          <td>
+            <%= link_to 'Show', ebook, class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_ebook_path(ebook), class: 'btn btn-secondary btn-sm' %>
+            <%= button_to 'Delete', ebook_path(ebook), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to leave this bound and gagged?" }}, class: 'btn btn-danger' %> 
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <div class="row">
+    <% @ebooks.each do |ebook| %>
+      <div class="col-md-4 mb-4">
+        <% if ebook.cover.attached? %>
+          <%= link_to image_tag(ebook.cover, class: 'img-fluid'), ebook %>
+        <% else %>
+          <%= link_to 'No cover available', ebook, class: 'd-block mb-3' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+<% end %>

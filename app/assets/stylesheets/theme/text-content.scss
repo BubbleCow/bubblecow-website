@@ -1,0 +1,43 @@
+/* Text Content Styling
+
+This is styling for the text of content. This inlcudes:
+
+- Posts
+- Lessons
+
+*/
+
+.text-content {
+    // Styles the text
+
+    h3, h4, h5, h6 {  
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .post-media {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    blockquote {
+        @include blockquote;
+    }
+
+    .toc {
+        @include toc;
+    }
+
+    .faq {
+        h3 {font-size: 1.3rem;}
+    }
+}
