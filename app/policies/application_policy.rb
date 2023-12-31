@@ -37,19 +37,19 @@ class ApplicationPolicy
   private
 
     def is_staff?
-      user.editor? || user.manager? || user.admin?
+      user.admin?
     end
 
     def is_editorial_staff?
-      user.editor? || user.manager? || user.admin?
+      user.admin?
     end
 
     def is_marketing_staff
-      user.editor? || user.manager? || user.admin?
+      user.admin?
     end
 
     def is_managerial_staff?
-      user.manager? || user.admin?
+      user.admin?
     end
 
     def is_owner?

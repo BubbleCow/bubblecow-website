@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: ebook, local: true, html: { class: 'form__base' }) do |form| %>
+      <% if ebook.errors.any? %>
+        <div id="error_explanation" class="form__data-item">
+          <h2><%= pluralize(ebook.errors.count, "error") %> prohibited this ebook from being saved:</h2>
+          <ul>
+            <% ebook.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form__group">
+        <%= form.label :title, class: 'form__label' %>
+        <%= form.text_field :title, class: 'form__input form-control' %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :description, class: 'form__label' %>
+        <%= form.text_area :description, class: 'form__input form-control form__size_maximum' %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :version, class: 'form__label' %>
+        <%= form.text_field :version, class: 'form__input form-control' %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :cover, class: 'form__label' %>
+        <% if ebook.cover.attached? %>
+          <p>Current Cover: <%= ebook.cover.filename %></p>
+        <% end %>
+        <%= form.file_field :cover, class: 'form__input form-control' %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :pdf_file, class: 'form__label' %>
+        <% if ebook.pdf_file.attached? %>
+          <p>Current PDF File: <%= ebook.pdf_file.filename %></p>
+        <% end %>
+        <%= form.file_field :pdf_file, class: 'form__input form-control' %>
+      </div>
+
+      <div class="form__group">
+        <%= form.label :epub_file, class: 'form__label' %>
+        <% if ebook.epub_file.attached? %>
+          <p>Current ePub File: <%= ebook.epub_file.filename %></p>
+        <% end %>
+        <%= form.file_field :epub_file, class: 'form__input form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: 'form__submit btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

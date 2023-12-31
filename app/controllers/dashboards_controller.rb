@@ -16,6 +16,7 @@ class DashboardsController < ApplicationController
         @jobs = @user.developmental_edits.order(created_at: :desc) + @user.sample_developmental_edits.order(created_at: :desc)
 
         @courses = Course.all
+        @ebooks = Ebook.all
         
         # Renders the correct template
         render "#{@user.role}_dashboard", fallbacks: ['escape_dashboard']
