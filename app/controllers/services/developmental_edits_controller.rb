@@ -80,9 +80,9 @@ module Services
         case action_name
         when 'new', 'edit'
             'page_templates/page_small'
-        when 
+        when
             'page_templates/page_medium'
-        when 
+        when 'show', 'index'
             'page_templates/page_large'
         else
           'application'
