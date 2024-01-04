@@ -86,7 +86,7 @@ module Services
             'page_templates/page_small'
         when 
             'page_templates/page_medium'
-        when 
+        when 'show', 'index'
             'page_templates/page_large'
         else
           'application'
