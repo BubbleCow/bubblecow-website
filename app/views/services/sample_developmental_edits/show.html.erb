@@ -1,4 +1,4 @@
-<section class="page-header">
+<section class="header">
   <h1><%= @sample_developmental_edit.title.titleize %></h1>
 </section>
 
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="button">
-                    <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+                    <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm mt-3', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
                 </div>
 
             <% end %>
@@ -81,7 +81,7 @@
         <!-- Status -->
         <% if current_user.try(:admin?) %>
           <%= render "/services/sample_developmental_edits/show/status/admin/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
-        <% elsif current_user.try(:writer?) %>   
+        <% else %>   
           <%= render "/services/sample_developmental_edits/show/status/writer/#{@sample_developmental_edit.aasm.current_state}", sample_developmental_edit: @sample_developmental_edit %>
         <% end %>
 
