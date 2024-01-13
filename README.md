@@ -1,7 +1,6 @@
-# BubbleCow Site
+# BubbleCow Site Information
 
 This is the live version of the site. 
-
 
 # STYLING - BEM (Block, Element, Modifier)
 
