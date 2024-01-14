@@ -1,16 +1,15 @@
 
   <h2 id="price-calculator" class="product_pages__content-title">Price Calculator</h2>
   <p>We use a simple pricing system, which is based on the cost per 1000 words.</p>
-  <p>The cost for editing is <strong><%= @price %>  per 1000 words.</strong></p>
-  <p>The price we quote is fully inclusive and will be the price you will pay to get your book edited. There are no hidden costs.</p>
-  <p>The price includes all editing, consultation, and after-edit care.</p>
-  <p>We have a minimum word count of 15,000 words.</p>
-  <p><em>To calculate the cost of your edit, add your book's word count.</em></p>
+  <p>The base cost is <strong><%= @price %>  per 1000 words.</strong></p>
+  <p>The price we quote is fully inclusive. There are no hidden costs.</p>
+  <p>The price includes all editorial feedback, consultation, and after-edit care.</p>
+  <p><em>To calculate the cost, just add your book's word count.</em></p>
 
 
 <div class="container mt-5">
   <div data-controller="price-calculator" id="item-price-calculator">
-    <h3 class="product_pages__content-subtitle">Discover the cost of editing...</h4>
+    <h3 class="product_pages__content-subtitle">Discover the cost...</h4>
     <div class="card">
       <div class="card-body">
 
@@ -24,7 +23,7 @@
 
           <div class="alert alert-success" role="alert">
             <span class="lead">
-              Cost to edit your book: </br>
+              Total cost for your manuscript: </br>
               <span data-price-calculator-target="currencySymbol"><%= ProductPricing::CURRENCY_SYMBOLS[@product_pricing.currency] %></span><span data-price-calculator-target="result">0</span>
             </span>
           </div>
