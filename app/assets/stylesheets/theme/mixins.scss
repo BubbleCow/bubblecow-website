@@ -20,27 +20,33 @@
     .card-header {
         // styles the title
         font-size: 1.25rem;
-        
     }
 
     .card-body {
         // Styles the body
 
-        ul li {
-     
+        ul {
+            li {
+                // Existing styles for list items
+
+            }
+
+            li a {
+                // style the link
+            }
         }
 
-        ul li a {
-            // style the link
-      
-        }
         p {
             // style the answer text
         }
     }
-
 }
 
+// Note that this is outside the TOC, it can probably be moved into the mixin but I can't get it to work. This is a temp solution. 
+.child-link {
+    // Indent child link's anchor
+    margin-left: 1rem; // Adjust this value as needed
+}
 
 
 // DEL THESE?
@@ -62,4 +68,3 @@
     background-color: white;
     padding: 1rem;
 }
-
