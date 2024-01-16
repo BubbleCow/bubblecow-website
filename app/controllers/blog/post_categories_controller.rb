@@ -14,6 +14,7 @@ module Blog
     def show
       authorize @post_category
       @categories = PostCategory.all
+      @posts = @post_category.posts.published.order(created_at: :asc)
       @page_title = "Articles in the category" + " " + @post_category.name
       @page_description = 'The complete collection of articles in the category' + " " + @post_category.name
     end
