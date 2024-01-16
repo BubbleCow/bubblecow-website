@@ -26,17 +26,24 @@
 
         <ul class="navbar-nav me-auto">
 
-          <!-- Editorial Services -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Editorial Services
-            </a>
+          <!-- Developmental Editing -->
+          <li class="nav-item">
+            <%= link_to "Developmental Editing", developmental_editing_path, class: "nav-link" %>
+          </li>
 
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><%= link_to "Manuscript Assessment", manuscript_assessment_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Developmental Editing", developmental_editing_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Copy Editing", copy_editing_path, class: "dropdown-item" %></li>      
-            </ul>
+          <!-- Copy Editing -->
+          <li class="nav-item">
+            <%= link_to "Copy Editing", copy_editing_path, class: "nav-link" %>
+          </li>
+
+          <!-- Manuscript Assessment -->
+          <li class="nav-item">
+            <%= link_to "Manuscript Assessment", manuscript_assessment_path, class: "nav-link" %>
+          </li>
+
+          <!-- Blog -->
+          <li class="nav-item">
+            <%= link_to "Blog", blog_posts_path, class: "nav-link" %>
           </li>
 
           <li class="nav-item dropdown">
@@ -46,19 +53,8 @@
 
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><%= link_to "Courses", courses_path, class: "dropdown-item" %></li>
-              <li><%= link_to "eBooks", ebooks_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Articles", blog_posts_path, class: "dropdown-item" %></li>      
+              <li><%= link_to "eBooks", ebooks_path, class: "dropdown-item" %></li>   
             </ul>
-          </li>
-
-          <!-- About -->
-          <li class="nav-item">
-            <%= link_to "About", about_path, class: "nav-link" %>
-          </li>
-
-          <!-- Contact -->
-          <li class="nav-item">
-            <%= link_to "Contact", new_message_path, class: "nav-link" %>
           </li>
 
         </ul>		 
