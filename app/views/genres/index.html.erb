@@ -1,24 +1,39 @@
-<h1>Genres</h1>
+<div class="header">
+  <h1>Genres</h1>
+</div>
 
-<table>
-  <thead>
+<table class="table table-hover">
+  <thead class="table-light">
     <tr>
       <th>Genre Type</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @genres.each do |genre| %>
-      <tr>
-        <td><%= genre.genre_type %></td>
-        <td>
-          <%= link_to 'Show', genre_path(genre) %> |
-          <%= link_to 'Edit', edit_genre_path(genre) %> |
-          <%= link_to 'Delete', genre, method: :delete, data: { confirm: 'Are you sure?', turbo_method: :delete } %>
-        </td>
-      </tr>
-    <% end %>
+<% @parent_genres.each do |parent_genre| %>
+  <tr>
+    <td><strong><%= parent_genre.genre_type.titleize %></strong></td>
+    <td>
+      <%= link_to 'Show', genre_path(parent_genre), class: 'btn btn-success' %> |
+      <%= link_to 'Edit', edit_genre_path(parent_genre), class: 'btn btn-warning' %> |
+      <%= button_to 'Delete', genre_path(parent_genre), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to kill this bad boy?" }}, class: 'btn btn-danger' %> 
+    </td>
+  </tr>
+  <% parent_genre.children.order(:genre_type).each do |child_genre| %>
+  <tr>
+    <td>&nbsp;&nbsp;- <%= child_genre.genre_type.titleize %></td>
+    <td>
+      <%= link_to 'Show', genre_path(child_genre), class: 'btn btn-success' %> |
+      <%= link_to 'Edit', edit_genre_path(child_genre), class: 'btn btn-warning' %> |
+      <%= button_to 'Delete', genre_path(child_genre), method: :delete, form: { data: { turbo_confirm: "Are you sure you want to kill this bad boy?" }}, class: 'btn btn-danger' %> 
+    </td>
+  </tr>
+<% end %>
+
+<% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Genre', new_genre_path %>
+
+<%= link_to 'New Genre', new_genre_path, class: 'btn btn-primary mt-3' %>
+

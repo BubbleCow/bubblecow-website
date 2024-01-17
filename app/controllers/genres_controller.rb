@@ -4,6 +4,7 @@ class GenresController < ApplicationController
   
     def index
       @genres = Genre.all
+      @parent_genres = Genre.where(parent_id: nil)
       authorize @genres
     end
   
@@ -53,9 +54,9 @@ class GenresController < ApplicationController
 
     def set_layout
       case action_name
-      when 'new'
+      when 'new', 'edit'
           'page_templates/page_small'
-      when
+      when 'index'
           'page_templates/page_medium'
       when 
           'page_templates/page_large'
@@ -65,7 +66,7 @@ class GenresController < ApplicationController
     end
   
     def genre_params
-      params.require(:genre).permit(:genre_type)
+      params.require(:genre).permit(:genre_type, :parent_id)
     end
   end
   

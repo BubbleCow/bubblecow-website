@@ -7,9 +7,15 @@
           <%= form.label :genre_type, class: "form__label" %>
           <%= form.text_field :genre_type, class: "form-control form__input" %>
         </div>
+
+        <div class="form__group">
+          <%= form.label :parent_id, "Parent Genre", class: "form__label" %>
+          <%= form.collection_select :parent_id, Genre.where(parent_id: nil).where.not(id: genre.id), :id, :genre_type, include_blank: "No Parent", class: "form-control form__input" %>
+        </div>
         
         <%= form.submit "Submit", class: "btn btn-primary form__submit" %>
       <% end %>
     </div>
   </div>
 </div>
+
