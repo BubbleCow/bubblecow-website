@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
     before_action :set_genre, only: [:show, :edit, :update, :destroy]
+    layout :set_layout
   
     def index
       @genres = Genre.all
@@ -48,6 +49,19 @@ class GenresController < ApplicationController
   
     def set_genre
       @genre = Genre.friendly.find(params[:id])
+    end
+
+    def set_layout
+      case action_name
+      when 'new'
+          'page_templates/page_small'
+      when
+          'page_templates/page_medium'
+      when 
+          'page_templates/page_large'
+      else
+        'application'
+      end
     end
   
     def genre_params

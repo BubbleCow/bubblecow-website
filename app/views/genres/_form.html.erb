@@ -1,16 +1,15 @@
-<div class="form">
-<%= form_with(model: genre) do |form| %>
 
-
-  <div>
-    <%= form.label :genre_type, style: "display: block" %>
-    <%= form.text_field :genre_type %>
+<div class="card">
+  <div class="card-body">
+    <div class="form__container">
+      <%= form_with(model: genre) do |form| %>
+        <div class="form__group">
+          <%= form.label :genre_type, class: "form__label" %>
+          <%= form.text_field :genre_type, class: "form-control form__input" %>
+        </div>
+        
+        <%= form.submit "Submit", class: "btn btn-primary form__submit" %>
+      <% end %>
+    </div>
   </div>
-
- 
-  <div class="button">
-    <%= form.submit %>
-  </div>
-<% end %>
-
 </div>
