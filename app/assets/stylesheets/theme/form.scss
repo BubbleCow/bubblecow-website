@@ -21,7 +21,7 @@
   
   .form__label {
     /* Styles for form labels */
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
   
   .form__explainer-text {
@@ -29,6 +29,7 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    color: grey;
   }
 
   .form__input {

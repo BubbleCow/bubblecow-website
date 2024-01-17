@@ -88,21 +88,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations', sessions: 'users/sessions' } 
 
   # Services
-  resources :users do
-    resources :books
-  end 
+  resources :users 
 
-  resources :books, only: [] do
-    resources :orders do
-      member do
-        post 'accept'
-        post 'reject'
-        post 'invoice_sent'
-        post 'invoice_paid'
-        post 'invoice_unpaid'
-      end
-    end      
-  end
+  resources :books
 
   # Courses
   resources :courses do

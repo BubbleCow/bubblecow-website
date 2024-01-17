@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+  layout :set_layout
   
   # Call backs
   before_action :set_user
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :set_writers, only: [:new, :edit]
   before_action :set_genres, only: [:new, :edit]
 
   def index
@@ -21,7 +21,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @user = User.friendly.find(params[:user_id])
+    @user = current_user
     @book = @user.books.build
     @page_title = 'New book'
     authorize @book
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
   private
 
   def set_user
-    @user = User.friendly.find(params[:user_id])
+    @user = current_user
   end
   
   def set_book
@@ -78,11 +78,24 @@ class BooksController < ApplicationController
   end
 
   def set_writers
-    @writers = User.writer.all
+    @writers = User.all
   end
   
   def set_genres
     @genres = Genre.all
+  end
+
+  def set_layout
+    case action_name
+    when 'new'
+        'page_templates/page_small'
+    when
+        'page_templates/page_medium'
+    when 
+        'page_templates/page_large'
+    else
+      'application'
+    end
   end
 
   # Only allow a list of trusted parameters through.
