@@ -21,9 +21,10 @@ class BooksController < ApplicationController
   end
 
   def new
-    @user = current_user
+    @users = User.all.sort_by { |user| user.last_name }
     @book = @user.books.build
     @page_title = 'New book'
+    @genres = Genre.where(parent_id: nil)
     authorize @book
   end
 
@@ -41,10 +42,11 @@ class BooksController < ApplicationController
   
     if @book.save
       flash[:success] = "#{@book.title.titleize} was successfully created."
-      redirect_to [@book.user, @book], notice: "#{@book.title.titleize} was successfully created."
+      redirect_to dashboard_path, notice: "#{@book.title.titleize} was successfully created."
     else
-      @writers = User.writer.all
-      render :new
+      @users = User.all
+      @genres = Genre.where(parent_id: nil)
+      render :new, status: :unprocessable_entity
     end
   end    
     
@@ -87,7 +89,7 @@ class BooksController < ApplicationController
 
   def set_layout
     case action_name
-    when 'new'
+    when 'new', 'create'
         'page_templates/page_small'
     when
         'page_templates/page_medium'
@@ -105,7 +107,7 @@ class BooksController < ApplicationController
       :description, 
       :word_count, 
       :language,
-      :genre, 
+      :genre_id, 
       :user_id,
       book_products_attributes: [:id, :product_id, :initial_unedited_manuscript]
       )

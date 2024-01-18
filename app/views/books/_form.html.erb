@@ -2,17 +2,8 @@
   <div class="card-body">
     <%= form_for [@book], data: { controller: "genre-select" } do |form| %>
 
-      <!-- Error Messages -->
-      <% if @book.errors.any? %>
-        <div id="error_explanation" class="form__data-item">
-          <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
-          <ul>
-            <% @book.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <!-- Error Message -->
+      <%= render 'shared/form_error_message', object: @book %>
 
       <!-- Book Title -->
       <div class="form__group">
@@ -41,7 +32,10 @@
       <div class="form__group">
         <label for="bookLanguage" class="form__label">Book Genre:</label>
         <p class="form__explainer-text">Please select the genre that best fits your book. If unsure, just pick 'fiction' or 'non-fiction'.</p>
-        <%= form.select :genre, options_from_collection_for_select(@genres, "genre_type", "genre_type", @book.genre), { prompt: 'Select the genre of your book...' }, class: 'form-select form__input', required: true %>
+        <%= form.select :genre_id, grouped_options_for_select(@genres.map { |parent|
+          [parent.genre_type.titleize, parent.children.map { |child| [child.genre_type.titleize, child.id] }]
+        }), { prompt: 'Select the genre of your book...' }, class: 'form-select form__input', required: true %>
+
       </div>
 
       <!-- Book Description -->
@@ -51,16 +45,17 @@
         <%= form.rich_text_area :description, type: "text", class: "form__input" %>
       </div>
 
-      <!-- Admin Section -->
-      <div class="form__group">
-        <% if current_user.admin? %>
-          <label for="bookUser" class="form__label">Writer:</label>
-          <p class="form__explainer-text">Only visible to admin, this defaults to the current user for writers.</p>
-          <%= form.collection_select :user_id, @writers, :id, :full_name, {}, { class: 'form-control form__input' } %>
-        <% else %>
-          <%= form.hidden_field :user_id, value: current_user.id %>
-        <% end %>
-      </div>
+    <!-- Admin Section -->
+    <div class="form__group">
+      <% if current_user.admin? %>
+        <label for="bookUser" class="form__label">Author:</label>
+        <p class="form__explainer-text">Only visible to admin, this defaults to the current user for writers.</p>
+        <%= form.collection_select :user_id, @users, :id, :full_name, {}, { class: 'form-control form__input' } %>
+      <% else %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+    </div>
+
 
       <!-- Submit Button -->
       <div class="form__submit">
