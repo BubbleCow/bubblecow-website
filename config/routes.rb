@@ -89,7 +89,6 @@ Rails.application.routes.draw do
 
   # Services
   resources :users 
-
   resources :books
 
   # Courses

@@ -23,32 +23,45 @@ class BooksController < ApplicationController
   def new
     @users = User.all.sort_by { |user| user.last_name }
     @book = @user.books.build
+    @order = @book.orders.build # Build a new order associated with the book
     @page_title = 'New book'
     @genres = Genre.where(parent_id: nil)
+    @products = Product.all
     authorize @book
   end
+  
 
   def create
     @book = Book.new(book_params)
     authorize @book
+  
     if current_user.admin?
       @user = User.find(@book.user_id) # use the user_id from the form for admin
     else
       @user = current_user # use the current user for non-admins
       @book.user_id = @user.id # set the book user_id to current user
     end
-  
+    
     @book.user = @user
+  
+    # Create an associated order with the selected product
+    product_id = params.dig(:book, :order_attributes, :product_id)
+    if product_id.present?
+      order = @book.orders.build(product_id: product_id)
+    end
   
     if @book.save
       flash[:success] = "#{@book.title.titleize} was successfully created."
+  
       redirect_to dashboard_path, notice: "#{@book.title.titleize} was successfully created."
     else
       @users = User.all
       @genres = Genre.where(parent_id: nil)
+      @products = Product.all
       render :new, status: :unprocessable_entity
     end
-  end    
+  end
+     
     
   def edit
     @page_title = "Edit #{@book.title.titleize}"
@@ -109,7 +122,7 @@ class BooksController < ApplicationController
       :language,
       :genre_id, 
       :user_id,
-      book_products_attributes: [:id, :product_id, :initial_unedited_manuscript]
+      orders_attributes: [:id, :product_id]
       )
   end
 end

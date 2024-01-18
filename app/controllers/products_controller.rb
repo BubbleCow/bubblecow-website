@@ -74,7 +74,7 @@ class ProductsController < ApplicationController
 
     def set_layout
       case action_name
-      when  'new', 'edit'
+      when  'new', 'edit', 'show'
           'page_templates/page_small'
       when 'index'
           'page_templates/page_medium'

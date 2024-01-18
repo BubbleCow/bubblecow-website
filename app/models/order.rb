@@ -11,8 +11,8 @@ class Order < ApplicationRecord
     has_one_attached :editors_report_for_paid_developmental_edit
   
     # Validations
-    validates :initial_unedited_manuscript, presence: true, manuscript_content_type: true
-    validates :edited_manuscript_for_paid_developmental_edit, manuscript_content_type: true
+    # validates :initial_unedited_manuscript, presence: true, manuscript_content_type: true
+    # validates :edited_manuscript_for_paid_developmental_edit, manuscript_content_type: true
   
     # Sets the inactive and active state
     def inactive?

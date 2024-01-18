@@ -1,40 +1,25 @@
-<div class="products-page">
+<div class="card mt-3">
+  <div class="card-body">
 
-  <!-- Header Section -->
-  <div class="row justify-content-center">
-
-    <div class="col-12 col-lg-6">
-
-      <div class="products-page__header">
-        <h1 class="posts-page__header-title"><%= @product.name %></h1>
-      </div>
-
-      <!-- Body Section -->
-      <section class="products-page__body">
-
-        <div class="row">
-
-          <div class="col">
-
-            <div class="products-page__body-description"><%= @product.description %></div>
-
-            <p>USD: $<%= @product.price_usd %></p>
-            <p>GBP: £<%= @product.price_gbp %></p>
-            <p>EUR: €<%= @product.price_eur %></p>
-            <p>AUD: A$<%= @product.price_aud %></p>
-            <p>NZD: NZ$<%= @product.price_nzd %></p>
-            <p>CAD: C$<%= @product.price_cad %></p>
-
-            <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %> <!-- Link to edit the product -->
-
-          </div>
-
-        </div>
-
-      </section>
-
+    <div class="header">
+      <h1><%= @product.name %></h2>
+    </div>
+  
+    <div class="product__description">
+      <%= @product.description %>
     </div>
 
-  </div>
+    <div class="product__prices">
+      <p>USD: $<%= @product.price_usd %></p>
+      <p>GBP: £<%= @product.price_gbp %></p>
+      <p>EUR: €<%= @product.price_eur %></p>
+      <p>AUD: A$<%= @product.price_aud %></p>
+      <p>NZD: NZ$<%= @product.price_nzd %></p>
+      <p>CAD: C$<%= @product.price_cad %></p>
+    </div>
 
+    <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %> 
+
+  </div>
 </div>
+
