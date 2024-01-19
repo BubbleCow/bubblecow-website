@@ -19,6 +19,10 @@ class User < ApplicationRecord
   # roles
   enum role: [:free_user, :paid_user, :editor, :manager, :admin]
 
+  def editorial_staff?
+    editor? || manager? || admin?
+  end
+
   after_initialize do
     if self.new_record?
       self.role ||= :free_user

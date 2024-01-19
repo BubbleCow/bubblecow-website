@@ -3,12 +3,11 @@ class BooksController < ApplicationController
   layout :set_layout
   
   # Call backs
-  before_action :set_user
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :set_genres, only: [:new, :edit]
 
   def index
-    @books = @user.books
+    @books = current_user.editorial_staff? ? Book.all : @user.books
     authorize @books
     @page_title = "Books for #{@user.full_name}"
   end
@@ -83,13 +82,9 @@ class BooksController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = current_user
-  end
   
   def set_book
-    @book = @user.books.friendly.find(params[:id])
+    @book = Book.friendly.find(params[:id])
   end
 
   def set_writers
@@ -104,9 +99,9 @@ class BooksController < ApplicationController
     case action_name
     when 'new', 'create'
         'page_templates/page_small'
-    when
+    when 'show'
         'page_templates/page_medium'
-    when 
+    when 'index'
         'page_templates/page_large'
     else
       'application'

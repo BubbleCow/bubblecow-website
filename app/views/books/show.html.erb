@@ -1,54 +1,70 @@
-<section>
-  <!-- Title -->
-  <div class="row">
-    <div class="col">
-      <h1 class="title"><%= @book.title.titleize %></h1>
-    </div> 
-  </div>
 
-  <!-- Metadata -->
-  <div class="row">
-    <div class="col">
-      <div class="metadata">
-        <div class="box">
-          <%= current_user&.admin? ? (link_to @book.user.full_name, user_path(@book.user)) : @book.user.full_name %> | <%= @book.word_count %> | <%= @book.language %> | <%= @book.genre %>
-            <%= link_to edit_user_book_path(@user, @book), data: { bs_toggle: "tooltip", bs_placement: "top", bs_title: "Edit Book" } do %>
-              <i class="bi bi-gear"></i>
-            <% end %>
+    
+    <!-- Title -->
+    <div class="row">
+      <div class="col">
+        <div class="header">
+          <h1><%= @book.title.titleize %></h1>
         </div>
+      </div> 
+    </div>
+
+    <!-- Metadata -->
+    <div class="row mb-3">
+      <div class="col">
+          <div class="card">
+            <div class="card-body">
+            <%= current_user&.admin? ? (link_to @book.user.full_name.titleize, user_path(@book.user)) : @book.user.full_name %> | <%= @book.word_count %> | <%= @book.language %> | <%= @book.genre.genre_type.titleize %>
+              <%= link_to edit_book_path(@book), data: { bs_toggle: "tooltip", bs_placement: "top", bs_title: "Edit Book" } do %>
+                <i class="bi bi-gear"></i>
+              <% end %>
+            </div>
+          </div>
       </div>
     </div>
-  </div>
 
-  <!-- Description -->
-  <div class="row mb-3">
-    <div class="col">
-      <div class="description mb-2">
+    <!-- Description -->
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
 
-        <div class="d-grid gap-2">
-          <button data-action="click->toggle#switch" data-controller="toggle" data-toggle-target="trigger" class="btn btn-light d-flex justify-content-between align-items-center pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#formCollapse" aria-expanded="false" aria-controls="formCollapse">
-            <span><i class="bi bi-body-text"></i> Book Description</span> 
-            <i data-toggle-target="icon" class="bi bi-arrow-down"></i>
-          </button>
-        </div>
-
-        <div class="collapse py-3 box" id="formCollapse">
-          <%= form_for([@book.user, @book]) do |form| %>
-
-            <div class="input">
-              <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+            <div class="d-grid gap-2">
+              <button data-action="click->toggle#switch" data-controller="toggle" data-toggle-target="trigger" class="btn d-flex justify-content-between align-items-center pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#formCollapse" aria-expanded="false" aria-controls="formCollapse">
+                <span><i class="bi bi-body-text"></i> Book Description</span> 
+                <i data-toggle-target="icon" class="bi bi-arrow-down"></i>
+              </button>
             </div>
 
-            <div class="button d-grid gap-2">
-              <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm my-2', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
-            </div>
-          <% end %>
-        </div>
+            <div class="collapse py-3 box" id="formCollapse">
+              <%= form_for(@book) do |form| %>
 
-      </div>    
+                <div class="input">
+                  <%= form.rich_text_area :description, type: "text", class: "form-control", rows: "35" %>
+                </div>
+
+                <div class="button d-grid gap-2">
+                  <%= form.button "Update Description", type: "submit", class: 'btn btn-outline-primary btn-sm my-2', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}  %>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>    
+      </div>
     </div>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <section>
@@ -108,8 +124,7 @@
 
   <% else %>
 
-    <!-- Renders the new order partial -->
-    <%= render partial: 'new_order', locals: { order: @order } %>
+render the new order paertia
 
   <% end %>
 
