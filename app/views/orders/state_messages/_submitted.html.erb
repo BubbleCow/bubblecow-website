@@ -1,0 +1,22 @@
+<!-- Edit Submitted -->
+<% if current_user.editorial_staff? %>
+    <!-- editorial message -->
+    <p>A new manuscript has been submitted.</p>
+    <p>This needs to be assesed and either accepted or rejected.</p>
+
+    <%= form_with(model: order, url: update_state_book_order_path(order.book, order), method: :put) do |form| %>
+      <%= button_tag(type: 'submit', name: 'new_state', value: 'accepted', class: 'btn btn-success') do %>
+        Approve Order
+      <% end %>
+      <%= button_tag(type: 'submit', name: 'new_state', value: 'rejected', class: 'btn btn-danger') do %>
+        Reject Order
+      <% end %>
+    <% end %>
+
+<% else %>
+
+    <!-- user message -->
+    <p>Thanks for submitting your book.</p>
+    <p>We are currently assessing your manuscript and will get back to you shortly.</p>
+
+<% end %>

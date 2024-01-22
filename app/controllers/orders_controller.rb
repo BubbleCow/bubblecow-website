@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_book
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :accept, :reject, :invoice_sent, :invoice_paid, :invoice_unpaid]
+  before_action :set_order, only: [:show, :update, :destroy, :update_state, :send_invoice]
 
   def new
     @order = @book.orders.build
@@ -33,60 +33,33 @@ class OrdersController < ApplicationController
     redirect_to user_book_path(@book.user, @book), notice: 'Product was successfully removed.'
   end
 
-  def accept
-    if @order.may_accept?
-      @order.accept!
-      redirect_to user_book_path(@book.user, @book)
+  def update_state
+    if current_user.admin?
+      case params[:new_state]
+      when 'accepted'
+        @order.accept! if @order.may_accept?
+      when 'rejected'
+        @order.reject! if @order.may_reject?
+      end
+
+      # Redirect or render with a notice depending on the outcome
+      redirect_to book_path(@book), notice: 'Order state updated.'
     else
-      render :edit
+      # Handle unauthorized access
+      redirect_to order_path(@order), alert: 'You are not authorized to perform this action.'
     end
   end
 
-  def reject
-    if @order.may_reject?
-      @order.reject!
-      redirect_to user_book_path(@book.user, @book)
-    else
-      render :edit
-    end
-  end
-
-  def invoice_sent
-    @order.invoice_sent_at = order_params[:invoice_sent_at]
-    if @order.save
-      @order.invoice_sent!
-      redirect_to user_book_path(@book.user, @book)
-    else
-      render :edit
-    end
-  end
-
-  def invoice_paid
-    if @order.may_invoice_paid?
-      @order.invoice_paid!
-      redirect_to user_book_path(@book.user, @book)
-    else
-      render :edit
-    end
-  end
+  def send_invoice
+    order_manager = OrderStateManager.new(@order)
+    order_manager.send_invoice
   
-  def invoice_unpaid
-    if @order.may_invoice_unpaid?
-      @order.invoice_unpaid!
-      redirect_to user_book_path(@book.user, @book)
+    if @order.save
+      redirect_to book_path(@book), notice: 'Invoice sent successfully.'
     else
-      render :edit
+      redirect_to book_path(@book), alert: 'Error sending invoice.'
     end
   end
-
-  def assign_editor
-    if @order.update(order_params) && @order.may_assign_editor?
-      @order.assign_editor!
-      redirect_to user_book_path(@book.user, @book)
-    else
-      render :edit
-    end
-  end  
 
   private
 
@@ -103,12 +76,7 @@ class OrdersController < ApplicationController
       :product_id, 
       :editor_id, 
       :initial_unedited_manuscript,
-      :edited_manuscript_for_paid_developmental_edit, 
-      :editors_report_for_paid_developmental_edit, 
-      :invoice_sent_at, 
-      :invoice_paid_at, 
-      :product_due_date,
-      :product_returned_on
+      :invoice_due_date
     )
   end
 end

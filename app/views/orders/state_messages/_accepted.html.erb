@@ -1,0 +1,26 @@
+<!-- Order accepted -->
+<% if current_user.editorial_staff? %>
+
+    <!-- editorial message -->
+    <p>The edit is accepted but payment has not been made.</p>
+    <p>Do the following:</p>
+    <ul>
+        <li>Send an invoice using <a href="https://stripe.com/gb" target="_blank">Stripe</a>. <%= @book.user.full_name %>, <%= @book.user.email %>, <%= @book.word_count/1000.0 %> words.</li>
+        <li>Set invoice due date.</li>
+    </ul>
+
+    <!-- Set invoice due date -->
+    <%= form_with(model: order, url: send_invoice_book_order_path(order.book, order), method: :put) do |form| %>
+        <%= form.label :invoice_due_date, 'Invoice Due Date', class: 'form-label' %>
+        <%= form.date_field :invoice_due_date, value: order.invoice_due_date || Date.today, class: "form-control" %>
+        <%= hidden_field_tag :new_state, 'invoice_sent' %>
+        <%= submit_tag "Send Invoice", class: 'btn btn-primary' %>
+    <% end %>
+
+<% else %>
+
+    <!-- user message -->
+    <p>Your manuscript has been assessed, and I am glad to say that we can add value and will provide an edit.</p>
+    <p>You will shortly receive an email with payment details to <%= current_user.email %>.</p>
+
+<% end %>

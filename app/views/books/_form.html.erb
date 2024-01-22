@@ -45,20 +45,29 @@
         <%= form.rich_text_area :description, type: "text", class: "form__input" %>
       </div>
 
-<!-- Order Fields -->
-<%= form.fields_for :orders do |order_fields| %>
-  <div class="form__group">
-    <label class="form__label">Product:</label>
-    <div class="form__radio-buttons">
-      <% @products.each do |product| %>
-        <label class="form-check-label">
-          <%= order_fields.radio_button :product_id, product.id, class: 'form-check-input' %>
-          <%= product.name %>
-        </label>
+      <!-- Order Fields -->
+      <%= form.fields_for :orders do |order_fields| %>
+
+        <!-- Product -->
+        <div class="form__group">
+          <label class="form__label">Product:</label>
+          <div class="form__radio-buttons">
+            <% @products.each do |product| %>
+              <label class="form-check-label">
+                <%= order_fields.radio_button :product_id, product.id, class: 'form-check-input' %>
+                <%= product.name %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- File -->
+        <div class="form__group">
+          <!-- Add the file field for initial_unedited_manuscript here -->
+          <%= order_fields.file_field :initial_unedited_manuscript, class: 'form-control form__input' %>
+        </div>
+        
       <% end %>
-    </div>
-  </div>
-<% end %>
 
 
 

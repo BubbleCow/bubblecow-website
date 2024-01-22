@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_17_171619) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_20_140643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -230,6 +230,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_17_171619) do
     t.datetime "invoice_paid_at"
     t.datetime "product_due_date"
     t.date "product_returned_on"
+    t.date "invoice_due_date"
     t.index ["book_id"], name: "index_orders_on_book_id"
     t.index ["editor_id"], name: "index_orders_on_editor_id"
     t.index ["product_id"], name: "index_orders_on_product_id"

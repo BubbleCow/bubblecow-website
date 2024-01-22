@@ -53,92 +53,35 @@
         </div>    
       </div>
     </div>
+<!-- Orders -->
+<div class="row mt-3">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+
+        <% if current_user.editorial_staff? %>
+          <h2>Orders</h2>
+
+          <% @book.orders.select(&:persisted?).each do |order| %>
+            <h3><%= order.product&.name %></h3>
+
+            <% if order.initial_unedited_manuscript.attached? %>
+              <%= link_to 'Download Unedited Manuscript', rails_blob_path(order.initial_unedited_manuscript, disposition: 'attachment'), class: 'btn btn-primary' %>
+            <% end %>
+
+            <%= render_state_message(order) %>
+          <% end %>
+        <% else %>
+          user
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-<section>
-
-  <!-- Orders -->
-  <% if @orders.any? %>
-    
-    <% @orders.each do |order| %>
-
-      <section>
-        <div class="row d-flex">
-            
-            <!-- Status Message -->
-            <div class="col-md-8 col-12 d-flex">
-                <div class="box flex-grow-1">
-                    
-                  <h2><%= order.product.name %></h2> 
-                  <%= render partial: state_partial(order), locals: { order: order } %>
-        
-                </div>
-            </div>
-
-            <!-- Files -->
-            <div class="col-md-4 col-12 d-flex">
-                <div class="box flex-grow-1">
-                    <h2>Files</h2>
-
-                    <ul class="no-disc-list">
-                      <% if order.initial_unedited_manuscript.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= order.initial_unedited_manuscript.filename %>">
-                          <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Unedited Manuscript", rails_blob_path(order.initial_unedited_manuscript, disposition: "attachment") %>
-                        </li>
-                      <% end %>
-
-                      <% if order.edited_manuscript_for_paid_developmental_edit.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= order.edited_manuscript_for_paid_developmental_edit.filename %>">
-                          <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Edited Manuscript", rails_blob_path(order.edited_manuscript_for_paid_developmental_edit, disposition: "attachment") %>
-                        </li>
-                      <% end %>
-
-                      <% if order.editors_report_for_paid_developmental_edit.attached? %>
-                        <li data-bs-toggle="tooltip" title="<%= order.editors_report_for_paid_developmental_edit.filename %>">
-                          <i class="bi bi-file-earmark-text"></i>
-                          <%= link_to "Editor's Report", rails_blob_path(order.editors_report_for_paid_developmental_edit, disposition: "attachment") %>
-                        </li>
-                      <% end %>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-      </section>
-
-    <% end %>
-
-  <% else %>
-
-render the new order paertia
-
-  <% end %>
-
-</section>
-
-
-<h2>Orders</h2>
-
-<% @book.orders.each do |order| %>
-  <% if order.product %>
-    <p>
-      <%= link_to order.product.name, book_order_path(@book, order) %>
-      <%= button_to 'Delete', book_order_path(@book, order), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>
-  <% end %>
-<% end %>
 

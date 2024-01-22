@@ -1,0 +1,13 @@
+<!-- Edit rejected -->
+<% if current_user.editorial_staff? %>
+    
+    <!-- editorial message -->
+    <p>This edit has been rejected.</p>
+
+<% else %>
+
+    <!-- user message -->
+    <p>Unfortunately, we will not be able to provide an edit.</p>
+    <p>You will receive an email will more information.</p>
+
+<% end %>

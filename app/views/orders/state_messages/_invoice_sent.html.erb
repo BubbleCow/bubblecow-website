@@ -1,0 +1,11 @@
+<!-- Invoice sent -->
+<% if current_user.editorial_staff? %>
+
+    <!-- editorial message -->
+    <%= @order.invoice_due_date.nil? %>this has not saved? 
+
+<% else %>
+
+    <!-- user message -->
+
+<% end %>

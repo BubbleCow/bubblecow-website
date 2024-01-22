@@ -89,7 +89,15 @@ Rails.application.routes.draw do
 
   # Services
   resources :users 
-  resources :books
+  
+  resources :books do
+    resources :orders do
+      member do
+        put :update_state
+        put :send_invoice
+      end
+    end
+  end
 
   # Courses
   resources :courses do
