@@ -45,6 +45,37 @@
                   </p>
                 </div>      
 
+                <!-- Breadcrumbs -->
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <%= link_to 'Blog', blog_posts_path, itemprop: 'item' %>
+                      <span itemprop="name" class="visually-hidden">Blog</span>
+                      <meta itemprop="position" content="1" />
+                    </li>
+
+                    <% if @post.post_category.parent_category %>
+                      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <%= link_to @post.post_category.parent_category.name.titleize, blog_post_category_path(@post.post_category.parent_category), itemprop: 'item' %>
+                        <span itemprop="name" class="visually-hidden"><%= @post.post_category.parent_category.name.titleize %></span>
+                        <meta itemprop="position" content="2" />
+                      </li>
+                      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), itemprop: 'item' %>
+                        <span itemprop="name" class="visually-hidden"><%= @post.post_category.name.titleize %></span>
+                        <meta itemprop="position" content="3" />
+                      </li>
+                    <% else %>
+                      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category), itemprop: 'item' %>
+                        <span itemprop="name" class="visually-hidden"><%= @post.post_category.name.titleize %></span>
+                        <meta itemprop="position" content="2" />
+                      </li>
+                    <% end %>
+                  </ol>
+                </nav>
+
+
             </div>
           </div>
         </section>
