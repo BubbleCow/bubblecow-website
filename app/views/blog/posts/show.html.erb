@@ -19,6 +19,7 @@
 
         <!-- Metadata -->
         <section class="post-show__metadata">
+        
           <div class="card">
             <div class="card-body">
 
@@ -41,10 +42,7 @@
                     <% else %>
                       <span>Unpublished</span>.
                     <% end %>
-                    | <%= link_to @post.post_category.name.titleize, blog_post_category_path(@post.post_category) %>
-                  </p>
-                </div>      
-
+                   
                 <!-- Breadcrumbs -->
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -74,8 +72,9 @@
                     <% end %>
                   </ol>
                 </nav>
-
-
+                   
+                  </p>
+                </div>      
             </div>
           </div>
         </section>
