@@ -4,8 +4,39 @@
     <p class="posts-index__header-subtitle">First-rate content to help you learn and grow as a writer</p>
 </div>
 
+<!-- Pillar Guides -->
+<section class="row d-flex">
+
+    <% @essential_guides.each do |post| %>
+        <div class="col-12 col-lg-3 d-flex align-items-stretch">
+            <div class="card mb-1 h-100">
+                    <div class="card-body">
+
+                        <!-- title -->
+                        <div class="post-card__title">
+                            <h2 class="blog-post-title"><%= link_to post.post_title.titleize, blog_post_path(post)%></h2>
+                        </div>
+
+                        <!-- image -->
+                        <figure class="post-card__image">
+                            <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid card-img-top", size: "640x480" ) %>
+                        </figure>
+
+                        <!-- read more -->
+                        <div class="post-card__read-more">
+                            <p class="post-card-continue-reading"><%= link_to "Continue Reading >>>", blog_post_path(post), class: "btn btn-outline-primary btn-sm mt-2" %></p>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+
+    <% end %>
+
+</section>
+
 <!-- Body -->
-<section class="row">
+<section class="row mt-3">
 
     <!-- Left column for Posts -->
     <div class="col-lg-8">
