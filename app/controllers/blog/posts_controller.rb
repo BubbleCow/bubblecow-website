@@ -6,6 +6,7 @@ module Blog
 
     def index
       @posts = Post.published
+      @essential_guides = Post.tagged_with('essential guide').published
       @categories = PostCategory.all
       authorize @posts
       @page_title = 'BubbleCow Blog' 
@@ -86,7 +87,7 @@ module Blog
       end
 
       def post_params
-        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :topic_list, :content, :advert_category)
+        params.require(:post).permit(:title, :slug, :post_category_id, :post_author_id, :seo_description, :post_description, :body, :post_image, :name, :permalink, :keywords, :published, :seo_title, :post_title, :tag_list, :content, :advert_category)
       end      
 
       # Look for html or trix and then converts to string, if needed, and strips tags
@@ -102,9 +103,9 @@ module Blog
         case action_name
         when 
             'page_templates/page_small'
-        when 'index'
+        when 
             'page_templates/page_medium'
-        when 'new', 'edit'
+        when 'new', 'edit', 'index'
             'page_templates/page_large'
         else
           'application'

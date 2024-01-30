@@ -5,7 +5,7 @@ class Post < ApplicationRecord
     belongs_to :post_category
     belongs_to :post_author
 
-    acts_as_taggable_on :topics
+    acts_as_taggable_on :tags
 
     has_rich_text :seo_description
     has_rich_text :body
