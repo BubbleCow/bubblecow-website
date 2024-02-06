@@ -10,6 +10,15 @@ These are site wide mixins and colour changes. These are often replacing Bootsta
 $pay-blue: #00457C !default;
 $pal-blue: #0079C1 !default;
 
+// This color conveys trustworthiness and stability, which are essential for appealing to the older demographic, while still being modern and bold enough to attract the younger demographic.
+$rebrand-primary: #2A4D69 !default;
+
+// Neutral and professional, this color provides a solid foundation for your website, offering a sleek and sophisticated backdrop that complements the primary color well.
+$rebrand-secondary: #37474F !default;
+
+// Support colours - To cater to both demographics more effectively, adjusting the vibrant yellow to a warm gold can add a touch of elegance, warmth, and sophistication. This color can attract the younger demographic with its vibrancy and the older demographic with its refined subtlety.
+$rebrand-warm-gold: #FFD700   !default;
+
 // Neutral colours - The neutral palette is intended to be used sparingly to organize information and create functional environments
 $sand: #959484 !default;
 $pale-sand: #E7E5D3 !default;
@@ -29,8 +38,8 @@ $tangerine: #f8981D !default;
 $plum: #7A003C !default;
 $berry: #f15f7C !default;
 
-$primary: $pal-blue;
-$secondary:  $pale-slate;
+$primary: $rebrand-primary;
+$secondary:  $rebrand-secondary;
 $success: $leaf;
 $info: $aqua;
 $danger: $plum;
