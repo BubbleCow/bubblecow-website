@@ -31,14 +31,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-first-word {
     /* First word in bubblecow */
-    color: $pay-blue;
+    color: $rebrand-primary;
 }
 
 .brand-second-word {
     /* Second word in BubbleCow */
-    color: $pal-blue;
+    color: $rebrand-secondary;
 }
 
+.highlight {
+    color: $rebrand-warm-gold;
+}
 
 /* Page Styles - this styling for elements that are related to pages */
 
