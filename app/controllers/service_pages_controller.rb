@@ -1,4 +1,4 @@
-class ProductPagesController < ApplicationController
+class ServicePagesController < ApplicationController
   before_action :set_testimonial_count, only: [:mentoring, :manuscript_assessment, :developmental_editing] 
   before_action :set_country, only: [:developmental_editing, :copy_editing, :manuscript_assessment, :index]
   layout :set_layout
@@ -50,12 +50,6 @@ class ProductPagesController < ApplicationController
     @page_description = "Answer any questions you might have about book editing, including developmental editing, copy editing, proofreading and editorial assessments." 
   end
 
-  def book_proposal
-    @page_title = "Book Proposal Services"
-    @page_description = "Prepare your book for pitching to agents and publishers." 
-    @message = Message.new
-  end
-  
   private
 
   def set_testimonial_count

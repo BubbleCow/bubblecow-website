@@ -981,18 +981,13 @@ Rails.application.routes.draw do
 
   get "/blog/how-to-get-the-most-from-your-professional-book-editing-service", to: redirect('/blog/how-to-get-the-most-from-a-professional-book-edit')
 
-  # Redirects after removing 'services' for SEo benfit 
-  get "/services/book-editing", to: redirect('/book-editing')
-  get "/services/developmental-editing", to: redirect('/book-editing')
-  get "/services/developmental_editing", to: redirect('/book-editing')
+  # Redirect for service
+  get "/developmental_editing", to: redirect('services/developmental-editing') 
+  get "/book-editing", to: redirect('services/developmental-editing')
+  get "/copy-editing", to: redirect('services/copy-editing')
+  get "/manuscript-assessment", to: redirect('services/manuscript-assessment')
+  get "/mentoring", to: redirect('services/mentoring')
 
-  get "/services/testimonials", to: redirect('/testimonials')
-  get "/services/file-safety", to: redirect('/file-saftey')
-  get "/services", to: redirect('/')
-
-  # Redirect to developmental-editing
-  get "/developmental_editing", to: redirect('/developmental-editing') 
-  get "/book-editing", to: redirect('/developmental-editing')
 
   # Redirect writing manual
   ['writing_manual', 'writing_manual_download', 'writing_manual_pdf_download'].each do |path|

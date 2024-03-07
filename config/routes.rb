@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     root to: "pages#index"
   end
 
-  # product pages
-  scope controller: :product_pages do
+  # service pages
+  scope '/services', controller: :service_pages do
     get 'developmental-editing'
     get 'content-editing', action: :developmental_editing
     get 'substantive-editing', action: :developmental_editing
@@ -38,7 +38,6 @@ Rails.application.routes.draw do
     get 'book-editing', action: :developmental_editing
     get 'mentoring'
     get 'manuscript-assessment'
-    get 'book-proposal'
     get 'copy-editing'
   end
 
