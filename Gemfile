@@ -100,7 +100,7 @@ gem 'omniauth-github', '~> 1.3'
 gem 'omniauth-twitter', '~> 1.4'
 gem "pundit"
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
-gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
+gem 'sitemap_generator'
 gem 'whenever', require: false
 
 gem 'base64', '0.1.1' # This is a workaround for an update. We might be able to remove this next update. It was trying to default to v2.
