@@ -120,6 +120,6 @@ Rails.application.routes.draw do
   # Genres
   resources :genres
 
-  root to: 'product_pages#index'
+  root to: 'service_pages#index'
 
 end
