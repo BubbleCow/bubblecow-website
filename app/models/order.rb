@@ -87,7 +87,7 @@ class Order < ApplicationRecord
   
     def trigger_actions_after_submit
       # UserMailer.product_submission_email(self.user).deliver_later
-      # ActiveCampaignService.new(self).update_tag
+
     end
   
     def trigger_actions_after_acceptance
