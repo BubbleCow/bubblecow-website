@@ -185,9 +185,6 @@ GEM
     groupdate (6.4.0)
       activesupport (>= 6.1)
     hashie (5.0.0)
-    httparty (0.21.0)
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -445,7 +442,6 @@ DEPENDENCIES
   geocoder
   gravatar_image_tag!
   groupdate
-  httparty
   image_processing (~> 1.2)
   importmap-rails
   invisible_captcha
