@@ -14,78 +14,33 @@
 <!-- Products -->
 <section class="home-page__services">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h2 class="home-page__services-header"></h2>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex align-items-stretch">
-
-            <!-- manuscript assessment -->
-            <div class="col mb-2">
+        <div class="row justify-content-center">
+            <!-- Developmental editing -->
+            <div class="col-12 col-md-4 col-lg-6 mb-2">
                 <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
                     <div class="card-header py-3">
-                        <h2 class="my-0 fw-normal">
-                            <%= link_to ("Manuscript" + "<br>" + "Assessment").html_safe, manuscript_assessment_path, class: "home-page__service-card-title" %>
-                        </h2>
-                    </div>
-                    
-                    <div class="card-body">
-                        <h2 class="card-title pricing-card-title"><%= @price_for_manuscript_assessment %><small class="text-body-secondary fw-light">/1000 words</small></h2>
-                        <p class="card-text">Holistic assessment for authors looking to discover what's wrong with their book.</p>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>Comprehensive editing.</li>
-                            <li>Multi-page editor's report.</li>
-                            <li>Fast turnaround.</li>
-                        </ul>
-                        <%= link_to "Find out more...", manuscript_assessment_path, class: "w-100 btn btn-lg btn-primary" %>
-                    </div>
-                </div>
-            </div>
-                        <!-- Developmental editing -->
-            <div class="col mb-2">
-                <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
-                    <div class="card-header py-3">
-                        <h2 class="my-0 fw-normal">
+                        <h2 class="my-0 fw-normal text-center">
                             <%= link_to ("Developmental" + "<br>" + "Editing").html_safe, developmental_editing_path, class: "home-page__service-card-title" %>
                         </h2>
                     </div>
 
                     <div class="card-body">
-                        <h2 class="card-title pricing-card-title"><%= @price_for_developmental_editing %><small class="text-body-secondary fw-light">/1000 words</small></h2>
+                        <h2 class="card-title pricing-card-title text-center"><%= @price_for_developmental_editing %><small class="text-body-secondary fw-light">/1000 words</small></h2>
                         <p class="card-text">Publisher standard feedback for authors preparing their books for publication.</p>
                         <ul class="list-unstyled mt-3 mb-4">
-                        <li>Developmental editing.</li>
-                        <li>Combined line editing.</li>
-                        <li>Comprehensive editor's report.</li>
+                            <li>Developmental editing.</li>
+                            <li>Combined line editing.</li>
+                            <li>Comprehensive editor's report.</li>
                         </ul>
                         <%= link_to "Find out more...", developmental_editing_path, class: "w-100 btn btn-lg btn-primary" %>
                     </div>
                 </div>
             </div>
-
-            <!-- Copy editing -->
-            <div class="col mb-2">
-                <div class="card mb-4 rounded-3 shadow-sm home-page__service-card h-100">
-                    <div class="card-header py-3">
-                        <h2 class="my-0 fw-normal">
-                            <%= link_to ("Copy" + "<br>" + "Editing").html_safe, copy_editing_path, class: "home-page__service-card-title" %>
-                        </h2>
-                    </div>
-
-                    <div class="card-body">
-                        <h2 class="card-title pricing-card-title"><%= @price_for_copy_editing %><small class="text-body-secondary fw-light">/1000 words</small></h2>
-                        <p class="card-text">Insanely detailed professional feedback for authors ready to publish their manuscript.</p>
-                        <ul class="list-unstyled mt-3 mb-4">
-                        <li>Copy editing.</li>
-                        <li>Detailed editor's report.</li>
-                        <li>Fast turnaround.</li>
-                        </ul>
-                        <%= link_to "Find out more...", copy_editing_path, class: "w-100 btn btn-lg btn-primary" %>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
