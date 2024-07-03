@@ -1,18 +1,11 @@
-// Import Actiontext 
 @import "actiontext.css";
-
-// Import Mixins
-@import "theme/mixins";
-
-// Import custom Bootstrap overrides
-@import "theme/overrides";
-
-// Import Bootstrap Core
-@import "bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
 
+
+@import "bubblecow_theme";
+
 // Import other Application-specific Styles
-@import "theme/global";
+
 @import "theme/posts";
 @import "theme/static_pages";
 @import "theme/sidebar";

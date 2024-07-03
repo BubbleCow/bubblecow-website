@@ -4,7 +4,7 @@ class ServicePagesController < ApplicationController
   layout :set_layout
 
   def index
-    @page_title = "Affordable Book Editing Services for serious writers"
+    @page_title = "Book Editing Services for serious writers"
     @page_description = "Professional book editing services for serious writers. We have been providing developmental book editing and book mentors since 2007. 100+ testimonials."
     @testimonial_count = Testimonial.all.count
     @messages = Message.all
