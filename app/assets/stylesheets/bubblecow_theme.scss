@@ -1,0 +1,239 @@
+/* BUBBLECOW THEME
+
+This is the themeing file for BubbleCow. 
+
+We are using a BEM system for naming. 
+
+PLEASE NOTE:
+The Bootstrap styleing is loaded with this file, you don't need an additional Bootstap file. 
+
+TOC
+1. Overrides
+2. Mixins
+3. Boostrap load
+4. Global Resets
+5. 
+
+*/
+
+
+/* 
+==============================================================================================
+1. OVERIDES
+
+This section is overriding the defaults from the Bootstrap theme. It is essential this is loaded BEFORE the boostrap styling. 
+
+*/
+
+// Colours
+$deep-navy: #000080;
+$silver: #C0C0C0;
+$white-smoke: #F5F5F5;
+$slate-gray: #708090;
+$dark-slate-gray: #505060;
+$light-blue: #ADD8E6;
+
+$primary: $deep-navy;
+$secondary: $slate-gray;
+
+// Fonts
+$font-family-base: 'Lora', sans-serif;
+
+// Typography
+$link-color: $deep-navy;
+
+/* 
+==============================================================================================
+2. MIXINS
+
+This section is for global mixins. Most stay above the Bootstrap load. 
+
+*/
+
+// Mixins for the site
+
+/* Blockquote - sytling for the global blockquote */
+@mixin blockquote {
+    padding-left: 1rem;            /* Provides space between the text and the border */
+    border-left: 4px solid #ccc;   /* Gray border on the left */
+    color: #555;                   /* Darker gray text color for contrast */
+    font-style: italic;            /* Typically, blockquotes are italicized */
+    margin-left: 0;                /* Reset left margin */
+    margin-right: 0;               /* Reset right margin */
+}
+
+/* TOC -  Styles the table of contents */
+
+@mixin toc {
+    // styles the toc
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    .card-header {
+        // styles the title
+        font-size: 1.25rem;
+    }
+
+    .card-body {
+        // Styles the body
+
+        ul {
+            li {
+                // Existing styles for list items
+
+            }
+
+            li a {
+                // style the link
+            }
+        }
+
+        p {
+            // style the answer text
+        }
+    }
+}
+
+// Note that this is outside the TOC, it can probably be moved into the mixin but I can't get it to work. This is a temp solution. 
+.child-link {
+    // Indent child link's anchor
+    margin-left: 1rem; // Adjust this value as needed
+}
+
+
+// DEL THESE?
+@mixin header-text {
+    color: $light-blue !important;
+    text-transform: capitalize;
+}
+
+@mixin standard-border {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+@mixin backend-box {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+/* 
+==============================================================================================
+3. BOOTSTRAP LOAD
+
+This loads boostrap, its position is important, don't just move it like some kine of mad person. 
+
+*/
+
+@import "bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+/* 
+==============================================================================================
+4. GLOBAL RESETS
+
+This section looks to reset style at impact across the website, these are not page specific.
+
+*/
+
+
+/* Typography - this is styling for elements related to typography */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+// Makes button_to an inline element
+.button_to,
+.button_to div {
+  display: inline;
+}
+
+/* Branding - styling related to the bubblecow name*/
+.brand-first-word, .brand-second-word {
+    /* First word in bubblecow */
+    color: $slate-gray;
+}
+
+.highlight {
+    color: $silver;
+}
+
+/* 
+==============================================================================================
+x. HEADER
+
+This section looks to reset style the header.
+
+*/
+
+.header {
+    // Styles the header div at the top of pages
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+/* 
+==============================================================================================
+x. NAVBAR
+
+This section looks to reset style the footer.
+
+*/
+
+.navbar {
+    margin-bottom: 0rem;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.1); /* Slightly darker shadow for better visibility */
+    animation: navigation 0.6s;
+    -webkit-animation: navigation 0.6s; /* For WebKit browsers */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+}
+
+
+
+
+
+/* 
+==============================================================================================
+x. Card
+
+This section looks to reset style the cards.
+
+*/
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+}
+  
+.card:hover {
+    transform: translateY(-5px); /* Move the card up on hover */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Enhance shadow on hover */
+}
+
+
+/* 
+==============================================================================================
+x. FOOTER
+
+This section looks to reset style the footer.
+
+*/
+
+footer a {
+    color: $slate-gray; // Use your defined color variable
+    text-decoration: none; // Remove underline
+  
+    &:hover {
+      color: $deep-navy; // Change color on hover
+      text-decoration: underline; // Add underline on hover
+    }
+  
+    &:focus {
+      outline: none; // Remove default outline on focus
+      color: $dark-slate-gray; // Change color on focus
+      text-decoration: underline; // Add underline on focus
+    }
+  }
