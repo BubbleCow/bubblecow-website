@@ -84,7 +84,18 @@ This section is for global mixins. Most stay above the Bootstrap load.
             }
 
             li a {
-                // style the link
+                text-decoration: none; // Remove underline
+  
+                &:hover {
+                  color: $deep-navy; // Change color on hover
+                  text-decoration: underline; // Add underline on hover
+                }
+              
+                &:focus {
+                  outline: none; // Remove default outline on focus
+                  color: $dark-slate-gray; // Change color on focus
+                  text-decoration: underline; // Add underline on focus
+                }
             }
         }
 
@@ -117,6 +128,21 @@ This section is for global mixins. Most stay above the Bootstrap load.
     border-radius: .25rem;
     background-color: white;
     padding: 1rem;
+}
+
+@mixin remove-link-decoration {
+    text-decoration: none; // Remove underline
+  
+    &:hover {
+      color: $deep-navy; // Change color on hover
+      text-decoration: underline; // Add underline on hover
+    }
+  
+    &:focus {
+      outline: none; // Remove default outline on focus
+      color: $dark-slate-gray; // Change color on focus
+      text-decoration: underline; // Add underline on focus
+    }
 }
 
 /* 
@@ -159,6 +185,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .highlight {
     color: $silver;
+}
+
+.remove-link-decoration {
+    @include remove-link-decoration;
 }
 
 /* 
@@ -223,17 +253,88 @@ This section looks to reset style the footer.
 */
 
 footer a {
-    color: $slate-gray; // Use your defined color variable
-    text-decoration: none; // Remove underline
-  
-    &:hover {
-      color: $deep-navy; // Change color on hover
-      text-decoration: underline; // Add underline on hover
-    }
-  
-    &:focus {
-      outline: none; // Remove default outline on focus
-      color: $dark-slate-gray; // Change color on focus
-      text-decoration: underline; // Add underline on focus
-    }
+    @include remove-link-decoration;
+    color: $slate-gray; 
   }
+
+
+/* 
+==============================================================================================
+x. BLOG
+
+This section looks to reset style the blog and posts.
+
+*/
+
+.blog-post-title {
+
+}
+
+.post-show__metadata {
+    // Styles the metadata
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-show__metadate-title {
+    // Styles the title
+    margin-bottom: 2rem;
+}
+
+
+.post-show__advert {
+    // Style the advert
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #000;
+    
+}
+
+.posts-index__essential-guide-title {
+    height: 6em; /* Adjust as needed */
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+/* 
+==============================================================================================
+x. DEVISE
+
+This section looks to reset style the devise forms.
+
+*/
+
+
+.devise-form {
+    margin-top: 3rem;
+    padding: 3rem;
+    @include standard-border();
+
+    .header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .form {
+  
+        .forgotten-password-link {
+            margin-top: 2rem;
+            text-align: center;
+            a {
+                text-decoration: none;
+                font-size: 0.8rem;
+            }
+        }
+
+        .divider {
+            border: 1px solid rgba(0, 0, 0, .125);
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+}

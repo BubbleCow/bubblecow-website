@@ -15,12 +15,12 @@
 
                         <!-- title -->
                         <div class="post-card__title posts-index__essential-guide-title">
-                            <h3 class="blog-post-title"><%= link_to post.post_title.titleize, blog_post_path(post)%></h3>
+                            <h3 class="blog-post-title"><%= link_to post.post_title.titleize, blog_post_path(post), class: "remove-link-decoration" %></h3>
                         </div>
 
                         <!-- image -->
                         <figure class="post-card__image">
-                            <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid card-img-top", size: "640x480" ) %>
+                            <%= image_tag(post.post_image, :alt => post.post_title, class: "img-fluid card-img-top", size: "640x480", loading: "lazy", ) %>
                         </figure>
 
                         <!-- read more -->
