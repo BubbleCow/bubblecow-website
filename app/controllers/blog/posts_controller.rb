@@ -5,7 +5,7 @@ module Blog
     layout :set_layout
 
     def index
-      @posts = Post.published
+      @posts = Post.published.limit(20)
       @essential_guides = Post.tagged_with('essential guide').published
       @categories = PostCategory.all
       authorize @posts

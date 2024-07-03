@@ -6,24 +6,15 @@
     <p>BubbleCow's goal is to provide world-class editorial feedback and customer support, at a price that is affordable to self-published writers.</p>
     <p>BubbleCow is an editing company that was born into the modern world of self-publishing. We have developed a way of editing that not only shows you what’s wrong with your book but gives you all the guidance you need to fix the mistakes.</p>
     <p>For us, the quality of the feedback is everything.</p>
-    <%= link_to "Learn more about our story here...", about_path %>
-  </div>
-
-  <!-- Free courses -->
-  <div class="sidebar__section">
-    <h3 class="sidebar__section-title">Free Courses</h3>
-    <p>We provide a range of free courses to help writers. Just create a free account to get started.</p>
-    <ul>
-        <li><%= link_to "All Courses", courses_path %></li>
-    </ul>
+    <%= link_to "Learn more about our story here...", about_path, class: "remove-link-decoration" %>
   </div>
 
   <!-- Free eBooks -->
   <div class="sidebar__section">
-    <h3 class="sidebar__section-title">Free eBooks</h3>
-    <p>The best way to learn is by doing. FOR FREE you can get tried and tested guidence just by studying these guides. They're here for you.</p>
+    <h3 class="sidebar__section-title">Free eBook</h3>
+    <p>The best way to learn is by doing. FOR FREE you can get tried and tested guidence just by studying this writing guide.</p>
     <ul>
-        <li><%= link_to "The Writing Manual", "https://bubblecow.com/writing_manual" %></li>
+        <li><%= link_to "The Writing Manual", "https://bubblecow.com/writing_manual", class: "remove-link-decoration" %></li>
     </ul>
   </div>
   
@@ -34,11 +25,11 @@
     <ul>
       <% @categories.where(parent_category_id: nil).order(:name).each do |parent_category| %>
         <li>
-          <%= link_to parent_category.name.titleize, blog_post_category_path(parent_category) %>
+          <%= link_to parent_category.name.titleize, blog_post_category_path(parent_category), class: "remove-link-decoration" %>
           <% if parent_category.child_categories.any? %>
             <ul>
               <% parent_category.child_categories.order(:name).each do |child_category| %>
-                <li><%= link_to child_category.name.titleize, blog_post_category_path(child_category) %></li>
+                <li><%= link_to child_category.name.titleize, blog_post_category_path(child_category), class: "remove-link-decoration" %></li>
               <% end %>
             </ul>
           <% end %>
