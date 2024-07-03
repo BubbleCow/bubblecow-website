@@ -33,7 +33,7 @@
                 <p>
                   <%= image_tag("gary-smailes", alt: "Gary Smailes", class: "img-fluid rounded-circle pr-1", size: "30x30") %>
                     <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                      <a itemprop="url" href="<%= blog_post_author_path(@post.post_author) %>">
+                      <a itemprop="url" href="<%= blog_post_author_path(@post.post_author) %>" class="remove-link-decoration">
                         <span itemprop="name"><%= @post.post_author.name %></span>
                       </a>
                     </span>
